@@ -1,8 +1,7 @@
 import mongoose from 'mongoose';
 import { EnvAppConfig } from './../src/common/config';
-import { getMangaInPageLink } from './getManga';
+import { getMangaInPageLink, getDetailComic } from './getManga';
 import Redis from 'ioredis';
-import { createClient } from 'redis';
 import kue from 'kue';
 const redis = new Redis();
 redis.flushdb((error) => {
@@ -26,22 +25,22 @@ mongoose
         console.log('connect mongodb fail : ', error);
     });
 
-for (let i = 1; i <= 996; i++) {
-    let job = queue
-        .create('getLinkComic', i)
-        .attempts(3)
-        .save(function (error) {
-            if (!error) console.log(job.id);
-            else console.log(error);
-        });
-}
-queue.process('getLinkComic', 4, function (job, done) {
-    getMangaInPageLink(job.data)
-        .then((data) => {
-            console.log('page ' + job.data + ' Chapter  : ' + data);
-            done();
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-});
+// for (let i = 1; i <= 996; i++) {
+//     let job = queue
+//         .create('getLinkComic', i)
+//         .attempts(3)
+//         .save(function (error) {
+//             if (!error) console.log(job.id);
+//             else console.log(error);
+//         });
+// }
+// queue.process('getLinkComic', 4, function (job, done) {
+//     getMangaInPageLink(job.data)
+//         .then((data) => {
+//             console.log('page ' + job.data + ' Chapter  : ' + data);
+//             done();
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//         });
+// });
