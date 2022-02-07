@@ -1,5 +1,6 @@
 import mongoose, { Schema, model, connect } from 'mongoose';
-interface Manga {
+import { Chapter } from './chapter.model';
+export interface Manga {
     name: string;
     author: string;
     category: string[];
@@ -10,7 +11,7 @@ interface Manga {
     manga_status: number;
     chapters: string[];
     chapter_update: Date;
-    last_chapter: string;
+    last_chapter: string | Chapter;
     enable: boolean;
 }
 let manga = new Schema(
