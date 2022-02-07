@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { EnvAppConfig } from './../src/common/config';
-import { getMangaInPageLink, getDetailComic } from './getManga';
+import { getMangaInPageLink, getDetailComic, listCommitNotUpdate } from './getManga';
 import Redis from 'ioredis';
 import kue from 'kue';
 const redis = new Redis();
@@ -44,3 +44,24 @@ mongoose
 //             console.log(error);
 //         });
 // });
+// getDetailComic('https://truyenfull.vn/quyen-2edit-mat-the-trong-sinh-nu-vuong-de-thieu-quy-xuong/','6201339761dbc96c7df3d2c8');
+listCommitNotUpdate().then(data=>{
+    data.forEach((item)=>{
+        let job = queue.create("getChapterComic",{url:item.url,id:item._id}).delay(500).save(function(error) {
+            if (!error) console.log(job.id);
+            else console.log(error);
+        });
+        
+    })
+})
+queue.process("getChapterComic",2, function(job,done){
+    getDetailComic(job.data.url,job.data.id).then((data)=>{
+        console.log(job.data.url + " : So Page " + data.lengthPage  + "  Số Chapter : " + data.Chapter );
+        done()
+    }).catch(error=>{
+        console.log(error);
+        console.error("Lỗi URL:" + job.data.url);
+
+        done()
+    })
+})

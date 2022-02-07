@@ -34,4 +34,4 @@ let chapter = new Schema(
     },
     { timestamps: true },
 );
-export const MangaModel = model<Chapter>('chapter', chapter);
+export const ChapterModel = model<Chapter>('chapter', chapter);
