@@ -267,10 +267,10 @@
         <div class="container csstransforms3d" id="truyen">
             <div class="col-xs-12 col-sm-12 col-md-9 col-truyen-main">
                 <div class="col-xs-12 col-info-desc" itemscope="" itemtype="https://schema.org/Book">
-                    <h1 class="story-title" itemprop="name"><a href="tro-lai-2006">Trở Lại 2006</a></h1>
+                    <h1 class="story-title" itemprop="name"><a href="tro-lai-2006"><%=manga.name%></a></h1>
                     <div class="col-xs-12 col-sm-4 col-md-4 info-holder">
                         <div class="books">
-                            <div class="book"> <img src="/uploads/Images/tro-lai-2006.jpg" alt="Trở Lại 2006" onerror=""
+                            <div class="book"> <img src="<%=manga.image%>" alt="Trở Lại 2006" onerror=""
                                     itemprop="image" />
                                 <meta itemprop="thumbnailUrl"
                                     content="uploads/Resize/Images/164x245/tro-lai-2006.jpg" />
@@ -280,19 +280,17 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-8 col-md-8 desc">
-                        <p>Doc truyen tro lai 2006 lttp truyen chu ebook prc download full.</p>
+                        <!-- <p>Doc truyen tro lai 2006 lttp truyen chu ebook prc download full.</p> -->
                         <div class="info">
                             <div itemprop="author" itemscope itemtype="https://schema.org/Person">
                                 <h3><span class="glyphicon glyphicon-user"></span> Tác giả:</h3> <a
-                                    href="tac-gia/moc-tu-tam" title="Mộc Tử Tâm"><span itemprop="name">Mộc Tử
-                                        Tâm</span></a>
+                                    href="tac-gia/moc-tu-tam" title="Mộc Tử Tâm"><span itemprop="name"><%=manga.author%> </span></a>
                             </div>
                             <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
                                 <meta itemprop="name" content="truyenchu" />
                             </div>
                             <div>
-                                <h3><span class="glyphicon glyphicon-tag"></span> Thể loại:</h3> <a itemprop="genre"
-                                    href="the-loai/do-thi" title="Đô Thị">Đô Thị</a> <span class="label label-success"
+                                <h3><span class="glyphicon glyphicon-tag"></span> Thể loại:</h3> <a itemprop="genre"href="the-loai/do-thi" title="Đô Thị"> Đô Thị</a> <span class="label label-success"
                                     style="font-size: 13px;border-radius: 7px;">Convert</span>
                             </div>
                             <div>
@@ -332,19 +330,10 @@
                 <div class="row">
                     <div class="col-xs-12 no-padding">
                         <div class="title-list book-intro">
-                            <h2 id="gioi-thieu-truyen">Thông tin truyện Trở Lại 2006</h2>
+                            <h2 id="gioi-thieu-truyen">Thông tin truyện <%=manga.name%></h2>
                         </div>
                         <div class="desc-text">
-                            <p style="text-align:justify">Trở Lại 2006 giới thiệu t&oacute;m tắt: Hoa c&oacute; mở lại
-                                ng&agrave;y, kh&ocirc;ng người n&agrave;o &iacute;t hơn nữa năm.</p>
-                            <p style="text-align:justify">Chết đi thanh xu&acirc;n, kh&ocirc;ng thể l&agrave;m lại, nhất
-                                định hội lưu lại rất nhiều tiếc nuối, nh&acirc;n sinh bi ai nhất kh&ocirc;ng ai bằng đem
-                                ngươi l&agrave;m rốt cuộc hiểu ra cả đời n&agrave;y l&agrave;m như thế n&agrave;o
-                                qu&aacute; hạn sau khi, ngươi đ&atilde; kh&ocirc;ng c&oacute; cơ hội lựa chọn.</p>
-                            <p style="text-align:justify">Đ&acirc;y l&agrave; T&ocirc;n To&agrave;n cố sự! Hắn c&oacute;
-                                l&agrave;m lại cơ hội, hắn trở lại 2006.</p>
-                            <p style="text-align:justify">Một năm kia, hắn vẫn c&aacute;i phong nh&atilde; h&agrave;o
-                                hoa thịt tươi.</p>
+                            <%=manga.description%>>
                         </div>
                     </div>
                     <div style="clear: both;"></div>
@@ -354,7 +343,7 @@
                 </div>
                 <div class="col-xs-12" id="list-chapter">
                     <div class="title-list">
-                        <h2 id="danh-sach-chuong">Danh sách chương Trở Lại 2006</h2>
+                        <h2 id="danh-sach-chuong">Danh sách chương <%=manga.name%></h2>
                     </div>
                     <div class="row"> <img src="frontend/img/loading-search.gif"> </div> <input id="truyen-id"
                         type="hidden" value="8014" /> <input id="total-page" type="hidden" value="0" /> <input
@@ -366,12 +355,11 @@
                 </div>
                 <div class="col-xs-12 no-padding review-story">
                     <div class="title-list">
-                        <h2>Review truyện Trở Lại 2006</h2>
+                        <h2>Review truyện <%=manga.name%></h2>
                     </div>
                 </div>
                 <div class="col-xs-12 review-story no-padding">
-                    <div class="desc-text" itemprop="description"> Cập nhật Review truyện Trở Lại 2006 của tác giả Mộc
-                        Tử Tâm mới nhất tại Truyenchu.vn </div>
+                    <div class="desc-text" itemprop="description"> Cập nhật Review truyện <%=manga.name%> của tác giả <%=manga.author%> mới nhất tại Truyenchu.vn </div>
                 </div>
                 <div class="col-xs-12 comment-box">
                     <div class="title-list">

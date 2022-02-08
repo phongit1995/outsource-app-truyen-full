@@ -14,6 +14,7 @@ export interface Manga {
     chapter_update: Date;
     last_chapter: string | Chapter;
     enable: boolean;
+    slug: string;
 }
 let manga = new Schema(
     {
