@@ -1,7 +1,7 @@
 import request from 'request-promise';
 import cheerio from 'cheerio';
 import { MangaModel } from './../src/models/manga.model';
-import {ChapterModel} from './../src/models/chapter.model';
+import { ChapterModel } from './../src/models/chapter.model';
 export const getMangaInPageLink = async (page: number): Promise<void> => {
     const options: any = {
         uri: `https://truyenfull.vn/danh-sach/truyen-moi/trang-${page}/`,
@@ -32,6 +32,12 @@ export const getDetailComic = async (url: string, mangaId: string) => {
         },
     };
     const data = await request(options);
+    if (!data) {
+        return {
+            Chapter: -1,
+            lengthPage: -1,
+        };
+    }
     const $ = cheerio.load(data);
     const title = $(
         '#truyen > div.col-xs-12.col-sm-12.col-md-9.col-truyen-main > div.col-xs-12.col-info-desc > h3',
@@ -43,7 +49,7 @@ export const getDetailComic = async (url: string, mangaId: string) => {
     let status = $('.info >div:last-child>span').text();
     const image = $('img[itemprop="image"]').attr('src');
     let category = [];
-    $('a[itemprop="genre"]').map(function () {
+    $('.info a[itemprop="genre"]').map(function () {
         category.push($(this).text());
     });
     status = status == 'Đang ra' ? '0' : (1).toString();
@@ -79,57 +85,86 @@ export const getDetailComic = async (url: string, mangaId: string) => {
         createNewChapter(mangaId, chapter.url, index + 1, chapter.name),
     );
     const ListChapterDB = await Promise.all(ListPromise);
-    const listId = ListChapterDB.map(item=>item._id);
-    await updateMangaInfo(mangaId,title,author,category,image,description,status,listId[listId.length-1].toString());
+    const listId = ListChapterDB.map((item) => item._id);
+    if (listId.length == 0) {
+        await updateMangaInfo(
+            mangaId,
+            title,
+            author,
+            category,
+            image,
+            description,
+            status,
+            null,
+        );
+    } else {
+        await updateMangaInfo(
+            mangaId,
+            title,
+            author,
+            category,
+            image,
+            description,
+            status,
+            listId[listId.length - 1].toString(),
+        );
+    }
     return {
         Chapter: Chapter.length,
         lengthPage: lengthPage,
     };
 };
-const getListChapterInPageLink = async(url:string,page:string)=>{
-    const urlPage = url +"trang-"+page ;
-    const options={
-        url:urlPage,
-        headers:{
-            "User-Agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36"
-        }
-    }
+const getListChapterInPageLink = async (url: string, page: string) => {
+    const urlPage = url + 'trang-' + page;
+    const options = {
+        url: urlPage,
+        headers: {
+            'User-Agent':
+                'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36',
+        },
+    };
     const data = await request(options);
-    const $  = cheerio.load(data);
-    const listChapter = $(".list-chapter>li>a");
+    const $ = cheerio.load(data);
+    const listChapter = $('.list-chapter>li>a');
     const Chapter = [];
-    listChapter.each(function(index,element){
+    listChapter.each(function (index, element) {
         const nameChapter = $(this).text();
-        const urlChapter = $(this).attr("href");
-        Chapter.push({name:nameChapter,url:urlChapter});
-    })
-    
+        const urlChapter = $(this).attr('href');
+        Chapter.push({ name: nameChapter, url: urlChapter });
+    });
+
     return Chapter;
-}
-const createNewChapter=(manga_id:string,url:string,index:number,title:string)=>{
+};
+const createNewChapter = (manga_id: string, url: string, index: number, title: string) => {
     return ChapterModel.create({
-        manga:manga_id,
-        index:index,
-        title:title,
-        url:url
-    })
-}
-const updateMangaInfo=(manga_id:string,name:string,author:string,category:string[],image:string,description:string,manga_status:string,last_chapter:string)=>{
-    return MangaModel.findByIdAndUpdate(manga_id,
-        {
-            author:author,
-            name:name,
-            category:category,
-            image:image,
-            description:description,
-            last_chapter:last_chapter,
-            manga_status:manga_status
-        })
-}
-export const listCommitNotUpdate= ()=>{
-    return MangaModel.find(
-            {
-                description:{ $exists: false }
-            }
-    ).limit(3000);
-}
+        manga: manga_id,
+        index: index,
+        title: title,
+        url: url,
+    });
+};
+const updateMangaInfo = (
+    manga_id: string,
+    name: string,
+    author: string,
+    category: string[],
+    image: string,
+    description: string,
+    manga_status: string,
+    last_chapter: string | null,
+) => {
+    return MangaModel.findByIdAndUpdate(manga_id, {
+        author: author,
+        name: name,
+        category: category,
+        image: image,
+        description: description,
+        last_chapter: last_chapter,
+        manga_status: manga_status,
+    });
+};
+export const listCommitNotUpdate = () => {
+    return MangaModel.find({
+        description: { $exists: false },
+    }).limit(3000);
+};

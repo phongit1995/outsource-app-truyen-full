@@ -25,43 +25,57 @@ mongoose
         console.log('connect mongodb fail : ', error);
     });
 
-// for (let i = 1; i <= 996; i++) {
-//     let job = queue
-//         .create('getLinkComic', i)
-//         .attempts(3)
-//         .save(function (error) {
-//             if (!error) console.log(job.id);
-//             else console.log(error);
-//         });
-// }
-// queue.process('getLinkComic', 4, function (job, done) {
-//     getMangaInPageLink(job.data)
+for (let i = 1; i <= 996; i++) {
+    let job = queue
+        .create('getLinkComic', i)
+        .attempts(3)
+        .save(function (error) {
+            if (!error) console.log(job.id);
+            else console.log(error);
+        });
+}
+queue.process('getLinkComic', 4, function (job, done) {
+    getMangaInPageLink(job.data)
+        .then((data) => {
+            console.log('page ' + job.data + ' Chapter  : ' + data);
+            done();
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+});
+// getDetailComic(
+//     'https://truyenfull.vn/hao-da-vu-o-the-gioi-khong-co-em/',
+//     '6200f059615ff33011438b1b',
+// );
+// listCommitNotUpdate().then((data) => {
+//     data.forEach((item) => {
+//         let job = queue
+//             .create('getChapterComic', { url: item.url, id: item._id })
+//             .delay(500)
+//             .save(function (error) {
+//                 if (!error) console.log(job.id);
+//                 else console.log(error);
+//             });
+//     });
+// });
+// queue.process('getChapterComic', 1, function (job, done) {
+//     getDetailComic(job.data.url, job.data.id)
 //         .then((data) => {
-//             console.log('page ' + job.data + ' Chapter  : ' + data);
+//             console.log(
+//                 job.data.url +
+//                     ' : So Page ' +
+//                     data.lengthPage +
+//                     '  Số Chapter : ' +
+//                     data.Chapter,
+//             );
 //             done();
 //         })
 //         .catch((error) => {
 //             console.log(error);
+//             console.error('Lỗi URL:' + job.data.url);
+
+//             done();
 //         });
 // });
-// getDetailComic('https://truyenfull.vn/quyen-2edit-mat-the-trong-sinh-nu-vuong-de-thieu-quy-xuong/','6201339761dbc96c7df3d2c8');
-listCommitNotUpdate().then(data=>{
-    data.forEach((item)=>{
-        let job = queue.create("getChapterComic",{url:item.url,id:item._id}).delay(500).save(function(error) {
-            if (!error) console.log(job.id);
-            else console.log(error);
-        });
-        
-    })
-})
-queue.process("getChapterComic",2, function(job,done){
-    getDetailComic(job.data.url,job.data.id).then((data)=>{
-        console.log(job.data.url + " : So Page " + data.lengthPage  + "  Số Chapter : " + data.Chapter );
-        done()
-    }).catch(error=>{
-        console.log(error);
-        console.error("Lỗi URL:" + job.data.url);
-
-        done()
-    })
-})
+kue.app.listen(5000);
