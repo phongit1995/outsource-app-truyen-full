@@ -3,12 +3,12 @@ import { EnvAppConfig } from './../src/common/config';
 import { getMangaInPageLink, getDetailComic, listCommitNotUpdate } from './getManga';
 import Redis from 'ioredis';
 import kue from 'kue';
-const redis = new Redis();
-redis.flushdb((error) => {
-    if (error) {
-        console.log('clear cache redis fail');
-    } else console.log('clear cache redis success');
-});
+// const redis = new Redis();
+// redis.flushdb((error) => {
+//     if (error) {
+//         console.log('clear cache redis fail');
+//     } else console.log('clear cache redis success');
+// });
 const queue = kue.createQueue({
     redis: {
         createClientFactory: function () {
@@ -25,25 +25,25 @@ mongoose
         console.log('connect mongodb fail : ', error);
     });
 
-for (let i = 1; i <= 996; i++) {
-    let job = queue
-        .create('getLinkComic', i)
-        .attempts(3)
-        .save(function (error) {
-            if (!error) console.log(job.id);
-            else console.log(error);
-        });
-}
-queue.process('getLinkComic', 4, function (job, done) {
-    getMangaInPageLink(job.data)
-        .then((data) => {
-            console.log('page ' + job.data + ' Chapter  : ' + data);
-            done();
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-});
+// for (let i = 1; i <= 996; i++) {
+//     let job = queue
+//         .create('getLinkComic', i)
+//         .attempts(3)
+//         .save(function (error) {
+//             if (!error) console.log(job.id);
+//             else console.log(error);
+//         });
+// }
+// queue.process('getLinkComic', 4, function (job, done) {
+//     getMangaInPageLink(job.data)
+//         .then((data) => {
+//             console.log('page ' + job.data + ' Chapter  : ' + data);
+//             done();
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//         });
+// });
 // getDetailComic(
 //     'https://truyenfull.vn/hao-da-vu-o-the-gioi-khong-co-em/',
 //     '6200f059615ff33011438b1b',
@@ -59,23 +59,23 @@ queue.process('getLinkComic', 4, function (job, done) {
 //             });
 //     });
 // });
-// queue.process('getChapterComic', 1, function (job, done) {
-//     getDetailComic(job.data.url, job.data.id)
-//         .then((data) => {
-//             console.log(
-//                 job.data.url +
-//                     ' : So Page ' +
-//                     data.lengthPage +
-//                     '  Số Chapter : ' +
-//                     data.Chapter,
-//             );
-//             done();
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//             console.error('Lỗi URL:' + job.data.url);
+queue.process('getChapterComic', 1, function (job, done) {
+    getDetailComic(job.data.url, job.data.id)
+        .then((data) => {
+            console.log(
+                job.data.url +
+                    ' : So Page ' +
+                    data.lengthPage +
+                    '  Số Chapter : ' +
+                    data.Chapter,
+            );
+            done();
+        })
+        .catch((error) => {
+            console.log(error);
+            console.error('Lỗi URL:' + job.data.url);
 
-//             done();
-//         });
-// });
+            done();
+        });
+});
 kue.app.listen(5000);

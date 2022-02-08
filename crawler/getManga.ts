@@ -2,6 +2,7 @@ import request from 'request-promise';
 import cheerio from 'cheerio';
 import { MangaModel } from './../src/models/manga.model';
 import { ChapterModel } from './../src/models/chapter.model';
+import userArgent from './userArgent.json';
 export const getMangaInPageLink = async (page: number): Promise<void> => {
     const options: any = {
         uri: `https://truyenfull.vn/danh-sach/truyen-moi/trang-${page}/`,
@@ -27,8 +28,7 @@ export const getDetailComic = async (url: string, mangaId: string) => {
     const options = {
         url: url,
         headers: {
-            'User-Agent':
-                'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36',
+            'User-Agent': getUserAgent(),
         },
     };
     const data = await request(options);
@@ -119,8 +119,7 @@ const getListChapterInPageLink = async (url: string, page: string) => {
     const options = {
         url: urlPage,
         headers: {
-            'User-Agent':
-                'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36',
+            'User-Agent': getUserAgent(),
         },
     };
     const data = await request(options);
@@ -166,5 +165,8 @@ const updateMangaInfo = (
 export const listCommitNotUpdate = () => {
     return MangaModel.find({
         description: { $exists: false },
-    }).limit(3000);
+    }).limit(10000);
+};
+const getUserAgent = (): string => {
+    return userArgent[Math.floor(Math.random() * userArgent.length)];
 };
