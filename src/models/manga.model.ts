@@ -4,15 +4,19 @@ import { Chapter } from './chapter.model';
 export interface Manga {
     name: string;
     author: string;
+    authorSlug: string;
     category: string[];
     image: string;
     views: number;
     description: string;
     url: string;
     manga_status: number;
+    rate: number;
+    rateCount: number;
     chapters: string[];
     chapter_update: Date;
     last_chapter: string | Chapter;
+    first_chapter: string | Chapter;
     enable: boolean;
     slug: string;
 }
@@ -20,7 +24,6 @@ let manga = new Schema(
     {
         name: String,
         author: String,
-        category: [{ type: String }],
         image: String,
         views: {
             type: Number,
@@ -28,6 +31,9 @@ let manga = new Schema(
         },
         description: String,
         url: String,
+        authorSlug: {
+            type: String,
+        },
         manga_status: {
             type: Number,
         },
@@ -36,6 +42,10 @@ let manga = new Schema(
             type: Date,
             default: Date.now,
         },
+        first_chapter: {
+            type: mongoose.Types.ObjectId,
+            ref: 'chapter',
+        },
         last_chapter: {
             type: mongoose.Types.ObjectId,
             ref: 'chapter',
@@ -43,6 +53,14 @@ let manga = new Schema(
         enable: {
             type: Boolean,
             default: true,
+        },
+        rate: {
+            type: Number,
+            default: 10,
+        },
+        rateCount: {
+            type: Number,
+            default: 1,
         },
         slug: {
             type: String,

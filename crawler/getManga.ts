@@ -49,6 +49,8 @@ export const getDetailComic = async (url: string, mangaId: string) => {
     const author = $('a[itemprop="author"]').text();
     let status = $('.info >div:last-child>span').text();
     const image = $('img[itemprop="image"]').attr('src');
+    const rate = $('span[itemprop="ratingValue"]').text();
+    const rateCount = $('span[itemprop="ratingCount"]').text();
     let category = [];
     $('.info a[itemprop="genre"]').map(function () {
         category.push($(this).text());
@@ -97,6 +99,9 @@ export const getDetailComic = async (url: string, mangaId: string) => {
             description,
             status,
             null,
+            null,
+            rate,
+            rateCount,
         );
     } else {
         await updateMangaInfo(
@@ -108,6 +113,9 @@ export const getDetailComic = async (url: string, mangaId: string) => {
             description,
             status,
             listId[listId.length - 1].toString(),
+            listId[0].toString(),
+            rate,
+            rateCount,
         );
     }
     return {
@@ -152,6 +160,9 @@ const updateMangaInfo = (
     description: string,
     manga_status: string,
     last_chapter: string | null,
+    first_chapter: string | null,
+    rate,
+    rateCount,
 ) => {
     return MangaModel.findByIdAndUpdate(manga_id, {
         author: author,
@@ -162,6 +173,10 @@ const updateMangaInfo = (
         last_chapter: last_chapter,
         manga_status: manga_status,
         slug: makeSlug(name),
+        first_chapter: first_chapter,
+        rate,
+        rateCount,
+        authorSlug: makeSlug(author),
     });
 };
 export const listCommitNotUpdate = () => {
