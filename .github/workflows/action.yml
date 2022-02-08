@@ -1,0 +1,38 @@
+name: gym-test
+on:
+    push:
+        branches: [master]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [14.x]
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: Install dependencies
+              run: yarn install
+            - run: yarn run build
+    deploy:
+        name: Deploy
+        needs: [build]
+        runs-on: ubuntu-latest
+        steps:
+            - name: deploy
+              uses: appleboy/ssh-action@master
+              with:
+                  host: 64.44.168.43 #hostname of server
+                  username: root #username login to server
+                  password: E6jPsJ91ZFh9mnq65W #password login to server
+                  port: 22 #port of server - often port is 22
+                  script: | # run with multiple script
+                      cd outsource-app-truyen-full
+                      git pull
+                      yarn
+                      pm2 start ecosystem.json
