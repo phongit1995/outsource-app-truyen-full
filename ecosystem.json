@@ -2,8 +2,8 @@
     "apps": [
       {
         "name": "truyen-full-dev",
-        "script": "yarn",
-        "args":"start",
+        "script": "npm",
+        "args":" run start",
         "merge_logs": true,
         "env": {
           "PORT":80
