@@ -3,6 +3,7 @@ import cheerio from 'cheerio';
 import { MangaModel } from './../src/models/manga.model';
 import { ChapterModel } from './../src/models/chapter.model';
 import userArgent from './userArgent.json';
+import { makeSlug } from '../src/common/text.helper';
 export const getMangaInPageLink = async (page: number): Promise<void> => {
     const options: any = {
         uri: `https://truyenfull.vn/danh-sach/truyen-moi/trang-${page}/`,
@@ -160,6 +161,7 @@ const updateMangaInfo = (
         description: description,
         last_chapter: last_chapter,
         manga_status: manga_status,
+        slug: makeSlug(name),
     });
 };
 export const listCommitNotUpdate = () => {

@@ -1,4 +1,5 @@
 import mongoose, { Schema, model, connect } from 'mongoose';
+import { makeSlug } from './../common/text.helper';
 import { Chapter } from './chapter.model';
 export interface Manga {
     name: string;
@@ -42,7 +43,18 @@ let manga = new Schema(
             type: Boolean,
             default: true,
         },
+        slug: {
+            type: String,
+            index: true,
+        },
     },
     { timestamps: true },
 );
+manga.pre('save', function (next) {
+    if (this.isModified('name')) {
+        this.slug = makeSlug(this.name);
+    }
+    console.log('run now');
+    next();
+});
 export const MangaModel = model<Manga>('manga', manga);
