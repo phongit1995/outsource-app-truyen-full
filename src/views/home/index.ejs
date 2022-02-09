@@ -69,7 +69,7 @@
             <div class="container" id="intro-index">
                 <div class="title-list title-home">
                     <h2><a href="danh-sach/truyen-hot" title="Truyện hot">Truyện hot</a></h2> <a href=""
-                        title="Truyện hot"><span class="glyphicon glyphicon-fire"></span></a> <select id="hot-select"
+                        title="Truyện hot"><span class="glyphicon glyphicon-fire"></span></a> <select id="select-hot"
                         class="form-control new-select" aria-label="Chọn thể loại">
                         <option value="all">Tất cả</option>
                         <option value="32">Bách Hợp</option>
@@ -116,7 +116,7 @@
                 <div class="index-intro">
                     <% listMangaHot.forEach((item,index)=>{%>
                         <div class="item top-<%=index+1%>" itemscope itemtype="https://schema.org/Book"> <a
-                            href="/truyen/<%=item.slug%>" itemprop="url"> <img
+                            href="/<%=item.slug%>" itemprop="url"> <img
                                 src="<%=item.image%>"
                                 alt="<%=item.name%>" class="img-responsive item-img" itemprop="image" />
                             <div class="title">
@@ -184,7 +184,7 @@
                             <div class="row" itemscope itemtype="https://schema.org/Book">
                                 <div class="col-xs-9 col-sm-6 col-md-5 col-title"> <span
                                         class="glyphicon glyphicon-chevron-right"></span>
-                                    <h3 itemprop="name"><a href="/truyen/<%=item.slug%>" title="Lam Đình Chi Chủ" itemprop="url"><%=item.name%> </a></h3>
+                                    <h3 itemprop="name"><a href="/<%=item.slug%>" title="Lam Đình Chi Chủ" itemprop="url"><%=item.name%> </a></h3>
                                 </div>
                                 <div class="hidden-xs col-sm-3 col-md-3 col-cat text-888">
                                     <% item.category.forEach((cate)=>{ %>
@@ -257,7 +257,7 @@
                     </div>
                     <div class="row">
                         <% listMangaDone.forEach((item)=>{ %>
-                            <div class="col-xs-4 col-sm-3 col-md-2"> <a href="/truyen/<%=item.slug%>"
+                            <div class="col-xs-4 col-sm-3 col-md-2"> <a href="/<%=item.slug%>"
                                 title="Triêu Dương Cảnh Sự">
                                 <div class="lazyimg"
                                     data-desk-image="<%=item.image%>"
@@ -283,7 +283,8 @@
         <script>const BASE_URL = '';
             const FB_APP_ID = '245372619860792';
             const GA_ACCOUNT = '65067329-18';</script>
-        <script type="text/javascript" src="frontend/js/main.min.js"></script>
+        <script type="text/javascript" src="/frontend/js/main.min.js"></script>
+        <script type="text/javascript" src="/frontend/js/xemtruyen.js"></script>
         <script>var element = document.createElement("link");
             element.setAttribute("rel", "stylesheet");
             element.setAttribute("type", "text/css");
