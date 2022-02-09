@@ -3,6 +3,7 @@ import { mangaService } from './manga.service';
 import ChapterService from './../chapter/chapter.service';
 import { CACHE_MANGA_TIME, PAGE_SIZE_CHAPTER } from './../../common/app.constance';
 import { cacheService } from './../../common/cache.helper';
+import { getCategoryById } from './../../constance/category.const';
 export const detailMangaController = async (req: Request, res: Response) => {
     const page: number = req.query.page ? parseInt(req.query.page as string) : 1;
     const keyCache = `cacheMangaDetail-${page}-${req.params.slug}`;
@@ -26,4 +27,13 @@ export const detailMangaController = async (req: Request, res: Response) => {
     };
     cacheService.set(keyCache, dataRender, CACHE_MANGA_TIME);
     return res.render('manga/detail', dataRender);
+};
+export const getListMangaByTypeController = async (req: Request, res: Response) => {
+    console.log(req.query);
+    const { category, page, pageSize } = req.query;
+    const categoryName = getCategoryById(parseInt(category.toString()));
+    console.log(categoryName);
+    if (!categoryName) {
+        return res.status(404).json({ message: 'error' });
+    }
 };

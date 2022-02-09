@@ -388,7 +388,24 @@
                             id="truyen-comment" type="hidden" value="tro-lai-2006" /> <input id="chapter-sac"
                             type="hidden" value="0" />
                         <div class="paginator">
-                            <ul class="pagination pagination-sm"><img src="frontend/img/loading-search.gif"></ul>
+                            <ul class="pagination pagination-sm">
+                                <li class="active"><span class="currentPage">1</span></li>
+                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=2">2</a></li>
+                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=3">3</a></li>
+                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=4">4</a></li>
+                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=5">5</a></li>
+                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=6">6</a></li>
+                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=2"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=17"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></a></li>
+                                <li class="dropup page-nav">
+                                   <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="true">Chọn trang <span class="caret"></span></a> 
+                                   <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                      <form action="." name="jump_page" id="jump_page" method="get">
+                                         <div class="input-group"> <input name="page_type" type="hidden" value=""> <input name="truyen" type="hidden" value=""> <input name="filter" type="hidden" value=""> <input class="form-control" name="page" type="number" placeholder="Số trang..." value=""><span class="input-group-btn"><button class="btn btn-default" type="submit">Đi</button></span> </div>
+                                      </form>
+                                   </div>
+                                </li>
+                             </ul>
                         </div> <input name="truyen" type="hidden" value="" />
                     </div>
                     <div class="col-xs-12 no-padding review-story">
