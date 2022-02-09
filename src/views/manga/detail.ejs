@@ -58,462 +58,519 @@
         <script
             type="text/javascript"> function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++) 0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : ""; } var js_bgcolor = getCookie("bgcolor-cookie"); "#232323" == js_bgcolor && (document.getElementsByTagName("body")[0].className += " dark-theme"); </script>
         <%-include('./../common/header') %>
-        <script
-            type="text/javascript">function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++)0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : "" } var js_bgcolor = getCookie("bgcolor-cookie"), js_font = getCookie("font-cookie"), js_size = getCookie("size-cookie"), js_lineheight = getCookie("lineheight-cookie"), js_hidenav = getCookie("hidenav-cookie"), js_fluid_switch = getCookie("fluid-switch-cookie"), js_onebreak_switch = getCookie("onebreak-switch-cookie"), js_body_insert_class = ""; "" != js_bgcolor && "#F4F4F4" != js_bgcolor && (js_bgcolor = js_bgcolor.replace("#", ""), js_body_insert_class = "232323" == js_bgcolor ? js_body_insert_class + " background-232323 dark-theme" : js_body_insert_class + (" background-" + js_bgcolor)); 1 == js_hidenav && (document.getElementById("body_chapter").className += " hidenav"); "" != js_size && (js_body_insert_class += " size-" + js_size); "" != js_font && (js_font = js_font.replace(/, serif|, sans-serif|'|\s/g, ""), js_body_insert_class += " font-" + js_font); "" != js_lineheight && "180%" != js_lineheight && (js_lineheight = js_lineheight.replace("%", ""), js_body_insert_class += " lineheight-" + js_lineheight); 1 == js_fluid_switch && (js_body_insert_class += " container-fluid-switch"); document.getElementById("body_chapter").className += js_body_insert_class;</script>
-        <style type="text/css">
-            .desc .info>div {
-                margin-bottom: 5px
-            }
+            <script
+                type="text/javascript">function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++)0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : "" } var js_bgcolor = getCookie("bgcolor-cookie"), js_font = getCookie("font-cookie"), js_size = getCookie("size-cookie"), js_lineheight = getCookie("lineheight-cookie"), js_hidenav = getCookie("hidenav-cookie"), js_fluid_switch = getCookie("fluid-switch-cookie"), js_onebreak_switch = getCookie("onebreak-switch-cookie"), js_body_insert_class = ""; "" != js_bgcolor && "#F4F4F4" != js_bgcolor && (js_bgcolor = js_bgcolor.replace("#", ""), js_body_insert_class = "232323" == js_bgcolor ? js_body_insert_class + " background-232323 dark-theme" : js_body_insert_class + (" background-" + js_bgcolor)); 1 == js_hidenav && (document.getElementById("body_chapter").className += " hidenav"); "" != js_size && (js_body_insert_class += " size-" + js_size); "" != js_font && (js_font = js_font.replace(/, serif|, sans-serif|'|\s/g, ""), js_body_insert_class += " font-" + js_font); "" != js_lineheight && "180%" != js_lineheight && (js_lineheight = js_lineheight.replace("%", ""), js_body_insert_class += " lineheight-" + js_lineheight); 1 == js_fluid_switch && (js_body_insert_class += " container-fluid-switch"); document.getElementById("body_chapter").className += js_body_insert_class;</script>
+            <style type="text/css">
+                .desc .info>div {
+                    margin-bottom: 5px
+                }
 
-            .btn-border {
-                border-radius: 20px;
-                border: 1px solid #ccc;
-                background: #ddd
-            }
+                .btn-border {
+                    border-radius: 20px;
+                    border: 1px solid #ccc;
+                    background: #ddd
+                }
 
-            .btn-background {
-                background-color: #9f251e;
-                border-color: #94221c;
-                color: #fff;
-            }
-
-            .navbar-mucluc.navbar-nav {
-                margin: 0 0 10px 0;
-                display: flex;
-                justify-content: space-between;
-            }
-
-            .navbar-mucluc.navbar-nav>li {
-                margin-right: 13px;
-                display: inline-block;
-                width: 33%
-            }
-
-            .navbar-mucluc.navbar-nav>li>a {
-                padding: 10px 13px;
-                font-size: 14px;
-                text-align: center;
-                width: 100%;
-            }
-
-            .navbar-mucluc.navbar-nav>li>a:hover {
-                background: transparent;
-                color: #14425d
-            }
-
-            .navbar-mucluc.fixed {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 10;
-                background: #14425d
-            }
-
-            .navbar-mucluc.fixed>li>a {
-                color: #fff
-            }
-
-            .story-title {
-                font-size: 24px;
-                font-weight: 700;
-                margin: 0 0 15px;
-                padding: 0;
-                text-transform: uppercase;
-                font-family: "Roboto Condensed", Tahoma, sans-serif;
-                text-align: left;
-                display: block;
-                width: 68%;
-                float: right
-            }
-
-            .desc {
-                text-align: left
-            }
-
-            .desc .info>div {
-                margin-bottom: 5px;
-            }
-
-            .desc .info>div h3 {
-                line-height: 27px
-            }
-
-            .desc .info>div .glyphicon {
-                margin-right: 5px;
-            }
-
-            .review-story .review-story-content {
-                display: none
-            }
-
-            .review-story .review-story-content.open {
-                display: block;
-            }
-
-            .rate .rate-text {
-                bottom: -13px;
-                left: 192px;
-                font-size: 11px;
-            }
-
-            .group-buttons {
-                display: flex;
-                justify-content: space-between;
-            }
-
-            .group-buttons .btn {
-                width: 49%;
-                padding: 10px 13px;
-            }
-
-            .btn.btn-style {
-                -webkit-box-shadow: 0 3px 4px 0 #ced9d9;
-                -moz-box-shadow: 0 3px 4px 0 #ced9d9;
-                box-shadow: 0 3px 4px 0 #ced9d9;
-                color: #fff;
-                background-color: #9f251e;
-                border-color: #94221c;
-                -webkit-box-align: center !important;
-                -webkit-align-items: center !important;
-                -moz-box-align: center !important;
-                -ms-flex-align: center !important;
-                align-items: center !important;
-            }
-
-            .btn.btn-style-1 {
-                -webkit-box-shadow: 0 3px 4px 0 #ced9d9;
-                -moz-box-shadow: 0 3px 4px 0 #ced9d9;
-                box-shadow: 0 3px 4px 0 #ced9d9;
-                color: #222;
-                border-color: #94221c;
-                -webkit-box-align: center !important;
-                -webkit-align-items: center !important;
-                -moz-box-align: center !important;
-                -ms-flex-align: center !important;
-                align-items: center !important;
-                margin-top: 0 !important;
-            }
-
-            .btn.btn-style-1:hover {
-                background: transparent
-            }
-
-            .navbar-mucluc.navbar-nav:not(.fixed)>li>a {
-                border-radius: 20px;
-                border: 1px solid #ccc;
-                background: #ddd
-            }
-
-            .no-padding .desc-text,
-            .l-chapter .l-chapters,
-            .list-chapter,
-            .list-keyword {
-                padding: 0
-            }
-
-            @media screen and (max-width: 480px) {
-                .story-title {
-                    padding: 0 10px
+                .btn-background {
+                    background-color: #9f251e;
+                    border-color: #94221c;
+                    color: #fff;
                 }
 
                 .navbar-mucluc.navbar-nav {
-                    margin: 0 0 15px 0;
+                    margin: 0 0 10px 0;
+                    display: flex;
+                    justify-content: space-between;
                 }
 
                 .navbar-mucluc.navbar-nav>li {
-                    width: 32%;
-                    margin-right: 0
+                    margin-right: 13px;
+                    display: inline-block;
+                    width: 33%
                 }
 
                 .navbar-mucluc.navbar-nav>li>a {
-                    padding: 10px 0;
-                    width: auto;
-                }
-
-                .story-title {
-                    width: 100%
-                }
-
-                .no-padding .desc-text,
-                .review-story:not(.no-padding),
-                .desc,
-                .list-keyword {
-                    padding: 0 10px
-                }
-
-                .l-chapter .l-title,
-                .l-chapter .l-title>h3 {
-                    height: auto;
-                }
-
-                .info-holder .books {
-                    margin-bottom: 15px
-                }
-
-                .group-buttons .btn {
+                    padding: 10px 13px;
+                    font-size: 14px;
+                    text-align: center;
                     width: 100%;
                 }
 
-                .col-info-desc {
-                    margin-bottom: 15px
+                .navbar-mucluc.navbar-nav>li>a:hover {
+                    background: transparent;
+                    color: #14425d
                 }
 
-                .l-chapter .l-chapters,
-                .list-chapter {
-                    padding-left: 10px
+                .navbar-mucluc.fixed {
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    z-index: 10;
+                    background: #14425d
                 }
-            }
-        </style>
-        <div class="container csstransforms3d" id="truyen">
-            <div class="col-xs-12 col-sm-12 col-md-9 col-truyen-main">
-                <div class="col-xs-12 col-info-desc" itemscope="" itemtype="https://schema.org/Book">
-                    <h1 class="story-title" itemprop="name"><a href="tro-lai-2006"><%=manga.name%></a></h1>
-                    <div class="col-xs-12 col-sm-4 col-md-4 info-holder">
-                        <div class="books">
-                            <div class="book"> <img src="<%=manga.image%>" alt="Trở Lại 2006" onerror=""
-                                    itemprop="image" />
-                                <meta itemprop="thumbnailUrl"
-                                    content="uploads/Resize/Images/164x245/tro-lai-2006.jpg" />
-                                <meta itemprop="description"
-                                    content="Đọc truyện Trở Lại 2006 của tác giả Mộc Tử Tâm, đã full (hoàn thành). Hỗ trợ xem trên di động, máy tính bảng." />
+
+                .navbar-mucluc.fixed>li>a {
+                    color: #fff
+                }
+
+                .story-title {
+                    font-size: 24px;
+                    font-weight: 700;
+                    margin: 0 0 15px;
+                    padding: 0;
+                    text-transform: uppercase;
+                    font-family: "Roboto Condensed", Tahoma, sans-serif;
+                    text-align: left;
+                    display: block;
+                    width: 68%;
+                    float: right
+                }
+
+                .desc {
+                    text-align: left
+                }
+
+                .desc .info>div {
+                    margin-bottom: 5px;
+                }
+
+                .desc .info>div h3 {
+                    line-height: 27px
+                }
+
+                .desc .info>div .glyphicon {
+                    margin-right: 5px;
+                }
+
+                .review-story .review-story-content {
+                    display: none
+                }
+
+                .review-story .review-story-content.open {
+                    display: block;
+                }
+
+                .rate .rate-text {
+                    bottom: -13px;
+                    left: 192px;
+                    font-size: 11px;
+                }
+
+                .group-buttons {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .group-buttons .btn {
+                    width: 49%;
+                    padding: 10px 13px;
+                }
+
+                .btn.btn-style {
+                    -webkit-box-shadow: 0 3px 4px 0 #ced9d9;
+                    -moz-box-shadow: 0 3px 4px 0 #ced9d9;
+                    box-shadow: 0 3px 4px 0 #ced9d9;
+                    color: #fff;
+                    background-color: #9f251e;
+                    border-color: #94221c;
+                    -webkit-box-align: center !important;
+                    -webkit-align-items: center !important;
+                    -moz-box-align: center !important;
+                    -ms-flex-align: center !important;
+                    align-items: center !important;
+                }
+
+                .btn.btn-style-1 {
+                    -webkit-box-shadow: 0 3px 4px 0 #ced9d9;
+                    -moz-box-shadow: 0 3px 4px 0 #ced9d9;
+                    box-shadow: 0 3px 4px 0 #ced9d9;
+                    color: #222;
+                    border-color: #94221c;
+                    -webkit-box-align: center !important;
+                    -webkit-align-items: center !important;
+                    -moz-box-align: center !important;
+                    -ms-flex-align: center !important;
+                    align-items: center !important;
+                    margin-top: 0 !important;
+                }
+
+                .btn.btn-style-1:hover {
+                    background: transparent
+                }
+
+                .navbar-mucluc.navbar-nav:not(.fixed)>li>a {
+                    border-radius: 20px;
+                    border: 1px solid #ccc;
+                    background: #ddd
+                }
+
+                .no-padding .desc-text,
+                .l-chapter .l-chapters,
+                .list-chapter,
+                .list-keyword {
+                    padding: 0
+                }
+
+                @media screen and (max-width: 480px) {
+                    .story-title {
+                        padding: 0 10px
+                    }
+
+                    .navbar-mucluc.navbar-nav {
+                        margin: 0 0 15px 0;
+                    }
+
+                    .navbar-mucluc.navbar-nav>li {
+                        width: 32%;
+                        margin-right: 0
+                    }
+
+                    .navbar-mucluc.navbar-nav>li>a {
+                        padding: 10px 0;
+                        width: auto;
+                    }
+
+                    .story-title {
+                        width: 100%
+                    }
+
+                    .no-padding .desc-text,
+                    .review-story:not(.no-padding),
+                    .desc,
+                    .list-keyword {
+                        padding: 0 10px
+                    }
+
+                    .l-chapter .l-title,
+                    .l-chapter .l-title>h3 {
+                        height: auto;
+                    }
+
+                    .info-holder .books {
+                        margin-bottom: 15px
+                    }
+
+                    .group-buttons .btn {
+                        width: 100%;
+                    }
+
+                    .col-info-desc {
+                        margin-bottom: 15px
+                    }
+
+                    .l-chapter .l-chapters,
+                    .list-chapter {
+                        padding-left: 10px
+                    }
+                }
+            </style>
+            <div class="container csstransforms3d" id="truyen">
+                <div class="col-xs-12 col-sm-12 col-md-9 col-truyen-main">
+                    <div class="col-xs-12 col-info-desc" itemscope="" itemtype="https://schema.org/Book">
+                        <h1 class="story-title" itemprop="name"><a href="tro-lai-2006">
+                                <%=manga.name%>
+                            </a></h1>
+                        <div class="col-xs-12 col-sm-4 col-md-4 info-holder">
+                            <div class="books">
+                                <div class="book"> <img src="<%=manga.image%>" alt="Trở Lại 2006" onerror=""
+                                        itemprop="image" />
+                                    <meta itemprop="thumbnailUrl"
+                                        content="uploads/Resize/Images/164x245/tro-lai-2006.jpg" />
+                                    <meta itemprop="description"
+                                        content="Đọc truyện Trở Lại 2006 của tác giả Mộc Tử Tâm, đã full (hoàn thành). Hỗ trợ xem trên di động, máy tính bảng." />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 desc">
+                            <!-- <p>Doc truyen tro lai 2006 lttp truyen chu ebook prc download full.</p> -->
+                            <div class="info">
+                                <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                    <h3><span class="glyphicon glyphicon-user"></span> Tác giả:</h3> <a
+                                        href="tac-gia/moc-tu-tam" title="Mộc Tử Tâm"><span itemprop="name">
+                                            <%=manga.author%>
+                                        </span></a>
+                                </div>
+                                <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                                    <meta itemprop="name" content="truyenchu" />
+                                </div>
+                                <div>
+                                    <h3><span class="glyphicon glyphicon-tag"></span> Thể loại:</h3> <a itemprop="genre"
+                                        href="the-loai/do-thi" title="Đô Thị"> Đô Thị</a> <span
+                                        class="label label-success"
+                                        style="font-size: 13px;border-radius: 7px;">Convert</span>
+                                </div>
+                                <div>
+                                    <h3><span class="glyphicon glyphicon-info-sign"></span> Trạng thái:</h3> <span
+                                        class="text-success">Hoàn thành</span>
+                                </div>
+                                <div>
+                                    <h3><span class="glyphicon glyphicon-stats"></span> Độ dài:</h3> <span
+                                        class="source"><span id="totalChapter">
+                                            <%=totalManga%>
+                                        </span> chương</span>
+                                </div>
+                            </div>
+                            <div class="rate" style="margin-bottom: 15px;position: relative;">
+                                <div class="rate-holder" data-score="9"></div> <em class="rate-text"></em>
+                                <div class="small" itemprop="aggregateRating" itemscope
+                                    itemtype="https://schema.org/AggregateRating" style="display: inline-block;">
+                                    <meta itemprop="worstRating" content="1" /> <em> Đánh giá: <strong><span
+                                                itemprop="ratingValue">9</span></strong>/<span class="text-muted"
+                                            itemprop="bestRating">10</span> từ <strong><span
+                                                itemprop="reviewCount">1</span>
+                                            lượt</strong> </em>
+                                    <meta itemprop="ratingCount" content="1" />
+                                </div>
+                            </div>
+                            <p>Mời bạn đón đọc <a href="danh-sach/truyen-full">truyện full</a> Trở Lại 2006 của tác giả
+                                Mộc
+                                Tử Tâm.</p>
+                            <ul class="nav navbar-nav navbar-mucluc" style="float: none;">
+                                <li class=""><a href="tro-lai-2006#gioi-thieu-truyen">Giới Thiệu</a></li>
+                                <li><a href="tro-lai-2006#danh-sach-chuong">Danh Sách Chương</a></li>
+                                <li class="active"><a href="tro-lai-2006#binh-luan-truyen">Bình Luận</a></li>
+                            </ul>
+                            <div class="group-buttons"> <a class="btn btn-danger btn-block btn-style btn-border" href=""
+                                    id="firstChapter"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Đọc
+                                    truyện</a> <a class="btn btn-danger btn-block btn-style-1 btn-border" href=""
+                                    id="latestChapter"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Đọc
+                                    chương mới nhất</a> </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 no-padding">
+                            <div class="title-list book-intro">
+                                <h2 id="gioi-thieu-truyen">Thông tin truyện <%=manga.name%>
+                                </h2>
+                            </div>
+                            <div class="desc-text">
+                                <%=manga.description%>>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                        <div class="col-xs-12">
+                            <div id="ads_top_story"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" id="list-chapter">
+                        <div class="title-list">
+                            <h2 id="danh-sach-chuong">Danh sách chương <%=manga.name%>
+                            </h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6 no-padding">
+                                <ul class="list-chapter">
+                                    <% chapters.forEach((chapter,index)=>{ 
+                                        if(index<25) {%>
+                                        <li><span class="glyphicon glyphicon-certificate"></span><a
+                                            href="/<%=manga.slug%>/<%=chapter.slug%>"
+                                            title="<%=manga.name%> - <%=chapter.title%>"><span
+                                                class="chapter-text"><span></span><%=chapter.title%></span></a></li>
+                                    <%}}) %>
+                                    
+                                </ul>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 no-padding">
+                                <ul class="list-chapter">
+                                    <% chapters.forEach((chapter,index)=>{ 
+                                        if(index>=25) {%>
+                                            <li><span class="glyphicon glyphicon-certificate"></span><a
+                                                href="/<%=manga.slug%>/<%=chapter.slug%>"
+                                                title="<%=manga.name%> - <%=chapter.title%>"><span
+                                                    class="chapter-text"><span></span><%=chapter.title%></span></a></li>
+                                    <%}}) %>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <input id="truyen-id" type="hidden" value="8014" /> <input id="total-page" type="hidden"
+                            value="0" /> <input id="truyen-ascii" type="hidden" value="tro-lai-2006" /> <input
+                            id="truyen-comment" type="hidden" value="tro-lai-2006" /> <input id="chapter-sac"
+                            type="hidden" value="0" />
+                        <div class="paginator">
+                            <ul class="pagination pagination-sm"><img src="frontend/img/loading-search.gif"></ul>
+                        </div> <input name="truyen" type="hidden" value="" />
+                    </div>
+                    <div class="col-xs-12 no-padding review-story">
+                        <div class="title-list">
+                            <h2>Review truyện <%=manga.name%>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 review-story no-padding">
+                        <div class="desc-text" itemprop="description"> Cập nhật Review truyện <%=manga.name%> của tác
+                                giả <%=manga.author%> mới nhất tại Truyenchu.vn </div>
+                    </div>
+                    <div class="col-xs-12 comment-box">
+                        <div class="title-list">
+                            <h2 id="binh-luan-truyen">Bình luận truyện Trở Lại 2006</h2>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="row" id="fb-comment-story"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 list-keyword">
+                        <p style="text-align: justify;">Từ khoá: Đọc truyện Trở Lại 2006 full, chương 1, chương cuối.
+                            Trở
+                            Lại 2006 wattpad truyện full sstruyen truyencv medoctruyen, metruyenchu nội dung truyện Trở
+                            Lại
+                            2006 review, Trở Lại 2006 Mangatool Wikidich Truyencuatui truyenfull webtruyen truyenyy ,
+                            nghe
+                            audio Trở Lại 2006</p>
+                    </div>
+                </div>
+                <div class="visible-md-block visible-lg-block col-md-3 text-center col-truyen-side">
+                    <div id="ads_sidebar_story1"></div>
+                    <div class="list list-truyen col-xs-12">
+                        <div class="title-list">
+                            <h4>Truyện cùng tác giả</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"> <span class="glyphicon glyphicon-chevron-right"></span>
+                                <h3><a href="co-dieu-trung-sinh" title="Cơ Diệu Trùng Sinh">Cơ Diệu Trùng Sinh</a></h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"> <span class="glyphicon glyphicon-chevron-right"></span>
+                                <h3><a href="hoi-sinh-2003" title="Hồi Sinh 2003">Hồi Sinh 2003</a></h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"> <span class="glyphicon glyphicon-chevron-right"></span>
+                                <h3><a href="tro-lai-1998" title="Trở Lại 1998">Trở Lại 1998</a></h3>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-8 col-md-8 desc">
-                        <!-- <p>Doc truyen tro lai 2006 lttp truyen chu ebook prc download full.</p> -->
-                        <div class="info">
-                            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                <h3><span class="glyphicon glyphicon-user"></span> Tác giả:</h3> <a
-                                    href="tac-gia/moc-tu-tam" title="Mộc Tử Tâm"><span itemprop="name"><%=manga.author%> </span></a>
-                            </div>
-                            <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                                <meta itemprop="name" content="truyenchu" />
-                            </div>
-                            <div>
-                                <h3><span class="glyphicon glyphicon-tag"></span> Thể loại:</h3> <a itemprop="genre"href="the-loai/do-thi" title="Đô Thị"> Đô Thị</a> <span class="label label-success"
-                                    style="font-size: 13px;border-radius: 7px;">Convert</span>
-                            </div>
-                            <div>
-                                <h3><span class="glyphicon glyphicon-info-sign"></span> Trạng thái:</h3> <span
-                                    class="text-success">Hoàn thành</span>
-                            </div>
-                            <div>
-                                <h3><span class="glyphicon glyphicon-stats"></span> Độ dài:</h3> <span
-                                    class="source"><span id="totalChapter"> <%=totalManga%> </span> chương</span>
+                    <div class="list list-truyen list-side col-xs-12">
+                        <div class="title-list">
+                            <h4>Truyện đang hot</h4>
+                        </div>
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-1">1</div>
+                                <div class="s-title">
+                                    <h3><a href="toan-tri-doc-gia" title="Toàn Trí Độc Giả">Toàn Trí Độc Giả</a></h3>
+                                </div>
+                                <div> <a itemprop="genre" href="the-loai/light-novel" title="Light Novel">Light
+                                        Novel</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="rate" style="margin-bottom: 15px;position: relative;">
-                            <div class="rate-holder" data-score="9"></div> <em class="rate-text"></em>
-                            <div class="small" itemprop="aggregateRating" itemscope
-                                itemtype="https://schema.org/AggregateRating" style="display: inline-block;">
-                                <meta itemprop="worstRating" content="1" /> <em> Đánh giá: <strong><span
-                                            itemprop="ratingValue">9</span></strong>/<span class="text-muted"
-                                        itemprop="bestRating">10</span> từ <strong><span itemprop="reviewCount">1</span>
-                                        lượt</strong> </em>
-                                <meta itemprop="ratingCount" content="1" />
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-2">2</div>
+                                <div class="s-title">
+                                    <h3><a href="vo-thuong-than-de" title="Vô Thượng Thần Đế">Vô Thượng Thần Đế</a></h3>
+                                </div>
+                                <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền
+                                        Huyễn</a>
+                                </div>
                             </div>
                         </div>
-                        <p>Mời bạn đón đọc <a href="danh-sach/truyen-full">truyện full</a> Trở Lại 2006 của tác giả Mộc
-                            Tử Tâm.</p>
-                        <ul class="nav navbar-nav navbar-mucluc" style="float: none;">
-                            <li class=""><a href="tro-lai-2006#gioi-thieu-truyen">Giới Thiệu</a></li>
-                            <li><a href="tro-lai-2006#danh-sach-chuong">Danh Sách Chương</a></li>
-                            <li class="active"><a href="tro-lai-2006#binh-luan-truyen">Bình Luận</a></li>
-                        </ul>
-                        <div class="group-buttons"> <a class="btn btn-danger btn-block btn-style btn-border" href=""
-                                id="firstChapter"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Đọc
-                                truyện</a> <a class="btn btn-danger btn-block btn-style-1 btn-border" href=""
-                                id="latestChapter"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;Đọc
-                                chương mới nhất</a> </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 no-padding">
-                        <div class="title-list book-intro">
-                            <h2 id="gioi-thieu-truyen">Thông tin truyện <%=manga.name%></h2>
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-3">3</div>
+                                <div class="s-title">
+                                    <h3><a href="vu-luyen-dien-phong" title="Vũ Luyện Điên Phong">Vũ Luyện Điên
+                                            Phong</a>
+                                    </h3>
+                                </div>
+                                <div> <a itemprop="genre" href="the-loai/tien-hiep" title="Tiên Hiệp">Tiên Hiệp</a>, <a
+                                        itemprop="genre" href="the-loai/kiem-hiep" title="Kiếm Hiệp">Kiếm Hiệp</a>, <a
+                                        itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="desc-text">
-                            <%=manga.description%>>
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-4">4</div>
+                                <div class="s-title">
+                                    <h3><a href="dai-quan-gia-la-ma-hoang" title="Đại Quản Gia Là Ma Hoàng">Đại Quản Gia
+                                            Là
+                                            Ma Hoàng</a></h3>
+                                </div>
+                                <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền
+                                        Huyễn</a>,
+                                    <a itemprop="genre" href="the-loai/trong-sinh" title="Trọng Sinh">Trọng Sinh</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-5">5</div>
+                                <div class="s-title">
+                                    <h3><a href="vo-than-chua-te" title="Võ Thần Chúa Tể">Võ Thần Chúa Tể</a></h3>
+                                </div>
+                                <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền
+                                        Huyễn</a>,
+                                    <a itemprop="genre" href="the-loai/trong-sinh" title="Trọng Sinh">Trọng Sinh</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-6">6</div>
+                                <div class="s-title">
+                                    <h3><a href="than-de" title="Thần Đế">Thần Đế</a></h3>
+                                </div>
+                                <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền
+                                        Huyễn</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-7">7</div>
+                                <div class="s-title">
+                                    <h3><a href="nghich-thien-ta-than" title="Nghịch Thiên Tà Thần">Nghịch Thiên Tà
+                                            Thần</a>
+                                    </h3>
+                                </div>
+                                <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền
+                                        Huyễn</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-8">8</div>
+                                <div class="s-title">
+                                    <h3><a href="than-y-dich-nu" title="Thần Y Đích Nữ">Thần Y Đích Nữ</a></h3>
+                                </div>
+                                <div> <a itemprop="genre" href="the-loai/ngon-tinh" title="Ngôn Tình">Ngôn Tình</a>, <a
+                                        itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên
+                                        Không</a>, <a itemprop="genre" href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-9">9</div>
+                                <div class="s-title">
+                                    <h3><a href="mao-son-troc-quy-nhan" title="Mao Sơn Tróc Quỷ Nhân">Mao Sơn Tróc Quỷ
+                                            Nhân</a></h3>
+                                </div>
+                                <div> <a itemprop="genre" href="the-loai/do-thi" title="Đô Thị">Đô Thị</a>, <a
+                                        itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền
+                                        Huyễn</a>, <a itemprop="genre" href="the-loai/linh-di" title="Linh Dị">Linh
+                                        Dị</a> </div>
+                            </div>
+                        </div>
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-10">10</div>
+                                <div class="s-title">
+                                    <h3><a href="linh-kiem-ton" title="Linh Kiếm Tôn">Linh Kiếm Tôn</a></h3>
+                                </div>
+                                <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền
+                                        Huyễn</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div style="clear: both;"></div>
-                    <div class="col-xs-12">
-                        <div id="ads_top_story"></div>
-                    </div>
-                </div>
-                <div class="col-xs-12" id="list-chapter">
-                    <div class="title-list">
-                        <h2 id="danh-sach-chuong">Danh sách chương <%=manga.name%></h2>
-                    </div>
-                    <div class="row"> <img src="frontend/img/loading-search.gif"> </div> <input id="truyen-id"
-                        type="hidden" value="8014" /> <input id="total-page" type="hidden" value="0" /> <input
-                        id="truyen-ascii" type="hidden" value="tro-lai-2006" /> <input id="truyen-comment" type="hidden"
-                        value="tro-lai-2006" /> <input id="chapter-sac" type="hidden" value="0" />
-                    <div class="paginator">
-                        <ul class="pagination pagination-sm"><img src="frontend/img/loading-search.gif"></ul>
-                    </div> <input name="truyen" type="hidden" value="" />
-                </div>
-                <div class="col-xs-12 no-padding review-story">
-                    <div class="title-list">
-                        <h2>Review truyện <%=manga.name%></h2>
-                    </div>
-                </div>
-                <div class="col-xs-12 review-story no-padding">
-                    <div class="desc-text" itemprop="description"> Cập nhật Review truyện <%=manga.name%> của tác giả <%=manga.author%> mới nhất tại Truyenchu.vn </div>
-                </div>
-                <div class="col-xs-12 comment-box">
-                    <div class="title-list">
-                        <h2 id="binh-luan-truyen">Bình luận truyện Trở Lại 2006</h2>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="row" id="fb-comment-story"></div>
-                    </div>
-                </div>
-                <div class="col-xs-12 list-keyword">
-                    <p style="text-align: justify;">Từ khoá: Đọc truyện Trở Lại 2006 full, chương 1, chương cuối. Trở
-                        Lại 2006 wattpad truyện full sstruyen truyencv medoctruyen, metruyenchu nội dung truyện Trở Lại
-                        2006 review, Trở Lại 2006 Mangatool Wikidich Truyencuatui truyenfull webtruyen truyenyy , nghe
-                        audio Trở Lại 2006</p>
+                    <div id="ads_sidebar_story2"></div>
                 </div>
             </div>
-            <div class="visible-md-block visible-lg-block col-md-3 text-center col-truyen-side">
-                <div id="ads_sidebar_story1"></div>
-                <div class="list list-truyen col-xs-12">
-                    <div class="title-list">
-                        <h4>Truyện cùng tác giả</h4>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12"> <span class="glyphicon glyphicon-chevron-right"></span>
-                            <h3><a href="co-dieu-trung-sinh" title="Cơ Diệu Trùng Sinh">Cơ Diệu Trùng Sinh</a></h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12"> <span class="glyphicon glyphicon-chevron-right"></span>
-                            <h3><a href="hoi-sinh-2003" title="Hồi Sinh 2003">Hồi Sinh 2003</a></h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12"> <span class="glyphicon glyphicon-chevron-right"></span>
-                            <h3><a href="tro-lai-1998" title="Trở Lại 1998">Trở Lại 1998</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="list list-truyen list-side col-xs-12">
-                    <div class="title-list">
-                        <h4>Truyện đang hot</h4>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-1">1</div>
-                            <div class="s-title">
-                                <h3><a href="toan-tri-doc-gia" title="Toàn Trí Độc Giả">Toàn Trí Độc Giả</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/light-novel" title="Light Novel">Light Novel</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-2">2</div>
-                            <div class="s-title">
-                                <h3><a href="vo-thuong-than-de" title="Vô Thượng Thần Đế">Vô Thượng Thần Đế</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-3">3</div>
-                            <div class="s-title">
-                                <h3><a href="vu-luyen-dien-phong" title="Vũ Luyện Điên Phong">Vũ Luyện Điên Phong</a>
-                                </h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/tien-hiep" title="Tiên Hiệp">Tiên Hiệp</a>, <a
-                                    itemprop="genre" href="the-loai/kiem-hiep" title="Kiếm Hiệp">Kiếm Hiệp</a>, <a
-                                    itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-4">4</div>
-                            <div class="s-title">
-                                <h3><a href="dai-quan-gia-la-ma-hoang" title="Đại Quản Gia Là Ma Hoàng">Đại Quản Gia Là
-                                        Ma Hoàng</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>,
-                                <a itemprop="genre" href="the-loai/trong-sinh" title="Trọng Sinh">Trọng Sinh</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-5">5</div>
-                            <div class="s-title">
-                                <h3><a href="vo-than-chua-te" title="Võ Thần Chúa Tể">Võ Thần Chúa Tể</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>,
-                                <a itemprop="genre" href="the-loai/trong-sinh" title="Trọng Sinh">Trọng Sinh</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-6">6</div>
-                            <div class="s-title">
-                                <h3><a href="than-de" title="Thần Đế">Thần Đế</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-7">7</div>
-                            <div class="s-title">
-                                <h3><a href="nghich-thien-ta-than" title="Nghịch Thiên Tà Thần">Nghịch Thiên Tà Thần</a>
-                                </h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-8">8</div>
-                            <div class="s-title">
-                                <h3><a href="than-y-dich-nu" title="Thần Y Đích Nữ">Thần Y Đích Nữ</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/ngon-tinh" title="Ngôn Tình">Ngôn Tình</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên Không</a>, <a
-                                    itemprop="genre" href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-9">9</div>
-                            <div class="s-title">
-                                <h3><a href="mao-son-troc-quy-nhan" title="Mao Sơn Tróc Quỷ Nhân">Mao Sơn Tróc Quỷ
-                                        Nhân</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/do-thi" title="Đô Thị">Đô Thị</a>, <a
-                                    itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>, <a
-                                    itemprop="genre" href="the-loai/linh-di" title="Linh Dị">Linh Dị</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-10">10</div>
-                            <div class="s-title">
-                                <h3><a href="linh-kiem-ton" title="Linh Kiếm Tôn">Linh Kiếm Tôn</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="ads_sidebar_story2"></div>
-            </div>
-        </div>
     </div>
     <div class="container">
         <div style="margin: 15px 0;padding:0 5px"></div>

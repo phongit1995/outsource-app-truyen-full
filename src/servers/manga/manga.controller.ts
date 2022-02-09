@@ -18,6 +18,7 @@ export const detailMangaController = async (req: Request, res: Response) => {
         ChapterService.getListChapterMangaByPage(manga._id.toString(), page, PAGE_SIZE_CHAPTER),
         ChapterService.countChapterOfManga(manga._id.toString()),
     ]);
+    console.log('chapter', chapters.length, chapters);
     const dataRender = {
         manga: manga,
         chapters: chapters,
