@@ -10,6 +10,7 @@ export function makeSlug(str: string) {
     slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
     slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
     slug = slug.replace(/đ/gi, 'd');
+    slug = slug.replace('-', '');
     //Xóa các ký tự đặt biệt
     slug = slug.replace(
         /\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi,
@@ -19,6 +20,7 @@ export function makeSlug(str: string) {
     slug = slug.replace(/ /gi, ' - ');
     //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
     //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+    slug = slug.replace(/\-\-\-\-\-\-/gi, '-');
     slug = slug.replace(/\-\-\-\-\-/gi, '-');
     slug = slug.replace(/\-\-\-\-/gi, '-');
     slug = slug.replace(/\-\-\-/gi, '-');
@@ -27,6 +29,7 @@ export function makeSlug(str: string) {
     slug = '@' + slug + '@';
     slug = slug.replace(/\@\-|\-\@|\@/gi, '');
     slug = slug.replace(/\s/g, '');
+    slug = slug.replace('--', '-');
     return slug;
 }
 export function makeRadomText(length: number): string {

@@ -3,6 +3,7 @@ import { EnvAppConfig } from './../src/common/config';
 import { getMangaInPageLink, getDetailComic, listCommitNotUpdate } from './getManga';
 import Redis from 'ioredis';
 import kue from 'kue';
+import { makeSlug } from '../src/common/text.helper';
 const redis = new Redis();
 redis.flushdb((error) => {
     if (error) {
@@ -49,34 +50,35 @@ const totalPage = 10;
 //     'https://truyenfull.vn/xuyen-qua-chi-ba-ai-phao-hoi/',
 //     '620326f7c645831e707d41b5',
 // );
-listCommitNotUpdate().then((data) => {
-    data.forEach((item) => {
-        let job = queue
-            .create('getChapterComic', { url: item.url, id: item._id })
-            .delay(500)
-            .save(function (error) {
-                if (!error) console.log(job.id);
-                else console.log(error);
-            });
-    });
-});
-queue.process('getChapterComic', 1, function (job, done) {
-    getDetailComic(job.data.url, job.data.id)
-        .then((data) => {
-            console.log(
-                job.data.url +
-                    ' : So Page ' +
-                    data.lengthPage +
-                    '  Số Chapter : ' +
-                    data.Chapter,
-            );
-            done();
-        })
-        .catch((error) => {
-            console.log(error);
-            console.error('Lỗi URL:' + job.data.url);
+// listCommitNotUpdate().then((data) => {
+//     data.forEach((item) => {
+//         let job = queue
+//             .create('getChapterComic', { url: item.url, id: item._id })
+//             .delay(500)
+//             .save(function (error) {
+//                 if (!error) console.log(job.id);
+//                 else console.log(error);
+//             });
+//     });
+// });
+// queue.process('getChapterComic', 1, function (job, done) {
+//     getDetailComic(job.data.url, job.data.id)
+//         .then((data) => {
+//             console.log(
+//                 job.data.url +
+//                     ' : So Page ' +
+//                     data.lengthPage +
+//                     '  Số Chapter : ' +
+//                     data.Chapter,
+//             );
+//             done();
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//             console.error('Lỗi URL:' + job.data.url);
 
-            done();
-        });
-});
+//             done();
+//         });
+// });
+console.log(makeSlug('HOANG HOÁ LUẬN THUYẾT - ĐÊM ĐEN VÔ TẬN'));
 kue.app.listen(5000);
