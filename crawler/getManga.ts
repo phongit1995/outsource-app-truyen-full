@@ -184,6 +184,7 @@ const updateMangaInfo = (
         rate,
         rateCount,
         authorSlug: makeSlug(author),
+        chapter_update: Date.now(),
     });
 };
 export const listCommitNotUpdate = () => {

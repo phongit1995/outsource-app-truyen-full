@@ -118,118 +118,16 @@
                     </select>
                 </div>
                 <div class="index-intro">
-                    <div class="item top-1" itemscope itemtype="https://schema.org/Book"> <a
-                            href="ta-co-9-trieu-ty-liem-cau-tien" itemprop="url"> <img
-                                src="uploads/Resize/Images/265x396/ta-co-9-trieu-ty-liem-cau-tien.jpg"
-                                alt="Ta Có 9 Triệu Tỷ Liếm Cẩu Tiền" class="img-responsive item-img" itemprop="image" />
+                    <% listMangaHot.forEach((item,index)=>{%>
+                        <div class="item top-<%=index+1%>" itemscope itemtype="https://schema.org/Book"> <a
+                            href="/truyen/<%=item.slug%>" itemprop="url"> <img
+                                src="<%=item.image%>"
+                                alt="<%=item.name%>" class="img-responsive item-img" itemprop="image" />
                             <div class="title">
-                                <h3 itemprop="name">Ta Có 9 Triệu Tỷ Liếm Cẩu Tiền</h3>
+                                <h3 itemprop="name"><%=item.name%></h3>
                             </div>
                         </a> </div>
-                    <div class="item top-2" itemscope itemtype="https://schema.org/Book"> <a
-                            href="hokage-chi-sieu-than-uchiha" itemprop="url"> <span class="full-label"></span> <img
-                                src="uploads/Resize/Images/164x245/hokage-chi-sieu-than-uchiha.jpg"
-                                alt="Hokage Chi Siêu Thần Uchiha" class="img-responsive item-img" itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Hokage Chi Siêu Thần Uchiha</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-3" itemscope itemtype="https://schema.org/Book"> <a
-                            href="nha-ta-su-ty-co-the-muon-giet-ta" itemprop="url"> <span class="full-label"></span>
-                            <img src="uploads/Resize/Images/164x245/nha-ta-su-ty-co-the-muon-giet-ta.jpg"
-                                alt="Nhà Ta Sư Tỷ Có Thể Muốn Giết Ta" class="img-responsive item-img"
-                                itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Nhà Ta Sư Tỷ Có Thể Muốn Giết Ta</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-4" itemscope itemtype="https://schema.org/Book"> <a
-                            href="ta-nhan-vat-chinh-kim-thu-chi" itemprop="url"> <span class="full-label"></span> <img
-                                src="uploads/Resize/Images/164x245/ta-nhan-vat-chinh-kim-thu-chi.jpg"
-                                alt="Ta, Nhân Vật Chính Kim Thủ Chỉ" class="img-responsive item-img" itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Ta, Nhân Vật Chính Kim Thủ Chỉ</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-5" itemscope itemtype="https://schema.org/Book"> <a
-                            href="lang-le-check-in-10000-nam-thanh-nu-cau-ta-xuat-son" itemprop="url"> <img
-                                src="uploads/Resize/Images/164x245/lang-le-check-in-10000-nam-thanh-nu-cau-ta-xuat-son.jpg"
-                                alt="Lặng Lẽ Check-In 10000 Năm, Thánh Nữ Cầu Ta Xuất Sơn"
-                                class="img-responsive item-img" itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Lặng Lẽ Check-In 10000 Năm, Thánh Nữ Cầu Ta Xuất Sơn</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-6" itemscope itemtype="https://schema.org/Book"> <a
-                            href="dau-la-chi-thu-do-de-lien-tro-nen-manh-me" itemprop="url"> <img
-                                src="uploads/Resize/Images/164x245/dau-la-chi-thu-do-de-lien-tro-nen-manh-me.jpg"
-                                alt="Đấu La Chi Thu Đồ Đệ Liền Trở Nên Mạnh Mẽ" class="img-responsive item-img"
-                                itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Đấu La Chi Thu Đồ Đệ Liền Trở Nên Mạnh Mẽ</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-7" itemscope itemtype="https://schema.org/Book"> <a href="ngu-dao-khuynh-thien"
-                            itemprop="url"> <span class="full-label"></span> <img
-                                src="uploads/Resize/Images/164x245/ngu-dao-khuynh-thien.jpg" alt="Ngự Đạo Khuynh Thiên"
-                                class="img-responsive item-img" itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Ngự Đạo Khuynh Thiên</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-8" itemscope itemtype="https://schema.org/Book"> <a
-                            href="luyen-nguc-nghe-thuat-gia" itemprop="url"> <img
-                                src="uploads/Resize/Images/164x245/luyen-nguc-nghe-thuat-gia.jpg"
-                                alt="Luyện Ngục Nghệ Thuật Gia" class="img-responsive item-img" itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Luyện Ngục Nghệ Thuật Gia</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-9" itemscope itemtype="https://schema.org/Book"> <a
-                            href="toan-cau-ma-vuong-bat-dau-tuyen-trach-tham-uyen-cu-long" itemprop="url"> <img
-                                src="uploads/Resize/Images/164x245/toan-cau-ma-vuong-bat-dau-tuyen-trach-tham-uyen-cu-long.jpg"
-                                alt="Toàn Cầu Ma Vương: Bắt Đầu Tuyển Trạch Thâm Uyên Cự Long"
-                                class="img-responsive item-img" itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Toàn Cầu Ma Vương: Bắt Đầu Tuyển Trạch Thâm Uyên Cự Long</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-10" itemscope itemtype="https://schema.org/Book"> <a
-                            href="ta-bat-dau-sang-tao-thien-co-lau" itemprop="url"> <img
-                                src="uploads/Resize/Images/164x245/ta-bat-dau-sang-tao-thien-co-lau.jpg"
-                                alt="Ta! Bắt Đầu Sáng Tạo Thiên Cơ Lâu!" class="img-responsive item-img"
-                                itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Ta! Bắt Đầu Sáng Tạo Thiên Cơ Lâu!</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-11" itemscope itemtype="https://schema.org/Book"> <a
-                            href="toan-dan-linh-chu-trong-sinh-thanh-npc-ta-cu-the-vo-dich" itemprop="url"> <img
-                                src="uploads/Resize/Images/164x245/toan-dan-linh-chu-trọng-sinh-thanh-npc-ta-cu-the-vo-dich.jpg"
-                                alt="Toàn Dân Lĩnh Chủ: Trọng Sinh Thành NPC, Ta, Cử Thế Vô Địch!"
-                                class="img-responsive item-img" itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Toàn Dân Lĩnh Chủ: Trọng Sinh Thành NPC, Ta, Cử Thế Vô Địch!</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-12" itemscope itemtype="https://schema.org/Book"> <a
-                            href="cong-phap-cua-ta-toan-bo-nho-nhat" itemprop="url"> <img
-                                src="uploads/Resize/Images/164x245/cong-phap-cua-ta-toan-bo-nho-nhat.jpg"
-                                alt="Công Pháp Của Ta Toàn Bộ Nhờ Nhặt" class="img-responsive item-img"
-                                itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Công Pháp Của Ta Toàn Bộ Nhờ Nhặt</h3>
-                            </div>
-                        </a> </div>
-                    <div class="item top-13" itemscope itemtype="https://schema.org/Book"> <a
-                            href="van-toc-chien-truong-ta-co-mot-cai-vo-han-hop-thanh-lan" itemprop="url"> <img
-                                src="uploads/Resize/Images/164x245/van-toc-chien-truong-ta-co-mot-cai-vo-han-hop-thanh-lan.jpg"
-                                alt="Vạn Tộc Chiến Trường: Ta Có Một Cái Vô Hạn Hợp Thành Lan!"
-                                class="img-responsive item-img" itemprop="image" />
-                            <div class="title">
-                                <h3 itemprop="name">Vạn Tộc Chiến Trường: Ta Có Một Cái Vô Hạn Hợp Thành Lan!</h3>
-                            </div>
-                        </a> </div>
+                    <%})%>
                 </div>
             </div>
             <div class="container">

@@ -42,7 +42,7 @@ let manga = new Schema(
         chapters: [{ type: mongoose.Types.ObjectId, ref: 'chapter' }],
         chapter_update: {
             type: Date,
-            default: Date.now,
+            default: null,
         },
         first_chapter: {
             type: mongoose.Types.ObjectId,
@@ -58,11 +58,11 @@ let manga = new Schema(
         },
         rate: {
             type: Number,
-            default: 10,
+            default: 0,
         },
         rateCount: {
             type: Number,
-            default: 1,
+            default: 0,
         },
         slug: {
             type: String,
