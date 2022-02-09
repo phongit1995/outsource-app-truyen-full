@@ -5,7 +5,7 @@ export const indexController = async (req: Request, res: Response) => {
     const keyCache: string = 'INDEX_CACHE';
     const dataCache = cacheService.get(keyCache);
     if (dataCache) {
-        res.render('home/index', dataCache as object);
+        return res.render('home/index', dataCache as object);
     }
     const [listMangaHot, listNewUpdate, listMangaDone] = await Promise.all([
         mangaService.getListHot(1, 13),
