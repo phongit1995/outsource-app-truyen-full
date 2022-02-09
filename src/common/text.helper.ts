@@ -29,3 +29,12 @@ export function makeSlug(str: string) {
     slug = slug.replace(/\s/g, '');
     return slug;
 }
+export function makeRadomText(length: number): string {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}

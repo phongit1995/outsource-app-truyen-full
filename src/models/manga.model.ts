@@ -73,7 +73,6 @@ manga.pre('save', function (next) {
     if (this.isModified('name')) {
         this.slug = makeSlug(this.name);
     }
-    console.log('run now');
     next();
 });
 export const MangaModel = model<Manga>('manga', manga);

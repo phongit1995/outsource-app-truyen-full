@@ -3,12 +3,13 @@ import { EnvAppConfig } from './../src/common/config';
 import { getMangaInPageLink, getDetailComic, listCommitNotUpdate } from './getManga';
 import Redis from 'ioredis';
 import kue from 'kue';
-// const redis = new Redis();
-// redis.flushdb((error) => {
-//     if (error) {
-//         console.log('clear cache redis fail');
-//     } else console.log('clear cache redis success');
-// });
+import { addWaterMarkImage } from './imageResize';
+const redis = new Redis();
+redis.flushdb((error) => {
+    if (error) {
+        console.log('clear cache redis fail');
+    } else console.log('clear cache redis success');
+});
 const queue = kue.createQueue({
     redis: {
         createClientFactory: function () {
@@ -45,8 +46,8 @@ mongoose
 //         });
 // });
 // getDetailComic(
-//     'https://truyenfull.vn/hao-da-vu-o-the-gioi-khong-co-em/',
-//     '6200f059615ff33011438b1b',
+//     'https://truyenfull.vn/xuyen-qua-chi-ba-ai-phao-hoi/',
+//     '620326f7c645831e707d41b5',
 // );
 // listCommitNotUpdate().then((data) => {
 //     data.forEach((item) => {
@@ -59,23 +60,26 @@ mongoose
 //             });
 //     });
 // });
-queue.process('getChapterComic', 1, function (job, done) {
-    getDetailComic(job.data.url, job.data.id)
-        .then((data) => {
-            console.log(
-                job.data.url +
-                    ' : So Page ' +
-                    data.lengthPage +
-                    '  Số Chapter : ' +
-                    data.Chapter,
-            );
-            done();
-        })
-        .catch((error) => {
-            console.log(error);
-            console.error('Lỗi URL:' + job.data.url);
+// queue.process('getChapterComic', 1, function (job, done) {
+//     getDetailComic(job.data.url, job.data.id)
+//         .then((data) => {
+//             console.log(
+//                 job.data.url +
+//                     ' : So Page ' +
+//                     data.lengthPage +
+//                     '  Số Chapter : ' +
+//                     data.Chapter,
+//             );
+//             done();
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//             console.error('Lỗi URL:' + job.data.url);
 
-            done();
-        });
-});
+//             done();
+//         });
+// });
+addWaterMarkImage(
+    'https://static.8cache.com/cover/eJzLyTDWTw0PSzJ1805LTKuMyDd0DgvNS3ZyKYoPNYh09rU0MS4uiTJ1ca_KzchxMgx0iwr08NatDMpOKk0K988wDzJ0cjV29SlLL_YOz_LyyshPNkk0LrctNzI01c0wNjICAPSOHsc=/huynh-sung.jpg',
+);
 kue.app.listen(5000);
