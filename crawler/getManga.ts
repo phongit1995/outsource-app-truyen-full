@@ -4,6 +4,7 @@ import { MangaModel } from './../src/models/manga.model';
 import { ChapterModel } from './../src/models/chapter.model';
 import userArgent from './userArgent.json';
 import { makeSlug } from '../src/common/text.helper';
+import { addWaterMarkImage } from './imageResize';
 export const getMangaInPageLink = async (page: number): Promise<void> => {
     const options: any = {
         uri: `https://truyenfull.vn/danh-sach/truyen-moi/trang-${page}/`,
@@ -48,7 +49,8 @@ export const getDetailComic = async (url: string, mangaId: string) => {
     ).text();
     const author = $('a[itemprop="author"]').text();
     let status = $('.info >div:last-child>span').text();
-    const image = $('img[itemprop="image"]').attr('src');
+    const imageOriginal = $('img[itemprop="image"]').attr('src');
+
     const rate = $('span[itemprop="ratingValue"]').text();
     const rateCount = $('span[itemprop="ratingCount"]').text();
     let category = [];
@@ -84,6 +86,7 @@ export const getDetailComic = async (url: string, mangaId: string) => {
             Chapter.push({ name: nameChapter, url: urlChapter });
         });
     }
+    const image = '/image/' + (await addWaterMarkImage(imageOriginal));
     const ListPromise = Chapter.map((chapter, index) =>
         createNewChapter(mangaId, chapter.url, index + 1, chapter.name),
     );
@@ -95,6 +98,7 @@ export const getDetailComic = async (url: string, mangaId: string) => {
             title,
             author,
             category,
+            imageOriginal,
             image,
             description,
             status,
@@ -109,6 +113,7 @@ export const getDetailComic = async (url: string, mangaId: string) => {
             title,
             author,
             category,
+            imageOriginal,
             image,
             description,
             status,
@@ -156,6 +161,7 @@ const updateMangaInfo = (
     name: string,
     author: string,
     category: string[],
+    imageOriginal: string,
     image: string,
     description: string,
     manga_status: string,
@@ -168,6 +174,7 @@ const updateMangaInfo = (
         author: author,
         name: name,
         category: category,
+        imageOriginal: imageOriginal,
         image: image,
         description: description,
         last_chapter: last_chapter,
