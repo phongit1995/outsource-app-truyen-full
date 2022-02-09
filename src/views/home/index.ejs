@@ -132,11 +132,11 @@
             <div class="container" id="list-index">
                 <div class="row text-center"></div>
                 <div class="hide" id="history-holder"></div>
-                <div class="list list-truyen list-new col-xs-12 col-sm-12 col-md-8 col-truyen-main">
+                <div id="content-new" class="list list-truyen list-new col-xs-12 col-sm-12 col-md-8 col-truyen-main" >
                     <div class="title-list title-home">
                         <h2><a href="danh-sach/truyen-moi" title="Truyện mới">Truyện mới cập nhật</a></h2> <a href=""
                             title="Truyện mới"><span class="glyphicon glyphicon-menu-right"></span></a> <select
-                            id="new-select" class="form-control new-select" aria-label="Chọn thể loại">
+                            id="select-new" class="form-control new-select" aria-label="Chọn thể loại">
                             <option value="all">Tất cả</option>
                             <option value="32">Bách Hợp</option>
                             <option value="35">Cổ Đại</option>
@@ -179,23 +179,23 @@
                             <option value="19">Xuyên Nhanh</option>
                         </select>
                     </div>
-                    <%
-                        listNewUpdate.forEach((item,index)=>{ %>
-                            <div class="row" itemscope itemtype="https://schema.org/Book">
-                                <div class="col-xs-9 col-sm-6 col-md-5 col-title"> <span
-                                        class="glyphicon glyphicon-chevron-right"></span>
-                                    <h3 itemprop="name"><a href="/<%=item.slug%>" title="Lam Đình Chi Chủ" itemprop="url"><%=item.name%> </a></h3>
+                        <%
+                            listNewUpdate.forEach((item,index)=>{ %>
+                                <div class="row" itemscope itemtype="https://schema.org/Book">
+                                    <div class="col-xs-9 col-sm-6 col-md-5 col-title"> <span
+                                            class="glyphicon glyphicon-chevron-right"></span>
+                                        <h3 itemprop="name"><a href="/<%=item.slug%>" title="Lam Đình Chi Chủ" itemprop="url"><%=item.name%> </a></h3>
+                                    </div>
+                                    <div class="hidden-xs col-sm-3 col-md-3 col-cat text-888">
+                                        <% item.category.forEach((cate)=>{ %>
+                                            <a itemprop="genre" href="the-loai/huyen-huyen" title="<%=cate %>"><%=cate %></a> 
+                                        <%}) %>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-4 col-chap text-info"> <a
+                                            href="lam-dinh-chi-chu/chuong-58-ket-cuoc" title="<%=item.last_chapter.name%>"> <span
+                                                class="chapter-text"><span></span><%=item.last_chapter.title%></span> </a> </div>
                                 </div>
-                                <div class="hidden-xs col-sm-3 col-md-3 col-cat text-888">
-                                    <% item.category.forEach((cate)=>{ %>
-                                        <a itemprop="genre" href="the-loai/huyen-huyen" title="<%=cate %>"><%=cate %></a> 
-                                    <%}) %>
-                                </div>
-                                <div class="col-xs-3 col-sm-3 col-md-4 col-chap text-info"> <a
-                                        href="lam-dinh-chi-chu/chuong-58-ket-cuoc" title="<%=item.last_chapter.name%>"> <span
-                                            class="chapter-text"><span></span><%=item.last_chapter.title%></span> </a> </div>
-                            </div>
-                    <%})%>
+                        <%})%>
                 </div>
                 <div class="visible-md-block visible-lg-block col-md-4 text-center col-truyen-side">
                     <div class="hide" id="history-holder-side"></div>

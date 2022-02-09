@@ -32,5 +32,15 @@ class MangaService {
             category
         }).skip((page - 1) * pageSize).limit(pageSize);
     }
+    public getListNewChapterByCategory(category:string,page: number, pageSize: number) {
+        return MangaModel.find({category})
+            .sort({ chapter_update: -1 })
+            .populate({
+                path: 'last_chapter',
+                select: '-content',
+            })
+            .skip((page - 1) * pageSize)
+            .limit(pageSize);
+    }
 }
 export const mangaService = new MangaService();
