@@ -27,5 +27,10 @@ class MangaService {
             .skip((page - 1) * pageSize)
             .limit(pageSize);
     }
+    public getListMangaByCategory(category:string,page: number, pageSize: number){
+        return MangaModel.find({
+            category
+        }).skip((page - 1) * pageSize).limit(pageSize);
+    }
 }
 export const mangaService = new MangaService();
