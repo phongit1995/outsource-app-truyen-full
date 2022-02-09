@@ -20,6 +20,12 @@ class MangaService {
             .skip((page - 1) * pageSize)
             .limit(pageSize);
     }
-    public getListMangaDone(page: number, pageSize: number) {}
+    public getListMangaDone(page: number, pageSize: number) {
+        return MangaModel.find({
+            manga_status: 1,
+        })
+            .skip((page - 1) * pageSize)
+            .limit(pageSize);
+    }
 }
 export const mangaService = new MangaService();

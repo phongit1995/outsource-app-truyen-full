@@ -106,6 +106,7 @@ export const getDetailComic = async (url: string, mangaId: string) => {
             null,
             rate,
             rateCount,
+            0,
         );
     } else {
         await updateMangaInfo(
@@ -121,6 +122,7 @@ export const getDetailComic = async (url: string, mangaId: string) => {
             listId[0].toString(),
             rate,
             rateCount,
+            listId.length + 1,
         );
     }
     return {
@@ -154,6 +156,7 @@ const createNewChapter = (manga_id: string, url: string, index: number, title: s
         index: index,
         title: title,
         url: url,
+        slug: makeSlug(title),
     });
 };
 const updateMangaInfo = (
@@ -169,6 +172,7 @@ const updateMangaInfo = (
     first_chapter: string | null,
     rate,
     rateCount,
+    totalChapter: number,
 ) => {
     return MangaModel.findByIdAndUpdate(manga_id, {
         author: author,
@@ -185,6 +189,7 @@ const updateMangaInfo = (
         rateCount,
         authorSlug: makeSlug(author),
         chapter_update: Date.now(),
+        totalChapter,
     });
 };
 export const listCommitNotUpdate = () => {

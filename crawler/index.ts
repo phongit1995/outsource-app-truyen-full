@@ -25,7 +25,7 @@ mongoose
         console.log('connect mongodb fail : ', error);
     });
 // const totalPage = 996;
-const totalPage = 15;
+const totalPage = 10;
 // for (let i = 1; i <= totalPage; i++) {
 //     let job = queue
 //         .create('getLinkComic', i)

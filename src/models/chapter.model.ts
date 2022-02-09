@@ -26,11 +26,9 @@ let chapter = new Schema(
         content: {
             type: String,
         },
-        images: [
-            {
-                type: String,
-            },
-        ],
+        slug: {
+            type: String,
+        },
     },
     { timestamps: true },
 );

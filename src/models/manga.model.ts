@@ -20,6 +20,7 @@ export interface Manga {
     first_chapter: string | Chapter;
     enable: boolean;
     slug: string;
+    totalChapter: string;
 }
 let manga = new Schema(
     {
@@ -72,6 +73,9 @@ let manga = new Schema(
         slug: {
             type: String,
             index: true,
+        },
+        totalChapter: {
+            type: Number,
         },
     },
     { timestamps: true },

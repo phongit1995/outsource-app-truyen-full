@@ -260,135 +260,19 @@
                                 class="glyphicon glyphicon-menu-right"></span></a>
                     </div>
                     <div class="row">
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="lam-dinh-chi-chu" title="Lam Đình Chi Chủ">
-                                <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/lam-dinh-chi-chu.jpg"
-                                    data-image="uploads/Resize/Images/164x245/lam-dinh-chi-chu.jpg" data-origin="jpg"
-                                    data-alt="Lam Đình Chi Chủ"></div>
-                                <div class="caption">
-                                    <h3>Lam Đình Chi Chủ</h3> <small class="btn-xs label-primary">Full - 611
-                                        chương</small>
-                                </div>
-                            </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="trieu-duong-canh-su"
+                        <% listMangaDone.forEach((item)=>{ %>
+                            <div class="col-xs-4 col-sm-3 col-md-2"> <a href="/truyen/<%=item.slug%>"
                                 title="Triêu Dương Cảnh Sự">
                                 <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/trieu-duong-canh-su.jpg"
-                                    data-image="uploads/Resize/Images/164x245/trieu-duong-canh-su.jpg" data-origin="jpg"
-                                    data-alt="Triêu Dương Cảnh Sự"></div>
+                                    data-desk-image="<%=item.image%>"
+                                    data-image="<%=item.image%>" data-origin="jpg"
+                                    data-alt="<%=item.name%>"></div>
                                 <div class="caption">
-                                    <h3>Triêu Dương Cảnh Sự</h3> <small class="btn-xs label-primary">Full - 816
+                                    <h3><%=item.name%></h3> <small class="btn-xs label-primary">Full - <%=item.totalChapter%>
                                         chương</small>
                                 </div>
                             </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="tao-mong-thien-su" title="Tạo Mộng Thiên Sư">
-                                <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/tao-mong-thien-su.jpg"
-                                    data-image="uploads/Resize/Images/164x245/tao-mong-thien-su.jpg" data-origin="jpg"
-                                    data-alt="Tạo Mộng Thiên Sư"></div>
-                                <div class="caption">
-                                    <h3>Tạo Mộng Thiên Sư</h3> <small class="btn-xs label-primary">Full - 816
-                                        chương</small>
-                                </div>
-                            </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="ta-o-the-gioi-khac-o-trong-gioi"
-                                title="Ta Ở Thế Giới Khác Ở Trong Giới">
-                                <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/ta-o-the-gioi-khac-o-trong-gioi.jpg"
-                                    data-image="uploads/Resize/Images/164x245/ta-o-the-gioi-khac-o-trong-gioi.jpg"
-                                    data-origin="jpg" data-alt="Ta Ở Thế Giới Khác Ở Trong Giới"></div>
-                                <div class="caption">
-                                    <h3>Ta Ở Thế Giới Khác Ở Trong Giới</h3> <small class="btn-xs label-primary">Full -
-                                        817
-                                        chương</small>
-                                </div>
-                            </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="thoi-khong-lu-xa-cua-ta"
-                                title="Thời Không Lữ Xá Của Ta">
-                                <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/thoi-khong-lu-xa-cua-ta.jpg"
-                                    data-image="uploads/Resize/Images/164x245/thoi-khong-lu-xa-cua-ta.jpg"
-                                    data-origin="jpg" data-alt="Thời Không Lữ Xá Của Ta"></div>
-                                <div class="caption">
-                                    <h3>Thời Không Lữ Xá Của Ta</h3> <small class="btn-xs label-primary">Full - 798
-                                        chương</small>
-                                </div>
-                            </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="tro-lai-2006" title="Trở Lại 2006">
-                                <div class="lazyimg" data-desk-image="uploads/Resize/Images/164x245/tro-lai-2006.jpg"
-                                    data-image="uploads/Resize/Images/164x245/tro-lai-2006.jpg" data-origin="jpg"
-                                    data-alt="Trở Lại 2006"></div>
-                                <div class="caption">
-                                    <h3>Trở Lại 2006</h3> <small class="btn-xs label-primary">Full - 800 chương</small>
-                                </div>
-                            </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="lao-ba-cua-ta-la-dai-boss"
-                                title="Lão Bà Của Ta Là Đại BOSS">
-                                <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/lao-ba-cua-ta-la-dai-boss.jpg"
-                                    data-image="uploads/Resize/Images/164x245/lao-ba-cua-ta-la-dai-boss.jpg"
-                                    data-origin="jpg" data-alt="Lão Bà Của Ta Là Đại BOSS"></div>
-                                <div class="caption">
-                                    <h3>Lão Bà Của Ta Là Đại BOSS</h3> <small class="btn-xs label-primary">Full - 830
-                                        chương</small>
-                                </div>
-                            </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="ta-that-khong-phai-la-than-con"
-                                title="Ta Thật Không Phải Là Thần Côn">
-                                <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/ta-that-khong-phai-la-than-con.jpg"
-                                    data-image="uploads/Resize/Images/164x245/ta-that-khong-phai-la-than-con.jpg"
-                                    data-origin="jpg" data-alt="Ta Thật Không Phải Là Thần Côn"></div>
-                                <div class="caption">
-                                    <h3>Ta Thật Không Phải Là Thần Côn</h3> <small class="btn-xs label-primary">Full -
-                                        803
-                                        chương</small>
-                                </div>
-                            </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="hoc-ba-cung-mo-hack"
-                                title="Học Bá Cũng Mở Hack">
-                                <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/hoc-ba-cung-mo-hack.jpg"
-                                    data-image="uploads/Resize/Images/164x245/hoc-ba-cung-mo-hack.jpg" data-origin="jpg"
-                                    data-alt="Học Bá Cũng Mở Hack"></div>
-                                <div class="caption">
-                                    <h3>Học Bá Cũng Mở Hack</h3> <small class="btn-xs label-primary">Full - 779
-                                        chương</small>
-                                </div>
-                            </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="hinh-canh-minh-tinh"
-                                title="Hình Cảnh Minh Tinh">
-                                <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/hinh-canh-minh-tinh.jpg"
-                                    data-image="uploads/Resize/Images/164x245/hinh-canh-minh-tinh.jpg" data-origin="jpg"
-                                    data-alt="Hình Cảnh Minh Tinh"></div>
-                                <div class="caption">
-                                    <h3>Hình Cảnh Minh Tinh</h3> <small class="btn-xs label-primary">Full - 771
-                                        chương</small>
-                                </div>
-                            </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="mat-the-chi-card-dai-su"
-                                title="Mạt Thế Chi Card Đại Sư">
-                                <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/mat-the-chi-card-dai-su.jpg"
-                                    data-image="uploads/Resize/Images/164x245/mat-the-chi-card-dai-su.jpg"
-                                    data-origin="jpg" data-alt="Mạt Thế Chi Card Đại Sư"></div>
-                                <div class="caption">
-                                    <h3>Mạt Thế Chi Card Đại Sư</h3> <small class="btn-xs label-primary">Full - 776
-                                        chương</small>
-                                </div>
-                            </a> </div>
-                        <div class="col-xs-4 col-sm-3 col-md-2"> <a href="ta-co-the-vo-han-tang-len"
-                                title="Ta Có Thể Vô Hạn Tăng Lên">
-                                <div class="lazyimg"
-                                    data-desk-image="uploads/Resize/Images/164x245/ta-co-the-vo-han-tang-len.jpg"
-                                    data-image="uploads/Resize/Images/164x245/ta-co-the-vo-han-tang-len.jpg"
-                                    data-origin="jpg" data-alt="Ta Có Thể Vô Hạn Tăng Lên"></div>
-                                <div class="caption">
-                                    <h3>Ta Có Thể Vô Hạn Tăng Lên</h3> <small class="btn-xs label-primary">Full - 778
-                                        chương</small>
-                                </div>
-                            </a> </div>
+                        <%})%>
                     </div>
                 </div>
             </div>
