@@ -33,6 +33,11 @@ let manga = new Schema(
         },
         description: String,
         url: String,
+        category: [
+            {
+                type: String,
+            },
+        ],
         authorSlug: {
             type: String,
         },
