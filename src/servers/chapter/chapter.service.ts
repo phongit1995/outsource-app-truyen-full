@@ -1,4 +1,7 @@
 import { ChapterModel } from './../../models/chapter.model';
+import request from 'request-promise';
+import {getUserAgent} from './../../common/text.helper';
+import cheerio from 'cheerio';
 class ChapterService {
     public static getListChapterMangaByPage = (
         mangaId: string,
@@ -14,5 +17,24 @@ class ChapterService {
     public static countChapterOfManga = (mangaId: string) => {
         return ChapterModel.countDocuments({ manga: mangaId });
     };
+    public static getChapterBySlug = async  (mangaId:string,slug:string)=>{
+        return ChapterModel.findOne({manga:mangaId, slug});
+    }
+    public static getContentChapter = async (url:string)=>{
+        if(!url){
+            throw new Error('url not found');
+        }
+        const options = {
+            uri:url,
+            method:'GET',
+            headers: {
+                'User-Agent': getUserAgent(),
+            },
+        }
+        const data = await request(options);
+        const $ = cheerio.load(data);
+        let chapterContent = $('#chapter-c').html();
+        return chapterContent ;
+    }
 }
 export default ChapterService;

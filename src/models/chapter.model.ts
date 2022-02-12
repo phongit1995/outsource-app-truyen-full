@@ -6,6 +6,7 @@ export interface Chapter {
     title: string;
     url: string;
     content: string;
+    slug:string ;
 }
 let chapter = new Schema(
     {

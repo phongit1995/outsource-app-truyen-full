@@ -1,3 +1,4 @@
+import userArgent from './../../crawler/userArgent.json';
 export function makeSlug(str: string) {
     //Đổi chữ hoa thành chữ thường
     let slug = str.toLowerCase();
@@ -41,3 +42,6 @@ export function makeRadomText(length: number): string {
     }
     return result;
 }
+export const getUserAgent = (): string => {
+    return userArgent[Math.floor(Math.random() * userArgent.length)];
+};
