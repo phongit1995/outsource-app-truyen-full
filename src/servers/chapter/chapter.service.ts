@@ -34,8 +34,10 @@ class ChapterService {
         }
         const data = await request(options);
         const $ = cheerio.load(data);
-        let chapterContent = $('#chapter-c').html();
-        return chapterContent ;
+        $('#chapter-c p').first().remove();
+        $('#ads-chapter-pc-top').remove();
+        let chapterContent = $('#chapter-c');
+        return chapterContent.html() ;
     }
     public static getDetailChapterById(id:string){
         return ChapterModel.findById(id);

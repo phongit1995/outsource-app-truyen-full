@@ -18,6 +18,8 @@ export const detailChapterController =async (req:Request,res:Response)=>{
         chapterDetail.content = content ;
         chapterDetail.save();
     }
+    console.log(chapterDetail._id);
+    console.log(chapterDetail.content);
     return res.render('chapter/index',{
         manga:mangaDetail,
         chapter:chapterDetail

@@ -6,5 +6,5 @@
 .chapter_jump_select {
     margin-left: 5px !important;
     margin-right: 5px;
-    text-align: left;
+    text-align: left !important;
 }

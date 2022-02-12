@@ -57,7 +57,25 @@
     <div id="wrap">
         <script
             type="text/javascript"> function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++) 0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : ""; } var js_bgcolor = getCookie("bgcolor-cookie"); "#232323" == js_bgcolor && (document.getElementsByTagName("body")[0].className += " dark-theme"); </script>
-        <%-include('./../common/header') %>
+            <header>
+                <div class="navbar navbar-default navbar-static-top" role="navigation" id="nav">
+                    <%-include('./../common/navbar')%>
+                    <div class="navbar-breadcrumb">
+                        <div class="container breadcrumb-container">
+                           <ol class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                              <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                                 <a href="/" accesskey="1"><span class="glyphicon glyphicon-home"></span></a> <a href="/" title="Đọc truyện online" itemprop="item"><span itemprop="name">Truyện</span></a>
+                                 <meta itemprop="position" content="1">
+                              </li>
+                              <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                                 <a href="/<%=manga.slug%>" title="<%=manga.name%>" itemprop="item"><span itemprop="name"><%=manga.name%></span></a> 
+                                 <meta itemprop="position" content="2">
+                              </li>
+                           </ol>
+                        </div>
+                     </div>
+                </div>
+            </header>
             <script
                 type="text/javascript">function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++)0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : "" } var js_bgcolor = getCookie("bgcolor-cookie"), js_font = getCookie("font-cookie"), js_size = getCookie("size-cookie"), js_lineheight = getCookie("lineheight-cookie"), js_hidenav = getCookie("hidenav-cookie"), js_fluid_switch = getCookie("fluid-switch-cookie"), js_onebreak_switch = getCookie("onebreak-switch-cookie"), js_body_insert_class = ""; "" != js_bgcolor && "#F4F4F4" != js_bgcolor && (js_bgcolor = js_bgcolor.replace("#", ""), js_body_insert_class = "232323" == js_bgcolor ? js_body_insert_class + " background-232323 dark-theme" : js_body_insert_class + (" background-" + js_bgcolor)); 1 == js_hidenav && (document.getElementById("body_chapter").className += " hidenav"); "" != js_size && (js_body_insert_class += " size-" + js_size); "" != js_font && (js_font = js_font.replace(/, serif|, sans-serif|'|\s/g, ""), js_body_insert_class += " font-" + js_font); "" != js_lineheight && "180%" != js_lineheight && (js_lineheight = js_lineheight.replace("%", ""), js_body_insert_class += " lineheight-" + js_lineheight); 1 == js_fluid_switch && (js_body_insert_class += " container-fluid-switch"); document.getElementById("body_chapter").className += js_body_insert_class;</script>
             <style type="text/css">
