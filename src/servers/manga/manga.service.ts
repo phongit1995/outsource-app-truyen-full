@@ -42,5 +42,8 @@ class MangaService {
             .skip((page - 1) * pageSize)
             .limit(pageSize);
     }
+    public getMangaById(id:string){
+        return MangaModel.findById(id);
+    }
 }
 export const mangaService = new MangaService();

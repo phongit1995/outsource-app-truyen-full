@@ -13,6 +13,7 @@ let chapter = new Schema(
         manga: {
             type: Schema.Types.ObjectId,
             ref: 'manga',
+            index:true
         },
         index: {
             type: Number,
@@ -33,4 +34,5 @@ let chapter = new Schema(
     },
     { timestamps: true },
 );
+chapter.index({manga:1,index:1},{unique:true});
 export const ChapterModel = model<Chapter>('chapter', chapter);

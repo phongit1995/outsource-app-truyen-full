@@ -598,14 +598,14 @@
                         <input type="hidden" id="chapter-id" value="39500" /> <input type="hidden" id="chapter-bnum"
                             value="" /> <input type="hidden" id="chapter-num" value="" /> <input type="hidden"
                             id="chapter-sac" value="0" />
-                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav "
-                                href="xuyen-qua-chi-linh-thuc-su/chuong-1-xuyen-thanh-nguoi-dan-ong-can-ba" title=""
+                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav disabled"
+                                href="#" title=""
                                 id="prev_chap" data-cid="39495"> <span class="glyphicon glyphicon-chevron-left"></span>
                                 <span class="hidden-xs">Chương </span>trước </a> <button type="button"
                                 class="btn btn-success btn-chapter-nav chapter_jump"><span
                                     class="glyphicon glyphicon-list-alt"></span></button> <a
-                                class="btn btn-success btn-chapter-nav "
-                                href="xuyen-qua-chi-linh-thuc-su/chuong-3-nguoi-vo-tro-ve" title="" id="next_chap"
+                                class="btn btn-success btn-chapter-nav disabled"
+                                href="#" title="" id="next_chap"
                                 data-cid="39506"> <span class="hidden-xs">Chương </span>tiếp <span
                                     class="glyphicon glyphicon-chevron-right"></span> </a> </div>
                     </div>
@@ -699,14 +699,14 @@
                     <div id="ads_bottom_chapter"></div>
                     <hr class="chapter-end" id="chapter-end-bot" />
                     <div class="chapter-nav" id="chapter-nav-bot">
-                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav "
-                                href="xuyen-qua-chi-linh-thuc-su/chuong-1-xuyen-thanh-nguoi-dan-ong-can-ba" title=""
-                                id="prev_chap" data-cid=""> <span class="glyphicon glyphicon-chevron-left"></span> <span
+                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav disabled"
+                                href="#" title=""
+                                id="prev_chap_bot" data-cid=""> <span class="glyphicon glyphicon-chevron-left"></span> <span
                                     class="hidden-xs">Chương </span>trước </a> <button type="button"
                                 class="btn btn-success btn-chapter-nav chapter_jump"><span
                                     class="glyphicon glyphicon-list-alt"></span></button> <a
-                                class="btn btn-success btn-chapter-nav "
-                                href="xuyen-qua-chi-linh-thuc-su/chuong-3-nguoi-vo-tro-ve" title="" id="next_chap"
+                                class="btn btn-success btn-chapter-nav disabled"
+                                href="#" title="" id="next_chap_bot"
                                 data-cid=""> <span class="hidden-xs">Chương </span>tiếp <span
                                     class="glyphicon glyphicon-chevron-right"></span> </a> </div>
                         <div class="text-center"> <button type="button" class="btn btn-warning" id="chapter_error"><span
@@ -767,6 +767,24 @@
         element.setAttribute("type", "text/css");
         element.setAttribute("href", "/frontend/css/main.min.css");
         document.getElementsByTagName("head")[0].appendChild(element); </script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+            method:'get',
+            url:`/api/chapter/next-chapter/<%=chapter._id%>`
+            }).done((data)=>{
+                console.log('data',data);
+                if(data.prevChapter){
+                    $('#prev_chap').removeClass("disabled").attr('href',`/${data.manga.slug}/${data.prevChapter.slug}`);
+                    $('#prev_chap_bot').removeClass("disabled").attr('href',`/${data.manga.slug}/${data.prevChapter.slug}`)
+                }
+                if(data.nextChapter){
+                    $('#next_chap').removeClass("disabled").attr('href',`/${data.manga.slug}/${data.nextChapter.slug}`);
+                    $('#next_chap_bot').removeClass("disabled").attr('href',`/${data.manga.slug}/${data.nextChapter.slug}`);
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

@@ -2,6 +2,7 @@ import { ChapterModel } from './../../models/chapter.model';
 import request from 'request-promise';
 import {getUserAgent} from './../../common/text.helper';
 import cheerio from 'cheerio';
+
 class ChapterService {
     public static getListChapterMangaByPage = (
         mangaId: string,
@@ -35,6 +36,15 @@ class ChapterService {
         const $ = cheerio.load(data);
         let chapterContent = $('#chapter-c').html();
         return chapterContent ;
+    }
+    public static getDetailChapterById(id:string){
+        return ChapterModel.findById(id);
+    }
+    public static getChapterByMangaAndIndex(mangaId:string,index:number){
+        return ChapterModel.findOne({
+            manga:mangaId,
+            index:index
+        })
     }
 }
 export default ChapterService;
