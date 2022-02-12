@@ -46,5 +46,10 @@ class ChapterService {
             index:index
         })
     }
+    public static getListChapter(mangaId:string){
+        return ChapterModel.find({
+            manga:mangaId
+        }).select('-content').sort({index:1})
+    }
 }
 export default ChapterService;

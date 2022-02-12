@@ -46,6 +46,7 @@
     <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "", "name": "Đọc truyện chữ Online, Mê đọc truyện chữ hay", "description": "Đọc truyện chữ online, mê đọc truyện chữ, truyện chữ hay, truyện chữ full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "tim-kiem?tukhoa={tukhoa}" }, "query-input": { "@type": "PropertyValueSpecification", "valueRequired": "http://schema.org/True", "valueName": "tukhoa" } }
     }</script>
     <link rel="stylesheet" type="text/css" href="/frontend/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/frontend/css/custom.css" />
     <style type="text/css">
         .story-title {
             display: block;
@@ -376,10 +377,6 @@
             height: 47px;
         }
     </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2021726978792364"
-        crossorigin="anonymous"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65067329-18"></script>
-    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-65067329-18');</script>
 </head>
 
 <body id="body_chapter" class="">
@@ -566,13 +563,17 @@
                                 <meta itemprop="position" content="1" />
                             </li>
                             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a
-                                href="/<%=manga.slug%>" title="<%=manga.name%>"
-                                    itemprop="item"><span itemprop="name"><%=manga.name%></span></a>
+                                    href="/<%=manga.slug%>" title="<%=manga.name%>" itemprop="item"><span
+                                        itemprop="name">
+                                        <%=manga.name%>
+                                    </span></a>
                                 <meta itemprop="position" content="2" />
                             </li>
                             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a
-                                href="/<%=manga.slug%>/<%=chapter.slug%>"
-                                    title="Chương 2 : Cùng nhau ăn cơm" itemprop="item"><span itemprop="name"><%=chapter.title%></span></a>
+                                    href="/<%=manga.slug%>/<%=chapter.slug%>" title="Chương 2 : Cùng nhau ăn cơm"
+                                    itemprop="item"><span itemprop="name">
+                                        <%=chapter.title%>
+                                    </span></a>
                                 <meta itemprop="position" content="3" />
                             </li>
                         </ol>
@@ -587,10 +588,13 @@
                 <div class="col-xs-12"> <button type="button"
                         class="btn btn-responsive btn-success toggle-nav-open"><span
                             class="glyphicon glyphicon-menu-updownswitch"></span></button>
-                    <h1 class="story-title"><a class="truyen-title" href="/<%=manga.slug%>"
-                            title="<%=manga.name%>"><%=manga.name%></a></h1>
+                    <h1 class="story-title"><a class="truyen-title" href="/<%=manga.slug%>" title="<%=manga.name%>">
+                            <%=manga.name%>
+                        </a></h1>
                     <h2> <a class="chapter-title" href="/<%=manga.slug%>/<%=chapter.slug%>"
-                            title="Chương 2 : Cùng nhau ăn cơm"> <span class="chapter-text"><span></span><%=chapter.title%></span> </a> </h2>
+                            title="Chương 2 : Cùng nhau ăn cơm"> <span class="chapter-text"><span></span>
+                                <%=chapter.title%>
+                            </span> </a> </h2>
                     <hr class="chapter-start" />
                     <div class="chapter-nav" id="chapter-nav-top"> <input type="hidden" id="ten-truyen"
                             value="xuyen-qua-chi-linh-thuc-su" /> <input type="hidden" id="truyen-comment"
@@ -598,14 +602,12 @@
                         <input type="hidden" id="chapter-id" value="39500" /> <input type="hidden" id="chapter-bnum"
                             value="" /> <input type="hidden" id="chapter-num" value="" /> <input type="hidden"
                             id="chapter-sac" value="0" />
-                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav disabled"
-                                href="#" title=""
+                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav disabled" href="#" title=""
                                 id="prev_chap" data-cid="39495"> <span class="glyphicon glyphicon-chevron-left"></span>
                                 <span class="hidden-xs">Chương </span>trước </a> <button type="button"
-                                class="btn btn-success btn-chapter-nav chapter_jump"><span
+                                class="btn btn-success btn-chapter-nav chapter_jump_list"><span
                                     class="glyphicon glyphicon-list-alt"></span></button> <a
-                                class="btn btn-success btn-chapter-nav disabled"
-                                href="#" title="" id="next_chap"
+                                class="btn btn-success btn-chapter-nav disabled" href="#" title="" id="next_chap"
                                 data-cid="39506"> <span class="hidden-xs">Chương </span>tiếp <span
                                     class="glyphicon glyphicon-chevron-right"></span> </a> </div>
                     </div>
@@ -699,14 +701,12 @@
                     <div id="ads_bottom_chapter"></div>
                     <hr class="chapter-end" id="chapter-end-bot" />
                     <div class="chapter-nav" id="chapter-nav-bot">
-                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav disabled"
-                                href="#" title=""
-                                id="prev_chap_bot" data-cid=""> <span class="glyphicon glyphicon-chevron-left"></span> <span
-                                    class="hidden-xs">Chương </span>trước </a> <button type="button"
-                                class="btn btn-success btn-chapter-nav chapter_jump"><span
+                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav disabled" href="#" title=""
+                                id="prev_chap_bot" data-cid=""> <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="hidden-xs">Chương </span>trước </a> <button type="button"
+                                class="btn btn-success btn-chapter-nav chapter_jump_list"><span
                                     class="glyphicon glyphicon-list-alt"></span></button> <a
-                                class="btn btn-success btn-chapter-nav disabled"
-                                href="#" title="" id="next_chap_bot"
+                                class="btn btn-success btn-chapter-nav disabled" href="#" title="" id="next_chap_bot"
                                 data-cid=""> <span class="hidden-xs">Chương </span>tiếp <span
                                     class="glyphicon glyphicon-chevron-right"></span> </a> </div>
                         <div class="text-center"> <button type="button" class="btn btn-warning" id="chapter_error"><span
@@ -768,21 +768,47 @@
         element.setAttribute("href", "/frontend/css/main.min.css");
         document.getElementsByTagName("head")[0].appendChild(element); </script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $.ajax({
-            method:'get',
-            url:`/api/chapter/next-chapter/<%=chapter._id%>`
-            }).done((data)=>{
-                console.log('data',data);
-                if(data.prevChapter){
-                    $('#prev_chap').removeClass("disabled").attr('href',`/${data.manga.slug}/${data.prevChapter.slug}`);
-                    $('#prev_chap_bot').removeClass("disabled").attr('href',`/${data.manga.slug}/${data.prevChapter.slug}`)
+                method: 'get',
+                url: `/api/chapter/next-chapter/<%=chapter._id%>`
+            }).done((data) => {
+                if (data.prevChapter) {
+                    $('#prev_chap').removeClass("disabled").attr('href', `/${data.manga.slug}/${data.prevChapter.slug}`);
+                    $('#prev_chap_bot').removeClass("disabled").attr('href', `/${data.manga.slug}/${data.prevChapter.slug}`)
                 }
-                if(data.nextChapter){
-                    $('#next_chap').removeClass("disabled").attr('href',`/${data.manga.slug}/${data.nextChapter.slug}`);
-                    $('#next_chap_bot').removeClass("disabled").attr('href',`/${data.manga.slug}/${data.nextChapter.slug}`);
+                if (data.nextChapter) {
+                    $('#next_chap').removeClass("disabled").attr('href', `/${data.manga.slug}/${data.nextChapter.slug}`);
+                    $('#next_chap_bot').removeClass("disabled").attr('href', `/${data.manga.slug}/${data.nextChapter.slug}`);
                 }
             })
+            $('.chapter_jump_list').unbind('click');
+            $('.chapter_jump_list').click(function () {
+                $.ajax({
+                    method: 'get',
+                    url: `/api/chapter/list-chapter/<%=manga._id%>`
+                })
+                    .done(data => {
+                        const chapterId = '<%=chapter._id%>';
+                        const listOption = data.map(chapter => {
+                            const selected = chapterId==chapter._id ? 'selected': null;
+                            return `<option value="/<%=manga.slug%>/${chapter.slug}" ${selected}>${chapter.title}</option>`
+                        })
+                        const html = `
+                        <select class="btn btn-success btn-chapter-nav form-control chapter_jump_select">
+                            ${listOption.join('')}
+                        </select>
+                        `;
+                        $('.chapter_jump_list').remove();
+                        $('#prev_chap').after(html);
+                        $('#prev_chap_bot').after(html);
+                        $(".chapter_jump_select").change(function(){
+                            console.log(this.value);
+                            window.location.replace(this.value);
+                        })
+                    })
+            })
+
         })
     </script>
 </body>

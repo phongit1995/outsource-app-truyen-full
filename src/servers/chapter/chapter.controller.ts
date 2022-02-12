@@ -49,3 +49,13 @@ export const getNextChapter= async (req:Request,res:Response)=>{
         manga
     })
 }
+export const getListChapter= async (req:Request,res:Response)=>{
+    const keyCache = 'KEY_CACHE_LIST_CHAPTER'+ req.params.manga ;
+    const dataCache = cacheService.get(keyCache);
+    if(dataCache){
+        return res.status(200).json(dataCache);
+    }
+    const listChapter = await ChapterService.getListChapter(req.params.manga);
+    cacheService.set(keyCache,listChapter,60*30);
+    return res.status(200).json(listChapter);
+}
