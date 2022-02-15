@@ -10,6 +10,7 @@ export const getMangaByCategory = async (req: Request, res: Response) => {
         return res.redirect('/');
     }
     const listManga = await CategoryService.getMangaByCategoryName(categoryName, page, 13);
+    console.log(listManga);
     res.render('category', {
         listManga,
         categoryName,
