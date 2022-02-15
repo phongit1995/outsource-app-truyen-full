@@ -19,7 +19,6 @@ export const detailMangaController = async (req: Request, res: Response) => {
         ChapterService.getListChapterMangaByPage(manga._id.toString(), page, PAGE_SIZE_CHAPTER),
         ChapterService.countChapterOfManga(manga._id.toString()),
     ]);
-    console.log('chapter', chapters.length, chapters);
     const dataRender = {
         manga: manga,
         chapters: chapters,
@@ -29,33 +28,32 @@ export const detailMangaController = async (req: Request, res: Response) => {
     return res.render('manga/detail', dataRender);
 };
 export const getListMangaByTypeController = async (req: Request, res: Response) => {
-    
     const { category } = req.query;
-    const page = req.query.page ? parseInt(req.query.page.toString()):1 ;
-    const pageSize = req.query.pageSize ? parseInt(req.query.pageSize.toString()):10 ;
-    if(category.toString()  == 'all'){
-        const result = await mangaService.getListHot(page,pageSize);
+    const page = req.query.page ? parseInt(req.query.page.toString()) : 1;
+    const pageSize = req.query.pageSize ? parseInt(req.query.pageSize.toString()) : 10;
+    if (category.toString() == 'all') {
+        const result = await mangaService.getListHot(page, pageSize);
         return res.status(200).json(result);
     }
     const categoryName = getCategoryById(parseInt(category.toString()));
     if (!categoryName) {
         return res.status(404).json({ message: 'error' });
     }
-    const result = await mangaService.getListMangaByCategory(categoryName,page,pageSize);
+    const result = await mangaService.getListMangaByCategory(categoryName, page, pageSize);
     return res.status(200).json(result);
 };
 export const getListNewByCategory = async (req: Request, res: Response) => {
     const { category } = req.query;
-    const page = req.query.page ? parseInt(req.query.page.toString()):1 ;
-    const pageSize = req.query.pageSize ? parseInt(req.query.pageSize.toString()):10 ;
-    if(category.toString()  == 'all'){
-        const result = await mangaService.getListNewChapter(page,pageSize);
+    const page = req.query.page ? parseInt(req.query.page.toString()) : 1;
+    const pageSize = req.query.pageSize ? parseInt(req.query.pageSize.toString()) : 10;
+    if (category.toString() == 'all') {
+        const result = await mangaService.getListNewChapter(page, pageSize);
         return res.status(200).json(result);
     }
     const categoryName = getCategoryById(parseInt(category.toString()));
     if (!categoryName) {
         return res.status(404).json({ message: 'error' });
     }
-    const result = await mangaService.getListNewChapterByCategory(categoryName,page,pageSize);
+    const result = await mangaService.getListNewChapterByCategory(categoryName, page, pageSize);
     return res.status(200).json(result);
 };

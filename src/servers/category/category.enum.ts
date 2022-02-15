@@ -157,7 +157,6 @@ export const ECategoryType: CategoryType[] = [
     },
 ];
 export const getCategoryByName = (type: string): string | null => {
-    console.log(ECategoryType);
     let result = ECategoryType.find((e) => e.type == type);
     return result ? result.name : null;
 };
