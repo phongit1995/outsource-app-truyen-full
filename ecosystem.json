@@ -6,7 +6,8 @@
         "args":" run start",
         "merge_logs": true,
         "env": {
-          "PORT":9000
+          "PORT":9000,
+          "MONGO_URL":"mongodb://localhost:27017/truyenfull"
         }
       }
     ]
