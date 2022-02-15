@@ -3,7 +3,7 @@ $( document ).ready(function() {
         console.log(this.value);
         $.ajax({
             type: 'get',
-            url:`/api/list-manga-buy-category?page=1&pageSize=13&category=${this.value}`
+            url:`/api/list-new-buy-category?page=1&pageSize=13&category=${this.value}`
         }).done((data)=>{
             console.log(data);
             const result = data.map((item,index)=>{
