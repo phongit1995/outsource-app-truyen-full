@@ -7,7 +7,7 @@
         "merge_logs": true,
         "env": {
           "PORT":9000,
-          "MONGO_URL":"mongodb://admin:Phongit1995@64.44.168.43:27017/truyenfull"
+          "MONGO_URL":"mongodb://admin:Phongit1995@64.44.168.43:27017/truyenfull?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false"
         }
       }
     ]
