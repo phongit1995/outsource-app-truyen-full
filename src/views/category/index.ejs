@@ -92,7 +92,7 @@
                 <div class="text-center"></div>
                 <div class="list list-truyen col-xs-12">
                     <div style="padding: 0 10px;">
-                        <p style="text-align:justify">Truyện c&oacute; nội dung xảy ra ở thời cổ đại phong kiến.</p>
+                        <p style="text-align:justify"><%=getTitle%></p>
                     </div>
                     <% listManga.forEach((manga)=>{ %>
                         <div class="row" itemscope itemtype="https://schema.org/Book">
@@ -109,14 +109,12 @@
                                     <div style="height:10px;"></div> <span class="glyphicon glyphicon-book"></span>
                                     <h3 class="truyen-title" itemprop="name"> <a href="tro-lai-chien-quoc-chi-ta-la-lao-ai"
                                             title="Trở Lại Chiến Quốc Chi Ta Là Lao Ái" itemprop="url"><%=manga.name%></a> </h3> <span class="label-title label-full"></span> <span
-                                        class="author" itemprop="author"><span class="glyphicon glyphicon-pencil"></span>
-                                        Tam Sinh Vạn Vật</span>
-                                    <div class="content"><%=manga.description%> <div class="latest-chapter">
+                                        class="author" itemprop="author"><span class="glyphicon glyphicon-pencil"></span><%=manga.author%></span>
+                                    <div class="content"><%=manga.description.slice(0,250)%> <div class="latest-chapter">
                                             <span>Chương mới nhất:</span> <a
                                                 href="tro-lai-chien-quoc-chi-ta-la-lao-ai/chuong-330-cuoi-cung-khoi-dau-moi"
                                                 title="Chương 330 : Cuối cùng (khởi đầu mới! ) "> <span
-                                                    class="chapter-text"><span></span></span>Chương 330 : Cuối cùng (khởi
-                                                đầu mới! ) </a> </div>
+                                                    class="chapter-text"><span></span></span><%=manga.last_chapter.title%></a> </div>
                                     </div>
                                 </div>
                             </div>
