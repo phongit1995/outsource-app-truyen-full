@@ -11,6 +11,7 @@ export interface Manga {
     views: number;
     description: string;
     url: string;
+    isHot: boolean;
     manga_status: number;
     rate: number;
     rateCount: number;
@@ -49,6 +50,10 @@ let manga = new Schema(
         chapter_update: {
             type: Date,
             default: null,
+        },
+        isHot: {
+            type: Boolean,
+            default: false,
         },
         first_chapter: {
             type: mongoose.Types.ObjectId,

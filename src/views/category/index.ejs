@@ -8,7 +8,7 @@
     <meta name="viewport"
         content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
     <meta name="description"
-        content="Danh sách truyện Cổ Đại tổng hợp mới nhất. Truyện có nội dung xảy ra ở thời cổ đại phong kiến." />
+        content="<%=getTitle%>" />
     <meta name="keywords" content="truyện Cổ Đại" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="canonical" href="the-loai/co-dai" />
@@ -217,149 +217,62 @@
                 </div>
                 <div class="list list-truyen list-side col-xs-12">
                     <div class="title-list">
-                        <h4>Truyện Cổ Đại hot</h4>
+                        <h4>Truyện <%=categoryName%> hot</h4>
                     </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-1">1</div>
-                            <div class="s-title">
-                                <h3><a href="than-y-dich-nu" title="Thần Y Đích Nữ">Thần Y Đích Nữ</a></h3>
+                    <%
+                    function makeSlug(str) {
+                        //Đổi chữ hoa thành chữ thường
+                        let slug = str.toLowerCase();
+                    
+                        //Đổi ký tự có dấu thành không dấu
+                        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+                        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+                        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+                        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+                        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+                        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+                        slug = slug.replace(/đ/gi, 'd');
+                        slug = slug.replace('-', '');
+                        //Xóa các ký tự đặt biệt
+                        slug = slug.replace(
+                            /\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi,
+                            '',
+                        );
+                        //Đổi khoảng trắng thành ký tự gạch ngang
+                        slug = slug.replace(/ /gi, ' - ');
+                        //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+                        //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+                        slug = slug.replace(/\-\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-/gi, '-');
+                        //Xóa các ký tự gạch ngang ở đầu và cuối
+                        slug = '@' + slug + '@';
+                        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+                        slug = slug.replace(/\s/g, '');
+                        slug = slug.replace('--', '-');
+                        return slug;
+                    }
+                    %>
+                    <% hotManga.forEach((manga,index)=>{%>
+                        <div class="row top-item">
+                            <div class="col-xs-12">
+                                <div class="top-num top-<%=(index+1)%>"><%=(index+1)%></div>
+                                <div class="s-title">
+                                    <h3><a href="/<%=manga.slug%>" title="<%=manga.name%>"><%=manga.name%></a></h3>
+                                </div>
+                                <div>
+                                    <% manga.category.forEach((category,index)=>{%>
+                                        <a itemprop="genre" href="/the-loai/<%=makeSlug(category)%>" title="Ngôn Tình"><%=category%></a>
+                                        <% if(index<manga.category.length-1) {%>
+                                            ,
+                                        <%}%>
+                                    <%}) %>
+                                </div>
                             </div>
-                            <div> <a itemprop="genre" href="the-loai/ngon-tinh" title="Ngôn Tình">Ngôn Tình</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên Không</a>, <a
-                                    itemprop="genre" href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a> </div>
                         </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-2">2</div>
-                            <div class="s-title">
-                                <h3><a href="dien-vien-cam-tu" title="Điền Viên Cẩm Tú">Điền Viên Cẩm Tú</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/ngon-tinh" title="Ngôn Tình">Ngôn Tình</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên Không</a>, <a
-                                    itemprop="genre" href="the-loai/dien-van" title="Điền Văn">Điền Văn</a>, <a
-                                    itemprop="genre" href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-3">3</div>
-                            <div class="s-title">
-                                <h3><a href="he-thong-livestream-cua-nu-de" title="Hệ Thống Livestream Của Nữ Đế">Hệ
-                                        Thống Livestream Của Nữ Đế</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/ngon-tinh" title="Ngôn Tình">Ngôn Tình</a>, <a
-                                    itemprop="genre" href="the-loai/khoa-huyen" title="Khoa Huyễn">Khoa Huyễn</a>, <a
-                                    itemprop="genre" href="the-loai/he-thong" title="Hệ Thống">Hệ Thống</a>, <a
-                                    itemprop="genre" href="the-loai/di-nang" title="Dị Năng">Dị Năng</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên Không</a>, <a
-                                    itemprop="genre" href="the-loai/cung-dau" title="Cung Đấu">Cung Đấu</a>, <a
-                                    itemprop="genre" href="the-loai/hai-huoc" title="Hài Hước">Hài Hước</a>, <a
-                                    itemprop="genre" href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-4">4</div>
-                            <div class="s-title">
-                                <h3><a href="toi-cuong-than-thoai-de-hoang" title="Tối Cường Thần Thoại Đế Hoàng">Tối
-                                        Cường Thần Thoại Đế Hoàng</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/tien-hiep" title="Tiên Hiệp">Tiên Hiệp</a>, <a
-                                    itemprop="genre" href="the-loai/khoa-huyen" title="Khoa Huyễn">Khoa Huyễn</a>, <a
-                                    itemprop="genre" href="the-loai/he-thong" title="Hệ Thống">Hệ Thống</a>, <a
-                                    itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>, <a
-                                    itemprop="genre" href="the-loai/di-gioi" title="Dị Giới">Dị Giới</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên Không</a>, <a
-                                    itemprop="genre" href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-5">5</div>
-                            <div class="s-title">
-                                <h3><a href="dich-nu-trung-sinh-ky" title="Đích Nữ Trùng Sinh Ký">Đích Nữ Trùng Sinh
-                                        Ký</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/ngon-tinh" title="Ngôn Tình">Ngôn Tình</a>, <a
-                                    itemprop="genre" href="the-loai/trong-sinh" title="Trọng Sinh">Trọng Sinh</a>, <a
-                                    itemprop="genre" href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-6">6</div>
-                            <div class="s-title">
-                                <h3><a href="tuyet-sac-dan-duoc-su-quy-vuong-yeu-phi"
-                                        title="Tuyệt Sắc Đan Dược Sư: Quỷ Vương Yêu Phi">Tuyệt Sắc Đan Dược Sư: Quỷ
-                                        Vương Yêu Phi</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/ngon-tinh" title="Ngôn Tình">Ngôn Tình</a>, <a
-                                    itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>, <a
-                                    itemprop="genre" href="the-loai/di-gioi" title="Dị Giới">Dị Giới</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên Không</a>, <a
-                                    itemprop="genre" href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-7">7</div>
-                            <div class="s-title">
-                                <h3><a href="bac-tong-phong-luu" title="Bắc Tống Phong Lưu">Bắc Tống Phong Lưu</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/tien-hiep" title="Tiên Hiệp">Tiên Hiệp</a>, <a
-                                    itemprop="genre" href="the-loai/lich-su" title="Lịch Sử">Lịch Sử</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên Không</a>, <a
-                                    itemprop="genre" href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-8">8</div>
-                            <div class="s-title">
-                                <h3><a href="xuyen-nhanh-nam-than-bung-chay-di"
-                                        title="Xuyên Nhanh: Nam Thần, Bùng Cháy Đi!">Xuyên Nhanh: Nam Thần, Bùng Cháy
-                                        Đi!</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/ngon-tinh" title="Ngôn Tình">Ngôn Tình</a>, <a
-                                    itemprop="genre" href="the-loai/khoa-huyen" title="Khoa Huyễn">Khoa Huyễn</a>, <a
-                                    itemprop="genre" href="the-loai/he-thong" title="Hệ Thống">Hệ Thống</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên Không</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-nhanh" title="Xuyên Nhanh">Xuyên Nhanh</a>, <a
-                                    itemprop="genre" href="the-loai/hai-huoc" title="Hài Hước">Hài Hước</a>, <a
-                                    itemprop="genre" href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a>, <a
-                                    itemprop="genre" href="the-loai/mat-the" title="Mạt Thế">Mạt Thế</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-9">9</div>
-                            <div class="s-title">
-                                <h3><a href="phuong-nghich-thien-ha" title="Phượng Nghịch Thiên Hạ">Phượng Nghịch Thiên
-                                        Hạ</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/ngon-tinh" title="Ngôn Tình">Ngôn Tình</a>, <a
-                                    itemprop="genre" href="the-loai/huyen-huyen" title="Huyền Huyễn">Huyền Huyễn</a>, <a
-                                    itemprop="genre" href="the-loai/di-gioi" title="Dị Giới">Dị Giới</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên Không</a>, <a
-                                    itemprop="genre" href="the-loai/nguoc" title="Ngược">Ngược</a>, <a itemprop="genre"
-                                    href="the-loai/nu-cuong" title="Nữ Cường">Nữ Cường</a>, <a itemprop="genre"
-                                    href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a> </div>
-                        </div>
-                    </div>
-                    <div class="row top-item">
-                        <div class="col-xs-12">
-                            <div class="top-num top-10">10</div>
-                            <div class="s-title">
-                                <h3><a href="nong-gia-tieu-dia-chu" title="Nông gia tiểu địa chủ">Nông gia tiểu địa
-                                        chủ</a></h3>
-                            </div>
-                            <div> <a itemprop="genre" href="the-loai/ngon-tinh" title="Ngôn Tình">Ngôn Tình</a>, <a
-                                    itemprop="genre" href="the-loai/xuyen-khong" title="Xuyên Không">Xuyên Không</a>, <a
-                                    itemprop="genre" href="the-loai/sung" title="Sủng">Sủng</a>, <a itemprop="genre"
-                                    href="the-loai/co-dai" title="Cổ Đại">Cổ Đại</a> </div>
-                        </div>
+                    <% }) %>
                     </div>
                 </div>
                 <div id="ads_sidebar_story2"></div>
