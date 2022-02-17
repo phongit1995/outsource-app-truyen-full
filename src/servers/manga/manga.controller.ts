@@ -15,11 +15,12 @@ export const detailMangaController = async (req: Request, res: Response) => {
     if (!manga) {
         return res.redirect('/');
     }
-    const [chapters, totalChapter] = await Promise.all([
+    const [chapters, totalChapter, listSameAuthor, listHot] = await Promise.all([
         ChapterService.getListChapterMangaByPage(manga._id.toString(), page, PAGE_SIZE_CHAPTER),
         ChapterService.countChapterOfManga(manga._id.toString()),
+        mangaService.getListSameAuthor(manga.authorSlug, manga._id.toString()),
+        mangaService.getListHostCache(),
     ]);
-    console.log('totalChapter', totalChapter);
     const dataRender = {
         manga: manga,
         chapters: chapters,
@@ -27,6 +28,8 @@ export const detailMangaController = async (req: Request, res: Response) => {
         current: page,
         pages: Math.ceil(totalChapter / PAGE_SIZE_CHAPTER),
         pageSize: PAGE_SIZE_CHAPTER,
+        listSameAuthor,
+        listHot,
     };
     cacheService.set(keyCache, dataRender, CACHE_MANGA_TIME);
     return res.render('manga/detail', dataRender);

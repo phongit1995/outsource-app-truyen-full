@@ -152,6 +152,7 @@
                             <li><a itemprop="url" href="/the-loai/<%=category%>?page=<%=(current+1)%>"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
                             <li><a itemprop="url" href="/the-loai/<%=category%>?page=<%=pages%>"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></a></li>
                         <%}%>
+                        <% if(pages>1){ %>
                         <li class="dropup page-nav"> <a href="javascript:void(0)" data-toggle="dropdown"
                                 aria-expanded="true">Chọn trang <span class="caret"></span></a>
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
@@ -164,6 +165,7 @@
                                 </form>
                             </div>
                         </li>
+                        <%}%>
                     </ul>
                 <% } %>
             </div>

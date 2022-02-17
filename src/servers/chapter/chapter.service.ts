@@ -34,7 +34,9 @@ class ChapterService {
         };
         const data = await request(options);
         const $ = cheerio.load(data);
-        $('#chapter-c p').first().remove();
+        if (!$('#chapter-c p').first().text()) {
+            $('#chapter-c p').first().remove();
+        }
         $('#ads-chapter-pc-top').remove();
         let chapterContent = $('#chapter-c');
         return chapterContent.html();
