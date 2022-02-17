@@ -406,24 +406,45 @@
                             id="truyen-comment" type="hidden" value="tro-lai-2006" /> <input id="chapter-sac"
                             type="hidden" value="0" />
                         <div class="paginator">
-                            <ul class="pagination pagination-sm">
-                                <li class="active"><span class="currentPage">1</span></li>
-                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=2">2</a></li>
-                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=3">3</a></li>
-                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=4">4</a></li>
-                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=5">5</a></li>
-                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=6">6</a></li>
-                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=2"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li><a itemprop="url" href="/tuyet-the-kiem-tu-manh-nhat-xai-tien-lao-dai&amp;page=17"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></a></li>
-                                <li class="dropup page-nav">
-                                   <a href="javascript:void(0)" data-toggle="dropdown" aria-expanded="true">Chọn trang <span class="caret"></span></a> 
-                                   <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                      <form action="." name="jump_page" id="jump_page" method="get">
-                                         <div class="input-group"> <input name="page_type" type="hidden" value=""> <input name="truyen" type="hidden" value=""> <input name="filter" type="hidden" value=""> <input class="form-control" name="page" type="number" placeholder="Số trang..." value=""><span class="input-group-btn"><button class="btn btn-default" type="submit">Đi</button></span> </div>
-                                      </form>
-                                   </div>
-                                </li>
-                             </ul>
+                            <% if(pages>0){ %>
+                                <ul class="pagination pagination-sm">
+                                    <!-- FIRST ITEM -->  
+                                    <% if(current==1){%>
+                                        <li class="active"><span class="currentPage">1</span></li>
+                                    <% } else { %>
+                                        <li><a itemprop="url" href="/<%=manga.slug%>?page=1"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></a></li>
+                                        <li><a itemprop="url" href="/<%=manga.slug%>?page=<%=(current-1)%>"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a></li>
+                                    <%}%>
+                                    <!-- ITEMS  -->
+                                    <% var from = current-5 ; var to = current+5 %> 
+                                    <% for(; from <=to ; from ++) { %>
+                                        <% if (from>0 && from <=pages && !(from ==1 && current==1 )) {%>
+                                            <% if(from==current){ %>
+                                               <li class="active"> <span class="currentPage"><%=from%></span></li>
+                                             <%} else {%>
+                                                <li><a itemprop="url" href="/<%=manga.slug%>?page=<%=from%>"><%=from%></a></li>
+                                            <%}%>
+                                        <%}%>
+                                    <% }%>
+                                    <!-- LAST ITEM -->
+                                    <% if(current < pages) {%>
+                                        <li><a itemprop="url" href="/<%=manga.slug%>?page=<%=(current+1)%>"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                                        <li><a itemprop="url" href="/<%=manga.slug%>?page=<%=pages%>"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></a></li>
+                                    <%}%>
+                                    <li class="dropup page-nav"> <a href="javascript:void(0)" data-toggle="dropdown"
+                                            aria-expanded="true">Chọn trang <span class="caret"></span></a>
+                                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <form action="." name="page_jump_category" id="page_jump_category" method="get">
+                                                <div class="input-group"> <input name="page_type" type="hidden" value="" /> <input
+                                                        name="truyen" type="hidden" value="" /> <input name="filter" type="hidden"
+                                                        value="" /> <input class="form-control" id="page_to_input" name="page" type="number"
+                                                        placeholder="Số trang..." value="" /><span class="input-group-btn"><button
+                                                            class="btn btn-default" type="submit">Đi</button></span> </div>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            <% } %>
                         </div> <input name="truyen" type="hidden" value="" />
                     </div>
                     <div class="col-xs-12 no-padding review-story">
