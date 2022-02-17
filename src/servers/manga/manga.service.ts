@@ -68,7 +68,7 @@ class MangaService {
         if (dataCache) {
             return dataCache;
         }
-        const result = await MangaModel.find().sort({ isHot: -1 }).limit(10);
+        const result = await MangaModel.find().sort({ rate: -1 }).limit(10);
         cacheService.set(keyCache, result, 60 * 60 * 2);
         return result;
     }
