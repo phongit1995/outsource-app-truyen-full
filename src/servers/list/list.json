@@ -1,0 +1,23 @@
+[
+    {
+        "name":"Truyện Hot",
+        "slug":"truyen-hot",
+        "sort":{
+            "isHot":-1
+        }
+    },
+    {
+        "name":"Truyện full",
+        "query":{
+            "manga_status":1
+        },
+        "slug":"truyen-full"
+    },
+    {
+        "name":"Truyện Mới",
+        "query":{
+            "manga_status":1
+        },
+        "slug":"truyen-moi"
+    }
+]

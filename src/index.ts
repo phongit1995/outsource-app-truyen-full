@@ -10,6 +10,8 @@ app.use(
         maxAge: 1209600,
     }),
 );
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
