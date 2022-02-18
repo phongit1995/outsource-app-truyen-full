@@ -72,5 +72,16 @@ class MangaService {
         cacheService.set(keyCache, result, 60 * 60 * 2);
         return result;
     }
+    public async getMangaByCondition(
+        condition: object = {},
+        sort: object = {},
+        page: number,
+        pageSize: number,
+    ) {
+        return MangaModel.find(condition)
+            .sort(sort)
+            .skip((page - 1) * pageSize)
+            .limit(pageSize);
+    }
 }
 export const mangaService = new MangaService();

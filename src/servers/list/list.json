@@ -8,14 +8,14 @@
     },
     {
         "name":"Truyện full",
-        "query":{
+        "sort":{
             "manga_status":1
         },
         "slug":"truyen-full"
     },
     {
         "name":"Truyện Mới",
-        "query":{
+        "sort":{
             "manga_status":1
         },
         "slug":"truyen-moi"
