@@ -12,7 +12,7 @@ export  class AuthService {
 
         return saveAdmin;
     }
-    public static async Login(name, password) {
+    public static  Login(name, password) {
         AdminModel.findOne({name}, function(err, admin)  {
             if (err) return false;
             bcrypt.compare(password, admin.password, function(err, result) {

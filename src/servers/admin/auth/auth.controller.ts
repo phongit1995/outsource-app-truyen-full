@@ -9,6 +9,6 @@ export const Register = async (req: Request, res: Response) => {
 
 export const Login = async (req: Request, res: Response) => {
     const {name, password} = req.body;
-    const adminByName = await AuthService.Login(name, password);
+    const adminByName =  AuthService.Login(name, password);
     res.json(adminByName);
 }
