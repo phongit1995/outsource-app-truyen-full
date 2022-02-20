@@ -16,6 +16,10 @@ app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.get('/admin', (req, res) => {
+    res.render('admin/login.ejs');
+});
+
 mongoose
     .connect(EnvAppConfig.MONGO_URL)
     .then(() => {
