@@ -1,6 +1,5 @@
 import {AdminModel} from '../../../models/admin.model';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import {bcrypt} from 'bcrypt';
 
 export  class AuthService {
     public static async Register(name, password) {
@@ -8,11 +7,11 @@ export  class AuthService {
         const newAdmin = new AdminModel({
             name, password: hashPassword
         });
-        const saveAdmin = await newAdmin.save();
+        const admin = await newAdmin.save();
 
-        return saveAdmin;
+        return admin;
     }
-    public static  Login(name, password) {
+    public static Login(name, password) {
         AdminModel.findOne({name}, function(err, admin)  {
             if (err) return false;
             bcrypt.compare(password, admin.password, function(err, result) {
