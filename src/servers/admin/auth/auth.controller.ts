@@ -1,13 +1,10 @@
 import {Request, Response} from "express";
 import AuthService from './auth.service';
+import bcrypt from 'bcrypt';
 
 export const renderLogin = (req: Request|any, res: Response) => {
-    console.log(req.session.admin);
-    req.session.admin = {
-        website: 'anonystick.com',
-        type: 'blog javascript',
-        like: '4550'
-    };
+    // console.log(req.session.admin);
+    // req.session.admin = 3;
     res.render('admin/auth/login.ejs');
 }
 
@@ -17,12 +14,25 @@ export const Register = async (req: Request, res: Response) => {
     return res.json(newAdmin);
 }
 
-export const Login = async (req: Request, res: Response) => {
+export const Login = async (req: Request|any, res: Response) => {
     const {name, password} = req.body;
-
+    const adminByName = await AuthService.Login(name, password);
+    bcrypt.compare(password, adminByName.password, function(err, result) {
+        if (result === true) {
+            req.session.admin = {name: adminByName.name};
+            return res.redirect('/admin/dashboard');
+        } else {
+            return res.redirect('/admin/login');
+        }
+    });
 }
 
-export const Authentication = async (req: Request, res: Response) => {
-
+export const Authentication = async (req: Request| any, res: Response, next) => {
+    if (req.session.admin) {
+        //console.log(req.session.admin);
+        next();
+    } else {
+        return res.redirect('/admin/login');
+    }
 }
 

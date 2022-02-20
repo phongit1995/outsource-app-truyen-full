@@ -13,10 +13,10 @@ app.use(
     }),
 );
 app.use(session({
+    resave: true,
     secret: 'nguyen vu',
-    resave: false,
     saveUninitialized: true,
-    cookie: { secure: true, maxAge: 60000 }
+    cookie: { maxAge: 60000 }
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
