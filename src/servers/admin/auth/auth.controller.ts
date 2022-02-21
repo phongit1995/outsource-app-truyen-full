@@ -3,9 +3,10 @@ import AuthService from './auth.service';
 import bcrypt from 'bcrypt';
 
 export const renderLogin = (req: Request|any, res: Response) => {
-    // console.log(req.session.admin);
-    // req.session.admin = 3;
-    res.render('admin/auth/login.ejs');
+    if (req.session.admin) {
+        return res.redirect('/admin/dashboard');
+    }
+    return res.render('admin/auth/login.ejs');
 }
 
 export const Register = async (req: Request, res: Response) => {

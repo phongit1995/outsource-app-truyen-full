@@ -304,7 +304,7 @@
                             <div class="info">
                                 <div itemprop="author" itemscope itemtype="https://schema.org/Person">
                                     <h3><span class="glyphicon glyphicon-user"></span> Tác giả:</h3> <a
-                                        href="tac-gia/moc-tu-tam" title="Mộc Tử Tâm"><span itemprop="name">
+                                        href="tac-gia/<%=manga.authorSlug%>" title="<%=manga.author%>"><span itemprop="name">
                                             <%=manga.author%>
                                         </span></a>
                                 </div>
@@ -350,7 +350,7 @@
                                     %>
                                     <h3><span class="glyphicon glyphicon-tag"></span> Thể loại:</h3>
                                     <% manga.category.forEach((category,index)=>{%>
-                                        <a itemprop="genre" href="/the-loai/<%=makeSlug(category)%>" title="Ngôn Tình"><%=category%></a>
+                                        <a itemprop="genre" href="/the-loai/<%=makeSlug(category)%>" title="<%=category%>"><%=category%></a>
                                         <% if(index<manga.category.length-1) {%>
                                             ,
                                         <%}%>
