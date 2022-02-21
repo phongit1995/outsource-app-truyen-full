@@ -10,6 +10,8 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+    networks:
+      - host
   mongo:
     image: mongo
     restart: always
@@ -23,3 +25,7 @@ services:
     restart: always
     ports:
       - 6379:6379
+networks:
+  host: 
+    name: host
+    external: true
