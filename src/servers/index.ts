@@ -4,6 +4,7 @@ import MangaService from './manga/manga.router';
 import ChapterService from './chapter/chapter.router';
 import CategoryService from './category/category.router';
 import ListService from './list/list.router';
+import AuthorService from './author/author.router';
 import Auth from './admin/auth/auth.router';
 import Manage from './admin/manage/manage.router';
 const router = express.Router();
@@ -12,12 +13,13 @@ const router = express.Router();
 router.use('/admin', Auth);
 router.use('/admin', Manage);
 
-
+router.use('/', AuthorService);
 router.use('/', CategoryService);
 router.use('/', ListService);
 router.use('/', IndexService);
 router.use('/', MangaService);
 router.use('/', ChapterService);
+
 
 
 
