@@ -10,8 +10,8 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
-    networks:
-      - host
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   mongo:
     image: mongo
     restart: always
@@ -25,7 +25,3 @@ services:
     restart: always
     ports:
       - 6379:6379
-networks:
-  host: 
-    name: host
-    external: true
