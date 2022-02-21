@@ -4,8 +4,10 @@ import { mangaService } from '../manga/manga.service';
 
 export const getMangaByAuthor = async (req: Request|any, res: Response) => {
     const slugAuthor = req.params.author;
-    const listMangaByAuthor = await AuthorService.getMangaByAuthor(slugAuthor);
-    const hotManga = await mangaService.getListHot(1, 7);
+    const [listMangaByAuthor, hotManga] = await Promise.all([
+        AuthorService.getMangaByAuthor(slugAuthor),
+        mangaService.getListHot(1, 7)
+    ])
 
     if (listMangaByAuthor.length > 0) {
         const nameAuthor = listMangaByAuthor[0].author;
