@@ -7,12 +7,16 @@ export class ListService {
     public static async getCategorySortList(slug: string): Promise<{
         category: string[];
         sort: { [index: string]: any };
+        name?: string;
+        description?: string;
     } | null> {
         const checkObject = listJson.find((item) => item.slug == slug);
         if (checkObject) {
             return {
                 category: [],
                 sort: checkObject.sort,
+                name: checkObject.name,
+                description: checkObject.description,
             };
         }
         const lists = await ListModel.find();
@@ -21,6 +25,8 @@ export class ListService {
             return {
                 category: checkList.category,
                 sort: {},
+                name: checkList.name,
+                description: checkList.description,
             };
         }
         return null;

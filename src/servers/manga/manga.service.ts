@@ -79,9 +79,16 @@ class MangaService {
         pageSize: number,
     ) {
         return MangaModel.find(condition)
+            .populate({
+                path: 'last_chapter',
+                select: '-content',
+            })
             .sort(sort)
             .skip((page - 1) * pageSize)
             .limit(pageSize);
+    }
+    public async countDocumentByCondition(condition: object = {}) {
+        return MangaModel.countDocuments(condition);
     }
 }
 export const mangaService = new MangaService();
