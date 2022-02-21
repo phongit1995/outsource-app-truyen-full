@@ -4,21 +4,26 @@ import service from './servers';
 import path from 'path';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
+import session from 'express-session';
 const app = express();
+
 app.use(
     express.static(path.join(__dirname, 'public'), {
         maxAge: 1209600,
     }),
 );
+app.use(session({
+    resave: true,
+    secret: 'nguyen vu',
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.get('/admin', (req, res) => {
-    res.render('admin/login.ejs');
-});
 
 mongoose
     .connect(EnvAppConfig.MONGO_URL)
