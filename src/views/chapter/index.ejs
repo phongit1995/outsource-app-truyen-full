@@ -389,7 +389,7 @@
                     <div class="container breadcrumb-container">
                         <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
                             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a href=""
-                                    accesskey="1"><span class="glyphicon glyphicon-home"></span></a> <a href=""
+                                    accesskey="1"><span class="glyphicon glyphicon-home"></span></a> <a href="/"
                                     title="Đọc truyện online" itemprop="item"><span itemprop="name">Truyện</span></a>
                                 <meta itemprop="position" content="1" />
                             </li>
@@ -452,18 +452,18 @@
                                             class="col-sm-2 col-md-5 control-label" for="truyen-background">Màu
                                             nền</label>
                                         <div class="col-sm-5 col-md-7"> <select class="form-control"
-                                                id="truyen-background">
-                                                <option value="#F4F4F4">Xám nhạt</option>
-                                                <option value="#E9EBEE">Xanh nhạt</option>
-                                                <option value="#F4F4E4">Vàng nhạt</option>
-                                                <option value="#EAE4D3">Màu sepia</option>
-                                                <option value="#D5D8DC">Xanh đậm</option>
-                                                <option value="#FAFAC8">Vàng đậm</option>
-                                                <option value="#EFEFAB">Vàng ố</option>
-                                                <option value="#FFF">Màu trắng</option>
+                                                id="chapter-background">
+                                                <option value="xanmnhat">Xám nhạt</option>
+                                                <option value="xanhnhat">Xanh nhạt</option>
+                                                <option value="vangnhat">Vàng nhạt</option>
+                                                <option value="sepia">Màu sepia</option>
+                                                <option value="xanhdam">Xanh đậm</option>
+                                                <option value="vangdam">Vàng đậm</option>
+                                                <option value="vango">Vàng ố</option>
+                                                <option value="mautrang">Màu trắng</option>
                                                 <option value="hatsan">Hạt sạn</option>
                                                 <option value="sachcu">Sách cũ</option>
-                                                <option value="#232323">Màu tối</option>
+                                                <option value="mautoi">Màu tối</option>
                                             </select> </div>
                                     </div>
                                     <div class="form-group form-group-sm"><label class="col-sm-2 col-md-5 control-label"
@@ -562,6 +562,24 @@
     <script type="text/javascript" src="/frontend/js/main.min.js"></script>
     <script>
         $(document).ready(function () {
+            function setCookie(c_name, value, exdays) {
+                var exdate = new Date();
+                exdate.setDate(exdate.getDate() + exdays);
+                var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+                document.cookie = c_name + "=" + c_value;
+            }
+
+            function getCookie(c_name) {
+                var i, x, y, ARRcookies = document.cookie.split(";");
+                for (i = 0; i < ARRcookies.length; i++) {
+                    x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+                    y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+                    x = x.replace(/^\s+|\s+$/g, "");
+                    if (x == c_name) {
+                        return unescape(y);
+                    }
+                }
+            }
             $.ajax({
                 method: 'get',
                 url: `/api/chapter/next-chapter/<%=chapter._id%>`
@@ -575,6 +593,19 @@
                     $('#next_chap_bot').removeClass("disabled").attr('href', `/${data.manga.slug}/${data.nextChapter.slug}`);
                 }
             })
+            const dataCss = {
+                    xanmnhat:"background-color: rgb(244, 244, 244); background-image: none;",
+                    xanhnhat:"background-color: rgb(233, 235, 238); background-image: none;",
+                    vangnhat:"background-color: rgb(244, 244, 228); background-image: none;",
+                    sepia:"background-color: rgb(234, 228, 211); background-image: none;",
+                    xanhdam:"background-color: rgb(213, 216, 220); background-image: none;",
+                    vangdam:"background-color: rgb(250, 250, 200); background-image: none;",
+                    vango:"background-color: rgb(239, 239, 171); background-image: none;",
+                    mautrang:"background-color: rgb(255, 255, 255); background-image: none;",
+                    hatsan:'background-color: rgb(242, 242, 242); background-image: url("//static.8cache.com/img/bg_op.png"); background-repeat: repeat;',
+                    sachcu:'background-color: rgb(194, 180, 155); background-image: url("//static.8cache.com/img/bg_book_op.png"); background-repeat: repeat;',
+                    mautoi:'background-color: rgb(35, 35, 35); background-image: url("//static.8cache.com/img/bg_dark.gif"); background-repeat: repeat ;'
+                }
             $('.chapter_jump_list').unbind('click');
             $('.chapter_jump_list').click(function () {
                 $.ajax({
@@ -601,7 +632,31 @@
                         })
                     })
             })
-
+            $("#chapter-background").change(function(){
+                console.log( $(this).val());
+                const select = $(this).val()
+                const valueSelect = dataCss[select];
+                if(valueSelect){
+                    $("#body_chapter").attr('style',valueSelect);
+                    setCookie('selectTheme',select,360)
+                    $("#body_chapter").removeClass("dark-theme");
+                }
+                if(select=='mautoi'){
+                    $("#body_chapter").addClass("dark-theme")
+                }
+            })
+            
+        const cookieSelect = getCookie('selectTheme');
+        if(cookieSelect){
+            const valueSelect = dataCss[cookieSelect];
+            if(valueSelect){
+                    $("#body_chapter").attr('style',valueSelect);
+                    $("#body_chapter").removeClass("dark-theme");
+                }
+                if(cookieSelect=='mautoi'){
+                    $("#body_chapter").addClass("dark-theme")
+                }
+        }
         })
     </script>
 </body>
