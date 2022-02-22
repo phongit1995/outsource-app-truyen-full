@@ -1,6 +1,6 @@
 import {Router} from "express";
-import {Authentication} from '../../auth/auth.controller';
-import {renderManga} from './manga.controller'
+import {renderManga} from './manga.controller';
+import {Authentication} from "../middleware/auth.middleware";
 
 const router = Router();
 
