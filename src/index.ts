@@ -16,7 +16,7 @@ app.use(session({
     resave: true,
     secret: 'nguyen vu',
     saveUninitialized: true,
-    cookie: { maxAge: 60000 }
+    cookie: { maxAge: 1000*60*60}   //1 hour
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 
 export const renderLogin = (req: Request|any, res: Response) => {
     if (req.session.admin) {
-        return res.redirect('/admin/dashboard');
+        return res.redirect('/admin');
     }
     return res.render('admin/auth/login.ejs');
 }
@@ -21,7 +21,7 @@ export const Login = async (req: Request|any, res: Response) => {
     bcrypt.compare(password, adminByName.password, function(err, result) {
         if (result === true) {
             req.session.admin = {name: adminByName.name};
-            return res.redirect('/admin/dashboard');
+            return res.redirect('/admin');
         } else {
             return res.redirect('/admin/login');
         }
