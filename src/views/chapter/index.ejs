@@ -375,6 +375,9 @@
             font-size: 16px;
             height: 47px;
         }
+        .display-none{
+            display: none;
+        }
     </style>
 </head>
 
@@ -540,12 +543,13 @@
                                     class="glyphicon glyphicon-chevron-right"></span> </a> </div>
                         <div class="text-center"> <button type="button" class="btn btn-warning" id="chapter_error"><span
                                     class="glyphicon glyphicon-flag"></span> Báo lỗi chương</button> <button
-                                type="button" class="btn btn-info" id="chapter_comment"><span
+                                type="button" class="btn btn-info" id="chapter_comment_toggle"><span
                                     class="glyphicon glyphicon-comment"></span> Bình luận</button> </div>
                         <div class="bg-info text-center visible-md visible-lg box-notice">Bạn có thể dùng phím mũi tên
                             hoặc WASD để lùi/sang chương.</div>
-                        <div class="col-xs-12">
-                            <div class="row" id="fb-comment-chapter"></div>
+                        <div class="col-xs-12 display-none" id="comment_fb_content" >
+                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=570445043733275&autoLogAppEvents=1" nonce="8GE2FIbE"></script>
+                            <div class="fb-comments" data-href="https://xemtruyen.vn/<%=manga.slug%>/<%=chapter.slug%>" data-width="100%" data-numposts="10"></div>
                         </div>
                     </div>
                 </div>
@@ -657,6 +661,9 @@
                     $("#body_chapter").addClass("dark-theme")
                 }
         }
+        })
+        $("#chapter_comment_toggle").click(function(){
+            $("#comment_fb_content").toggleClass("display-none")
         })
     </script>
 </body>
