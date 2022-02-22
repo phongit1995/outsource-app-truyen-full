@@ -86,7 +86,8 @@ export const getDetailComic = async (url: string, mangaId: string) => {
             Chapter.push({ name: nameChapter, url: urlChapter });
         });
     }
-    const image = '/image/' + (await addWaterMarkImage(imageOriginal));
+    //const image = '/image/' + (await addWaterMarkImage(imageOriginal));
+    const image = await addWaterMarkImage(imageOriginal);
     const ListPromise = Chapter.map((chapter, index) =>
         createNewChapter(mangaId, chapter.url, index + 1, chapter.name),
     );
@@ -190,11 +191,12 @@ const updateMangaInfo = (
         authorSlug: makeSlug(author),
         chapter_update: Date.now(),
         totalChapter,
+        crawled: true,
     });
 };
 export const listCommitNotUpdate = () => {
     return MangaModel.find({
-        description: { $exists: false },
+        crawled: false,
     }).limit(10000);
 };
 const getUserAgent = (): string => {

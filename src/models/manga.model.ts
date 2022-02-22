@@ -22,6 +22,7 @@ export interface Manga {
     enable: boolean;
     slug: string;
     totalChapter: string;
+    crawled: boolean;
 }
 let manga = new Schema(
     {
@@ -81,6 +82,10 @@ let manga = new Schema(
         },
         totalChapter: {
             type: Number,
+        },
+        crawled: {
+            type: Boolean,
+            default: false,
         },
     },
     { timestamps: true },
