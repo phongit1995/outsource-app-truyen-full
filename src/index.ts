@@ -12,23 +12,25 @@ app.use(
         maxAge: 1209600,
     }),
 );
-app.use(session({
-    resave: true,
-    secret: 'nguyen vu',
-    saveUninitialized: true,
-    cookie: { maxAge: 1000*60*60}   //1 hour
-}));
+app.use(
+    session({
+        resave: true,
+        secret: 'nguyen vu',
+        saveUninitialized: true,
+        cookie: { maxAge: 1000 * 60 * 60 }, //1 hour
+    }),
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-
 mongoose
     .connect(EnvAppConfig.MONGO_URL)
     .then(() => {
         console.log('connect mongodb success');
+        console.log(EnvAppConfig.MONGO_URL);
     })
     .catch((error: any) => {
         console.log('connect mongodb fail : ', error);
