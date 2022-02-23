@@ -4,7 +4,7 @@
 <head
     prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile#">
     <meta charset="UTF-8" />
-    <title>Truyện chữ <%=manga.name%> full tác giả <%=manga.author%></title>
+    <title>Xem truyện <%=manga.name%> full tác giả <%=manga.author%></title>
     <meta name="viewport"
         content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
     <meta name="description"
@@ -18,7 +18,7 @@
     <meta property="og:url" content="" />
     <meta property="og:description"
         content="Đọc truyện <%=manga.name %> của tác giả <%=manga.author%>, đã full (hoàn thành). Hỗ trợ xem trên di động, máy tính bảng." />
-    <meta property="og:site_name" content="Đọc truyện chữ Online, Mê đọc truyện chữ hay">
+    <meta property="og:site_name" content="Đọc xem truyện Online, Mê đọc xem truyện hay">
     <meta property="og:image" content="uploads/Images/tro-lai-2006.jpg" />
     <meta property="og:type" content="book" />
     <meta property="og:author" content="tac-gia/moc-tu-tam" />
@@ -43,7 +43,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "", "name": "Đọc truyện chữ Online, Mê đọc truyện chữ hay", "description": "Đọc truyện chữ online, mê đọc truyện chữ, truyện chữ hay, truyện chữ full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "tim-kiem?tukhoa={tukhoa}" }, "query-input": { "@type": "PropertyValueSpecification", "valueRequired": "http://schema.org/True", "valueName": "tukhoa" } }
+    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "", "name": "Đọc xem truyện Online, Mê đọc xem truyện hay", "description": "Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "tim-kiem?tukhoa={tukhoa}" }, "query-input": { "@type": "PropertyValueSpecification", "valueRequired": "http://schema.org/True", "valueName": "tukhoa" } }
 }</script>
     <link rel="stylesheet" type="text/css" href="/frontend/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/frontend/css/main.min.css" />
@@ -292,7 +292,7 @@
                                     <meta itemprop="thumbnailUrl"
                                         content="uploads/Resize/Images/164x245/tro-lai-2006.jpg" />
                                     <meta itemprop="description"
-                                        content="Đọc truyện Trở Lại 2006 của tác giả Mộc Tử Tâm, đã full (hoàn thành). Hỗ trợ xem trên di động, máy tính bảng." />
+                                        content="Đọc truyện <%=manga.name%> của tác giả <%=manga.author%>, đã full (hoàn thành). Hỗ trợ xem trên di động, máy tính bảng." />
                                 </div>
                             </div>
                         </div>
@@ -381,9 +381,8 @@
                                     <meta itemprop="ratingCount" content="1" />
                                 </div>
                             </div>
-                            <p>Mời bạn đón đọc <a href="/danh-sach/truyen-full">truyện full</a> Trở Lại 2006 của tác giả
-                                Mộc
-                                Tử Tâm.</p>
+                            <p>Mời bạn đón đọc </a> <%=manga.name%> của tác giả
+                                <%=manga.author%></p>
                             <ul class="nav navbar-nav navbar-mucluc" style="float: none;">
                                 <li class=""><a href="#gioi-thieu-truyen">Giới Thiệu</a></li>
                                 <li><a href="#danh-sach-chuong">Danh Sách Chương</a></li>
@@ -507,7 +506,7 @@
                     </div>
                     <div class="col-xs-12 review-story no-padding">
                         <div class="desc-text" itemprop="description"> Cập nhật Review truyện <%=manga.name%> của tác
-                                giả <%=manga.author%> mới nhất tại Truyenchu.vn </div>
+                                giả <%=manga.author%> mới nhất tại Xemtruyen.vn </div>
                     </div>
                     <div class="col-xs-12 comment-box">
                         <div class="title-list">

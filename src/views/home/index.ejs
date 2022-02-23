@@ -8,15 +8,15 @@
     <meta name="viewport"
         content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
     <meta name="description"
-        content="Đọc truyện chữ online, mê đọc truyện chữ, truyện chữ hay, truyện chữ full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất." />
+        content="Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất." />
     <meta name="keywords" content="" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta property="fb:app_id" content="5170652662945892">
-    <meta property="og:title" content="Đọc truyện chữ Online, Mê đọc truyện chữ hay">
+    <meta property="og:title" content="Đọc xem truyện Online, Mê đọc xem truyện hay">
     <meta property="og:url" content="" />
     <meta property="og:description"
-        content="Đọc truyện chữ online, mê đọc truyện chữ, truyện chữ hay, truyện chữ full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất." />
-    <meta property="og:site_name" content="Đọc truyện chữ Online, Mê đọc truyện chữ hay">
+        content="Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất." />
+    <meta property="og:site_name" content="Đọc xem truyện Online, Mê đọc xem truyện hay">
     <meta property="og:image" content="frontend/img/logo.png" />
     <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
@@ -35,7 +35,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "", "name": "Đọc truyện chữ Online, Mê đọc truyện chữ hay", "description": "Đọc truyện chữ online, mê đọc truyện chữ, truyện chữ hay, truyện chữ full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "tim-kiem?tukhoa={tukhoa}" }, "query-input": { "@type": "PropertyValueSpecification", "valueRequired": "http://schema.org/True", "valueName": "tukhoa" } }
+    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "", "name": "Đọc xem truyện Online, Mê đọc xem truyện hay", "description": "Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "tim-kiem?tukhoa={tukhoa}" }, "query-input": { "@type": "PropertyValueSpecification", "valueRequired": "http://schema.org/True", "valueName": "tukhoa" } }
 }</script>
     <link rel="stylesheet" type="text/css" href="frontend/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/frontend/css/main.min.css" />
@@ -181,6 +181,42 @@
                             <option value="19">Xuyên Nhanh</option>
                         </select>
                     </div>
+                    <%
+                    function makeSlug(str) {
+                        //Đổi chữ hoa thành chữ thường
+                        let slug = str.toLowerCase();
+                    
+                        //Đổi ký tự có dấu thành không dấu
+                        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+                        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+                        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+                        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+                        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+                        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+                        slug = slug.replace(/đ/gi, 'd');
+                        slug = slug.replace('-', '');
+                        //Xóa các ký tự đặt biệt
+                        slug = slug.replace(
+                            /\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi,
+                            '',
+                        );
+                        //Đổi khoảng trắng thành ký tự gạch ngang
+                        slug = slug.replace(/ /gi, ' - ');
+                        //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+                        //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+                        slug = slug.replace(/\-\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-/gi, '-');
+                        //Xóa các ký tự gạch ngang ở đầu và cuối
+                        slug = '@' + slug + '@';
+                        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+                        slug = slug.replace(/\s/g, '');
+                        slug = slug.replace('--', '-');
+                        return slug;
+                    }
+                    %>
                         <%
                             listNewUpdate.forEach((item,index)=>{ %>
                                 <div class="row" itemscope itemtype="https://schema.org/Book">
@@ -190,11 +226,11 @@
                                     </div>
                                     <div class="hidden-xs col-sm-3 col-md-3 col-cat text-888">
                                         <% item.category.forEach((cate)=>{ %>
-                                            <a itemprop="genre" href="the-loai/huyen-huyen" title="<%=cate %>"><%=cate %></a> 
+                                            <a itemprop="genre" href="/the-loai/<%=makeSlug(cate)%>" title="<%=cate %>"><%=cate %></a> 
                                         <%}) %>
                                     </div>
                                     <div class="col-xs-3 col-sm-3 col-md-4 col-chap text-info"> <a
-                                            href="lam-dinh-chi-chu/chuong-58-ket-cuoc" title="<%=item.last_chapter.name%>"> <span
+                                            href="/<%=item.slug%>/<%=item?.last_chapter?.slug%>" title="<%=item.last_chapter.name%>"> <span
                                                 class="chapter-text"><span></span><%=item.last_chapter.title%></span> </a> </div>
                                 </div>
                         <%})%>
