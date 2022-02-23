@@ -18,7 +18,14 @@ export const Register = async (req: Request, res: Response) => {
 export const Login = async (req: Request|any, res: Response) => {
     const {name, password} = req.body;
     const adminByName = await AuthService.Login(name, password);
+
+    if (!adminByName) {
+        return res.redirect('/admin/login');
+    }
     bcrypt.compare(password, adminByName.password, function(err, result) {
+        if (err) {
+            return res.redirect('/admin/login');
+        }
         if (result === true) {
             req.session.admin = {name: adminByName.name};
             return res.redirect('/admin');
@@ -28,12 +35,10 @@ export const Login = async (req: Request|any, res: Response) => {
     });
 }
 
-export const Authentication = async (req: Request| any, res: Response, next) => {
-    if (req.session.admin) {
-        //console.log(req.session.admin);
-        next();
-    } else {
-        return res.redirect('/admin/login');
-    }
+export const Logout = async (req: Request| any, res: Response) => {
+    req.logout();
+    res.redirect('/admin/login');
 }
+
+
 
