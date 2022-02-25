@@ -1,6 +1,6 @@
 import {Router} from "express";
 import {Authentication} from "../middleware/auth.middleware";
-import {renderType} from "./type.controller";
+import {renderType} from "./list.controller";
 
 const router = Router();
 
