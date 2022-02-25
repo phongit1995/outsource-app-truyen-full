@@ -1,9 +1,11 @@
 import {Router} from "express";
 import {Authentication} from "../middleware/auth.middleware";
-import {renderChapter} from "./chapter.controller";
+import {changeStatus, deleteChapter, renderChapter} from "./chapter.controller";
 
 const router = Router();
 
 router.get('/chapter', Authentication, renderChapter);
+router.post('/chapter/change-status', Authentication, changeStatus);
+router.post('/chapter/delete', Authentication, deleteChapter);
 
 export default router;
