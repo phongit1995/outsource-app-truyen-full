@@ -67,7 +67,7 @@
                                             </p>
                                         </td>
                                         <td>
-                                            09/01/2022
+                                            <%= moment(category.createdAt).format('DD-MM-YYYY')%>
                                         </td>
                                         <td>
                                             <form action="/admin/category/change-status" method="post">

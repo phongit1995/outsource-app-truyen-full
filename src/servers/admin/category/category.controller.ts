@@ -1,11 +1,13 @@
 import {Request, Response} from "express";
 import CategoryService from './category.service';
 import {makeSlug} from "../../../common/text.helper";
+import moment from 'moment';
 
 export const renderCategory = async (req: Request|any, res: Response) => {
     const listAllCategory = await CategoryService.getAllCategory();
     const dataRender: object = {
         nameAdmin: req.session.admin.name,
+        moment,
         listAllCategory
     };
 
