@@ -1,3 +1,5 @@
+import { cacheService } from './../../common/cache.helper';
+import { CategoryModel } from './../../models/category.model';
 import { MangaModel } from './../../models/manga.model';
 
 export class CategoryService {
@@ -28,6 +30,16 @@ export class CategoryService {
             })
             .skip((page - 1) * pageSize)
             .limit(pageSize);
+    }
+    public static async getListCategoryCache() {
+        const cacheCategory = 'CACHE_CATEGORY';
+        const dataCache = cacheService.get(cacheCategory);
+        if (dataCache) {
+            return dataCache;
+        }
+        const listCategory = await CategoryModel.find().sort({ createdAt: 1 });
+        cacheService.set(cacheCategory, listCategory, 60 * 60 * 12);
+        return listCategory;
     }
 }
 export default CategoryService;
