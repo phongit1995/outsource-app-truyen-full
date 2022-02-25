@@ -41,5 +41,8 @@ export class CategoryService {
         cacheService.set(cacheCategory, listCategory, 60 * 60 * 12);
         return listCategory;
     }
+    public static async getCategoryBySlug(slug: string) {
+        return CategoryModel.findOne({ slug });
+    }
 }
 export default CategoryService;

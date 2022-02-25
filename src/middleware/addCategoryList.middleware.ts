@@ -7,7 +7,6 @@ export const addCategoryListMiddleware = async (
     next: NextFunction,
 ) => {
     const categoryList = await CategoryService.getListCategoryCache();
-    console.log(categoryList);
     res.locals.headerCategoryList = categoryList;
     next();
 };
