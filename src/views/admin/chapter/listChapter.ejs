@@ -10,8 +10,7 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Data truyện</a></li>
+                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
                         <li class="breadcrumb-item active">Danh sách chương</li>
                     </ol>
                 </div>
@@ -38,13 +37,14 @@
                                 </th>
                                 <th class="all">Tên chương</th>
                                 <th>Truyện</th>
-                                <th>Ngày</th>
+                                <th>Ngày đăng</th>
                                 <th>Trạng thái</th>
                                 <th style="width: 85px;">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <% listChapterWithNameManga.forEach((chapter, index) => { %>
+                                <tr>
                                 <td>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="customCheck2">
@@ -53,119 +53,37 @@
                                 </td>
                                 <td>
                                     <p class="m-0 d-inline-block align-middle font-16">
-                                        <a href="apps-ecommerce-products-details.html" class="text-body">Chương 1: Bạn học cũ
+                                        <a href="apps-ecommerce-products-details.html" class="text-body"><%=chapter.title%>
                                     </p>
                                 </td>
                                 <td>
                                     <p class="m-0 d-inline-block align-middle font-16">
-                                        <a href="apps-ecommerce-products-details.html" class="text-body">Đế quốc sơn hà
+                                        <a href="apps-ecommerce-products-details.html" class="text-body"><%=chapter.mangaName%>
                                     </p>
                                 </td>
                                 <td>
-                                    09/01/2022
+                                    <%= moment(chapter.createdAt).format('DD-MM-YYYY')%>
                                 </td>
                                 <td>
-                                    <span class="badge bg-success">Đã đăng</span>
+                                    <form action="/admin/chapter/change-status" method="post">
+                                        <% if(chapter.status === 1 || chapter.status === null){ %>
+                                            <span class="badge bg-success">Hiển thị</span>
+                                        <% }else{ %>
+                                            <span class="badge bg-warning">Ẩn</span>
+                                        <% } %>
+                                        <input type="hidden" name="idChangeStatus" value=<%=chapter._id%>>
+                                        <button id="changeStatus-<%=index%>" type="submit" class="btn btn-sm btn-info"><i class="mdi mdi-repeat"></i></button>
+                                    </form>
                                 </td>
 
                                 <td class="table-action">
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                    <form action="/admin/chapter/delete" method="post">
+                                        <input type="hidden" name="idDelete" value=<%=chapter._id%>>
+                                        <button id="deleteChapter-<%=index%>" type="submit" class="btn btn-danger" ><i class="mdi mdi-delete"></i></button>
+                                    </form>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="customCheck2">
-                                        <label class="form-check-label" for="customCheck2">&nbsp;</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="m-0 d-inline-block align-middle font-16">
-                                        <a href="apps-ecommerce-products-details.html" class="text-body">Chương 2: Bạn học cũ
-                                    </p>
-                                </td>
-                                <td>
-                                    <p class="m-0 d-inline-block align-middle font-16">
-                                        <a href="apps-ecommerce-products-details.html" class="text-body">Đế quốc sơn hà
-                                    </p>
-                                </td>
-                                <td>
-                                    09/01/2022
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Đã đăng</span>
-                                </td>
-
-                                <td class="table-action">
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="customCheck2">
-                                        <label class="form-check-label" for="customCheck2">&nbsp;</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="m-0 d-inline-block align-middle font-16">
-                                        <a href="apps-ecommerce-products-details.html" class="text-body">Chương 3: Bạn học cũ
-                                    </p>
-                                </td>
-                                <td>
-                                    <p class="m-0 d-inline-block align-middle font-16">
-                                        <a href="apps-ecommerce-products-details.html" class="text-body">Đế quốc sơn hà
-                                    </p>
-                                </td>
-                                <td>
-                                    09/01/2022
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Đã đăng</span>
-                                </td>
-
-                                <td class="table-action">
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="customCheck2">
-                                        <label class="form-check-label" for="customCheck2">&nbsp;</label>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="m-0 d-inline-block align-middle font-16">
-                                        <a href="apps-ecommerce-products-details.html" class="text-body">Chương 4: Bạn học cũ
-                                    </p>
-                                </td>
-                                <td>
-                                    <p class="m-0 d-inline-block align-middle font-16">
-                                        <a href="apps-ecommerce-products-details.html" class="text-body">Đế quốc sơn hà
-                                    </p>
-                                </td>
-                                <td>
-                                    09/01/2022
-                                </td>
-                                <td>
-                                    <span class="badge bg-success">Đã đăng</span>
-                                </td>
-
-                                <td class="table-action">
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
-                                </td>
-                            </tr>
-
+                            <% }) %>
                             </tbody>
                         </table>
                     </div>

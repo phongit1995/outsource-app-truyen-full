@@ -21,6 +21,19 @@ export const renderCreate = (req: Request|any, res: Response) => {
     return res.render('admin/category/createCategory.ejs', dataRender);
 }
 
+export const renderUpdate = async (req: Request|any, res: Response) => {
+    const {id} = req.params;
+    const category = await CategoryService.getCategoryById(id);
+    const dataRender: object = {
+        nameAdmin: req.session.admin.name,
+        idUpdate: id,
+        oldName: category.name,
+        oldTitle: category.title
+    };
+
+    return res.render('admin/category/updateCategory.ejs', dataRender);
+}
+
 export const handleCreate = async (req: Request|any, res: Response) => {
     const {name, title} = req.body;
     const slug = makeSlug(name);
@@ -40,5 +53,10 @@ export const changeStatus = async (req: Request| any, res: Response) => {
     const {idChangeStatus} = req.body;
 
     await CategoryService.changeStatus(idChangeStatus);
+    return res.redirect('/admin/category');
+}
+
+export const updateCategory = async  (req: Request| any, res: Response) => {
+    await CategoryService.updateCategory(req.body);
     return res.redirect('/admin/category');
 }

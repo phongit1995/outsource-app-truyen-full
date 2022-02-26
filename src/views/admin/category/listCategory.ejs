@@ -44,7 +44,7 @@
                                 <th>Mô tả</th>
                                 <th>Ngày đăng</th>
                                 <th>Trạng thái</th>
-                                <th style="width: 85px;">Action</th>
+                                <th colspan="2" style="width: 85px;">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -85,6 +85,7 @@
                                             <form action="/admin/category/delete" method="post">
                                                 <input type="hidden" name="idDelete" value=<%=category._id%>>
                                                 <button id="deleteCategory-<%=index%>" type="submit" class="btn btn-danger" ><i class="mdi mdi-delete"></i></button>
+                                                <a class="btn btn-primary" href="/admin/category/update/<%=category._id%>"><i class="mdi mdi-update"></i></a>
                                             </form>
                                         </td>
                                     </tr>

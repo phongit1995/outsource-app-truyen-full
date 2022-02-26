@@ -6,6 +6,7 @@ export interface Chapter {
     title: string;
     url: string;
     content: string;
+    status: number;
     slug:string ;
 }
 let chapter = new Schema(
@@ -27,6 +28,10 @@ let chapter = new Schema(
         },
         content: {
             type: String,
+        },
+        status: {
+            type: Number,
+            default: 1
         },
         slug: {
             type: String,
