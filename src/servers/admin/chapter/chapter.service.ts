@@ -2,8 +2,11 @@ import {ChapterModel} from '../../../models/chapter.model';
 import {MangaModel} from "../../../models/manga.model";
 
 export class ChapterService {
-    public static getAllChapter() {
-        return ChapterModel.find().sort({createdAt: -1});
+    public static getCountAllChapter() {
+        return ChapterModel.find().count();
+    }
+    public static getChapterByPage(page, perPage) {
+        return ChapterModel.find().skip((perPage * page) - perPage).limit(perPage).sort({createdAt: -1});
     }
     public static async changeStatus(id) {
         const chapter = await ChapterModel.findOne({_id: id});

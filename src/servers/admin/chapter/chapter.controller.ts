@@ -3,15 +3,21 @@ import ChapterService from "./chapter.service";
 import moment from "moment";
 
 export const renderChapter = async (req: Request|any, res: Response) => {
-    let listChapter = await ChapterService.getAllChapter();
-    const listChapterWithNameManga = listChapter.map((chapter) => {
-        const mangaName = ChapterService.getNameMangaByChapter(chapter);
+    const perPage = 10;
+    const page = req.params.page || 1;
+    const countAllChapter = await ChapterService.getCountAllChapter();
+    let listChapter = await ChapterService.getChapterByPage(page, perPage);
+    const listChapterWithNameManga = await Promise.all(listChapter.map(async (chapter) => {
+       const chapterObj = chapter.toObject();
+       const mangaName =  await ChapterService.getNameMangaByChapter(chapterObj);
 
-        return {...chapter, mangaName};
-    })
+       return {...chapterObj, mangaName};
+    }));
     const dataRender: object = {
         nameAdmin: req.session.admin.name,
         listChapterWithNameManga,
+        current: page,
+        pages: Math.ceil(countAllChapter / perPage),
         moment
     };
 

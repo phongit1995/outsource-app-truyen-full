@@ -5,6 +5,7 @@ import {Authentication} from "../middleware/auth.middleware";
 const router = Router();
 
 router.get('/manga', Authentication, renderManga);
+router.get('/manga/:page', Authentication, renderManga);
 router.post('/manga/delete', Authentication, deleteManga);
 
 export default router;
