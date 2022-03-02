@@ -12,6 +12,7 @@ import ChapterAdmin from './admin/chapter/chapter.router';
 import CategoryAdmin from './admin/category/category.router';
 import ListMangaAdmin from './admin/list/list.router';
 import ErrorMangaAdmin from './admin/errorManga/errorManga.router';
+import AuthorAdmin from './admin/author/author.router';
 import SiteMapService from './sitemap/sitemap.route';
 const router = express.Router();
 
@@ -22,6 +23,7 @@ router.use('/admin', MangaAdmin);
 router.use('/admin', ChapterAdmin);
 router.use('/admin', CategoryAdmin);
 router.use('/admin', ListMangaAdmin);
+router.use('/admin', AuthorAdmin);
 router.use('/admin', ErrorMangaAdmin);
 router.use('/', SiteMapService);
 router.use('/', AuthorService);

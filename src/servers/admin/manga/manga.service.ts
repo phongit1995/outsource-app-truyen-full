@@ -5,7 +5,12 @@ export class MangaService {
         return MangaModel.find().count();
     }
     public static getMangaByPage(page, perPage) {
-        return MangaModel.find().skip((perPage * page) - perPage).limit(perPage).sort({createdAt: -1});
+        return MangaModel
+            .find()
+            .skip((perPage * page) - perPage)
+            .limit(perPage)
+            .sort({createdAt: -1})
+            .allowDiskUse(true);
     }
     public static deleteManga(id) {
         return MangaModel.deleteOne({_id: id});
