@@ -6,11 +6,11 @@ import Redis from 'ioredis';
 import kue from 'kue';
 import { makeSlug } from '../src/common/text.helper';
 const redis = new Redis();
-redis.flushdb((error) => {
-    if (error) {
-        console.log('clear cache redis fail');
-    } else console.log('clear cache redis success');
-});
+// redis.flushdb((error) => {
+//     if (error) {
+//         console.log('clear cache redis fail');
+//     } else console.log('clear cache redis success');
+// });
 const queue = kue.createQueue({
     redis: {
         createClientFactory: function () {
@@ -26,7 +26,7 @@ mongoose
     .catch((error: any) => {
         console.log('connect mongodb fail : ', error);
     });
-// const totalPage = 996;
+const totalPage = 996;
 // //const totalPage = 10;
 // for (let i = 1; i <= totalPage; i++) {
 //     let job = queue
@@ -51,19 +51,19 @@ mongoose
 //     'https://truyenfull.vn/xuyen-qua-chi-ba-ai-phao-hoi/',
 //     '620326f7c645831e707d41b5',
 // );
-listCommitNotUpdate().then((data) => {
-    data.forEach((item) => {
-        let job = queue
-            .create('getChapterComic', { url: item.url, id: item._id })
-            .attempts(2)
-            .ttl(10 * 1000)
-            .delay(500)
-            .save(function (error) {
-                if (!error) console.log(job.id);
-                else console.log(error);
-            });
-    });
-});
+// listCommitNotUpdate().then((data) => {
+//     data.forEach((item) => {
+//         let job = queue
+//             .create('getChapterComic', { url: item.url, id: item._id })
+//             .attempts(2)
+//             .ttl(10 * 1000)
+//             .delay(500)
+//             .save(function (error) {
+//                 if (!error) console.log(job.id);
+//                 else console.log(error);
+//             });
+//     });
+// });
 queue.process('getChapterComic', 2, function (job, done) {
     getDetailComic(job.data.url, job.data.id)
         .then((data) => {

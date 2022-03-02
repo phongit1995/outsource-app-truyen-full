@@ -86,8 +86,8 @@ export const getDetailComic = async (url: string, mangaId: string) => {
             Chapter.push({ name: nameChapter, url: urlChapter });
         });
     }
-    //const image = '/image/' + (await addWaterMarkImage(imageOriginal));
-    const image = await addWaterMarkImage(imageOriginal);
+    const image = '/image/' + (await addWaterMarkImage(imageOriginal));
+    //const image = await addWaterMarkImage(imageOriginal);
     const ListPromise = Chapter.map((chapter, index) =>
         createNewChapter(mangaId, chapter.url, index + 1, chapter.name),
     );

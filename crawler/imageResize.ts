@@ -15,6 +15,7 @@ export const addWaterMarkImage = async (imageUrl: string) => {
     const waterMarkImg = path.join(__dirname, '/image/Watermark.png');
     const [image, logo] = await Promise.all([Jimp.read(imageUrl), Jimp.read(waterMarkImg)]);
     logo.resize(image.bitmap.width, image.bitmap.height);
-    const base64 = await image.composite(logo, 0, 0).quality(80).getBase64Async(Jimp.MIME_JPEG);
-    return base64;
+    await image.composite(logo, 0, 0).quality(80).writeAsync(filePath);
+
+    return fileName;
 };
