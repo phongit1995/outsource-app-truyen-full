@@ -1,0 +1,160 @@
+<%-include('../library/header.ejs')%>
+
+<!-- Start Content-->
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                        <li class="breadcrumb-item active">Tác giả</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Tác giả</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-sm-4">
+                            <a href="/admin/author/create" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i>Thêm Tác Giả</a>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-centered w-100 dt-responsive nowrap">
+                            <thead class="table-light">
+                            <tr>
+                                <th class="all" style="width: 20px;">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="customCheck1">
+                                        <label class="form-check-label" for="customCheck1">&nbsp;</label>
+                                    </div>
+                                </th>
+                                <th class="all">Tên</th>
+                                <th>Trạng thái</th>
+                                <th style="width: 85px;">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% listAuthorOnePage.forEach((author, index) => {%>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="customCheck2">
+                                        <label class="form-check-label" for="customCheck2">&nbsp;</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="m-0 d-inline-block align-middle font-16">
+                                        <a href="#" class="text-body"><%=author.name%></a>
+                                    </p>
+                                </td>
+                                <td>
+                                    <form action="/admin/author/change-status" method="post">
+                                        <% if(author.status === 1) {%>
+                                            <span class="badge bg-success">Đăng</span>
+                                        <% } else {%>
+                                            <span class="badge bg-warning">Ẩn</span>
+                                        <% } %>
+                                        <input type="hidden" name="idChangeStatus" value=<%=author._id%>>
+                                        <button type="submit" class="btn btn-sm btn-info"><i class="mdi mdi-repeat"></i></button>
+                                    </form>
+                                </td>
+
+                                <td class="table-action">
+                                    <form action="/admin/author/delete" method="post">
+                                        <input type="hidden" name="idDelete" value=<%=author._id%>>
+                                        <button class="btn btn-danger"> <i class="mdi mdi-delete"></i></button>
+                                    </form>
+                                    <!-- <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>-->
+                                    <!--  <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>-->
+                                </td>
+                            </tr>
+                            <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+
+    <!-- pagination -->
+    <div class="row">
+        <!-- hiển thị phân trang nếu có trang -->
+        <% if(pages > 0) { %>
+            <nav class="mx-auto">
+                <ul class="pagination" style="margin-top: 2rem;">
+
+                    <!-- FIRST ITEM -->
+                    <% if(current == 1) { %>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="/admin/author">First</a>
+                        </li>
+                    <% } else { %>
+                        <li class="page-item">
+                            <a class="page-link" href="/admin/author">First</a>
+                        </li>
+                    <% } %>
+
+                    <!-- ITEMS  -->
+                    <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %>
+                    <% if(i !== 1) { %>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">...</a>
+                        </li>
+                    <% } %>
+                    <% for(; i <= (Number(current) + 2) && i <= pages; i++) { %>
+
+                        <% if(i == current) { %>
+                            <li class="page-item active">
+                                <a class="page-link" href="/admin/author/<%= i %>/">
+                                    <%= i %>
+                                </a>
+                            </li>
+                        <% } else { %>
+                            <li class="page-item">
+                                <a class="page-link" href="/admin/author/<%= i %>/">
+                                    <%= i %>
+                                </a>
+                            </li>
+                        <% } %>
+                        <% if (i == Number(current) + 2 && i < pages) { %>
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">...</a>
+                            </li>
+                        <% } %>
+                    <% } %>
+
+                    <!-- LAST ITEM -->
+                    <% if(current == pages) { %>
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">
+                                Last
+                            </a>
+                        </li>
+                    <% } else { %>
+                        <li class="page-item">
+                            <a class="page-link" href="/admin/author/<%= pages %>">
+                                Last
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
+            </nav>
+        <% } %>
+    </div>
+
+</div> <!-- container -->
+
+
+<%-include('../library/footer.ejs')%>

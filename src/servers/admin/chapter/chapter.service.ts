@@ -6,7 +6,12 @@ export class ChapterService {
         return ChapterModel.find().count();
     }
     public static getChapterByPage(page, perPage) {
-        return ChapterModel.find().skip((perPage * page) - perPage).limit(perPage).sort({createdAt: -1});
+        return ChapterModel
+            .find()
+            .skip((perPage * page) - perPage)
+            .limit(perPage)
+            .sort({createdAt: -1})
+            .allowDiskUse(true);
     }
     public static async changeStatus(id) {
         const chapter = await ChapterModel.findOne({_id: id});
