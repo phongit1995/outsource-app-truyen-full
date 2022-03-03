@@ -4,6 +4,7 @@ import {addDataAuthor, changeStatus, createAuthor, deleteAuthor, renderAuthor, r
 const router = Router();
 
 router.get('/author', Authentication, renderAuthor);
+router.get('/author/:page', Authentication, renderAuthor);
 router.get('/author/create', Authentication, renderCreate);
 router.post('/author/delete', Authentication, deleteAuthor);
 router.post('/author/store', Authentication, createAuthor);
