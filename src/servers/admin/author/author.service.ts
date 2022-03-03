@@ -7,6 +7,11 @@ export class AuthorService {
     public static getAuthorByPage(page, perPage) {
         return AuthorModel.find().skip((perPage * page) - perPage).limit(perPage).sort({createdAt: -1});
     }
+    public static createAuthor(name, status) {
+        const newAuthor = new AuthorModel({name, status});
+
+        return newAuthor.save();
+    }
     public static async changeStatus(id) {
         const author = await AuthorModel.findOne({_id: id});
 
