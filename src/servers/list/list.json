@@ -18,7 +18,7 @@
     {
         "name":"Truyện Mới",
         "sort":{
-            "last_chapter":1
+            "chapter_update":-1
         },
         "slug":"truyen-moi",
         "description":"truyện hot"
