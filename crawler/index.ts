@@ -26,12 +26,13 @@ mongoose
     .catch((error: any) => {
         console.log('connect mongodb fail : ', error);
     });
-const totalPage = 996;
-// //const totalPage = 10;
+const totalPage = 1008;
+//const totalPage = 10;
 // for (let i = 1; i <= totalPage; i++) {
 //     let job = queue
 //         .create('getLinkComic', i)
 //         .attempts(3)
+//         .ttl(1000 * 10)
 //         .save(function (error) {
 //             if (!error) console.log(job.id);
 //             else console.log(error);

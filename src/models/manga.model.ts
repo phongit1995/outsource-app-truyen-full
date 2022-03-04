@@ -2,6 +2,7 @@ import mongoose, { Schema, model, connect } from 'mongoose';
 import { makeSlug } from './../common/text.helper';
 import { Chapter } from './chapter.model';
 export interface Manga {
+    _id: string;
     name: string;
     author: string;
     authorSlug: string;

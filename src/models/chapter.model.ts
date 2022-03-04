@@ -1,5 +1,6 @@
 import mongoose, { Schema, model, connect } from 'mongoose';
 import { Manga } from './manga.model';
+import { makeSlug } from './../common/text.helper';
 export interface Chapter {
     manga: string | Manga;
     index: number;
@@ -7,14 +8,14 @@ export interface Chapter {
     url: string;
     content: string;
     status: number;
-    slug:string ;
+    slug: string;
 }
 let chapter = new Schema(
     {
         manga: {
             type: Schema.Types.ObjectId,
             ref: 'manga',
-            index:true
+            index: true,
         },
         index: {
             type: Number,
@@ -31,7 +32,7 @@ let chapter = new Schema(
         },
         status: {
             type: Number,
-            default: 1
+            default: 1,
         },
         slug: {
             type: String,
@@ -39,5 +40,11 @@ let chapter = new Schema(
     },
     { timestamps: true },
 );
-chapter.index({manga:1,index:1},{unique:true});
+chapter.index({ manga: 1, index: 1 }, { unique: true });
+chapter.pre('save', function (next) {
+    if (this.isModified('title')) {
+        this.slug = makeSlug(this.title ? this.title : '');
+    }
+    next();
+});
 export const ChapterModel = model<Chapter>('chapter', chapter);

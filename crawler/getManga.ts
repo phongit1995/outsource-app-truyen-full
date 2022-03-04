@@ -197,7 +197,7 @@ const updateMangaInfo = (
 export const listCommitNotUpdate = () => {
     return MangaModel.find({
         crawled: false,
-    }).limit(10000);
+    });
 };
 const getUserAgent = (): string => {
     return userArgent[Math.floor(Math.random() * userArgent.length)];
