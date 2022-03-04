@@ -551,7 +551,7 @@
                                 class="btn btn-success btn-chapter-nav disabled" href="#" title="" id="next_chap_bot"
                                 data-cid=""> <span class="hidden-xs">Chương </span>tiếp <span
                                     class="glyphicon glyphicon-chevron-right"></span> </a> </div>
-                        <div class="text-center"> <button type="button" class="btn btn-warning" id="chapter_error"><span
+                        <div class="text-center"> <button type="button" class="btn btn-warning" id="report_chapter"><span
                                     class="glyphicon glyphicon-flag"></span> Báo lỗi chương</button> <button
                                 type="button" class="btn btn-info" id="chapter_comment_toggle"><span
                                     class="glyphicon glyphicon-comment"></span> Bình luận</button> </div>
@@ -566,10 +566,15 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div id="ads_footer"></div>
-    </div>
     <%-include('./../common/footer')%>
+
+    <!--Form report-->
+    <form action="/admin/report/create" method="post" id="send_report">
+        <input id="input_content_report" type="hidden" name="content">
+        <input type="hidden" name="manga" value="<%=manga.name%>">
+        <input type="hidden" name="chapter" value="<%=chapter.title%>">
+    </form>
+
     <script>const BASE_URL = '';
         const FB_APP_ID = '5170652662945892';
         const GA_ACCOUNT = '65067329-18';</script>
@@ -674,6 +679,16 @@
         })
         $("#chapter_comment_toggle").click(function(){
             $("#comment_fb_content").toggleClass("display-none")
+        })
+
+        //Report Chapter
+        $("#report_chapter").click(function () {
+            const contentError = prompt('Nhập nội dung lỗi: ');
+            if (contentError !== '' && contentError !== null) {
+                $("#input_content_report").val(contentError);
+                $("#send_report").submit();
+                alert('Cảm ơn bạn đã phản hồi!');
+            }
         })
     </script>
 </body>
