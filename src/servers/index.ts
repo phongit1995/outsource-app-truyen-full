@@ -15,6 +15,7 @@ import AuthorAdmin from './admin/author/author.router';
 import SiteMapService from './sitemap/sitemap.route';
 import SiteService from './site/site.router';
 import ReportService from "./admin/report/report.router";
+import SearchService from "./search/search.router";
 const router = express.Router();
 
 
@@ -26,6 +27,7 @@ router.use('/admin', CategoryAdmin);
 router.use('/admin', ListMangaAdmin);
 router.use('/admin', AuthorAdmin);
 router.use('/admin', ReportService);
+router.use('/', SearchService);
 router.use('/', SiteService);
 router.use('/', SiteMapService);
 router.use('/', AuthorService);
@@ -34,5 +36,4 @@ router.use('/', ListService);
 router.use('/', IndexService);
 router.use('/', MangaService);
 router.use('/', ChapterService);
-
 export default router;

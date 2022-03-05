@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head
+        prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile#">
+    <meta charset="UTF-8" />
+    <title>Tìm truyện với từ khóa <%=key%></title>
+    <meta name="viewport"
+          content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
+    <meta name="description"
+          content="<%=key%>" />
+    <meta name="keywords" content="truyện Cổ Đại" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="canonical" href="the-loai/co-dai" />
+    <meta property="fb:app_id" content="5170652662945892">
+    <meta property="og:title" content="Tìm truyện với từ khóa <%=key%>">
+    <meta property="og:url" content="" />
+    <meta property="og:description"
+          content="Tìm truyện với từ khóa <%=key%>" />
+    <meta property="og:site_name" content="Đọc xem truyện Online, Mê đọc xem truyện hay">
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "", "name": "Đọc xem truyện Online, Mê đọc xem truyện hay", "description": "Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "tim-kiem?tukhoa={tukhoa}" }, "query-input": { "@type": "PropertyValueSpecification", "valueRequired": "http://schema.org/True", "valueName": "tukhoa" } }
+        }</script>
+    <link rel="stylesheet" type="text/css" href="/frontend/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/frontend/css/main.min.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173912908-1"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9443025361518917" crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-173912908-1');
+    </script>
+</head>
+
+<body id="body_home" class="" itemscope itemtype="https://schema.org/WebSite">
+<div id="wrap">
+    <script
+            type="text/javascript"> function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++) 0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : ""; } var js_bgcolor = getCookie("bgcolor-cookie"); "#232323" == js_bgcolor && (document.getElementsByTagName("body")[0].className += " dark-theme"); </script>
+    <header>
+        <div class="navbar navbar-default navbar-static-top" role="navigation" id="nav">
+            <%-include('./../common/navbar')%>
+            <div class="navbar-breadcrumb">
+                <div class="container breadcrumb-container">
+                    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a href=""
+                                                                                                            accesskey="1"><span class="glyphicon glyphicon-home"></span></a> <a href=""
+                                                                                                                                                                                title="Đọc truyện online" itemprop="item"><span itemprop="name">Truyện</span></a>
+                            <meta itemprop="position" content="1" />
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a
+                                    href="#" title="<%=key%>" itemprop="item"><span itemprop="name">Tìm truyện với từ khóa <%=key%></span></a>
+                            <meta itemprop="position" content="2" />
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script
+            type="text/javascript">function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++)0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : "" } var js_bgcolor = getCookie("bgcolor-cookie"), js_font = getCookie("font-cookie"), js_size = getCookie("size-cookie"), js_lineheight = getCookie("lineheight-cookie"), js_hidenav = getCookie("hidenav-cookie"), js_fluid_switch = getCookie("fluid-switch-cookie"), js_onebreak_switch = getCookie("onebreak-switch-cookie"), js_body_insert_class = ""; "" != js_bgcolor && "#F4F4F4" != js_bgcolor && (js_bgcolor = js_bgcolor.replace("#", ""), js_body_insert_class = "232323" == js_bgcolor ? js_body_insert_class + " background-232323 dark-theme" : js_body_insert_class + (" background-" + js_bgcolor)); 1 == js_hidenav && (document.getElementById("body_chapter").className += " hidenav"); "" != js_size && (js_body_insert_class += " size-" + js_size); "" != js_font && (js_font = js_font.replace(/, serif|, sans-serif|'|\s/g, ""), js_body_insert_class += " font-" + js_font); "" != js_lineheight && "180%" != js_lineheight && (js_lineheight = js_lineheight.replace("%", ""), js_body_insert_class += " lineheight-" + js_lineheight); 1 == js_fluid_switch && (js_body_insert_class += " container-fluid-switch"); document.getElementById("body_chapter").className += js_body_insert_class;</script>
+    <style type="text/css">
+        #list-page .cat-content {
+            text-align: left
+        }
+
+        .cat-content {
+            margin: 10px 0;
+            padding: 0 10px;
+        }
+    </style>
+    <h1 style="display: none;">Tìm truyện với từ khóa <%=key%></h1>
+    <% if (key.length <= 3) {%>
+        <div class="container" id="list-page">
+        <div class="title-list">
+            <h2 itemprop="name">Tìm truyện với từ khóa: <strong><%=key%></strong></h2>
+        </div>
+        <div class="cat-content"></div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-truyen-main">
+            <div class="text-center"></div>
+            <div class="list list-truyen col-xs-12">
+                <div style="padding: 0 10px;">
+                    <p style="text-align:justify">Từ khóa quá ngắn, vui lòng tìm với từ khóa dài hơn 3 ký tự</p>
+                </div>
+            </div>
+        </div>
+        <div class="visible-md-block visible-lg-block col-md-3 text-center col-truyen-side">
+            <div id="ads_sidebar_story1"></div>
+            <div class="list list-truyen list-cat col-xs-12">
+                <div class="title-list">
+                    <h4>Thể loại truyện</h4>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6"><a href="/the-loai/bach-hop" title="">Bách Hợp</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/co-dai" title="">Cổ Đại</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/cung-dau" title="">Cung Đấu</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/dam-my" title="">Đam Mỹ</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/di-gioi" title="">Dị Giới</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/di-nang" title="">Dị Năng</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/dien-van" title="">Điền Văn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/do-thi" title="">Đô Thị</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/doan-van" title="">Đoản Văn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/dong-phuong" title="">Đông Phương</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/gia-dau" title="">Gia Đấu</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/hai-huoc" title="">Hài Hước</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/he-thong" title="">Hệ Thống</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/huyen-huyen" title="">Huyền Huyễn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/khac" title="">Khác</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/khoa-huyen" title="">Khoa Huyễn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/kiem-hiep" title="">Kiếm Hiệp</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/lich-su" title="">Lịch Sử</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/light-novel" title="">Light Novel</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/linh-di" title="">Linh Dị</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/mat-the" title="">Mạt Thế</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/ngon-tinh" title="">Ngôn Tình</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/nguoc" title="">Ngược</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/nu-cuong" title="">Nữ Cường</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/nu-phu" title="">Nữ Phụ</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/phuong-tay" title="">Phương Tây</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/quan-su" title="">Quân Sự</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/quan-truong" title="">Quan Trường</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/sac" title="">Sắc</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/sung" title="">Sủng</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/tham-hiem" title="">Thám Hiểm</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/tien-hiep" title="">Tiên Hiệp</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/trinh-tham" title="">Trinh Thám</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/trong-sinh" title="">Trọng Sinh</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/truyen-teen" title="">Truyện Teen</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/viet-nam" title="">Việt Nam</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/vong-du" title="">Võng Du</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/xuyen-khong" title="">Xuyên Không</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/xuyen-nhanh" title="">Xuyên Nhanh</a></div>
+                </div>
+            </div>
+            <div class="list list-truyen list-side col-xs-12">
+                <div class="title-list">
+                    <h4>Truyện hot</h4>
+                </div>
+                <%
+                    function makeSlug(str) {
+                        //Đổi chữ hoa thành chữ thường
+                        let slug = str.toLowerCase();
+
+                        //Đổi ký tự có dấu thành không dấu
+                        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+                        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+                        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+                        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+                        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+                        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+                        slug = slug.replace(/đ/gi, 'd');
+                        slug = slug.replace('-', '');
+                        //Xóa các ký tự đặt biệt
+                        slug = slug.replace(
+                                /\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi,
+                                '',
+                        );
+                        //Đổi khoảng trắng thành ký tự gạch ngang
+                        slug = slug.replace(/ /gi, ' - ');
+                        //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+                        //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+                        slug = slug.replace(/\-\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-/gi, '-');
+                        //Xóa các ký tự gạch ngang ở đầu và cuối
+                        slug = '@' + slug + '@';
+                        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+                        slug = slug.replace(/\s/g, '');
+                        slug = slug.replace('--', '-');
+                        return slug;
+                    }
+                %>
+                <% hotManga.forEach((manga,index)=>{%>
+                <div class="row top-item">
+                    <div class="col-xs-12">
+                        <div class="top-num top-<%=(index+1)%>"><%=(index+1)%></div>
+                        <div class="s-title">
+                            <h3><a href="/<%=manga.slug%>" title="<%=manga.name%>"><%=manga.name%></a></h3>
+                        </div>
+                        <div>
+                            <% manga.category.forEach((category,index)=>{%>
+                            <a itemprop="genre" href="/the-loai/<%=makeSlug(category)%>" title="Ngôn Tình"><%=category%></a>
+                            <% if(index<manga.category.length-1) {%>
+                                ,
+                            <%}%>
+                            <%}) %>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        <div id="ads_sidebar_story2"></div>
+    </div>
+    <% } else if (totalMangaSearched > 0) {%>
+        <div class="container" id="list-page">
+        <div class="title-list">
+            <h2 itemprop="name">Tìm truyện với từ khóa: <strong><%=key%></strong></h2>
+        </div>
+        <div class="cat-content"></div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-truyen-main">
+            <div class="text-center"></div>
+            <div class="list list-truyen col-xs-12">
+                <div style="padding: 0 10px;">
+                    <p style="text-align:justify">Danh sách truyện có liên quan tới từ khoá: <strong><%=key%></strong></p>
+                </div>
+                <% listMangaSearchByKey.forEach((manga)=>{ %>
+                <div class="row" itemscope itemtype="https://schema.org/Book">
+                    <div class="col-xs-3">
+                        <div>
+                            <div data-image="<%=manga.name%>"
+                                 data-desk-image="<%=manga.image%>"
+                                 data-classname="cover" data-alt="<%=manga.name%>"
+                                 data-origin="jpg" class="lazyimg"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-9">
+                        <div>
+                            <div style="height:10px;"></div> <span class="glyphicon glyphicon-book"></span>
+                            <h3 class="truyen-title" itemprop="name"> <a href="/<%=manga.slug%>"
+                                                                         title="<%=manga.name%>" itemprop="url"><%=manga.name%></a> </h3>
+                            <% if(manga.manga_status==1) {%>
+                                <span class="label-title label-full"></span>
+                            <%}%>
+                            <span
+                                    class="author" itemprop="author"><span class="glyphicon glyphicon-pencil"></span><%=manga.author%></span>
+                            <div class="content"><%=manga.description.slice(0,250)%> <div class="latest-chapter">
+                                    <span>Chương mới nhất:</span> <a
+                                            href="/<%=manga.slug%>/<%=manga.last_chapter.slug%>"
+                                            title="Chương 330 : Cuối cùng (khởi đầu mới! ) "> <span
+                                                class="chapter-text"><span></span></span><%=manga.last_chapter.title%></a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+
+            </div>
+            <% if(pages>0){ %>
+                <ul class="pagination pagination-sm">
+                    <!-- FIRST ITEM -->
+                    <% if(current==1){%>
+                        <li class="active"><span class="currentPage">1</span></li>
+                    <% } else { %>
+                    <li><a itemprop="url" href="/tim-kiem/<%=key%>?page=1"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></a></li>
+                    <li><a itemprop="url" href="/tim-kiem/<%=key%>?page=<%=(current-1)%>"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a></li>
+                    <%}%>
+                    <!-- ITEMS  -->
+                    <% var from = current-5 ; var to = current+5 %>
+                    <% for(; from <=to ; from ++) { %>
+                        <% if (from>0 && from <=pages && !(from ==1 && current==1 )) {%>
+                            <% if(from==current){ %>
+                            <li class="active"> <span class="currentPage"><%=from%></span></li>
+                            <%} else {%>
+                            <li><a itemprop="url" href="/tim-kiem/?tukhoa=<%=key%>&page=<%=from%>"><%=from%></a></li>
+                            <%}%>
+                        <%}%>
+                    <% }%>
+                    <!-- LAST ITEM -->
+                    <% if(current < pages) {%>
+                    <li><a itemprop="url" href="/tim-kiem/?<%=key%>&page=<%=(current+1)%>"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+                    <li><a itemprop="url" href="/tim-kiem/?<%=key%>&page=<%=pages%>"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></a></li>
+                    <%}%>
+                    <% if(pages>1){ %>
+                        <li class="dropup page-nav"> <a href="javascript:void(0)" data-toggle="dropdown"
+                                                        aria-expanded="true">Chọn trang <span class="caret"></span></a>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form action="." name="page_jump_category" id="page_jump_category" method="get">
+                                    <div class="input-group"> <input name="page_type" type="hidden" value="" /> <input
+                                                name="truyen" type="hidden" value="" /> <input name="filter" type="hidden"
+                                                                                               value="" /> <input class="form-control" id="page_to_input" name="page" type="number"
+                                                                                                                  placeholder="Số trang..." value="" /><span class="input-group-btn"><button
+                                                    class="btn btn-default" type="submit">Đi</button></span> </div>
+                                </form>
+                            </div>
+                        </li>
+                    <%}%>
+                </ul>
+            <% } %>
+        </div>
+        <div class="visible-md-block visible-lg-block col-md-3 text-center col-truyen-side">
+            <div id="ads_sidebar_story1"></div>
+            <div class="list list-truyen list-cat col-xs-12">
+                <div class="title-list">
+                    <h4>Thể loại truyện</h4>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6"><a href="/the-loai/bach-hop" title="">Bách Hợp</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/co-dai" title="">Cổ Đại</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/cung-dau" title="">Cung Đấu</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/dam-my" title="">Đam Mỹ</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/di-gioi" title="">Dị Giới</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/di-nang" title="">Dị Năng</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/dien-van" title="">Điền Văn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/do-thi" title="">Đô Thị</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/doan-van" title="">Đoản Văn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/dong-phuong" title="">Đông Phương</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/gia-dau" title="">Gia Đấu</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/hai-huoc" title="">Hài Hước</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/he-thong" title="">Hệ Thống</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/huyen-huyen" title="">Huyền Huyễn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/khac" title="">Khác</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/khoa-huyen" title="">Khoa Huyễn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/kiem-hiep" title="">Kiếm Hiệp</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/lich-su" title="">Lịch Sử</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/light-novel" title="">Light Novel</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/linh-di" title="">Linh Dị</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/mat-the" title="">Mạt Thế</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/ngon-tinh" title="">Ngôn Tình</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/nguoc" title="">Ngược</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/nu-cuong" title="">Nữ Cường</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/nu-phu" title="">Nữ Phụ</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/phuong-tay" title="">Phương Tây</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/quan-su" title="">Quân Sự</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/quan-truong" title="">Quan Trường</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/sac" title="">Sắc</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/sung" title="">Sủng</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/tham-hiem" title="">Thám Hiểm</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/tien-hiep" title="">Tiên Hiệp</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/trinh-tham" title="">Trinh Thám</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/trong-sinh" title="">Trọng Sinh</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/truyen-teen" title="">Truyện Teen</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/viet-nam" title="">Việt Nam</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/vong-du" title="">Võng Du</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/xuyen-khong" title="">Xuyên Không</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/xuyen-nhanh" title="">Xuyên Nhanh</a></div>
+                </div>
+            </div>
+            <div class="list list-truyen list-side col-xs-12">
+                <div class="title-list">
+                    <h4>Truyện hot</h4>
+                </div>
+                <%
+                    function makeSlug(str) {
+                        //Đổi chữ hoa thành chữ thường
+                        let slug = str.toLowerCase();
+
+                        //Đổi ký tự có dấu thành không dấu
+                        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+                        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+                        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+                        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+                        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+                        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+                        slug = slug.replace(/đ/gi, 'd');
+                        slug = slug.replace('-', '');
+                        //Xóa các ký tự đặt biệt
+                        slug = slug.replace(
+                                /\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi,
+                                '',
+                        );
+                        //Đổi khoảng trắng thành ký tự gạch ngang
+                        slug = slug.replace(/ /gi, ' - ');
+                        //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+                        //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+                        slug = slug.replace(/\-\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-/gi, '-');
+                        //Xóa các ký tự gạch ngang ở đầu và cuối
+                        slug = '@' + slug + '@';
+                        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+                        slug = slug.replace(/\s/g, '');
+                        slug = slug.replace('--', '-');
+                        return slug;
+                    }
+                %>
+                <% hotManga.forEach((manga,index)=>{%>
+                <div class="row top-item">
+                    <div class="col-xs-12">
+                        <div class="top-num top-<%=(index+1)%>"><%=(index+1)%></div>
+                        <div class="s-title">
+                            <h3><a href="/<%=manga.slug%>" title="<%=manga.name%>"><%=manga.name%></a></h3>
+                        </div>
+                        <div>
+                            <% manga.category.forEach((category,index)=>{%>
+                            <a itemprop="genre" href="/the-loai/<%=makeSlug(category)%>" title="Ngôn Tình"><%=category%></a>
+                            <% if(index<manga.category.length-1) {%>
+                                ,
+                            <%}%>
+                            <%}) %>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        <div id="ads_sidebar_story2"></div>
+    </div>
+    <% } else {%>
+        <div class="container" id="list-page">
+        <div class="title-list">
+            <h2 itemprop="name">Tìm truyện với từ khóa: <strong><%=key%></strong></h2>
+        </div>
+        <div class="cat-content"></div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-truyen-main">
+            <div class="text-center"></div>
+            <div class="list list-truyen col-xs-12">
+                <div style="padding: 0 10px;">
+                    <p style="text-align:justify">Không tìm thấy</p>
+                </div>
+            </div>
+        </div>
+        <div class="visible-md-block visible-lg-block col-md-3 text-center col-truyen-side">
+            <div id="ads_sidebar_story1"></div>
+            <div class="list list-truyen list-cat col-xs-12">
+                <div class="title-list">
+                    <h4>Thể loại truyện</h4>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6"><a href="/the-loai/bach-hop" title="">Bách Hợp</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/co-dai" title="">Cổ Đại</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/cung-dau" title="">Cung Đấu</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/dam-my" title="">Đam Mỹ</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/di-gioi" title="">Dị Giới</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/di-nang" title="">Dị Năng</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/dien-van" title="">Điền Văn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/do-thi" title="">Đô Thị</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/doan-van" title="">Đoản Văn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/dong-phuong" title="">Đông Phương</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/gia-dau" title="">Gia Đấu</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/hai-huoc" title="">Hài Hước</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/he-thong" title="">Hệ Thống</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/huyen-huyen" title="">Huyền Huyễn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/khac" title="">Khác</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/khoa-huyen" title="">Khoa Huyễn</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/kiem-hiep" title="">Kiếm Hiệp</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/lich-su" title="">Lịch Sử</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/light-novel" title="">Light Novel</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/linh-di" title="">Linh Dị</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/mat-the" title="">Mạt Thế</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/ngon-tinh" title="">Ngôn Tình</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/nguoc" title="">Ngược</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/nu-cuong" title="">Nữ Cường</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/nu-phu" title="">Nữ Phụ</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/phuong-tay" title="">Phương Tây</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/quan-su" title="">Quân Sự</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/quan-truong" title="">Quan Trường</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/sac" title="">Sắc</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/sung" title="">Sủng</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/tham-hiem" title="">Thám Hiểm</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/tien-hiep" title="">Tiên Hiệp</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/trinh-tham" title="">Trinh Thám</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/trong-sinh" title="">Trọng Sinh</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/truyen-teen" title="">Truyện Teen</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/viet-nam" title="">Việt Nam</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/vong-du" title="">Võng Du</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/xuyen-khong" title="">Xuyên Không</a></div>
+                    <div class="col-xs-6"><a href="/the-loai/xuyen-nhanh" title="">Xuyên Nhanh</a></div>
+                </div>
+            </div>
+            <div class="list list-truyen list-side col-xs-12">
+                <div class="title-list">
+                    <h4>Truyện hot</h4>
+                </div>
+                <%
+                    function makeSlug(str) {
+                        //Đổi chữ hoa thành chữ thường
+                        let slug = str.toLowerCase();
+
+                        //Đổi ký tự có dấu thành không dấu
+                        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+                        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+                        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+                        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+                        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+                        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+                        slug = slug.replace(/đ/gi, 'd');
+                        slug = slug.replace('-', '');
+                        //Xóa các ký tự đặt biệt
+                        slug = slug.replace(
+                                /\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi,
+                                '',
+                        );
+                        //Đổi khoảng trắng thành ký tự gạch ngang
+                        slug = slug.replace(/ /gi, ' - ');
+                        //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+                        //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+                        slug = slug.replace(/\-\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-/gi, '-');
+                        //Xóa các ký tự gạch ngang ở đầu và cuối
+                        slug = '@' + slug + '@';
+                        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+                        slug = slug.replace(/\s/g, '');
+                        slug = slug.replace('--', '-');
+                        return slug;
+                    }
+                %>
+                <% hotManga.forEach((manga,index)=>{%>
+                <div class="row top-item">
+                    <div class="col-xs-12">
+                        <div class="top-num top-<%=(index+1)%>"><%=(index+1)%></div>
+                        <div class="s-title">
+                            <h3><a href="/<%=manga.slug%>" title="<%=manga.name%>"><%=manga.name%></a></h3>
+                        </div>
+                        <div>
+                            <% manga.category.forEach((category,index)=>{%>
+                            <a itemprop="genre" href="/the-loai/<%=makeSlug(category)%>" title="Ngôn Tình"><%=category%></a>
+                            <% if(index<manga.category.length-1) {%>
+                                ,
+                            <%}%>
+                            <%}) %>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        <div id="ads_sidebar_story2"></div>
+    </div>
+    <% }%>
+    <div style="clear: both;"></div>
+    <div class="cat-content"></div>
+</div>
+</div>
+<div class="container">
+    <div style="margin: 15px 0;padding:0 5px"></div>
+</div>
+
+<%-include('./../common/footer')%>
+<script>const BASE_URL = '';
+    const FB_APP_ID = '245372619860792';
+    const GA_ACCOUNT = '65067329-18';</script>
+<script type="text/javascript" src="/frontend/js/main.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#page_jump_category').submit(function(event){
+            event.preventDefault();
+            const currentPage= Number('<%=current%>');
+            const pages= Number('<%=pages%>');
+            let pageTo= $('#page_to_input').val();
+
+            if(!pageTo){
+                return alert('Vui Lòng Nhập Số Trang')
+            }
+            pageTo=Number(pageTo);
+            console.log(pageTo);
+            if( pageTo>0 && pageTo<=pages && pageTo != currentPage ){
+                return window.location.href = '/tim-kiem/?tukhoa=<%=key%>&page='+pageTo ;
+            }else {
+                return alert('Vui Lòng Nhập Số Trang Đúng')
+            }
+        })
+    })
+</script>
+</body>
+
+</html>
