@@ -84,8 +84,8 @@
                                         <td class="table-action">
                                             <form action="/admin/category/delete" method="post">
                                                 <input type="hidden" name="idDelete" value=<%=category._id%>>
+                                                <a class="btn btn-primary" href="/admin/category/update/<%=category._id%>"><i class="mdi mdi-mdi-square-edit-outline"></i></a>
                                                 <button id="deleteCategory-<%=index%>" type="submit" class="btn btn-danger" ><i class="mdi mdi-delete"></i></button>
-                                                <a class="btn btn-primary" href="/admin/category/update/<%=category._id%>"><i class="mdi mdi-update"></i></a>
                                             </form>
                                         </td>
                                     </tr>

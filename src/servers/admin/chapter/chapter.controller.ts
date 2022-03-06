@@ -37,3 +37,18 @@ export const deleteChapter = async (req: Request| any, res: Response) => {
     await ChapterService.deleteChapter(idDelete);
     res.redirect('/admin/chapter');
 }
+
+export const renderUpdateChapter = async (req: Request|any, res: Response) => {
+    const chapterUpdate = await ChapterService.getChapterById(req.query.idUpdate);
+
+    res.render('admin/chapter/updateChapter.ejs', {
+        chapterUpdate
+    });
+}
+
+export const updateChapter = async (req: Request|any, res: Response) => {
+    const {id, newTitle} = req.body;
+
+    await ChapterService.updateChapter(id, newTitle);
+    res.redirect('/admin/chapter');
+}

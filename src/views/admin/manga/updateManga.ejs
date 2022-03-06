@@ -1,0 +1,63 @@
+<%-include('../library/header.ejs')%>
+
+<!-- Quill css -->
+<link href="/assets/css/vendor/quill.core.css" rel="stylesheet" type="text/css" />
+<link href="/assets/css/vendor/quill.snow.css" rel="stylesheet" type="text/css" />
+<!-- Start Content-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="custom-styles-preview">
+                            <form class="needs-validation" novalidate method="post" action="/admin/manga/update">
+                                <input type="hidden" value=<%=manga._id%> name="id">
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom01">Tên</label>
+                                    <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="Tên" value="<%=manga.name%>" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom01">Mô tả</label>
+                                    <textarea class="form-control" name="description"  rows="5" required><%=manga.description%></textarea>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom01">Tác giả</label>
+                                    <input type="text" name="author" class="form-control" id="validationCustom01" placeholder="Tác giả" value="<%=manga.author%>" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                                </div>
+
+                            </form>
+                        </div> <!-- end preview-->
+
+
+                    </div> <!-- end tab-content-->
+
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+
+    </div>
+    <!-- end row -->
+
+</div> <!-- container -->
+
+<!-- quill js -->
+<script src="/assets/js/vendor/quill.min.js"></script>
+<!-- quill Init js-->
+<script src="/assets/js/pages/demo.quilljs.js"></script>
+
+<%-include('../library/footer.ejs')%>

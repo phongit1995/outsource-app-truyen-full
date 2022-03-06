@@ -5,6 +5,9 @@ export class ChapterService {
     public static getCountAllChapter() {
         return ChapterModel.find().count();
     }
+    public static getChapterById(id) {
+        return ChapterModel.findOne({_id: id});
+    }
     public static getChapterByPage(page, perPage) {
         return ChapterModel
             .find()
@@ -30,6 +33,12 @@ export class ChapterService {
         const manga = await MangaModel.findOne({_id: chapter.manga});
 
         return manga.name;
+    }
+    public static async updateChapter(id, title) {
+        const chapter = await ChapterModel.findOne({_id: id});
+
+        chapter.title = title;
+        return chapter.save();
     }
 }
 
