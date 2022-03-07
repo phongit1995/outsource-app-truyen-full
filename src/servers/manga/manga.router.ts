@@ -3,6 +3,7 @@ import {
     detailMangaController,
     getListMangaByTypeController,
     getListNewByCategory,
+    searchManga,
 } from './manga.controller';
 import { validate } from 'express-validation';
 import { validationGetListManga } from './manga.validation';
@@ -21,4 +22,5 @@ router.get(
     getListNewByCategory,
 );
 router.get('/:slug', addCategoryListMiddleware, detailMangaController);
+router.post('/api/search-manga', searchManga);
 export default router;

@@ -90,5 +90,10 @@ class MangaService {
     public async countDocumentByCondition(condition: object = {}) {
         return MangaModel.countDocuments(condition);
     }
+    public async searchManga(value: string) {
+        return MangaModel.find({
+            name: { $regex: value, $options: 'i' },
+        }).limit(10);
+    }
 }
 export const mangaService = new MangaService();

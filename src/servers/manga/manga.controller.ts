@@ -64,3 +64,13 @@ export const getListNewByCategory = async (req: Request, res: Response) => {
     const result = await mangaService.getListNewChapterByCategory(categoryName, page, pageSize);
     return res.status(200).json(result);
 };
+export const searchManga = async (req: Request, res: Response) => {
+    const { search } = req.body;
+    try {
+        console.log(search);
+        const result = await mangaService.searchManga(search);
+        return res.status(200).json(result);
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+};

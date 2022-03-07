@@ -50,4 +50,25 @@ $( document ).ready(function() {
             $('.list-truyen.list-new').append(result);
         })
     })
+    // dome search 
+    $('#search-input-form').on('change paste keyup cut select',($.debounce(500, function (e) { 
+        const value = $('#search-input-form').val();
+        if(value.length>=3){
+            $.ajax({
+                type:'post',
+                url:'/api/search-manga',
+                dataType: 'json',
+                data:{
+                    search:value
+                }
+            }).done(result=>{
+                const resultData = result.map((data)=>{
+                    return `<a href="${data.slug}" class="list-group-item" title="${data.name}"> ${data.name}</a>`
+                });
+                const resultHtml = resultData.join('');
+                $('#result-search').removeClass('hide');
+                $('#result-search').html(resultHtml);
+            })
+        }
+    })))
 });
