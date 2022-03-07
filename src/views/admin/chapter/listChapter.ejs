@@ -39,7 +39,7 @@
                                 <th>Truyện</th>
                                 <th>Ngày đăng</th>
                                 <th>Trạng thái</th>
-                                <th style="width: 85px;">Action</th>
+                                <th colspan="2" style="width: 85px;">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -79,9 +79,16 @@
                                 <td class="table-action">
                                     <form action="/admin/chapter/delete" method="post">
                                         <input type="hidden" name="idDelete" value=<%=chapter._id%>>
-                                        <button id="deleteChapter-<%=index%>" type="submit" class="btn btn-danger" ><i class="mdi mdi-delete"></i></button>
+                                        <a id="updateChapter-<%=index%>" href="/admin/chapter/update?idUpdate=<%=chapter._id%>" class="btn btn-primary" ><i class="mdi mdi-update"></i></a>
+                                        <button id="deleteChapter-<%=index%>" type="submit" class="btn btn-danger" ><i class="mdi mdi-square-edit-outline"></i></button>
                                     </form>
                                 </td>
+<!--                                <td class="table-action">-->
+<!--                                    <form action="/admin/chapter/edit?id=" method="get">-->
+<!--                                        <input type="hidden" name="idUpdate" value=<%=chapter._id%>>-->
+<!--                                        <button id="updateChapter-<%=index%>" type="submit" class="btn btn-primary" ><i class="mdi mdi-update"></i></button>-->
+<!--                                    </form>-->
+<!--                                </td>-->
                             </tr>
                             <% }) %>
                             </tbody>

@@ -53,7 +53,7 @@
                                 </td>
                                 <td>
                                     <p class="m-0 d-inline-block align-middle font-16">
-                                        <a href="apps-ecommerce-products-details.html" class="text-body"><%=manga.name%>
+                                        <a href="#" class="text-body"><%=manga.name%></a>
                                     </p>
                                 </td>
                                 <td>
@@ -67,7 +67,7 @@
                                     <%=manga.author%>
                                 </td>
                                 <td>
-                                    <%=moment(manga.createAt).format('DD-MM-YYYY')%>
+                                    <%=moment(manga.createdAt).format('DD-MM-YYYY')%>
                                 </td>
                                 <td>
                                     <% if(manga.enable) {%>
@@ -80,10 +80,9 @@
                                 <td class="table-action">
                                     <form action="/admin/manga/delete" method="post">
                                         <input type="hidden" name="idDelete" value=<%=manga._id%>>
+                                        <a href="/admin/manga/update?idUpdate=<%=manga._id%>" class="btn btn-primary"> <i class="mdi mdi-square-edit-outline"></i></a>
                                         <button class="btn btn-danger"> <i class="mdi mdi-delete"></i></button>
                                     </form>
-<!--                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>-->
-<!--                                    <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>-->
                                 </td>
                             </tr>
                             <% }) %>
