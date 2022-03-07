@@ -17,6 +17,7 @@ import SiteService from './site/site.router';
 import ReportService from './admin/report/report.router';
 import SearchService from './search/search.router';
 import UserAdminService from './admin/user/user.router';
+import CrawlerService from './admin/crawler/crawler.router';
 const router = express.Router();
 
 router.use('/admin', Auth);
@@ -28,6 +29,7 @@ router.use('/admin', ListMangaAdmin);
 router.use('/admin', AuthorAdmin);
 router.use('/admin', ReportService);
 router.use('/admin', UserAdminService);
+router.use('/admin', CrawlerService);
 router.use('/', SearchService);
 router.use('/', SiteService);
 router.use('/', SiteMapService);
