@@ -1,0 +1,111 @@
+<%-include('../library/header.ejs')%>
+
+<!-- Start Content-->
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                        <li class="breadcrumb-item active">Tạo Tài Khoản</li>
+                    </ol>
+                </div>
+                <h4 class="page-title"> Tạo Tài Khoản</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane show active" id="custom-styles-preview">
+                                <form class="needs-validation" novalidate method="post" id="create-admin" action="/admin/category/store">
+                                    <div class="mb-3 ">
+                                        <label class="form-label" for="username">User name</label>
+                                        <input type="text" name="name" class="form-control" id="username" placeholder="Tiêu đề" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+    
+                                    <div class="mb-3">
+                                        <label class="form-label" for="password">Mật Khẩu</label>
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Mật Khẩu" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="validationCustom01">Nhập Lại Mật Khẩu</label>
+                                        <input type="password" name="confirmPassword" class="form-control" id="validationCustom01" placeholder="Mật Khẩu" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="type-user">Loại Tài Khoản</label>
+                                        <select class="form-select" aria-label="Chọn Loại Tài Khoản" id="type-user">
+                                            <option value="1" selected >Admin</option>
+                                            <option value="2" >SubAdmin </option>
+                                          </select>
+                                    </div>
+    
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-primary">Thêm</button>
+                                    </div>
+    
+                                </form>
+                            </div> <!-- end preview-->
+    
+    
+                        </div> <!-- end tab-content-->
+    
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+    
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+
+    <!-- pagination -->
+    <div class="row">
+        <!-- hiển thị phân trang nếu có trang -->
+    </div>
+
+</div> <!-- container -->
+<script>
+    $(document).ready(function(){
+        $('#create-admin').submit(function(e){
+            e.preventDefault();
+            const username = $('#username').val();
+            const password = $('#password').val();
+            const roleType = $('#type-user').val();
+            console.log(username,password,roleType);
+            $.ajax({
+                method:'post',
+                dataType:'json',
+                url:'/admin/user/create',
+                data:{
+                    username,
+                    password,
+                    type:roleType
+                }
+            }).done(data=>{
+                alert('Tạo Thành Công');
+                window.location.href="/admin/user"
+            }).fail((error)=>{
+                if(error.responseJSON.message){
+                    return alert(error.responseJSON.message)
+                }
+                alert('Lỗi Vui Lòng Thử Lại')
+            })
+        })
+    })
+</script>
+
+<%-include('../library/footer.ejs')%>

@@ -1,0 +1,109 @@
+<%-include('../library/header.ejs')%>
+
+<!-- Start Content-->
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                        <li class="breadcrumb-item active">Tài Khoản</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Tài Khoản</h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="table-responsive">
+                        <table class="table table-centered w-100 dt-responsive nowrap" id="products-datatable">
+                            <thead class="table-light">
+                            <tr>
+                                <th class="all" style="width: 20px;">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="customCheck1">
+                                        <label class="form-check-label" for="customCheck1">&nbsp;</label>
+                                    </div>
+                                </th>
+                                <th class="all">user name</th>
+                                <th>Loại Tài Khoản</th>
+                                <th style="width: 85px;">Action</th>
+                            </tr>
+                            <% listUser.forEach((user)=>{ %>
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="m-0 d-inline-block align-middle font-16">
+                                            <a href="#" class="text-body"><%=user.name%></a>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p class="m-0 d-inline-block align-middle font-16">
+                                            <a href="#" class="text-body"><%=user.role==1? "Admin":"Subadmin" %></a>
+                                        </p>
+                                    </td>
+                                    <td class="table-action">
+                                        
+                                            <input type="hidden" name="idDelete">
+
+                                            <a href="" class="btn btn-primary"> <i class="mdi mdi-square-edit-outline"></i></a>
+                                            <button class="btn btn-danger deleteUser" data-id="<%=user._id%>"> <i class="mdi mdi-delete"></i></button>
+                                    </td>
+                                </tr>
+                            <% })%>
+                            
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+
+    <!-- pagination -->
+    <div class="row">
+        <!-- hiển thị phân trang nếu có trang -->
+    </div>
+
+</div> <!-- container -->
+<script>
+    $(document).ready(function(){
+        $(".deleteUser").click(function(){
+            console.log('xóa');
+            console.log($(this).data('id'));
+            if(confirm('Bạn Có thực sự muốn xóa user này ?')){
+                $.ajax({
+                    method:'delete',
+                    url:'/admin/user/delete/'+$(this).data('id')
+                }).done(()=>{
+                    alert("Xóa Thành Công");
+                    location.reload();
+                }).fail((error)=>{
+                    if(error.responseJSON.message){
+                    return alert(error.responseJSON.message)
+                    }
+                    alert('Lỗi Vui Lòng Thử Lại')
+                })
+            }
+        })
+    })
+</script>
+
+<%-include('../library/footer.ejs')%>

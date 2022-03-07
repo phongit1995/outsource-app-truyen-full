@@ -14,10 +14,10 @@ import ListMangaAdmin from './admin/list/list.router';
 import AuthorAdmin from './admin/author/author.router';
 import SiteMapService from './sitemap/sitemap.route';
 import SiteService from './site/site.router';
-import ReportService from "./admin/report/report.router";
-import SearchService from "./search/search.router";
+import ReportService from './admin/report/report.router';
+import SearchService from './search/search.router';
+import UserAdminService from './admin/user/user.router';
 const router = express.Router();
-
 
 router.use('/admin', Auth);
 router.use('/admin', Dashboard);
@@ -27,6 +27,7 @@ router.use('/admin', CategoryAdmin);
 router.use('/admin', ListMangaAdmin);
 router.use('/admin', AuthorAdmin);
 router.use('/admin', ReportService);
+router.use('/admin', UserAdminService);
 router.use('/', SearchService);
 router.use('/', SiteService);
 router.use('/', SiteMapService);
