@@ -52,7 +52,6 @@
 <script>
     $(document).ready(function(){
         $("#submit-change").click(function(){
-            console.log($('#switch2').is(':checked'));
             $.ajax({
                 method:'post',
                 url:'/admin/crawler/update',
