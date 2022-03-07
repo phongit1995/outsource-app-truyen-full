@@ -18,4 +18,11 @@ export class UserService {
     public static deleteUser(id: string) {
         return AdminModel.remove({ _id: id });
     }
+    public static async updateStatusUser(id: string) {
+        const user = await AdminModel.findOne({ _id: id });
+        if (user) {
+            user.status = !user.status;
+            await user.save();
+        }
+    }
 }

@@ -4,6 +4,7 @@ export interface Admin {
     name: string;
     password: string;
     role: number;
+    status: boolean;
 }
 
 let admin = new Schema(
@@ -14,6 +15,10 @@ let admin = new Schema(
         },
         password: String,
         role: Number,
+        status: {
+            type: Boolean,
+            default: true,
+        },
     },
     {
         collection: 'admins',

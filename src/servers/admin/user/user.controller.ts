@@ -27,3 +27,12 @@ export const deleteAdmin = async (req: Request, res: Response) => {
         res.status(400).json(error);
     }
 };
+export const updateStatusAdmin = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    try {
+        await UserService.updateStatusUser(id);
+        return res.status(200).json({ message: 'success' });
+    } catch (error) {
+        res.status(400).json(error);
+    }
+};

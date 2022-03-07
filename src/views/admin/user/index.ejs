@@ -36,6 +36,7 @@
                                 </th>
                                 <th class="all">user name</th>
                                 <th>Loại Tài Khoản</th>
+                                <th>Trạng Thái</th>
                                 <th style="width: 85px;">Action</th>
                             </tr>
                             <% listUser.forEach((user)=>{ %>
@@ -56,6 +57,14 @@
                                             <a href="#" class="text-body"><%=user.role==1? "Admin":"Subadmin" %></a>
                                         </p>
                                     </td>
+                                    <td>
+                                        <% if(user.status){ %>
+                                            <span class="badge bg-success">Active</span>
+                                        <% }else{ %>
+                                            <span class="badge bg-warning">Khóa</span>
+                                        <% } %>
+                                        <button data-id="<%=user._id%>" class="btn btn-sm btn-info changeStatusUser"><i class="mdi mdi-repeat"></i></button>
+                                    </td>
                                     <td class="table-action">
                                         
                                             <input type="hidden" name="idDelete">
@@ -65,7 +74,6 @@
                                     </td>
                                 </tr>
                             <% })%>
-                            
                             </thead>
                             <tbody>
                             </tbody>
@@ -100,6 +108,21 @@
                     return alert(error.responseJSON.message)
                     }
                     alert('Lỗi Vui Lòng Thử Lại')
+                })
+            }
+        })
+        $('.changeStatusUser').click(function(){
+            console.log($(this).data('id'));
+            if(confirm('Bạn Muốn Thay đổi trạng thái user này không ?')){
+                $.ajax({
+                    method:'post',
+                    url:'/admin/user/update-status/'+$(this).data('id'),
+                    data:{
+                        message:true
+                    }
+                })
+                .done(()=>{
+                    location.reload();
                 })
             }
         })
