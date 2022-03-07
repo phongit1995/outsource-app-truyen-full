@@ -2,7 +2,6 @@
 
 <!-- Start Content-->
 <div class="container-fluid">
-
     <!-- start page title -->
     <div class="row">
         <div class="col-12">
@@ -23,28 +22,42 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-
                     <div class="table-responsive">
-                        <table class="table table-centered w-100 dt-responsive nowrap" id="products-datatable">
+                        <table
+                            class="table table-centered w-100 dt-responsive nowrap"
+                            id="products-datatable"
+                        >
                             <thead class="table-light">
-                            <tr>
-                                <th class="all" style="width: 20px;">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="customCheck1">
-                                        <label class="form-check-label" for="customCheck1">&nbsp;</label>
-                                    </div>
-                                </th>
-                                <th class="all">user name</th>
-                                <th>Loại Tài Khoản</th>
-                                <th>Trạng Thái</th>
-                                <th style="width: 85px;">Action</th>
-                            </tr>
-                            <% listUser.forEach((user)=>{ %>
+                                <tr>
+                                    <th class="all" style="width: 20px">
+                                        <div class="form-check">
+                                            <input
+                                                type="checkbox"
+                                                class="form-check-input"
+                                                id="customCheck1"
+                                            />
+                                            <label class="form-check-label" for="customCheck1"
+                                                >&nbsp;</label
+                                            >
+                                        </div>
+                                    </th>
+                                    <th class="all">user name</th>
+                                    <th>Loại Tài Khoản</th>
+                                    <th>Trạng Thái</th>
+                                    <th style="width: 85px">Action</th>
+                                </tr>
+                                <% listUser.forEach((user)=>{ %>
                                 <tr>
                                     <td>
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="customCheck2">
-                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+                                            <input
+                                                type="checkbox"
+                                                class="form-check-input"
+                                                id="customCheck2"
+                                            />
+                                            <label class="form-check-label" for="customCheck2"
+                                                >&nbsp;</label
+                                            >
                                         </div>
                                     </td>
                                     <td>
@@ -54,34 +67,55 @@
                                     </td>
                                     <td>
                                         <p class="m-0 d-inline-block align-middle font-16">
-                                            <a href="#" class="text-body"><%=user.role==1? "Admin":"Subadmin" %></a>
+                                            <a href="#" class="text-body"
+                                                ><%=user.role==1? "Admin":"Subadmin" %></a
+                                            >
                                         </p>
                                     </td>
                                     <td>
                                         <% if(user.status){ %>
-                                            <span class="badge bg-success">Active</span>
+                                        <span class="badge bg-success">Active</span>
                                         <% }else{ %>
-                                            <span class="badge bg-warning">Khóa</span>
+                                        <span class="badge bg-warning">Khóa</span>
                                         <% } %>
-                                        <button data-id="<%=user._id%>" class="btn btn-sm btn-info changeStatusUser"><i class="mdi mdi-repeat"></i></button>
+                                        <button
+                                            data-id="<%=user._id%>"
+                                            class="btn btn-sm btn-info changeStatusUser"
+                                        >
+                                            <i class="mdi mdi-repeat"></i>
+                                        </button>
                                     </td>
                                     <td class="table-action">
-                                        
-                                            <input type="hidden" name="idDelete">
+                                        <input type="hidden" name="idDelete" />
 
-                                            <a href="" class="btn btn-primary"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                            <button class="btn btn-danger deleteUser" data-id="<%=user._id%>"> <i class="mdi mdi-delete"></i></button>
+                                        <button
+                                            href=""
+                                            class="btn btn-primary modalChangePassword"
+                                            data-id="<%=user._id%>"
+                                            data-toggle="modal"
+                                            data-target="#exampleModal"
+                                        >
+                                            <i class="mdi mdi-square-edit-outline"></i>
+                                        </button>
+                                        <button
+                                            class="btn btn-danger deleteUser"
+                                            data-id="<%=user._id%>"
+                                        >
+                                            <i class="mdi mdi-delete"></i>
+                                        </button>
                                     </td>
                                 </tr>
-                            <% })%>
+                                <% })%>
                             </thead>
-                            <tbody>
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                     </div>
-                </div> <!-- end card-body-->
-            </div> <!-- end card-->
-        </div> <!-- end col -->
+                </div>
+                <!-- end card-body-->
+            </div>
+            <!-- end card-->
+        </div>
+        <!-- end col -->
     </div>
     <!-- end row -->
 
@@ -89,44 +123,108 @@
     <div class="row">
         <!-- hiển thị phân trang nếu có trang -->
     </div>
-
-</div> <!-- container -->
+</div>
+<!-- container -->
 <script>
-    $(document).ready(function(){
-        $(".deleteUser").click(function(){
+    $(document).ready(function () {
+        $('.deleteUser').click(function () {
             console.log('xóa');
             console.log($(this).data('id'));
-            if(confirm('Bạn Có thực sự muốn xóa user này ?')){
+            if (confirm('Bạn Có thực sự muốn xóa user này ?')) {
                 $.ajax({
-                    method:'delete',
-                    url:'/admin/user/delete/'+$(this).data('id')
-                }).done(()=>{
-                    alert("Xóa Thành Công");
-                    location.reload();
-                }).fail((error)=>{
-                    if(error.responseJSON.message){
-                    return alert(error.responseJSON.message)
-                    }
-                    alert('Lỗi Vui Lòng Thử Lại')
+                    method: 'delete',
+                    url: '/admin/user/delete/' + $(this).data('id'),
                 })
+                    .done(() => {
+                        alert('Xóa Thành Công');
+                        location.reload();
+                    })
+                    .fail((error) => {
+                        if (error.responseJSON.message) {
+                            return alert(error.responseJSON.message);
+                        }
+                        alert('Lỗi Vui Lòng Thử Lại');
+                    });
             }
-        })
-        $('.changeStatusUser').click(function(){
+        });
+        $('.changeStatusUser').click(function () {
             console.log($(this).data('id'));
-            if(confirm('Bạn Muốn Thay đổi trạng thái user này không ?')){
+            if (confirm('Bạn Muốn Thay đổi trạng thái user này không ?')) {
                 $.ajax({
-                    method:'post',
-                    url:'/admin/user/update-status/'+$(this).data('id'),
-                    data:{
-                        message:true
-                    }
-                })
-                .done(()=>{
+                    method: 'post',
+                    url: '/admin/user/update-status/' + $(this).data('id'),
+                    data: {
+                        message: true,
+                    },
+                }).done(() => {
                     location.reload();
-                })
+                });
             }
-        })
-    })
+        });
+        $('.modalChangePassword').click(function () {
+            console.log($(this).data('id'));
+            $('#idUser').val($(this).data('id'));
+        });
+        $('#confirmChangePassword').click(function () {
+            let password = $('#password').val();
+            let userId = $('#idUser').val();
+            if (!userId) {
+                return;
+            }
+            $.ajax({
+                method: 'put',
+                url: '/admin/user/change-password/' + userId,
+                dataType: 'json',
+                data: {
+                    password,
+                },
+            }).done((data) => {
+                alert('Đổi Mật Khẩu Thành Công');
+            });
+        });
+    });
 </script>
+<div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Mật Khẩu</label>
+                        <input type="hidden" class="form-control" id="idUser" />
+                        <input type="password" class="form-control" id="password" />
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label"
+                            >Nhập Lại Mật Khẩu</label
+                        >
+                        <input type="password" class="form-control" id="confirmPassword" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" id="confirmChangePassword">
+                    Đổi Mật Khẩu
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <%-include('../library/footer.ejs')%>

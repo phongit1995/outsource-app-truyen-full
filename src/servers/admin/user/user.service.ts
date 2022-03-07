@@ -25,4 +25,11 @@ export class UserService {
             await user.save();
         }
     }
+    public static async updatePasswordUser(userId: string, password: string) {
+        console.log(password);
+        const hashPassword = bcrypt.hashSync(password, 10);
+        return AdminModel.findByIdAndUpdate(userId, {
+            password: hashPassword,
+        });
+    }
 }

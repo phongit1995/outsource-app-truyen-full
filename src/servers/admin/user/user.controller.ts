@@ -36,3 +36,14 @@ export const updateStatusAdmin = async (req: Request, res: Response) => {
         res.status(400).json(error);
     }
 };
+export const adminUpdatePassword = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { password } = req.body;
+    try {
+        const result = await UserService.updatePasswordUser(id, password);
+        return res.status(200).json({ message: 'success' });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+};
