@@ -18,6 +18,7 @@ import ReportService from './admin/report/report.router';
 import SearchService from './search/search.router';
 import UserAdminService from './admin/user/user.router';
 import CrawlerService from './admin/crawler/crawler.router';
+import SettingService from './admin/setting/setting.router';
 const router = express.Router();
 
 router.use('/admin', Auth);
@@ -30,6 +31,7 @@ router.use('/admin', AuthorAdmin);
 router.use('/admin', ReportService);
 router.use('/admin', UserAdminService);
 router.use('/admin', CrawlerService);
+router.use('/admin', SettingService);
 router.use('/', SearchService);
 router.use('/', SiteService);
 router.use('/', SiteMapService);

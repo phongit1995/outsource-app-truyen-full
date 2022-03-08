@@ -1,0 +1,119 @@
+<%-include('./../library/header.ejs')%>
+<div class="container-fluid">
+                        
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Cài đặt</a></li>
+                        <li class="breadcrumb-item active">Cài đặt chung</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Cài đặt chung</h4>
+            </div>
+        </div>
+    </div>     
+    <!-- end page title --> 
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="custom-styles-preview">
+                        
+                            <form class="needs-validation" novalidate method="post" action="/admin/setting/update-info" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                <label class="form-label" for="validationCustom01">Logo</label>
+                                <!-- File Upload -->
+                                    <div class="fallback">
+                                        <input name="file" type="file" />
+                                    </div>
+                                    <!-- file preview template -->
+
+                                    
+                                    <div id="uploadPreviewTemplate">
+                                        <div class="card mt-1 mb-0 shadow-none border">
+                                            <div class="p-2">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <img data-dz-thumbnail src="<%=settingInfo.logo %>" class="avatar-lg rounded bg-light" alt="">
+                                                    </div>
+                                                    <div class="col ps-0">
+                                                        <a href="javascript:void(0);" class="text-muted fw-bold" data-dz-name></a>
+                                                        <p class="mb-0" data-dz-size></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                           
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom01">Tiêu đề trang</label>
+                                    <input type="text" class="form-control" id="validationCustom01" placeholder="Tiêu đề trang" required name="title" value="<%=settingInfo.title%>">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom02">Description</label>
+                                    
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="description"><%=settingInfo.description%></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom01">Keywords</label>
+                                    <input type="text" class="form-control" id="validationCustom01" placeholder="Keywords" required name="keyword" value="<%=settingInfo.keyword%>">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn-primary" type="submit">Cập Nhật</button>
+                            </form>
+                        </div> <!-- end preview-->
+                    
+                        
+                    </div> <!-- end tab-content-->
+
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="tooltips-validation-preview">
+                            <form class="needs-validation" novalidate method="post" action="/admin/setting/update-scripts">
+                                <div class="position-relative mb-3">
+                                    <label class="form-label" for="validationCustom02">Header</label>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="header"> <%=settingScripts.header%></textarea>
+                                </div>
+                                <div class="position-relative mb-3">
+                                    <label class="form-label" for="validationCustom02">Footer</label>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="footer"><%=settingScripts.footer%></textarea>
+                                </div>
+                                
+                                
+                                
+                                <button class="btn btn-primary" type="submit">Lưu lại</button>
+                            </form>
+                        </div> <!-- end preview-->
+                    
+                        
+                    </div> <!-- end tab-content-->
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+    </div>
+    <!-- end row -->
+
+</div> <!-- container -->
+<%-include('./../library/footer.ejs')%>
