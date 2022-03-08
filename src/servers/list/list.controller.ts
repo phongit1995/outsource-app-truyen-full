@@ -11,7 +11,7 @@ export const detailList = async (req: Request, res: Response) => {
     if (cacheData) {
         return res.render('list', cacheData as object);
     }
-    const listInfo = await ListService.getCategorySortList(list);
+    const listInfo = await ListService.getListBySlug(list);
     let condition: { category?: string[] } = {};
     let sort: { [index: string]: any } = {};
     if (!listInfo) {
@@ -20,8 +20,14 @@ export const detailList = async (req: Request, res: Response) => {
     if (listInfo.category.length > 0) {
         condition.category = listInfo.category;
     }
-    if (Object.keys(listInfo.sort).length > 0) {
-        sort = listInfo.sort;
+    if (listInfo.filter == 1) {
+        sort.chapter_update = 1;
+    }
+    if (listInfo.filter == 2) {
+        sort.manga_status = -1;
+    }
+    if (listInfo.filter == 3) {
+        sort.isHot = -1;
     }
     const [listManga, totalManga, hotManga] = await Promise.all([
         mangaService.getMangaByCondition(condition, sort, page, pageSize),

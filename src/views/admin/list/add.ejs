@@ -1,0 +1,86 @@
+<%-include('../library/header.ejs')%>
+<!-- Start Content-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+<div class="container-fluid">
+    
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Danh Mục</a></li>
+                        <li class="breadcrumb-item active">Thêm Danh mục</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Danh Mục</h4>
+            </div>
+        </div>
+    </div>     
+    <!-- end page title --> 
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="custom-styles-preview">
+                            <form class="needs-validation" novalidate action="/admin/danh-muc/add" method="post">
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom01">Tên Danh mục</label>
+                                    <input type="text" class="form-control" id="validationCustom01" placeholder="Tiêu đề" required name="name">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom01">Mô Tả</label>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="description"></textarea>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom01">Thể Loại</label>
+                                    <select class="selectpicker form-control" multiple name="category">
+                                        <%category.forEach(item=>{ %>
+                                        <option><%=item.name%></option>
+                                        <%})%>
+                                      </select>                                      
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom01">Lọc / Sắp Xếp</label>
+                                    <select class="selectpicker form-control" name="filter">
+                                        <option value=1 selected>Truyện Có Chapter Mới Nhất</option>
+                                        <option value=2>Truyện Đã Hoàn Thành </option>
+                                        <option value=3>Truyen Hot Nhất</option>
+                                      </select>                                      
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary" type="submit">Thêm</button>
+                            </form>
+                        </div> <!-- end preview-->
+                    </div> <!-- end tab-content-->
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+    </div>
+    <!-- end row -->
+
+</div> <!-- container -->
+					
+<!-- quill js -->
+<%-include('../library/footer.ejs')%>

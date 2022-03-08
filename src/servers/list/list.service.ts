@@ -1,3 +1,4 @@
+import { cacheService } from './../../common/cache.helper';
 import { ListModel } from '../../models/list.model';
 import listJson from './list.json';
 export class ListService {
@@ -30,5 +31,18 @@ export class ListService {
             };
         }
         return null;
+    }
+    public static async getCategoryCache() {
+        const keyCache: string = 'KEY_CACHE_LIST_DATA';
+        const dataCache = cacheService.get(keyCache);
+        if (dataCache) {
+            return dataCache;
+        }
+        const result = await ListModel.find().sort({ createdAt: -1 });
+        cacheService.set(keyCache, result, 60 * 15);
+        return result;
+    }
+    public static async getListBySlug(slug: string) {
+        return ListModel.findOne({ slug });
     }
 }

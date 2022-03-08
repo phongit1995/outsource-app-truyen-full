@@ -14,7 +14,11 @@
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu" itemscope
                     itemtype="http://www.schema.org/SiteNavigationElement">
-                    <li><a itemprop="url" href="/danh-sach/dam-my-h-van" title="Đam Mỹ H Văn"><span
+                    <%headerList.forEach(item=>{  %>
+                        <li><a itemprop="url" href="/danh-sach/<%=item.slug%>" title="<%=item.name%>"><span
+                            itemprop="name"><%=item.name%></span></a></li>
+                    <% })%>
+                    <!-- <li><a itemprop="url" href="/danh-sach/dam-my-h-van" title="Đam Mỹ H Văn"><span
                                 itemprop="name">Đam Mỹ H Văn</span></a></li>
                     <li><a itemprop="url" href="/danh-sach/dam-my-hai" title="Đàm mỹ hài"><span
                                 itemprop="name">Đàm mỹ hài</span></a></li>
@@ -43,7 +47,7 @@
                     <li><a itemprop="url" href="/danh-sach/truyen-moi" title="Truyện Mới"><span
                                 itemprop="name">Truyện Mới</span></a></li>
                     <li><a itemprop="url" href="/danh-sach/truyen-teen-hay" title="Truyện Teen Hay"><span
-                                itemprop="name">Truyện Teen Hay</span></a></li>
+                                itemprop="name">Truyện Teen Hay</span></a></li> -->
                 </ul>
             </li>
             <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle"

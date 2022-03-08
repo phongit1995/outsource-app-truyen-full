@@ -5,6 +5,8 @@ export interface List {
     description: string;
     category: string[];
     slug: string;
+    filter: number;
+    status: boolean;
 }
 let list = new Schema(
     {
@@ -18,6 +20,14 @@ let list = new Schema(
         slug: {
             type: String,
             index: true,
+        },
+        filter: {
+            type: Number,
+            default: 2,
+        },
+        status: {
+            type: Boolean,
+            default: true,
         },
     },
     { timestamps: true },
