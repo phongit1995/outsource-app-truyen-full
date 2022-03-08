@@ -68,11 +68,13 @@
                                             <% } else {%>
                                             <span class="badge bg-warning">Ẩn</span>
                                             <% } %>
+                                            <button data-id="<%=item._id%>" class="btn btn-sm btn-info changeStatusList">
+                                                <i class="mdi mdi-repeat"></i>
+                                            </button>
                                     </td>
                                     <td class="table-action">
-                                        <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                        <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                        <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                        <button  class="btn btn-sm btn-info" data-id="<%=item._id%>"> <i class="mdi mdi-square-edit-outline"></i></button>
+                                        <button class="btn btn-danger deleteList" data-id="<%=item._id%>"> <i class="mdi mdi-delete"></i></button>
                                     </td>
                                 </tr>
                                 <% })%>
@@ -86,6 +88,40 @@
     <!-- end row -->        
     
 </div> <!-- container -->
-
+<script>
+    $(document).ready(function(){
+        $('.changeStatusList').click(function(){
+            if (confirm('Bạn Muốn Thay đổi trạng thái danh mục này không ?')) {
+                $.ajax({
+                    method: 'post',
+                    url: '/admin/danh-muc/update-status/' + $(this).data('id'),
+                    data: {
+                        message: true,
+                    },
+                }).done(() => {
+                    location.reload();
+                });
+            }
+        })
+        $('.deleteList').click(function(){
+            if (confirm('Bạn Có thực sự muốn xóa danh mục này ?')) {
+                $.ajax({
+                    method: 'delete',
+                    url: '/admin/danh-muc/delete/' + $(this).data('id'),
+                })
+                    .done(() => {
+                        alert('Xóa Thành Công');
+                        location.reload();
+                    })
+                    .fail((error) => {
+                        if (error.responseJSON.message) {
+                            return alert(error.responseJSON.message);
+                        }
+                        alert('Lỗi Vui Lòng Thử Lại');
+                    });
+            }
+        })
+    })
+</script>
 
 <%-include('../library/footer.ejs')%>
