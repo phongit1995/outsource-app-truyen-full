@@ -33,3 +33,18 @@ export const deleteListController = async (req: Request, res: Response) => {
     console.log(req.params.id);
     res.status(200).json({ message: true });
 };
+export const detailListController = async (req: Request, res: Response) => {
+    const listDetail = await ListService.getDetailById(req.params.id);
+    if (!listDetail) {
+        return res.redirect('/admin/danh-muc');
+    }
+    const category = await CategoryService.getAllCategory();
+    res.render('admin/list/edit', {
+        category,
+        listDetail,
+    });
+};
+export const updateListController = async (req: Request, res: Response) => {
+    await ListService.updateList(req.params.id, req.body);
+    res.redirect('/admin/danh-muc');
+};

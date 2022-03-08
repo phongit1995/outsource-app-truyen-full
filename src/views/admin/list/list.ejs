@@ -2,7 +2,6 @@
 
 <!-- Start Content-->
 <div class="container-fluid">
-                        
     <!-- start page title -->
     <div class="row">
         <div class="col-12">
@@ -10,15 +9,17 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Chương</a></li>
+                        <li class="breadcrumb-item">
+                            <a href="javascript: void(0);">Chương</a>
+                        </li>
                         <li class="breadcrumb-item active">Danh sách chương</li>
                     </ol>
                 </div>
                 <h4 class="page-title">Danh sách chương</h4>
             </div>
         </div>
-    </div>     
-    <!-- end page title --> 
+    </div>
+    <!-- end page title -->
 
     <div class="row">
         <div class="col-12">
@@ -26,23 +27,34 @@
                 <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-4">
-                            <a href="/admin/danh-muc/add" class="btn btn-danger mb-2"><i class="mdi mdi-plus-circle me-2"></i>Thêm Danh Mục</a>
+                            <a href="/admin/danh-muc/add" class="btn btn-danger mb-2"
+                                ><i class="mdi mdi-plus-circle me-2"></i>Thêm Danh Mục</a
+                            >
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-centered w-100 dt-responsive nowrap" id="products-datatable">
+                        <table
+                            class="table table-centered w-100 dt-responsive nowrap"
+                            id="products-datatable"
+                        >
                             <thead class="table-light">
                                 <tr>
-                                    <th class="all" style="width: 20px;">
+                                    <th class="all" style="width: 20px">
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="customCheck1">
-                                            <label class="form-check-label" for="customCheck1">&nbsp;</label>
+                                            <input
+                                                type="checkbox"
+                                                class="form-check-input"
+                                                id="customCheck1"
+                                            />
+                                            <label class="form-check-label" for="customCheck1"
+                                                >&nbsp;</label
+                                            >
                                         </div>
                                     </th>
                                     <th>Danh mục</th>
                                     <th>Ngày</th>
                                     <th>Trạng thái</th>
-                                    <th style="width: 85px;">Action</th>
+                                    <th style="width: 85px">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,8 +62,14 @@
                                 <tr>
                                     <td>
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="customCheck2">
-                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+                                            <input
+                                                type="checkbox"
+                                                class="form-check-input"
+                                                id="customCheck2"
+                                            />
+                                            <label class="form-check-label" for="customCheck2"
+                                                >&nbsp;</label
+                                            >
                                         </div>
                                     </td>
                                     <td>
@@ -59,38 +77,53 @@
                                             <%=item.name%>
                                         </p>
                                     </td>
-                                    <td>
-                                        <%=moment(item.createdAt).format('DD-MM-YYYY')%>
-                                    </td>
+                                    <td><%=moment(item.createdAt).format('DD-MM-YYYY')%></td>
                                     <td>
                                         <% if(item.status) {%>
-                                            <span class="badge bg-success">Hiển Thị</span>
-                                            <% } else {%>
-                                            <span class="badge bg-warning">Ẩn</span>
-                                            <% } %>
-                                            <button data-id="<%=item._id%>" class="btn btn-sm btn-info changeStatusList">
-                                                <i class="mdi mdi-repeat"></i>
-                                            </button>
+                                        <span class="badge bg-success">Hiển Thị</span>
+                                        <% } else {%>
+                                        <span class="badge bg-warning">Ẩn</span>
+                                        <% } %>
+                                        <button
+                                            data-id="<%=item._id%>"
+                                            class="btn btn-sm btn-info changeStatusList"
+                                        >
+                                            <i class="mdi mdi-repeat"></i>
+                                        </button>
                                     </td>
                                     <td class="table-action">
-                                        <button  class="btn btn-sm btn-info" data-id="<%=item._id%>"> <i class="mdi mdi-square-edit-outline"></i></button>
-                                        <button class="btn btn-danger deleteList" data-id="<%=item._id%>"> <i class="mdi mdi-delete"></i></button>
+                                        <a
+                                            class="btn btn-sm btn-info"
+                                            data-id="<%=item._id%>"
+                                            href="/admin/danh-muc/detail/<%=item._id%>"
+                                        >
+                                            <i class="mdi mdi-square-edit-outline"></i
+                                        ></a>
+                                        <button
+                                            class="btn btn-danger deleteList"
+                                            data-id="<%=item._id%>"
+                                        >
+                                            <i class="mdi mdi-delete"></i>
+                                        </button>
                                     </td>
                                 </tr>
                                 <% })%>
                             </tbody>
                         </table>
                     </div>
-                </div> <!-- end card-body-->
-            </div> <!-- end card-->
-        </div> <!-- end col -->
+                </div>
+                <!-- end card-body-->
+            </div>
+            <!-- end card-->
+        </div>
+        <!-- end col -->
     </div>
-    <!-- end row -->        
-    
-</div> <!-- container -->
+    <!-- end row -->
+</div>
+<!-- container -->
 <script>
-    $(document).ready(function(){
-        $('.changeStatusList').click(function(){
+    $(document).ready(function () {
+        $('.changeStatusList').click(function () {
             if (confirm('Bạn Muốn Thay đổi trạng thái danh mục này không ?')) {
                 $.ajax({
                     method: 'post',
@@ -102,8 +135,8 @@
                     location.reload();
                 });
             }
-        })
-        $('.deleteList').click(function(){
+        });
+        $('.deleteList').click(function () {
             if (confirm('Bạn Có thực sự muốn xóa danh mục này ?')) {
                 $.ajax({
                     method: 'delete',
@@ -120,8 +153,8 @@
                         alert('Lỗi Vui Lòng Thử Lại');
                     });
             }
-        })
-    })
+        });
+    });
 </script>
 
 <%-include('../library/footer.ejs')%>

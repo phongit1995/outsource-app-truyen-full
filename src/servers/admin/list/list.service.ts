@@ -16,4 +16,10 @@ export class ListService {
     public static async removeList(id: string) {
         return ListModel.findByIdAndRemove(id);
     }
+    public static async getDetailById(id: string) {
+        return ListModel.findById(id);
+    }
+    public static updateList(id: string, data: any) {
+        return ListModel.findByIdAndUpdate(id, { ...data });
+    }
 }
