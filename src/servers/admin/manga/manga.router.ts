@@ -1,9 +1,10 @@
 import {Router} from "express";
-import {deleteManga, renderManga, renderUpdateManga, updateManga} from './manga.controller';
+import {deleteManga, renderManga, renderMangaByKey, renderUpdateManga, updateManga} from './manga.controller';
 import {Authentication} from "../middleware/auth.middleware";
 
 const router = Router();
 
+router.get('/manga/search', Authentication, renderMangaByKey);
 router.get('/manga/update', Authentication, renderUpdateManga);
 router.get('/manga', Authentication, renderManga);
 router.get('/manga/:page', Authentication, renderManga);

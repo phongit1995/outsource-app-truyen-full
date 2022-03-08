@@ -24,6 +24,31 @@ export const renderChapter = async (req: Request|any, res: Response) => {
     res.render('admin/chapter/listChapter.ejs', dataRender);
 };
 
+export const renderChapterSearched = async (req: Request|any, res: Response) => {
+    const perPage = 10;
+    const page = req.query.page || 1;
+    const key = req.query.key;
+    const countAllChapter = await ChapterService.getCountAllChapterByKey(key);
+
+    let listChapter = await ChapterService.getChapterByKeyAndPage(key, page, perPage);
+    const listChapterWithNameManga = await Promise.all(listChapter.map(async (chapter) => {
+        const chapterObj = chapter.toObject();
+        const mangaName =  await ChapterService.getNameMangaByChapter(chapterObj);
+
+        return {...chapterObj, mangaName};
+    }));
+    const dataRender: object = {
+        nameAdmin: req.session.admin.name,
+        listChapterWithNameManga,
+        current: page,
+        pages: Math.ceil(countAllChapter / perPage),
+        moment,
+        key
+    };
+
+    res.render('admin/chapter/searchChapter.ejs', dataRender);
+};
+
 export const changeStatus = async (req: Request|any, res: Response) => {
     const {idChangeStatus} = req.body;
 

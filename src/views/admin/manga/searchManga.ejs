@@ -1,0 +1,181 @@
+<%-include('../library/header.ejs')%>
+
+<!-- Start Content-->
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                        <li class="breadcrumb-item active">Truyện có liên quan đến từ khóa: <%=key%></li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Truyện có liên quan đến từ khóa: <%=key%></h4>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-sm-4 app-search dropdown d-none d-lg-block">
+                            <form method="get" action="/admin/manga/search">
+                                <div class="input-group">
+                                    <input type="text" name="key" class="form-control dropdown-toggle"  placeholder="Search..." id="top-search">
+                                    <span class="mdi mdi-magnify search-icon"></span>
+                                    <button class="input-group-text btn-primary" type="submit">Search</button>
+                                </div>
+                            </form>
+                            <a href="/admin/manga">Tất cả truyện</a>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <% if (key === '' || listManga.length === 0) {%>
+                            <p>Không có kết quả</p>
+                        <%} else  {%>
+                            <table class="table table-centered w-100 dt-responsive nowrap" id="products-datatable">
+                                <thead class="table-light">
+                                <tr>
+                                    <th class="all" style="width: 20px;">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="customCheck1">
+                                            <label class="form-check-label" for="customCheck1">&nbsp;</label>
+                                        </div>
+                                    </th>
+                                    <th class="all">Tên truyện</th>
+                                    <th>Thể loại</th>
+                                    <th>Tác giả</th>
+                                    <th>Ngày</th>
+                                    <th>Trạng thái</th>
+                                    <th style="width: 85px;">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% listManga.forEach((manga, index) => {%>
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="customCheck2">
+                                            <label class="form-check-label" for="customCheck2">&nbsp;</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="m-0 d-inline-block align-middle font-16">
+                                            <a href="#" class="text-body"><%=manga.name%></a>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <%manga.category.forEach(cate => { %>
+                                            <li><%=cate%></li>
+                                            <%})%>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <%=manga.author%>
+                                    </td>
+                                    <td>
+                                        <%=moment(manga.createdAt).format('DD-MM-YYYY')%>
+                                    </td>
+                                    <td>
+                                        <% if(manga.enable) {%>
+                                            <span class="badge bg-success">Đã đăng</span>
+                                        <% } else {%>
+                                            <span class="badge bg-warning">Ẩn</span>
+                                        <% } %>
+                                    </td>
+
+                                    <td class="table-action">
+                                        <form action="/admin/manga/delete" method="post">
+                                            <input type="hidden" name="idDelete" value=<%=manga._id%>>
+                                            <a href="/admin/manga/update?idUpdate=<%=manga._id%>" class="btn btn-primary"> <i class="mdi mdi-square-edit-outline"></i></a>
+                                            <button class="btn btn-danger"> <i class="mdi mdi-delete"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                </tbody>
+                            </table>
+                            <!-- pagination -->
+                            <div class="row">
+                                <!-- hiển thị phân trang nếu có trang -->
+                                <% if(pages > 0) { %>
+                                    <nav class="mx-auto">
+                                        <ul class="pagination" style="margin-top: 2rem;">
+
+                                            <!-- FIRST ITEM -->
+                                            <% if(current == 1) { %>
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="/admin/manga">First</a>
+                                                </li>
+                                            <% } else { %>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="/admin/manga">First</a>
+                                                </li>
+                                            <% } %>
+
+                                            <!-- ITEMS  -->
+                                            <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %>
+                                            <% if(i !== 1) { %>
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#">...</a>
+                                                </li>
+                                            <% } %>
+                                            <% for(; i <= (Number(current) + 2) && i <= pages; i++) { %>
+
+                                                <% if(i == current) { %>
+                                                    <li class="page-item active">
+                                                        <a class="page-link" href="/admin/manga/<%= i %>/">
+                                                            <%= i %>
+                                                        </a>
+                                                    </li>
+                                                <% } else { %>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="/admin/manga/<%= i %>/">
+                                                            <%= i %>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                                <% if (i == Number(current) + 2 && i < pages) { %>
+                                                    <li class="page-item disabled">
+                                                        <a class="page-link" href="#">...</a>
+                                                    </li>
+                                                <% } %>
+                                            <% } %>
+
+                                            <!-- LAST ITEM -->
+                                            <% if(current == pages) { %>
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#">
+                                                        Last
+                                                    </a>
+                                                </li>
+                                            <% } else { %>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="/admin/manga/<%= pages %>">
+                                                        Last
+                                                    </a>
+                                                </li>
+                                            <% } %>
+                                        </ul>
+                                    </nav>
+                                <% } %>
+                            </div>
+                        <% } %>
+                    </div>
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+
+</div> <!-- container -->
+
+
+<%-include('../library/footer.ejs')%>

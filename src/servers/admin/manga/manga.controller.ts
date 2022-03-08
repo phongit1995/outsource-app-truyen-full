@@ -20,6 +20,25 @@ export const renderManga = async (req: Request|any, res: Response) => {
     res.render('admin/manga/listManga.ejs', dataRender);
 }
 
+export const renderMangaByKey = async (req: Request|any, res: Response) => {
+    const perPage = 10;   // Amount manga one page
+    const page = req.query.page || 1;
+    const key = req.query.key || '';
+    const listManga =  await MangaService.getMangaByPageAndKey(key, page, perPage);
+    const countAllManga = await MangaService.getCountAllMangaByKey(key);
+
+    const dataRender: object = {
+        nameAdmin: req.session.admin.name,
+        listManga,
+        current: page,
+        pages: Math.ceil(countAllManga / perPage),
+        moment,
+        key
+    };
+
+    res.render('admin/manga/searchManga.ejs', dataRender);
+}
+
 export const deleteManga = async (req: Request|any, res:Response) => {
     const {idDelete} = req.body;
     await MangaService.deleteManga(idDelete);
