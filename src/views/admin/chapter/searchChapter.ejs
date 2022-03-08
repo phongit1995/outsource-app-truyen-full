@@ -11,10 +11,10 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-                        <li class="breadcrumb-item active">Danh sách chương</li>
+                        <li class="breadcrumb-item active">Danh sách chương liên quan từ khóa: <%=key%></li>
                     </ol>
                 </div>
-                <h4 class="page-title">Danh sách chương</h4>
+                <h4 class="page-title">Danh sách chương liên quan từ khóa: <%=key%></h4>
             </div>
         </div>
     </div>
@@ -33,10 +33,14 @@
                                     <button class="input-group-text btn-primary" type="submit">Search</button>
                                 </div>
                             </form>
+                            <a href="/admin/chapter">Tất cả chapter</a>
                         </div>
                     </div>
+                    <% if (key === '' || listChapterWithNameManga.length === 0) {%>
+                        <p>Không có kết quả</p>
+                        <%} else  {%>
                     <div class="table-responsive">
-                        <table class="table table-centered w-100 dt-responsive nowrap" id="products-datatable">
+                        <table class="table table-centered w-100 dt-responsive nowrap">
                             <thead class="table-light">
                             <tr>
                                 <th class="all" style="width: 20px;">
@@ -53,7 +57,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <% listChapterWithNameManga.forEach((chapter, index) => { %>
+                                <% listChapterWithNameManga.forEach((chapter, index) => { %>
                                 <tr>
                                 <td>
                                     <div class="form-check">
@@ -93,88 +97,83 @@
                                         <button id="deleteChapter-<%=index%>" type="submit" class="btn btn-danger" ><i class="mdi mdi-square-edit-outline"></i></button>
                                     </form>
                                 </td>
-<!--                                <td class="table-action">-->
-<!--                                    <form action="/admin/chapter/edit?id=" method="get">-->
-<!--                                        <input type="hidden" name="idUpdate" value=<%=chapter._id%>>-->
-<!--                                        <button id="updateChapter-<%=index%>" type="submit" class="btn btn-primary" ><i class="mdi mdi-update"></i></button>-->
-<!--                                    </form>-->
-<!--                                </td>-->
                             </tr>
                             <% }) %>
                             </tbody>
                         </table>
                     </div>
+                    <!-- pagination -->
+                    <div class="row">
+                        <!-- hiển thị phân trang nếu có trang -->
+                        <% if(pages > 0) { %>
+                            <nav class="mx-auto">
+                                <ul class="pagination" style="margin-top: 2rem;">
+
+                                    <!-- FIRST ITEM -->
+                                    <% if(current == 1) { %>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="/admin/chapter">First</a>
+                                        </li>
+                                    <% } else { %>
+                                        <li class="page-item">
+                                            <a class="page-link" href="/admin/chapter">First</a>
+                                        </li>
+                                    <% } %>
+
+                                    <!-- ITEMS  -->
+                                    <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %>
+                                    <% if(i !== 1) { %>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#">...</a>
+                                        </li>
+                                    <% } %>
+                                    <% for(; i <= (Number(current) + 2) && i <= pages; i++) { %>
+
+                                        <% if(i == current) { %>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="/admin/chapter/<%= i %>/">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                        <% } else { %>
+                                            <li class="page-item">
+                                                <a class="page-link" href="/admin/chapter/<%= i %>/">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                        <% } %>
+                                        <% if (i == Number(current) + 2 && i < pages) { %>
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#">...</a>
+                                            </li>
+                                        <% } %>
+                                    <% } %>
+
+                                    <!-- LAST ITEM -->
+                                    <% if(current == pages) { %>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#">
+                                                Last
+                                            </a>
+                                        </li>
+                                    <% } else { %>
+                                        <li class="page-item">
+                                            <a class="page-link" href="/admin/chapter/<%= pages %>">
+                                                Last
+                                            </a>
+                                        </li>
+                                    <% } %>
+                                </ul>
+                            </nav>
+                        <% } %>
+                    </div> <% } %>
                 </div> <!-- end card-body-->
             </div> <!-- end card-->
         </div> <!-- end col -->
     </div>
     <!-- end row -->
 
-    <!-- pagination -->
-    <div class="row">
-        <!-- hiển thị phân trang nếu có trang -->
-        <% if(pages > 0) { %>
-            <nav class="mx-auto">
-                <ul class="pagination" style="margin-top: 2rem;">
 
-                    <!-- FIRST ITEM -->
-                    <% if(current == 1) { %>
-                        <li class="page-item disabled">
-                            <a class="page-link" href="/admin/chapter">First</a>
-                        </li>
-                    <% } else { %>
-                        <li class="page-item">
-                            <a class="page-link" href="/admin/chapter">First</a>
-                        </li>
-                    <% } %>
-
-                    <!-- ITEMS  -->
-                    <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %>
-                    <% if(i !== 1) { %>
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#">...</a>
-                        </li>
-                    <% } %>
-                    <% for(; i <= (Number(current) + 2) && i <= pages; i++) { %>
-
-                        <% if(i == current) { %>
-                            <li class="page-item active">
-                                <a class="page-link" href="/admin/chapter/<%= i %>/">
-                                    <%= i %>
-                                </a>
-                            </li>
-                        <% } else { %>
-                            <li class="page-item">
-                                <a class="page-link" href="/admin/chapter/<%= i %>/">
-                                    <%= i %>
-                                </a>
-                            </li>
-                        <% } %>
-                        <% if (i == Number(current) + 2 && i < pages) { %>
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#">...</a>
-                            </li>
-                        <% } %>
-                    <% } %>
-
-                    <!-- LAST ITEM -->
-                    <% if(current == pages) { %>
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#">
-                                Last
-                            </a>
-                        </li>
-                    <% } else { %>
-                        <li class="page-item">
-                            <a class="page-link" href="/admin/chapter/<%= pages %>">
-                                Last
-                            </a>
-                        </li>
-                    <% } %>
-                </ul>
-            </nav>
-        <% } %>
-    </div>
 
 </div> <!-- container -->
 

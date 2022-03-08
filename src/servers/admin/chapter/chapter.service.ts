@@ -5,11 +5,21 @@ export class ChapterService {
     public static getCountAllChapter() {
         return ChapterModel.find().count();
     }
+    public static getCountAllChapterByKey(key) {
+        return ChapterModel.find({title: {$regex: key, $options: 'i'}}).count();
+    }
     public static getChapterById(id) {
         return ChapterModel.findOne({ _id: id });
     }
-    public static getChapterByPage(page, perPage) {
+    public static getChapterByPage(page: number, perPage: number) {
         return ChapterModel.find()
+            .skip(perPage * page - perPage)
+            .limit(perPage)
+            .sort({ createdAt: -1 })
+            .allowDiskUse(true);
+    }
+    public static getChapterByKeyAndPage(key: string, page: number, perPage: number) {
+        return ChapterModel.find({title: {$regex: key, $options: 'i'}})
             .skip(perPage * page - perPage)
             .limit(perPage)
             .sort({ createdAt: -1 })
@@ -33,7 +43,7 @@ export class ChapterService {
 
         return manga.name;
     }
-    public static async updateChapter(id, title) {
+    public static async updateChapter(id, title: string) {
         const chapter = await ChapterModel.findOne({ _id: id });
 
         chapter.title = title;
