@@ -5,7 +5,7 @@ export class CategoryService {
     public static getAllCategory() {
         return CategoryModel.find().sort({createdAt: -1});
     }
-    public static getCategoryById(id) {
+    public static getCategoryById(id: string) {
         return CategoryModel.findOne({_id: id});
     }
     public static createCategory({name, title, slug}) {
@@ -15,7 +15,7 @@ export class CategoryService {
 
         return newCategory.save();
     }
-    public static async changeStatus(id) {
+    public static async changeStatus(id: string) {
         const category = await CategoryModel.findOne({_id: id});
         if (category.status === 1) {
             category.status = 0;
@@ -33,7 +33,7 @@ export class CategoryService {
         category.slug = makeSlug(newName);
         return category.save();
     }
-    public static deleteCategory(id) {
+    public static deleteCategory(id: string) {
         return CategoryModel.deleteOne({_id: id});
     }
 }

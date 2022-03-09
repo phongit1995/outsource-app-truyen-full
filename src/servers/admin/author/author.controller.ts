@@ -51,3 +51,16 @@ export const addDataAuthor = async (req: Request|any, res: Response) => {
     res.status(200).json(listAuthor);
 
 }
+
+export const renderUpdateAuthor = async (req: Request|any, res: Response) => {
+    const author = await AuthorService.getAuthorById(req.query.id);
+
+    res.render('admin/author/updateAuthor.ejs', {author});
+}
+
+export const updateAuthor = async (req: Request|any, res: Response) => {
+    const {idUpdate, name} = req.body;
+
+    await AuthorService.updateAuthor(idUpdate, name);
+    res.redirect('/admin/author');
+}

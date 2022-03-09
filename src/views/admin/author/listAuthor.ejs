@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-centered w-100 dt-responsive nowrap">
+                        <table class="table table-centered w-100 dt-responsive nowrap" id="products-datatable">
                             <thead class="table-light">
                             <tr>
                                 <th class="all" style="width: 20px;">
@@ -72,10 +72,9 @@
                                 <td class="table-action">
                                     <form action="/admin/author/delete" method="post">
                                         <input type="hidden" name="idDelete" value=<%=author._id%>>
+                                        <a id="updateAuthor-<%=index%>" class="btn btn-primary" href="/admin/author/update?id=<%=author._id%>"><i class="mdi mdi-square-edit-outline"></i></a>
                                         <button class="btn btn-danger"> <i class="mdi mdi-delete"></i></button>
                                     </form>
-                                    <!-- <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>-->
-                                    <!--  <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>-->
                                 </td>
                             </tr>
                             <% }) %>
