@@ -112,11 +112,11 @@
                                             <!-- FIRST ITEM -->
                                             <% if(current == 1) { %>
                                                 <li class="page-item disabled">
-                                                    <a class="page-link" href="/admin/manga">First</a>
+                                                    <a class="page-link" href="/admin/manga/search?key=<%=key%>">First</a>
                                                 </li>
                                             <% } else { %>
                                                 <li class="page-item">
-                                                    <a class="page-link" href="/admin/manga">First</a>
+                                                    <a class="page-link" href="/admin/manga/search?key=<%=key%>">First</a>
                                                 </li>
                                             <% } %>
 
@@ -131,13 +131,13 @@
 
                                                 <% if(i == current) { %>
                                                     <li class="page-item active">
-                                                        <a class="page-link" href="/admin/manga/<%= i %>/">
+                                                        <a class="page-link" href="/admin/manga/search?page=<%= i %>&key=<%=key%>">
                                                             <%= i %>
                                                         </a>
                                                     </li>
                                                 <% } else { %>
                                                     <li class="page-item">
-                                                        <a class="page-link" href="/admin/manga/<%= i %>/">
+                                                        <a class="page-link" href="/admin/manga/search?page=<%= i %>&key=<%=key%>">
                                                             <%= i %>
                                                         </a>
                                                     </li>
@@ -158,7 +158,7 @@
                                                 </li>
                                             <% } else { %>
                                                 <li class="page-item">
-                                                    <a class="page-link" href="/admin/manga/<%= pages %>">
+                                                    <a class="page-link" href="/admin/manga/search?page=<%= pages %>&key=<%=key%>">
                                                         Last
                                                     </a>
                                                 </li>
