@@ -540,7 +540,11 @@
                     <div id="chapter-c" class="chapter-c">
                         <%-chapter.content%>
                     </div>
-                    <div id="ads_bottom_chapter"></div>
+                    <div id="ads_bottom_chapter">
+                        <%if(adsSetting.adsChapter){%>
+                            <%-adsSetting.adsChapter%>
+                        <%}%>
+                    </div>
                     <hr class="chapter-end" id="chapter-end-bot" />
                     <div class="chapter-nav" id="chapter-nav-bot">
                         <div class="btn-group"> <a class="btn btn-success btn-chapter-nav disabled" href="#" title=""

@@ -139,7 +139,11 @@
                 </div>
             </div>
             <div class="container">
-                <div id="ads_home1" class="ads-wrapper"></div>
+                <div id="ads_home1" class="ads-wrapper">
+                    <%if(adsSetting.adsHome1){%>
+                        <%-adsSetting.adsHome1%>
+                    <%}%>
+                </div>
             </div>
             <div class="container" id="list-index">
                 <div class="row text-center"></div>
@@ -296,7 +300,11 @@
                 </div>
             </div>
             <div class="container" id="truyen-slide">
-                <div id="ads_home2" class="ads-wrapper"></div>
+                <div id="ads_home2" class="ads-wrapper">
+                    <%if(adsSetting.adsHome2){%>
+                        <%-adsSetting.adsHome2%>
+                    <%}%>
+                </div>
                 <div class="list list-thumbnail col-xs-12">
                     <div class="title-list title-home">
                         <h2><a href="danh-sach/truyen-full" title="Truyện full">Truyện đã hoàn thành</a></h2> <a
@@ -324,9 +332,11 @@
     <!-- <div class="container">
         <div style="margin: 15px 0;padding:0 5px"></div>
     </div> -->
-    <!-- <div class="container">
-        <div id="ads_footer"></div>
-    </div> -->
+    <div class="container">
+        <div id="ads_footer">
+            
+        </div>
+    </div>
     <%-include('./../common/footer') %>
         <script>const BASE_URL = '';
             const FB_APP_ID = '5170652662945892';

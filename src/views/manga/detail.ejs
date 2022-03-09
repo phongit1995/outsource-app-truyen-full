@@ -425,7 +425,11 @@
                         </div>
                         <div style="clear: both;"></div>
                         <div class="col-xs-12">
-                            <div id="ads_top_story"></div>
+                            <div id="ads_top_story">
+                                <%if(adsSetting.adsDetailManga2){%>
+                                    <%-adsSetting.adsDetailManga2%>
+                                <%}%>
+                            </div>
                         </div>
                     </div>
                     <div class="col-xs-12" id="list-chapter">
@@ -535,7 +539,11 @@
                     </div>
                 </div>
                 <div class="visible-md-block visible-lg-block col-md-3 text-center col-truyen-side">
-                    <div id="ads_sidebar_story1"></div>
+                    <div id="ads_sidebar_story1">
+                        <%if(adsSetting.adsDetailManga1){%>
+                            <%-adsSetting.adsDetailManga1%>
+                        <%}%>
+                    </div>
                     <div class="list list-truyen col-xs-12">
                         <div class="title-list">
                             <h4>Truyện cùng tác giả</h4>
