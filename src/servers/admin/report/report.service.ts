@@ -5,12 +5,12 @@ export class ReportService {
     public static getTotalReport() {
         return ReportModel.find().count();
     }
-    public static getAuthorByPage(page: number, perPage: number) {
+    public static getReportByPage(page: number, perPage: number) {
         return ReportModel.find().skip((perPage * page) - perPage).limit(perPage).sort({createdAt: -1});
     }
-    public static createReport(content: string, manga: string, chapter: string) {
+    public static createReport(content: string, manga: string, chapter: string, idManga: string, idChapter: string) {
         const newReport = new ReportModel({
-            content, manga, chapter
+            content, manga, chapter, idManga, idChapter
         });
 
         return newReport.save();
