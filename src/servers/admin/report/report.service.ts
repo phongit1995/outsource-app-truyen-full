@@ -5,17 +5,17 @@ export class ReportService {
     public static getTotalReport() {
         return ReportModel.find().count();
     }
-    public static getAuthorByPage(page, perPage) {
+    public static getAuthorByPage(page: number, perPage: number) {
         return ReportModel.find().skip((perPage * page) - perPage).limit(perPage).sort({createdAt: -1});
     }
-    public static createReport(content, manga, chapter) {
+    public static createReport(content: string, manga: string, chapter: string) {
         const newReport = new ReportModel({
             content, manga, chapter
         });
 
         return newReport.save();
     }
-    public static async changeStatus(id) {
+    public static async changeStatus(id: string) {
         const report = await ReportModel.findOne({_id: id});
 
         if (report.status === 1) {
