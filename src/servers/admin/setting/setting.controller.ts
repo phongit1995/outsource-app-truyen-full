@@ -25,3 +25,13 @@ export const updateSettingInfo = async (req, res: Response) => {
     await SettingService.updateSettingInfo(result);
     res.redirect('/admin/setting');
 };
+export const settingAdsController = async (req: Request, res: Response) => {
+    const adsSetting = await SettingService.getSettingAds();
+    res.render('admin/setting/ads', {
+        adsSetting,
+    });
+};
+export const updateSettingAdsController = async (req: Request, res: Response) => {
+    await SettingService.updateSettingAds(req.body);
+    res.redirect('/admin/setting/ads');
+};

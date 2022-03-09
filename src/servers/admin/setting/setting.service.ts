@@ -29,4 +29,14 @@ export class SettingService {
     public static async updateSettingInfo(data: any) {
         return SettingModel.updateOne({ type: ESettingEnumType.info }, { ...data });
     }
+    public static async getSettingAds() {
+        const setting = await SettingModel.findOne({ type: ESettingEnumType.ads });
+        if (setting) {
+            return setting;
+        }
+        return SettingModel.create({ type: ESettingEnumType.ads });
+    }
+    public static async updateSettingAds(data: any) {
+        return SettingModel.updateOne({ type: ESettingEnumType.ads }, { ...data });
+    }
 }

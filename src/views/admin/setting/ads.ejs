@@ -1,0 +1,113 @@
+<%-include('./../library/header.ejs')%>
+ <!-- Start Content-->
+ <div class="container-fluid">
+                        
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Cài đặt</a></li>
+                        <li class="breadcrumb-item active">Cài đặt Ads</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Cài đặt Ads</h4>
+            </div>
+        </div>
+    </div>     
+    <!-- end page title --> 
+
+
+    <div class="row">
+        <form class="needs-validation" novalidate method="post" action="/admin/setting/update-ads">
+            <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title">Trang chủ</h4>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="custom-styles-preview">
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom02">Ads trang chủ 1</label>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="adsHome1"><%=adsSetting.adsHome1%></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom02">Ads trang chủ 2</label>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="adsHome2"><%=adsSetting.adsHome2%></textarea>
+                                </div>
+                        </div> <!-- end preview-->
+                    
+                        
+                    </div> <!-- end tab-content-->
+
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title">Danh sách/Thể loại</h4>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="tooltips-validation-preview">
+                                <div class="position-relative mb-3">
+                                    <label class="form-label" for="validationCustom02">Ads Sidebar</label>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="adsCategory1"><%=adsSetting.adsCategory1%></textarea>
+                                </div>
+                                <div class="position-relative mb-3">
+                                    <label class="form-label" for="validationCustom02">Ads List truyện</label>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="adsCategory2"><%=adsSetting.adsCategory2%></textarea>
+                                </div>
+                        </div> <!-- end preview-->
+                    
+                        
+                    </div> <!-- end tab-content-->
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title">Chi tiết truyện</h4>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="tooltips-validation-preview">
+                                <div class="position-relative mb-3">
+                                    <label class="form-label" for="validationCustom02">Ads Sidebar truyện</label>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="adsDetailManga1"><%=adsSetting.adsDetailManga1%></textarea>
+                                </div>
+                                <div class="position-relative mb-3">
+                                    <label class="form-label" for="validationCustom02">Ads content truyện</label>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="adsDetailManga2"><%=adsSetting.adsDetailManga2%></textarea>
+                                </div>
+                        </div> <!-- end preview-->
+                    
+                        
+                    </div> <!-- end tab-content-->
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title">Chi tiết chương</h4>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="tooltips-validation-preview">
+                                <div class="position-relative mb-3">
+                                    <label class="form-label" for="validationCustom02"></label>
+                                    <textarea class="form-control" id="example-textarea" rows="5" name="adsChapter"><%=adsSetting.adsChapter%></textarea>
+                                </div>
+                                
+                                <button class="btn btn-primary" type="submit">Lưu lại</button>
+                        </div> <!-- end preview-->
+                    
+                        
+                    </div> <!-- end tab-content-->
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+    </div>
+</form>
+    <!-- end row -->
+
+</div> <!-- container -->
+<%-include('./../library/footer.ejs')%>

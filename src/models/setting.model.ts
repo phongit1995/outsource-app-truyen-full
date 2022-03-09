@@ -2,12 +2,20 @@ import { Schema, model, connect } from 'mongoose';
 export enum ESettingEnumType {
     scripts = 'scripts',
     info = 'info',
+    ads = 'ads',
 }
 export interface Setting {
     _id: string;
     header: string;
     footer: string;
     type: number;
+    adsHome1: string;
+    adsHome2: string;
+    adsDetailManga1: string;
+    adsDetailManga2: string;
+    adsCategory1: string;
+    adsCategory2: string;
+    adsChapter: string;
 }
 let setting = new Schema(
     {
@@ -37,6 +45,34 @@ let setting = new Schema(
             default: null,
         },
         keyword: {
+            type: String,
+            default: null,
+        },
+        adsHome1: {
+            type: String,
+            default: null,
+        },
+        adsHome2: {
+            type: String,
+            default: null,
+        },
+        adsDetailManga1: {
+            type: String,
+            default: null,
+        },
+        adsDetailManga2: {
+            type: String,
+            default: null,
+        },
+        adsCategory1: {
+            type: String,
+            default: null,
+        },
+        adsCategory2: {
+            type: String,
+            default: null,
+        },
+        adsChapter: {
             type: String,
             default: null,
         },
