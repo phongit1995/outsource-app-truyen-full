@@ -21,7 +21,7 @@ export const detailList = async (req: Request, res: Response) => {
         condition.category = listInfo.category;
     }
     if (listInfo.filter == 1) {
-        sort.chapter_update = 1;
+        sort.chapter_update = -1;
     }
     if (listInfo.filter == 2) {
         sort.manga_status = -1;
