@@ -6,7 +6,7 @@ export const getReportOnePage = async (req: Request|any, res: Response) => {
     const page = req.params.page || 1;
     const perPage = 10;
     const amountReport = await ReportService.getTotalReport();
-    const listReportOnePage = await ReportService.getAuthorByPage(page, perPage);
+    const listReportOnePage = await ReportService.getReportByPage(page, perPage);
     const dataRender = {
         nameAdmin: req.session.admin.name,
         listReportOnePage,
@@ -18,9 +18,9 @@ export const getReportOnePage = async (req: Request|any, res: Response) => {
 }
 
 export const createReport = async (req: Request|any, res: Response) => {
-    const {content, manga, chapter} = req.body;
+    const {content, manga, chapter, idManga, idChapter} = req.body;
 
-    await ReportService.createReport(content, manga, chapter);
+    await ReportService.createReport(content, manga, chapter, idManga, idChapter);
     res.redirect('back');
 }
 
