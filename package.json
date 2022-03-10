@@ -2,7 +2,8 @@
   "scripts": {
     "start": "ts-node-dev src/index.ts",
     "crawler": "ts-node crawler/index.ts",
-    "cronjob": "ts-node crawler/cronjob.ts"
+    "cronjob": "ts-node crawler/cronjob.ts",
+    "sitemap":"ts-node crawler/sitemap.ts"
   },
   "name": "app-truyen-chu",
   "version": "1.0.0",
@@ -32,6 +33,7 @@
     "redis": "^4.0.3",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
+    "sitemap": "^7.1.1",
     "typescript": "^4.5.5"
   },
   "devDependencies": {
