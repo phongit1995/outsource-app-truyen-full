@@ -7,6 +7,7 @@ export interface Manga {
     author: string;
     authorSlug: string;
     category: string[];
+    list: string[];
     image: string;
     imageOriginal: string;
     views: number;
@@ -38,6 +39,11 @@ let manga = new Schema(
         description: String,
         url: String,
         category: [
+            {
+                type: String,
+            },
+        ],
+        list: [
             {
                 type: String,
             },

@@ -162,3 +162,4 @@ out
 
 # Firebase spec file
 firebase.spec.json
+!*.xml

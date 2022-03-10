@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "start": "ts-node-dev src/index.ts",
+    "start": "ts-node-dev src/index.ts --max-old-space-size=8192",
     "crawler": "ts-node crawler/index.ts",
     "cronjob": "ts-node crawler/cronjob.ts",
-    "sitemap":"ts-node crawler/sitemap.ts"
+    "sitemap":"ts-node crawler/sitemap.ts",
+    "addList":"ts-node crawler/addList.ts"
   },
   "name": "app-truyen-chu",
   "version": "1.0.0",

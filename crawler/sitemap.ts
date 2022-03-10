@@ -26,7 +26,6 @@ const renderSiteMapLarge = async (data: any) => {};
 const getData = async () => {
     let arrayOfSitemapItems = [];
     const listManga = await MangaModel.find({ crawled: true });
-    console.log(listManga.length);
     listManga.forEach((item) => {
         arrayOfSitemapItems.push({
             url: `/${item.slug}`,

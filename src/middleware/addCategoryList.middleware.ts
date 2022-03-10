@@ -13,7 +13,7 @@ export const addCategoryListMiddleware = async (
         SettingService.getSettingAds(),
     ]);
     res.locals.headerCategoryList = categoryList;
-    res.locals.headerList = listCache;
+    res.locals.headerList = listCache ? listCache : [];
     res.locals.adsSetting = adsSetting;
     next();
 };
