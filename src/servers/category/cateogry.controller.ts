@@ -52,7 +52,7 @@ export const getMangaFullByCategory = async (req: Request, res: Response) => {
     const getTitle = categoryFind.title;
     const [listManga, totalManga, hotManga] = await Promise.all([
         CategoryService.getMangaFullByCategoryName(categoryName, page, pageSize),
-        CategoryService.getTotalMangaByCategoryName(categoryName),
+        CategoryService.getTotalMangaFullByCategoryName(categoryName),
         CategoryService.getMangaHotByCategoryName(categoryName, 1, 10),
     ]);
     const dataRender: object = {

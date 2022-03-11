@@ -57,5 +57,11 @@ export class CategoryService {
             .skip((page - 1) * pageSize)
             .limit(pageSize);
     }
+    public static getTotalMangaFullByCategoryName(category: string) {
+        return MangaModel.countDocuments({
+            category: category,
+            manga_status: 1
+        });
+    }
 }
 export default CategoryService;
