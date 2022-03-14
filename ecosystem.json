@@ -16,7 +16,7 @@
         "args":" run cronjob",
         "merge_logs": true,
         "env": {
-          "MONGO_URL":"mongodb://admin:Phongit1995@64.44.168.43:27017/truyenfull?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false"
+          "MONGO_URL":"mongodb://Phong:Phongit1995@localhost:27017/truyenfull?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false"
         }
       }
     ]
