@@ -41,8 +41,8 @@ $( document ).ready(function() {
                             ${categoryHtml.join("")}
                         </div>
                         <div class="col-xs-3 col-sm-3 col-md-4 col-chap text-info"> <a
-                                href="lam-dinh-chi-chu/chuong-58-ket-cuoc" title="${item.last_chapter.name}"> <span
-                                    class="chapter-text"><span></span>${item.last_chapter.title}</span> </a> </div>
+                                href="lam-dinh-chi-chu/chuong-58-ket-cuoc" title="${item?.last_chapter?.name}"> <span
+                                    class="chapter-text"><span></span>${item?.last_chapter?.title}</span> </a> </div>
                 </div>
                 `
             })

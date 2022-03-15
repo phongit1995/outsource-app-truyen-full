@@ -27,10 +27,10 @@ jobs:
             - name: deploy
               uses: appleboy/ssh-action@master
               with:
-                  host: 64.44.168.43 #hostname of server
+                  host: 103.154.177.218 #hostname of server
                   username: root #username login to server
-                  password: E6jPsJ91ZFh9mnq65W #password login to server
-                  port: 22 #port of server - often port is 22
+                  password: K75mx1dP=2=&?!2 #password login to server
+                  port: 7878 #port of server - often port is 22
                   script: | # run with multiple script
                       cd outsource-app-truyen-full
                       git pull
