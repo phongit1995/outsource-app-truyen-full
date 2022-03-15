@@ -90,10 +90,8 @@
         <h1 style="display: none;">Danh sách truyện <%=listName%> tổng hợp mới nhất</h1>
         <div class="container" id="list-page">
             <div class="title-list">
-                <h2 itemprop="name"><%=listName%></h2>
-                <% if(!isFull){%>
-                <div class="filter"> <a href="/danh-sach/<%-list%>/hoan"><%=listName%> (full)</a> </div>
-                <%}%>
+                <h2 itemprop="name"><%=listName%> hoàn</h2>
+                <div class="filter"> <a href="/danh-sach/<%-list%>"><%=listName%> </a> </div>
                 <div style="clear: both;"></div>
             </div>
             <div class="cat-content"></div>
@@ -316,7 +314,7 @@
                 pageTo=Number(pageTo);
                 console.log(pageTo);
                 if( pageTo>0 && pageTo<=pages && pageTo != currentPage ){
-                    return window.location.href = '/danh-sach/<%=list%>?page='+pageTo ;
+                    return window.location.href = '/danh-sach/<%=list%>/hoan?page='+pageTo ;
                 }else {
                     return alert('Vui Lòng Nhập Số Trang Đúng')
                 }
