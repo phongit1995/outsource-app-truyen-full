@@ -322,7 +322,7 @@
             pageTo=Number(pageTo);
             console.log(pageTo);
             if( pageTo>0 && pageTo<=pages && pageTo != currentPage ){
-                return window.location.href = '/the-loai/<%=category%>?page='+pageTo ;
+                return window.location.href = '/the-loai/<%=category%>/hoan?page='+pageTo ;
             }else {
                 return alert('Vui Lòng Nhập Số Trang Đúng')
             }
