@@ -59,7 +59,7 @@ export const detailListFull = async (req: Request, res: Response) => {
     const keyCache = `cacheMangaList-full-${page}-${req.params.list}`;
     let cacheData = cacheService.get(keyCache);
     if (cacheData) {
-        return res.render('list', cacheData as object);
+        return res.render('list/listFull', cacheData as object);
     }
     const listInfo = await ListService.getListBySlug(list);
     if (!listInfo) {
