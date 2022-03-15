@@ -29,7 +29,7 @@ jobs:
               with:
                   host: 103.154.177.218 #hostname of server
                   username: root #username login to server
-                  password: K75mx1dP=2=&?!2 #password login to server
+                  password: Y$=6-aArL6jP&Eq6 #password login to server
                   port: 7878 #port of server - often port is 22
                   script: | # run with multiple script
                       cd outsource-app-truyen-full
