@@ -31,4 +31,15 @@ export class SiteMapService {
             category: category,
         }).select('slug');
     }
+    public static countChapterLength() {
+        return ChapterModel.countDocuments();
+    }
+    public static getChapterPage(page: number, pageSize: number) {
+        return ChapterModel.find()
+            .select('url')
+            .sort({ createdAt: -1 })
+            .skip((page - 1) * pageSize)
+            .limit(pageSize)
+            .allowDiskUse(true);
+    }
 }

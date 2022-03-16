@@ -5,6 +5,7 @@ import {
     sitemapIndexController,
     genderSiteMapCategoryController,
     genderSiteMapCategoryDetailController,
+    genderSiteMapChapterController,
 } from './sitemap.controller';
 const router = Router();
 router.get('/sitemap', sitemapIndexController);
@@ -12,4 +13,5 @@ router.post('/sitemap/list', genderSiteMapListController);
 router.post('/sitemap/author', genderSiteMapAuthorController);
 router.post('/sitemap/category', genderSiteMapCategoryController);
 router.post('/sitemap/category-detail', genderSiteMapCategoryDetailController);
+router.post('/sitemap/chapter', genderSiteMapChapterController);
 export default router;

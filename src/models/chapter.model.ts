@@ -41,6 +41,7 @@ let chapter = new Schema(
     { timestamps: true },
 );
 chapter.index({ manga: 1, index: 1 }, { unique: true });
+chapter.index({ createdAt: -1 }, { unique: true });
 chapter.pre('save', function (next) {
     if (this.isModified('title')) {
         this.slug = makeSlug(this.title ? this.title : '');
