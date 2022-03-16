@@ -44,6 +44,10 @@ const listType: ListTypeT[] = [
         slug: makeSlug('Ngôn Tình Hài'),
     },
     {
+        name: 'Ngôn tình hay',
+        slug: makeSlug('Ngôn tình hay'),
+    },
+    {
         name: 'Ngôn Tình Ngược',
         slug: makeSlug('Ngôn Tình Ngược'),
     },
