@@ -75,3 +75,23 @@ export const genderSiteMapCategoryController = async (req: Request, res: Respons
         res.send('hello');
     });
 };
+export const genderSiteMapCategoryDetailController = async (req: Request, res: Response) => {
+    const list = await SiteMapService.getListCategory();
+    if (list.length == 0) {
+        return res.send('Lỗi');
+    }
+    const filePath = join(__dirname, '../../..', 'public', 'sitemap', 'the-loai.xml');
+    if (existsSync(filePath)) {
+        unlinkSync(filePath);
+    }
+    const links = [];
+    list.forEach((item) => {
+        links.push({ url: '/tac-gia/' + item.slug, changefreq: 'daily', priority: 1 });
+    });
+    const stream = new SitemapStream({ hostname: 'https://xemtruyen.vn' });
+    const writeSteam = createWriteStream(filePath);
+    Readable.from(links).pipe(stream).pipe(writeSteam);
+    writeSteam.on('finish', () => {
+        res.send('hello');
+    });
+};
