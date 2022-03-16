@@ -10,18 +10,18 @@
     <meta name="description"
         content="Đọc truyện <%=manga.name%> của tác giả <%=manga.author %>, đã full (hoàn thành). Hỗ trợ xem trên di động, máy tính bảng." />
     <meta name="keywords"
-        content="Trở Lại 2006, tro-lai-2006, doc truyen tro lai 2006, tro lai 2006 full, tro lai 2006 prc" />
+        content="<%=manga.name%>, <%=manga.slug%>" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="canonical" href="tro-lai-2006" />
+    <link rel="canonical" href="/<%=manga.slug%>" />
     <meta property="fb:app_id" content="5170652662945892">
-    <meta property="og:title" content="Truyện chữ <%=manga.name%> full tác giả <%=manga.author%>">
+    <meta property="og:title" content="Đọc truyện <%=manga.name%> full tác giả <%=manga.author%>">
     <meta property="og:url" content="" />
     <meta property="og:description"
         content="Đọc truyện <%=manga.name %> của tác giả <%=manga.author%>, đã full (hoàn thành). Hỗ trợ xem trên di động, máy tính bảng." />
     <meta property="og:site_name" content="Đọc xem truyện Online, Mê đọc xem truyện hay">
-    <meta property="og:image" content="uploads/Images/tro-lai-2006.jpg" />
+    <meta property="og:image" content="/image/<%=manga.image%>" />
     <meta property="og:type" content="book" />
-    <meta property="og:author" content="tac-gia/moc-tu-tam" />
+    <meta property="og:author" content="/tac-gia/<%=manga.authorSlug%>" />
     <meta property="og:release_date" content="07-02-2022 13:46" />
     <link property="og:tag" content="<%=manga.name%>" />
     <link property="og:tag" content="<%=manga.name%>" />
