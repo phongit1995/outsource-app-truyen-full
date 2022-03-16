@@ -17,7 +17,7 @@ export const detailList = async (req: Request, res: Response) => {
     }
     let condition: { list?: string } = {};
     let sort: { [index: string]: any } = {};
-    const listNotFull = ['truyen-moi', 'truyen-hot', 'truyen-full'];
+    const listNotFull = ['truyen-moi-cap-nhat', 'truyen-hot', 'truyen-full'];
     if (listNotFull.includes(list)) {
         if (list == listNotFull[0]) {
             sort.chapter_update = -1;
@@ -69,7 +69,7 @@ export const detailListFull = async (req: Request, res: Response) => {
         manga_status: true,
     };
     let sort: { [index: string]: any } = {};
-    const listNotFull = ['truyen-moi', 'truyen-hot', 'truyen-full'];
+    const listNotFull = ['truyen-moi-cap-nhat', 'truyen-hot', 'truyen-full'];
     if (listNotFull.includes(list)) {
         if (list == listNotFull[0]) {
             sort.chapter_update = -1;
@@ -84,7 +84,6 @@ export const detailListFull = async (req: Request, res: Response) => {
         condition.list = list;
     }
     condition.list = list;
-    console.log(condition);
     const [listManga, totalManga, hotManga] = await Promise.all([
         mangaService.getMangaByCondition(condition, sort, page, pageSize),
         mangaService.countDocumentByCondition(condition),
