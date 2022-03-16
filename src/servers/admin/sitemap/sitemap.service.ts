@@ -25,4 +25,10 @@ export class SiteMapService {
             .select('slug manga')
             .cursor();
     }
+    public static getMangaByCategory(category: string) {
+        return MangaModel.find({
+            crawled: true,
+            category: category,
+        }).select('slug');
+    }
 }
