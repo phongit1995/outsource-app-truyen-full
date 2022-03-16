@@ -32,3 +32,33 @@ export const getMangaByAuthor = async (req: Request|any, res: Response) => {
         return res.redirect('/');
     }
 }
+
+export const getMangaFullByAuthor = async (req: Request|any, res: Response) => {
+    const slugAuthor = req.params.author;
+    const [listMangaFullByAuthor, hotManga] = await Promise.all([
+        AuthorService.getMangaFullByAuthor(slugAuthor),
+        mangaService.getListHot(1, 7)
+    ]);
+
+    //Check cache
+    const keyCache = `cacheMangaFullByAuthor-${slugAuthor}`;
+    let cacheData = cacheService.get(keyCache);
+    if (cacheData) {
+        return res.render('author/mangaFull.ejs', cacheData as object);
+    }
+
+    if (listMangaFullByAuthor.length > 0) {
+        const nameAuthor = listMangaFullByAuthor[0].author;
+        const dataRender : object = {
+            nameAuthor,
+            slugAuthor,
+            listMangaFullByAuthor,
+            hotManga
+        };
+
+        cacheService.set(keyCache, dataRender, 60 * 30);
+        return res.render('author/mangaFull.ejs', dataRender);
+    }else {
+        return res.redirect('/');
+    }
+}

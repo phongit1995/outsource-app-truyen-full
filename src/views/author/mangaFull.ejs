@@ -86,11 +86,11 @@
             padding: 0 10px;
         }
     </style>
-    <h1 style="display: none;">Danh sách truyện của tác giả <%=nameAuthor%> tổng hợp</h1>
+    <h1 style="display: none;">Danh sách truyện(full) của tác giả <%=nameAuthor%> tổng hợp</h1>
     <div class="container" id="list-page">
         <div class="title-list">
             <h2 itemprop="name"><%=nameAuthor%></h2>
-            <div class="filter"> <a href="/tac-gia/<%=slugAuthor%>/hoan"><%=nameAuthor%> (full)</a> </div>
+            <div class="filter"> <a href="/tac-gia/<%=slugAuthor%>"><%=nameAuthor%></a> </div>
             <div style="clear: both;"></div>
         </div>
         <div class="cat-content"></div>
@@ -98,9 +98,9 @@
             <div class="text-center"></div>
             <div class="list list-truyen col-xs-12">
                 <div style="padding: 0 10px;">
-                    <p style="text-align:justify">Danh sách truyện của tác giả <%=nameAuthor%></p>
+                    <p style="text-align:justify">Danh sách truyện(full) của tác giả <%=nameAuthor%></p>
                 </div>
-                <% listMangaByAuthor.forEach((manga)=>{ %>
+                <% listMangaFullByAuthor.forEach((manga)=>{ %>
                 <div class="row" itemscope itemtype="https://schema.org/Book">
                     <div class="col-xs-3">
                         <div>
