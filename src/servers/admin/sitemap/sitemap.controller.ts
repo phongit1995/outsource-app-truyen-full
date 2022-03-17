@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createReadStream, unlinkSync, existsSync, readdirSync, statSync } from 'fs';
+import { unlinkSync, existsSync, readdirSync, statSync, mkdirSync } from 'fs';
 import { SiteMapService } from './sitemap.service';
 const {
     SitemapStream,
@@ -13,6 +13,9 @@ const { createWriteStream } = require('fs');
 const HOST_NAME = 'https://xemtruyen.vn';
 export const sitemapIndexController = (req: Request, res: Response) => {
     const folderPath = join(__dirname, '../../..', 'public', 'sitemap');
+    if (!existsSync(folderPath)) {
+        mkdirSync(folderPath);
+    }
     res.render('admin/sitemap');
 };
 
