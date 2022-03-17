@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createReadStream, unlinkSync, existsSync } from 'fs';
+import { createReadStream, unlinkSync, existsSync, readdirSync, statSync } from 'fs';
 import { SiteMapService } from './sitemap.service';
 const {
     SitemapStream,
@@ -14,6 +14,31 @@ const HOST_NAME = 'https://xemtruyen.vn';
 export const sitemapIndexController = (req: Request, res: Response) => {
     const folderPath = join(__dirname, '../../..', 'public', 'sitemap');
     res.render('admin/sitemap');
+};
+
+export const createSiteMapGenderController = (req: Request, res: Response) => {
+    const fileName = join(__dirname, '../../..', 'public', 'sitemap', 'sitemap.xml');
+    const fileFolder = join(__dirname, '../../..', 'public', 'sitemap');
+    if (existsSync(fileName)) {
+        unlinkSync(fileName);
+    }
+    const listFile = readdirSync(fileFolder);
+    listFile.sort((a, b) => {
+        return (
+            statSync(join(__dirname, '../../..', 'public', 'sitemap', a))['mtime'].getTime() -
+            statSync(join(__dirname, '../../..', 'public', 'sitemap', b))['mtime'].getTime()
+        );
+    });
+    const links = [];
+    listFile.forEach((item) => {
+        links.push({ url: '/sitemap/' + item, changefreq: 'daily', priority: 1 });
+    });
+    const stream = new SitemapStream({ hostname: 'https://xemtruyen.vn' });
+    const writeSteam = createWriteStream(fileName);
+    Readable.from(links).pipe(stream).pipe(writeSteam);
+    writeSteam.on('finish', () => {
+        res.send('hello');
+    });
 };
 export const genderSiteMapListController = async (req: Request, res: Response) => {
     const list = await SiteMapService.getList();
@@ -102,7 +127,7 @@ const renderMangaByCategory = async (category: any) => {
     }
     const links = [];
     listManga.forEach((item) => {
-        links.push({ url: '/' + item.slug, changefreq: 'daily', priority: 1 });
+        links.push({ url: item.slug, changefreq: 'daily', priority: 1 });
     });
     const writeSteam = createWriteStream(filePath);
     const stream = new SitemapStream({ hostname: HOST_NAME });
@@ -116,8 +141,6 @@ export const genderSiteMapChapterController = async (req: Request, res: Response
     const numberPagePer: number = chapterLength / FILE_NUMBER_ON_FILE;
     const totalPage =
         chapterLength % FILE_NUMBER_ON_FILE == 0 ? numberPagePer : numberPagePer + 1;
-    console.log(numberPagePer);
-    console.log('totalPage', totalPage);
     for (let i = 1; i < totalPage; i++) {
         await genderChapterGzFile(i, FILE_NUMBER_ON_FILE);
     }
