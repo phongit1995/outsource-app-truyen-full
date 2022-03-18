@@ -63,7 +63,7 @@ $( document ).ready(function() {
                 }
             }).done(result=>{
                 const resultData = result.map((data)=>{
-                    return `<a href="${data.slug}" class="list-group-item" title="${data.name}"> ${data.name}</a>`
+                    return `<a href="/${data.slug}" class="list-group-item" title="${data.name}"> ${data.name}</a>`
                 });
                 const resultHtml = resultData.join('');
                 $('#result-search').removeClass('hide');
