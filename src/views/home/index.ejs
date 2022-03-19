@@ -1,150 +1,69 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head
-        prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile#"
-    >
-        <meta charset="UTF-8" />
-        <title>Xem truyện</title>
-        <meta
-            name="viewport"
-            content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no"
-        />
-        <meta
-            name="description"
-            content="Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất."
-        />
-        <meta name="keywords" content="" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta property="fb:app_id" content="5170652662945892" />
-        <meta property="og:title" content="Đọc xem truyện Online, Mê đọc xem truyện hay" />
-        <meta property="og:url" content="" />
-        <meta
-            property="og:description"
-            content="Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất."
-        />
-        <meta property="og:site_name" content="Đọc xem truyện Online, Mê đọc xem truyện hay" />
-        <meta property="og:image" content="frontend/img/logo.png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon.svg" />
-        <link rel="manifest" href="favicon/manifest.json" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
-        <meta name="theme-color" content="#ffffff" />
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "WebSite",
-                "url": "https://xemtruyen.vn",
-                "name": "Đọc xem truyện Online, Mê đọc xem truyện hay",
-                "description": "Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.",
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": {
-                        "@type": "EntryPoint",
-                        "urlTemplate": "tim-kiem?tukhoa={tukhoa}"
-                    },
-                    "query-input": {
-                        "@type": "PropertyValueSpecification",
-                        "valueRequired": "http://schema.org/True",
-                        "valueName": "tukhoa"
-                    }
-                }
-            }
-        </script>
-        <link rel="stylesheet" type="text/css" href="frontend/css/style.css" />
-        <link rel="stylesheet" type="text/css" href="/frontend/css/main.min.css" />
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173912908-1"></script>
+<head
+    prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile#">
+    <meta charset="UTF-8" />
+    <title>Xem truyện</title>
+    <meta name="viewport"
+        content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
+    <meta name="description"
+        content="Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất." />
+    <meta name="keywords" content="" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta property="fb:app_id" content="5170652662945892">
+    <meta property="og:title" content="Đọc xem truyện Online, Mê đọc xem truyện hay">
+    <meta property="og:url" content="" />
+    <meta property="og:description"
+        content="Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất." />
+    <meta property="og:site_name" content="Đọc xem truyện Online, Mê đọc xem truyện hay">
+    <meta property="og:image" content="frontend/img/logo.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon.svg">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "", "name": "Đọc xem truyện Online, Mê đọc xem truyện hay", "description": "Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "tim-kiem?tukhoa={tukhoa}" }, "query-input": { "@type": "PropertyValueSpecification", "valueRequired": "http://schema.org/True", "valueName": "tukhoa" } }
+}</script>
+    <link rel="stylesheet" type="text/css" href="frontend/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/frontend/css/main.min.css" />
+   
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173912908-1"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9443025361518917" crossorigin="anonymous"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173912908-1');
+</script>
+</head>
+
+<body id="body_home" class="">
+    <div id="wrap">
         <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9443025361518917"
-            crossorigin="anonymous"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-
-            gtag('config', 'UA-173912908-1');
-        </script>
-    </head>
-
-    <body id="body_home" class="">
-        <div id="wrap">
-            <script type="text/javascript">
-                function getCookie(d) {
-                    d += '=';
-                    for (
-                        var b = decodeURIComponent(document.cookie).split(';'), c = [], a = 0;
-                        a < b.length;
-                        a++
-                    )
-                        0 == b[a].trim().indexOf(d) && (c = b[a].trim().split('='));
-                    return 0 < c.length ? c[1] : '';
-                }
-                var js_bgcolor = getCookie('bgcolor-cookie');
-                '#232323' == js_bgcolor &&
-                    (document.getElementsByTagName('body')[0].className += ' dark-theme');
-            </script>
-            <%-include('./../common/header') %>
-            <script type="text/javascript">
-                function getCookie(d) {
-                    d += '=';
-                    for (
-                        var b = decodeURIComponent(document.cookie).split(';'), c = [], a = 0;
-                        a < b.length;
-                        a++
-                    )
-                        0 == b[a].trim().indexOf(d) && (c = b[a].trim().split('='));
-                    return 0 < c.length ? c[1] : '';
-                }
-                var js_bgcolor = getCookie('bgcolor-cookie'),
-                    js_font = getCookie('font-cookie'),
-                    js_size = getCookie('size-cookie'),
-                    js_lineheight = getCookie('lineheight-cookie'),
-                    js_hidenav = getCookie('hidenav-cookie'),
-                    js_fluid_switch = getCookie('fluid-switch-cookie'),
-                    js_onebreak_switch = getCookie('onebreak-switch-cookie'),
-                    js_body_insert_class = '';
-                '' != js_bgcolor &&
-                    '#F4F4F4' != js_bgcolor &&
-                    ((js_bgcolor = js_bgcolor.replace('#', '')),
-                    (js_body_insert_class =
-                        '232323' == js_bgcolor
-                            ? js_body_insert_class + ' background-232323 dark-theme'
-                            : js_body_insert_class + (' background-' + js_bgcolor)));
-                1 == js_hidenav &&
-                    (document.getElementById('body_chapter').className += ' hidenav');
-                '' != js_size && (js_body_insert_class += ' size-' + js_size);
-                '' != js_font &&
-                    ((js_font = js_font.replace(/, serif|, sans-serif|'|\s/g, '')),
-                    (js_body_insert_class += ' font-' + js_font));
-                '' != js_lineheight &&
-                    '180%' != js_lineheight &&
-                    ((js_lineheight = js_lineheight.replace('%', '')),
-                    (js_body_insert_class += ' lineheight-' + js_lineheight));
-                1 == js_fluid_switch && (js_body_insert_class += ' container-fluid-switch');
-                document.getElementById('body_chapter').className += js_body_insert_class;
-            </script>
+            type="text/javascript"> function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++) 0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : ""; } var js_bgcolor = getCookie("bgcolor-cookie"); "#232323" == js_bgcolor && (document.getElementsByTagName("body")[0].className += " dark-theme"); </script>
+        <%-include('./../common/header') %>
+            <script
+                type="text/javascript">function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++)0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : "" } var js_bgcolor = getCookie("bgcolor-cookie"), js_font = getCookie("font-cookie"), js_size = getCookie("size-cookie"), js_lineheight = getCookie("lineheight-cookie"), js_hidenav = getCookie("hidenav-cookie"), js_fluid_switch = getCookie("fluid-switch-cookie"), js_onebreak_switch = getCookie("onebreak-switch-cookie"), js_body_insert_class = ""; "" != js_bgcolor && "#F4F4F4" != js_bgcolor && (js_bgcolor = js_bgcolor.replace("#", ""), js_body_insert_class = "232323" == js_bgcolor ? js_body_insert_class + " background-232323 dark-theme" : js_body_insert_class + (" background-" + js_bgcolor)); 1 == js_hidenav && (document.getElementById("body_chapter").className += " hidenav"); "" != js_size && (js_body_insert_class += " size-" + js_size); "" != js_font && (js_font = js_font.replace(/, serif|, sans-serif|'|\s/g, ""), js_body_insert_class += " font-" + js_font); "" != js_lineheight && "180%" != js_lineheight && (js_lineheight = js_lineheight.replace("%", ""), js_body_insert_class += " lineheight-" + js_lineheight); 1 == js_fluid_switch && (js_body_insert_class += " container-fluid-switch"); document.getElementById("body_chapter").className += js_body_insert_class;</script>
             <style type="text/css">
                 .ads-wrapper {
                     max-width: 100%;
                     margin: 0;
-                    padding: 0;
+                    padding: 0
                 }
 
                 .title-list.title-home {
@@ -152,6 +71,7 @@
                 }
 
                 @media screen and (min-width: 1200px) {
+
                     .new-select,
                     .filter {
                         height: 38px;
@@ -160,15 +80,9 @@
             </style>
             <div class="container" id="intro-index">
                 <div class="title-list title-home">
-                    <h2><a href="danh-sach/truyen-hot" title="Truyện hot">Truyện hot</a></h2>
-                    <a href="" title="Truyện hot"
-                        ><span class="glyphicon glyphicon-fire"></span
-                    ></a>
-                    <select
-                        id="select-hot"
-                        class="form-control new-select"
-                        aria-label="Chọn thể loại"
-                    >
+                    <h2><a href="danh-sach/truyen-hot" title="Truyện hot">Truyện hot</a></h2> <a href=""
+                        title="Truyện hot"><span class="glyphicon glyphicon-fire"></span></a> <select id="select-hot"
+                        class="form-control new-select" aria-label="Chọn thể loại">
                         <option value="all">Tất cả</option>
                         <option value="32">Bách Hợp</option>
                         <option value="35">Cổ Đại</option>
@@ -213,52 +127,32 @@
                 </div>
                 <div class="index-intro" id="content-hot">
                     <% listMangaHot.forEach((item,index)=>{%>
-                    <div
-                        class="item top-<%=index+1%>"
-                        itemscope
-                        itemtype="https://schema.org/Book"
-                    >
-                        <a href="/<%=item.slug%>" itemprop="url">
-                            <img
+                        <div class="item top-<%=index+1%>" itemscope itemtype="https://schema.org/Book"> <a
+                            href="/<%=item.slug%>" itemprop="url"> <img
                                 src="<%=item.image%>"
-                                alt="<%=item.name%>"
-                                class="img-responsive item-img"
-                                itemprop="image"
-                            />
+                                alt="<%=item.name%>" class="img-responsive item-img" itemprop="image" />
                             <div class="title">
                                 <h3 itemprop="name"><%=item.name%></h3>
                             </div>
-                        </a>
-                    </div>
+                        </a> </div>
                     <%})%>
                 </div>
             </div>
             <div class="container">
                 <div id="ads_home1" class="ads-wrapper">
-                    <%if(adsSetting.adsHome1){%> <%-adsSetting.adsHome1%> <%}%>
+                    <%if(adsSetting.adsHome1){%>
+                        <%-adsSetting.adsHome1%>
+                    <%}%>
                 </div>
             </div>
             <div class="container" id="list-index">
                 <div class="row text-center"></div>
                 <div class="hide" id="history-holder"></div>
-                <div
-                    id="content-new"
-                    class="list list-truyen list-new col-xs-12 col-sm-12 col-md-8 col-truyen-main"
-                >
+                <div id="content-new" class="list list-truyen list-new col-xs-12 col-sm-12 col-md-8 col-truyen-main" >
                     <div class="title-list title-home">
-                        <h2>
-                            <a href="danh-sach/truyen-moi" title="Truyện mới"
-                                >Truyện mới cập nhật</a
-                            >
-                        </h2>
-                        <a href="" title="Truyện mới"
-                            ><span class="glyphicon glyphicon-menu-right"></span
-                        ></a>
-                        <select
-                            id="select-new"
-                            class="form-control new-select"
-                            aria-label="Chọn thể loại"
-                        >
+                        <h2><a href="danh-sach/truyen-moi" title="Truyện mới">Truyện mới cập nhật</a></h2> <a href=""
+                            title="Truyện mới"><span class="glyphicon glyphicon-menu-right"></span></a> <select
+                            id="select-new" class="form-control new-select" aria-label="Chọn thể loại">
                             <option value="all">Tất cả</option>
                             <option value="32">Bách Hợp</option>
                             <option value="35">Cổ Đại</option>
@@ -301,234 +195,155 @@
                             <option value="19">Xuyên Nhanh</option>
                         </select>
                     </div>
-                    <% function makeSlug(str) { //Đổi chữ hoa thành chữ thường let slug =
-                    str.toLowerCase(); //Đổi ký tự có dấu thành không dấu slug =
-                    slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a'); slug =
-                    slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e'); slug =
-                    slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i'); slug =
-                    slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o'); slug =
-                    slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u'); slug =
-                    slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y'); slug = slug.replace(/đ/gi, 'd'); slug =
-                    slug.replace('-', ''); //Xóa các ký tự đặt biệt slug = slug.replace(
-                    /\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi,
-                    '', ); //Đổi khoảng trắng thành ký tự gạch ngang slug = slug.replace(/ /gi, '
-                    - '); //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang //Phòng
-                    trường hợp người nhập vào quá nhiều ký tự trắng slug =
-                    slug.replace(/\-\-\-\-\-\-/gi, '-'); slug = slug.replace(/\-\-\-\-\-/gi,
-                    '-'); slug = slug.replace(/\-\-\-\-/gi, '-'); slug = slug.replace(/\-\-\-/gi,
-                    '-'); slug = slug.replace(/\-\-/gi, '-'); //Xóa các ký tự gạch ngang ở đầu và
-                    cuối slug = '@' + slug + '@'; slug = slug.replace(/\@\-|\-\@|\@/gi, ''); slug
-                    = slug.replace(/\s/g, ''); slug = slug.replace('--', '-'); return slug; } %>
-                    <% listNewUpdate.forEach((item,index)=>{ %>
-                    <div class="row" itemscope itemtype="https://schema.org/Book">
-                        <div class="col-xs-9 col-sm-6 col-md-5 col-title">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                            <h3 itemprop="name">
-                                <a href="/<%=item.slug%>" title="Lam Đình Chi Chủ" itemprop="url"
-                                    ><%=item.name%>
-                                </a>
-                            </h3>
-                        </div>
-                        <div class="hidden-xs col-sm-3 col-md-3 col-cat text-888">
-                            <% item.category.forEach((cate)=>{ %>
-                            <a
-                                itemprop="genre"
-                                href="/the-loai/<%=makeSlug(cate)%>"
-                                title="<%=cate %>"
-                                ><%=cate %></a
-                            >
-                            <%}) %>
-                        </div>
-                        <div class="col-xs-3 col-sm-3 col-md-4 col-chap text-info">
-                            <a
-                                href="/<%=item.slug%>/<%=item?.last_chapter?.slug%>"
-                                title="<%=item?.last_chapter?.name%>"
-                            >
-                                <span class="chapter-text"
-                                    ><span></span><%=item?.last_chapter?.title%></span
-                                >
-                            </a>
-                        </div>
-                    </div>
-                    <%})%>
+                    <%
+                    function makeSlug(str) {
+                        //Đổi chữ hoa thành chữ thường
+                        let slug = str.toLowerCase();
+                    
+                        //Đổi ký tự có dấu thành không dấu
+                        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+                        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+                        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+                        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+                        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+                        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+                        slug = slug.replace(/đ/gi, 'd');
+                        slug = slug.replace('-', '');
+                        //Xóa các ký tự đặt biệt
+                        slug = slug.replace(
+                            /\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi,
+                            '',
+                        );
+                        //Đổi khoảng trắng thành ký tự gạch ngang
+                        slug = slug.replace(/ /gi, ' - ');
+                        //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+                        //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+                        slug = slug.replace(/\-\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-\-/gi, '-');
+                        slug = slug.replace(/\-\-/gi, '-');
+                        //Xóa các ký tự gạch ngang ở đầu và cuối
+                        slug = '@' + slug + '@';
+                        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+                        slug = slug.replace(/\s/g, '');
+                        slug = slug.replace('--', '-');
+                        return slug;
+                    }
+                    %>
+                        <%
+                            listNewUpdate.forEach((item,index)=>{ %>
+                                <div class="row" itemscope itemtype="https://schema.org/Book">
+                                    <div class="col-xs-9 col-sm-6 col-md-5 col-title"> <span
+                                            class="glyphicon glyphicon-chevron-right"></span>
+                                        <h3 itemprop="name"><a href="/<%=item.slug%>" title="Lam Đình Chi Chủ" itemprop="url"><%=item.name%> </a></h3>
+                                    </div>
+                                    <div class="hidden-xs col-sm-3 col-md-3 col-cat text-888">
+                                        <% item.category.forEach((cate)=>{ %>
+                                            <a itemprop="genre" href="/the-loai/<%=makeSlug(cate)%>" title="<%=cate %>"><%=cate %></a> 
+                                        <%}) %>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-4 col-chap text-info"> <a
+                                            href="/<%=item.slug%>/<%=item?.last_chapter?.slug%>" title="<%=item?.last_chapter?.name%>"> <span
+                                                class="chapter-text"><span></span><%=item?.last_chapter?.title%></span> </a> </div>
+                                </div>
+                        <%})%>
                 </div>
-                <div
-                    class="visible-md-block visible-lg-block col-md-4 text-center col-truyen-side"
-                >
+                <div class="visible-md-block visible-lg-block col-md-4 text-center col-truyen-side">
                     <div class="hide" id="history-holder-side"></div>
                     <div class="list list-truyen list-cat col-xs-12">
                         <div class="title-list title-home">
                             <h4>Thể loại truyện</h4>
                         </div>
                         <div class="row">
-                            <div class="col-xs-6">
-                                <a href="the-loai/bach-hop" title="">Bách Hợp</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/co-dai" title="">Cổ Đại</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/cung-dau" title="">Cung Đấu</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/dam-my" title="">Đam Mỹ</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/di-gioi" title="">Dị Giới</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/di-nang" title="">Dị Năng</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/dien-van" title="">Điền Văn</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/do-thi" title="">Đô Thị</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/doan-van" title="">Đoản Văn</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/dong-phuong" title="">Đông Phương</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/gia-dau" title="">Gia Đấu</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/hai-huoc" title="">Hài Hước</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/he-thong" title="">Hệ Thống</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/huyen-huyen" title="">Huyền Huyễn</a>
-                            </div>
+                            <div class="col-xs-6"><a href="the-loai/bach-hop" title="">Bách Hợp</a></div>
+                            <div class="col-xs-6"><a href="the-loai/co-dai" title="">Cổ Đại</a></div>
+                            <div class="col-xs-6"><a href="the-loai/cung-dau" title="">Cung Đấu</a></div>
+                            <div class="col-xs-6"><a href="the-loai/dam-my" title="">Đam Mỹ</a></div>
+                            <div class="col-xs-6"><a href="the-loai/di-gioi" title="">Dị Giới</a></div>
+                            <div class="col-xs-6"><a href="the-loai/di-nang" title="">Dị Năng</a></div>
+                            <div class="col-xs-6"><a href="the-loai/dien-van" title="">Điền Văn</a></div>
+                            <div class="col-xs-6"><a href="the-loai/do-thi" title="">Đô Thị</a></div>
+                            <div class="col-xs-6"><a href="the-loai/doan-van" title="">Đoản Văn</a></div>
+                            <div class="col-xs-6"><a href="the-loai/dong-phuong" title="">Đông Phương</a></div>
+                            <div class="col-xs-6"><a href="the-loai/gia-dau" title="">Gia Đấu</a></div>
+                            <div class="col-xs-6"><a href="the-loai/hai-huoc" title="">Hài Hước</a></div>
+                            <div class="col-xs-6"><a href="the-loai/he-thong" title="">Hệ Thống</a></div>
+                            <div class="col-xs-6"><a href="the-loai/huyen-huyen" title="">Huyền Huyễn</a></div>
                             <div class="col-xs-6"><a href="the-loai/khac" title="">Khác</a></div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/khoa-huyen" title="">Khoa Huyễn</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/kiem-hiep" title="">Kiếm Hiệp</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/lich-su" title="">Lịch Sử</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/light-novel" title="">Light Novel</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/linh-di" title="">Linh Dị</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/mat-the" title="">Mạt Thế</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/ngon-tinh" title="">Ngôn Tình</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/nguoc" title="">Ngược</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/nu-cuong" title="">Nữ Cường</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/nu-phu" title="">Nữ Phụ</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/phuong-tay" title="">Phương Tây</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/quan-su" title="">Quân Sự</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/quan-truong" title="">Quan Trường</a>
-                            </div>
+                            <div class="col-xs-6"><a href="the-loai/khoa-huyen" title="">Khoa Huyễn</a></div>
+                            <div class="col-xs-6"><a href="the-loai/kiem-hiep" title="">Kiếm Hiệp</a></div>
+                            <div class="col-xs-6"><a href="the-loai/lich-su" title="">Lịch Sử</a></div>
+                            <div class="col-xs-6"><a href="the-loai/light-novel" title="">Light Novel</a></div>
+                            <div class="col-xs-6"><a href="the-loai/linh-di" title="">Linh Dị</a></div>
+                            <div class="col-xs-6"><a href="the-loai/mat-the" title="">Mạt Thế</a></div>
+                            <div class="col-xs-6"><a href="the-loai/ngon-tinh" title="">Ngôn Tình</a></div>
+                            <div class="col-xs-6"><a href="the-loai/nguoc" title="">Ngược</a></div>
+                            <div class="col-xs-6"><a href="the-loai/nu-cuong" title="">Nữ Cường</a></div>
+                            <div class="col-xs-6"><a href="the-loai/nu-phu" title="">Nữ Phụ</a></div>
+                            <div class="col-xs-6"><a href="the-loai/phuong-tay" title="">Phương Tây</a></div>
+                            <div class="col-xs-6"><a href="the-loai/quan-su" title="">Quân Sự</a></div>
+                            <div class="col-xs-6"><a href="the-loai/quan-truong" title="">Quan Trường</a></div>
                             <div class="col-xs-6"><a href="the-loai/sac" title="">Sắc</a></div>
                             <div class="col-xs-6"><a href="the-loai/sung" title="">Sủng</a></div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/tham-hiem" title="">Thám Hiểm</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/tien-hiep" title="">Tiên Hiệp</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/trinh-tham" title="">Trinh Thám</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/trong-sinh" title="">Trọng Sinh</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/truyen-teen" title="">Truyện Teen</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/viet-nam" title="">Việt Nam</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/vong-du" title="">Võng Du</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/xuyen-khong" title="">Xuyên Không</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="the-loai/xuyen-nhanh" title="">Xuyên Nhanh</a>
-                            </div>
+                            <div class="col-xs-6"><a href="the-loai/tham-hiem" title="">Thám Hiểm</a></div>
+                            <div class="col-xs-6"><a href="the-loai/tien-hiep" title="">Tiên Hiệp</a></div>
+                            <div class="col-xs-6"><a href="the-loai/trinh-tham" title="">Trinh Thám</a></div>
+                            <div class="col-xs-6"><a href="the-loai/trong-sinh" title="">Trọng Sinh</a></div>
+                            <div class="col-xs-6"><a href="the-loai/truyen-teen" title="">Truyện Teen</a></div>
+                            <div class="col-xs-6"><a href="the-loai/viet-nam" title="">Việt Nam</a></div>
+                            <div class="col-xs-6"><a href="the-loai/vong-du" title="">Võng Du</a></div>
+                            <div class="col-xs-6"><a href="the-loai/xuyen-khong" title="">Xuyên Không</a></div>
+                            <div class="col-xs-6"><a href="the-loai/xuyen-nhanh" title="">Xuyên Nhanh</a></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="container" id="truyen-slide">
                 <div id="ads_home2" class="ads-wrapper">
-                    <%if(adsSetting.adsHome2){%> <%-adsSetting.adsHome2%> <%}%>
+                    <%if(adsSetting.adsHome2){%>
+                        <%-adsSetting.adsHome2%>
+                    <%}%>
                 </div>
                 <div class="list list-thumbnail col-xs-12">
                     <div class="title-list title-home">
-                        <h2>
-                            <a href="danh-sach/truyen-full" title="Truyện full"
-                                >Truyện đã hoàn thành</a
-                            >
-                        </h2>
-                        <a href="danh-sach/truyen-full" title="Truyện full"
-                            ><span class="glyphicon glyphicon-menu-right"></span
-                        ></a>
+                        <h2><a href="danh-sach/truyen-full" title="Truyện full">Truyện đã hoàn thành</a></h2> <a
+                            href="danh-sach/truyen-full" title="Truyện full"><span
+                                class="glyphicon glyphicon-menu-right"></span></a>
                     </div>
                     <div class="row">
                         <% listMangaDone.forEach((item)=>{ %>
-                        <div class="col-xs-4 col-sm-3 col-md-2">
-                            <a href="/<%=item.slug%>" title="Triêu Dương Cảnh Sự">
-                                <div
-                                    class="lazyimg"
+                            <div class="col-xs-4 col-sm-3 col-md-2"> <a href="/<%=item.slug%>"
+                                title="Triêu Dương Cảnh Sự">
+                                <div class="lazyimg"
                                     data-desk-image="<%=item.image%>"
-                                    data-image="<%=item.image%>"
-                                    data-origin="jpg"
-                                    data-alt="<%=item.name%>"
-                                ></div>
+                                    data-image="<%=item.image%>" data-origin="jpg"
+                                    data-alt="<%=item.name%>"></div>
                                 <div class="caption">
-                                    <h3><%=item.name%></h3>
-                                    <small class="btn-xs label-primary"
-                                        >Full - <%=item.totalChapter%> chương</small
-                                    >
+                                    <h3><%=item.name%></h3> <small class="btn-xs label-primary">Full - <%=item.totalChapter%>
+                                        chương</small>
                                 </div>
-                            </a>
-                        </div>
+                            </a> </div>
                         <%})%>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- <div class="container">
+    </div>
+    <!-- <div class="container">
         <div style="margin: 15px 0;padding:0 5px"></div>
     </div> -->
-        <div class="container">
-            <div id="ads_footer"></div>
+    <div class="container">
+        <div id="ads_footer">
+            
         </div>
-        <%-include('./../common/footer') %>
-        <script>
-            const BASE_URL = '';
+    </div>
+    <%-include('./../common/footer') %>
+        <script>const BASE_URL = '';
             const FB_APP_ID = '5170652662945892';
-            const GA_ACCOUNT = '65067329-18';
-        </script>
+            const GA_ACCOUNT = '65067329-18';</script>
         <script type="text/javascript" src="/frontend/js/main.min.js"></script>
         <script src="https://benalman.com/code/projects/jquery-throttle-debounce/jquery.ba-throttle-debounce.js"></script>
         <script type="text/javascript" src="/frontend/js/xemtruyen.js"></script>
-    </body>
+</body>
+
 </html>
