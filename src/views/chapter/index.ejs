@@ -1,924 +1,650 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head
-        prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile#"
-    >
-        <meta charset="UTF-8" />
-        <title><%=manga.name%> <%=chapter.title%></title>
-        <meta
-            name="viewport"
-            content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no"
-        />
-        <meta name="description" content="<%=manga.name%> <%=chapter.titel%>" />
-        <meta name="keywords" content="<%=manga.name%> <%=chapter.title%>" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="canonical" href="xuyen-qua-chi-linh-thuc-su" />
-        <meta property="fb:app_id" content="5170652662945892" />
-        <meta property="og:title" content="<%=manga.name%> <%=chapter.title%>" />
-        <meta property="og:url" content="xuyen-qua-chi-linh-thuc-su/chuong-2-cung-nhau-an-com" />
-        <meta property="og:description" content="<%=manga.name%> <%=chapter.title%>" />
-        <meta property="og:site_name" content="Đọc xem truyện Online, Mê đọc xem truyện hay" />
-        <meta property="og:image" content="uploads/Images/xuyen-qua-chi-linh-thuc-su.jpg" />
-        <meta property="og:type" content="book" />
-        <meta property="og:author" content="tac-gia/diep-uc-lac" />
-        <meta property="og:release_date" content="18-09-2021 11:04" />
-        <link property="og:tag" content=" <%=chapter.title%>" />
-        <link property="og:tag" content="<%=chapter.title%>" />
-        <link property="og:tag" content="<%=manga.name%>" />
-        <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon.svg" />
-        <link rel="manifest" href="favicon/manifest.json" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
-        <meta name="theme-color" content="#ffffff" />
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "WebSite",
-                "url": "https://xemtruyen.vn",
-                "name": "Đọc xem truyện Online, Mê đọc xem truyện hay",
-                "description": "Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.",
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": {
-                        "@type": "EntryPoint",
-                        "urlTemplate": "tim-kiem?tukhoa={tukhoa}"
-                    },
-                    "query-input": {
-                        "@type": "PropertyValueSpecification",
-                        "valueRequired": "http://schema.org/True",
-                        "valueName": "tukhoa"
-                    }
-                }
-            }
-        </script>
-        <link rel="stylesheet" type="text/css" href="/frontend/css/style.css" />
-        <link rel="stylesheet" type="text/css" href="/frontend/css/main.min.css" />
-        <link rel="stylesheet" type="text/css" href="/frontend/css/custom.css" />
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173912908-1"></script>
+
+<head
+    prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile#">
+    <meta charset="UTF-8" />
+    <title><%=manga.name%> <%=chapter.title%></title>
+    <meta name="viewport"
+        content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="<%=manga.name%> <%=chapter.titel%>" />
+    <meta name="keywords"
+        content="<%=manga.name%> <%=chapter.title%>" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="canonical" href="xuyen-qua-chi-linh-thuc-su" />
+    <meta property="fb:app_id" content="5170652662945892">
+    <meta property="og:title" content="<%=manga.name%> <%=chapter.title%>">
+    <meta property="og:url" content="xuyen-qua-chi-linh-thuc-su/chuong-2-cung-nhau-an-com" />
+    <meta property="og:description" content="<%=manga.name%> <%=chapter.title%>" />
+    <meta property="og:site_name" content="Đọc xem truyện Online, Mê đọc xem truyện hay">
+    <meta property="og:image" content="uploads/Images/xuyen-qua-chi-linh-thuc-su.jpg" />
+    <meta property="og:type" content="book" />
+    <meta property="og:author" content="tac-gia/diep-uc-lac" />
+    <meta property="og:release_date" content="18-09-2021 11:04" />
+    <link property="og:tag" content=" <%=chapter.title%>" />
+    <link property="og:tag" content="<%=chapter.title%>" />
+    <link property="og:tag" content="<%=manga.name%>" />
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon.svg">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "", "name": "Đọc xem truyện Online, Mê đọc xem truyện hay", "description": "Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "tim-kiem?tukhoa={tukhoa}" }, "query-input": { "@type": "PropertyValueSpecification", "valueRequired": "http://schema.org/True", "valueName": "tukhoa" } }
+    }</script>
+    <link rel="stylesheet" type="text/css" href="/frontend/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/frontend/css/main.min.css" />
+    <link rel="stylesheet" type="text/css" href="/frontend/css/custom.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173912908-1"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9443025361518917" crossorigin="anonymous"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173912908-1');
+</script>
+    <style type="text/css">
+        .story-title {
+            display: block;
+        }
+
+        .glyphicon-menu-updownswitch:before {
+            content: "\e260";
+        }
+
+        .toolbar.navbar-nav {
+            text-align: center;
+            margin-top: 10px;
+            float: none;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .toolbar.navbar-nav li {
+            float: none;
+            width: auto;
+            display: inline-block;
+        }
+
+        .toolbar.navbar-nav li a {
+            background-color: #5db85c;
+            border: 0;
+            color: #fff;
+            border-radius: 3px;
+            padding: 10px 15px;
+        }
+
+        .toolbar.navbar-nav li a:hover,
+        .toolbar.navbar-nav li a:focus {
+            background-color: #5db85c;
+        }
+
+        .toolbar.navbar-nav li form label {
+            color: #fff;
+        }
+
+        .toolbar.navbar-nav .open .dropdown-menu {
+            background-color: #5db85c;
+        }
+
+        .dark-theme {
+            background-image: url(img/bg_dark.gif);
+            background-color: #232323;
+            background-repeat: repeat;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .dark-theme img {
+            opacity: 0.9;
+        }
+
+        .dark-theme a {
+            color: #b1b1b1;
+        }
+
+        .dark-theme .chapter .truyen-title {
+            color: #82a82d;
+            text-shadow: 0 0 1px #000;
+            filter: dropshadow(color=#000000, offx=0, offy=0);
+        }
+
+        .dark-theme .ad-link,
+        .dark-theme .chapter .chapter-c {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .dark-theme .btn {
+            color: #a9a9a9;
+            background: #121212;
+        }
+
+        .dark-theme .btn-success {
+            color: #82a82d;
+            border-color: #82a82d;
+        }
+
+        .container-fluid-switch #chapter-big-container {
+            width: auto;
+        }
+
+        #body_chapter.hidenav #nav {
+            display: none;
+        }
+
+        #body_chapter.hidenav #chapter-big-container {
+            margin-top: 10px;
+        }
+
+        .glyphicon-menu-updownswitch:before {
+            content: "\e260";
+        }
+
+        #body_chapter.hidenav .glyphicon-menu-updownswitch:before {
+            content: "\e259";
+        }
+
+        #body_chapter.background-hatsan {
+            background-image: url(img/bg_op.png);
+            background-color: #f2f2f2;
+            background-repeat: repeat;
+        }
+
+        #body_chapter.background-sachcu {
+            background-image: url(img/bg_book_op.png);
+            background-color: #c2b49b;
+            background-repeat: repeat;
+        }
+
+        #body_chapter.background-232323 {
+            background-image: url(img/bg_dark.gif);
+            background-color: #232323;
+            background-repeat: repeat;
+        }
+
+        #body_chapter.background-F4F4F4 {
+            background-image: none;
+            background-color: #f4f4f4;
+        }
+
+        #body_chapter.background-E9EBEE {
+            background-image: none;
+            background-color: #e9ebee;
+        }
+
+        #body_chapter.background-F4F4E4 {
+            background-image: none;
+            background-color: #f4f4e4;
+        }
+
+        #body_chapter.background-EAE4D3 {
+            background-image: none;
+            background-color: #eae4d3;
+        }
+
+        #body_chapter.background-D5D8DC {
+            background-image: none;
+            background-color: #d5d8dc;
+        }
+
+        #body_chapter.background-FAFAC8 {
+            background-image: none;
+            background-color: #fafac8;
+        }
+
+        #body_chapter.background-EFEFAB {
+            background-image: none;
+            background-color: #efefab;
+        }
+
+        #body_chapter.background-FFF {
+            background-image: none;
+            background-color: #fff;
+        }
+
+        #body_chapter.size-16px .chapter-c {
+            font-size: 16px;
+        }
+
+        #body_chapter.size-18px .chapter-c {
+            font-size: 18px;
+        }
+
+        #body_chapter.size-20px .chapter-c {
+            font-size: 20px;
+        }
+
+        #body_chapter.size-22px .chapter-c {
+            font-size: 22px;
+        }
+
+        #body_chapter.size-24px .chapter-c {
+            font-size: 24px;
+        }
+
+        #body_chapter.size-26px .chapter-c {
+            font-size: 26px;
+        }
+
+        #body_chapter.size-28px .chapter-c {
+            font-size: 28px;
+        }
+
+        #body_chapter.size-30px .chapter-c {
+            font-size: 30px;
+        }
+
+        #body_chapter.size-32px .chapter-c {
+            font-size: 32px;
+        }
+
+        #body_chapter.size-34px .chapter-c {
+            font-size: 34px;
+        }
+
+        #body_chapter.size-36px .chapter-c {
+            font-size: 36px;
+        }
+
+        #body_chapter.size-38px .chapter-c {
+            font-size: 38px;
+        }
+
+        #body_chapter.size-40px .chapter-c {
+            font-size: 40px;
+        }
+
+        #body_chapter.font-PalatinoLinotype .chapter-c {
+            font-family: "Palatino Linotype", serif;
+        }
+
+        #body_chapter.font-Bookerly .chapter-c {
+            font-family: Bookerly, serif;
+        }
+
+        #body_chapter.font-Minion .chapter-c {
+            font-family: Minion, serif;
+        }
+
+        #body_chapter.font-SegoeUI .chapter-c {
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        #body_chapter.font-Roboto .chapter-c {
+            font-family: Roboto, sans-serif;
+        }
+
+        #body_chapter.font-RobotoCondensed .chapter-c {
+            font-family: "Roboto Condensed", sans-serif;
+        }
+
+        #body_chapter.font-PatrickHand .chapter-c {
+            font-family: "Patrick Hand", sans-serif;
+        }
+
+        #body_chapter.font-NoticiaText .chapter-c {
+            font-family: "Noticia Text", sans-serif;
+        }
+
+        #body_chapter.font-TimesNewRoman .chapter-c {
+            font-family: "Times New Roman", serif;
+        }
+
+        #body_chapter.font-Verdana .chapter-c {
+            font-family: Verdana, sans-serif;
+        }
+
+        #body_chapter.font-Tahoma .chapter-c {
+            font-family: Tahoma, sans-serif;
+        }
+
+        #body_chapter.font-Arial .chapter-c {
+            font-family: Arial, sans-serif;
+        }
+
+        #body_chapter.lineheight-100 .chapter-c {
+            line-height: 100%;
+        }
+
+        #body_chapter.lineheight-120 .chapter-c {
+            line-height: 120%;
+        }
+
+        #body_chapter.lineheight-140 .chapter-c {
+            line-height: 140%;
+        }
+
+        #body_chapter.lineheight-160 .chapter-c {
+            line-height: 160%;
+        }
+
+        #body_chapter.lineheight-180 .chapter-c {
+            line-height: 180%;
+        }
+
+        #body_chapter.lineheight-200 .chapter-c {
+            line-height: 200%;
+        }
+
+        .dark-theme .navbar-default,
+        .dark-theme.navbar-default {
+            background: #242f39;
+            border-bottom-color: #242f39;
+            box-shadow: 0 0 1px rgba(10, 10, 10, 0.4);
+        }
+
+        .dark-theme .navbar-breadcrumb {
+            background: #2e3740;
+            border-top: 0;
+        }
+
+        .dark-theme .breadcrumb a,
+        .dark-theme .breadcrumb-container {
+            color: #b1b1b1;
+        }
+
+        .dark-theme .breadcrumb>.active,
+        .dark-theme .breadcrumb>.active a {
+            color: #dadada;
+        }
+
+        .dark-theme .form-control,
+        .dark-theme .input-group-addon,
+        .dark-theme .list-group-item,
+        .dark-theme .list-search-res,
+        .dark-theme .search-holder .form-control {
+            box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+            background: #1c242d;
+            border: 1px solid #192128;
+            color: #fff;
+        }
+
+        .dark-theme .search-holder>.input-group-btn>.btn {
+            color: #92bb35;
+            border-color: #92bb35;
+            text-shadow: 1px 1px 0 rgba(10, 10, 10, 0.4);
+            background: rgba(10, 10, 10, 0.15);
+            border: 1px solid;
+            margin-left: 2px;
+        }
+
+        .btn-chapter-nav {
+            padding: 11px 22px;
+            font-size: 16px;
+            height: 47px;
+        }
+        .display-none{
+            display: none;
+        }
+    </style>
+</head>
+
+<body id="body_chapter" class="">
+    <div id="wrap">
         <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9443025361518917"
-            crossorigin="anonymous"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-
-            gtag('config', 'UA-173912908-1');
-        </script>
-        <style type="text/css">
-            .story-title {
-                display: block;
-            }
-
-            .glyphicon-menu-updownswitch:before {
-                content: '\e260';
-            }
-
-            .toolbar.navbar-nav {
-                text-align: center;
-                margin-top: 10px;
-                float: none;
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-            .toolbar.navbar-nav li {
-                float: none;
-                width: auto;
-                display: inline-block;
-            }
-
-            .toolbar.navbar-nav li a {
-                background-color: #5db85c;
-                border: 0;
-                color: #fff;
-                border-radius: 3px;
-                padding: 10px 15px;
-            }
-
-            .toolbar.navbar-nav li a:hover,
-            .toolbar.navbar-nav li a:focus {
-                background-color: #5db85c;
-            }
-
-            .toolbar.navbar-nav li form label {
-                color: #fff;
-            }
-
-            .toolbar.navbar-nav .open .dropdown-menu {
-                background-color: #5db85c;
-            }
-
-            .dark-theme {
-                background-image: url(img/bg_dark.gif);
-                background-color: #232323;
-                background-repeat: repeat;
-                color: rgba(255, 255, 255, 0.6);
-            }
-
-            .dark-theme img {
-                opacity: 0.9;
-            }
-
-            .dark-theme a {
-                color: #b1b1b1;
-            }
-
-            .dark-theme .chapter .truyen-title {
-                color: #82a82d;
-                text-shadow: 0 0 1px #000;
-                filter: dropshadow(color=#000000, offx=0, offy=0);
-            }
-
-            .dark-theme .ad-link,
-            .dark-theme .chapter .chapter-c {
-                color: rgba(255, 255, 255, 0.6);
-            }
-
-            .dark-theme .btn {
-                color: #a9a9a9;
-                background: #121212;
-            }
-
-            .dark-theme .btn-success {
-                color: #82a82d;
-                border-color: #82a82d;
-            }
-
-            .container-fluid-switch #chapter-big-container {
-                width: auto;
-            }
-
-            #body_chapter.hidenav #nav {
-                display: none;
-            }
-
-            #body_chapter.hidenav #chapter-big-container {
-                margin-top: 10px;
-            }
-
-            .glyphicon-menu-updownswitch:before {
-                content: '\e260';
-            }
-
-            #body_chapter.hidenav .glyphicon-menu-updownswitch:before {
-                content: '\e259';
-            }
-
-            #body_chapter.background-hatsan {
-                background-image: url(img/bg_op.png);
-                background-color: #f2f2f2;
-                background-repeat: repeat;
-            }
-
-            #body_chapter.background-sachcu {
-                background-image: url(img/bg_book_op.png);
-                background-color: #c2b49b;
-                background-repeat: repeat;
-            }
-
-            #body_chapter.background-232323 {
-                background-image: url(img/bg_dark.gif);
-                background-color: #232323;
-                background-repeat: repeat;
-            }
-
-            #body_chapter.background-F4F4F4 {
-                background-image: none;
-                background-color: #f4f4f4;
-            }
-
-            #body_chapter.background-E9EBEE {
-                background-image: none;
-                background-color: #e9ebee;
-            }
-
-            #body_chapter.background-F4F4E4 {
-                background-image: none;
-                background-color: #f4f4e4;
-            }
-
-            #body_chapter.background-EAE4D3 {
-                background-image: none;
-                background-color: #eae4d3;
-            }
-
-            #body_chapter.background-D5D8DC {
-                background-image: none;
-                background-color: #d5d8dc;
-            }
-
-            #body_chapter.background-FAFAC8 {
-                background-image: none;
-                background-color: #fafac8;
-            }
-
-            #body_chapter.background-EFEFAB {
-                background-image: none;
-                background-color: #efefab;
-            }
-
-            #body_chapter.background-FFF {
-                background-image: none;
-                background-color: #fff;
-            }
-
-            #body_chapter.size-16px .chapter-c {
-                font-size: 16px;
-            }
-
-            #body_chapter.size-18px .chapter-c {
-                font-size: 18px;
-            }
-
-            #body_chapter.size-20px .chapter-c {
-                font-size: 20px;
-            }
-
-            #body_chapter.size-22px .chapter-c {
-                font-size: 22px;
-            }
-
-            #body_chapter.size-24px .chapter-c {
-                font-size: 24px;
-            }
-
-            #body_chapter.size-26px .chapter-c {
-                font-size: 26px;
-            }
-
-            #body_chapter.size-28px .chapter-c {
-                font-size: 28px;
-            }
-
-            #body_chapter.size-30px .chapter-c {
-                font-size: 30px;
-            }
-
-            #body_chapter.size-32px .chapter-c {
-                font-size: 32px;
-            }
-
-            #body_chapter.size-34px .chapter-c {
-                font-size: 34px;
-            }
-
-            #body_chapter.size-36px .chapter-c {
-                font-size: 36px;
-            }
-
-            #body_chapter.size-38px .chapter-c {
-                font-size: 38px;
-            }
-
-            #body_chapter.size-40px .chapter-c {
-                font-size: 40px;
-            }
-
-            #body_chapter.font-PalatinoLinotype .chapter-c {
-                font-family: 'Palatino Linotype', serif;
-            }
-
-            #body_chapter.font-Bookerly .chapter-c {
-                font-family: Bookerly, serif;
-            }
-
-            #body_chapter.font-Minion .chapter-c {
-                font-family: Minion, serif;
-            }
-
-            #body_chapter.font-SegoeUI .chapter-c {
-                font-family: 'Segoe UI', sans-serif;
-            }
-
-            #body_chapter.font-Roboto .chapter-c {
-                font-family: Roboto, sans-serif;
-            }
-
-            #body_chapter.font-RobotoCondensed .chapter-c {
-                font-family: 'Roboto Condensed', sans-serif;
-            }
-
-            #body_chapter.font-PatrickHand .chapter-c {
-                font-family: 'Patrick Hand', sans-serif;
-            }
-
-            #body_chapter.font-NoticiaText .chapter-c {
-                font-family: 'Noticia Text', sans-serif;
-            }
-
-            #body_chapter.font-TimesNewRoman .chapter-c {
-                font-family: 'Times New Roman', serif;
-            }
-
-            #body_chapter.font-Verdana .chapter-c {
-                font-family: Verdana, sans-serif;
-            }
-
-            #body_chapter.font-Tahoma .chapter-c {
-                font-family: Tahoma, sans-serif;
-            }
-
-            #body_chapter.font-Arial .chapter-c {
-                font-family: Arial, sans-serif;
-            }
-
-            #body_chapter.lineheight-100 .chapter-c {
-                line-height: 100%;
-            }
-
-            #body_chapter.lineheight-120 .chapter-c {
-                line-height: 120%;
-            }
-
-            #body_chapter.lineheight-140 .chapter-c {
-                line-height: 140%;
-            }
-
-            #body_chapter.lineheight-160 .chapter-c {
-                line-height: 160%;
-            }
-
-            #body_chapter.lineheight-180 .chapter-c {
-                line-height: 180%;
-            }
-
-            #body_chapter.lineheight-200 .chapter-c {
-                line-height: 200%;
-            }
-
-            .dark-theme .navbar-default,
-            .dark-theme.navbar-default {
-                background: #242f39;
-                border-bottom-color: #242f39;
-                box-shadow: 0 0 1px rgba(10, 10, 10, 0.4);
-            }
-
-            .dark-theme .navbar-breadcrumb {
-                background: #2e3740;
-                border-top: 0;
-            }
-
-            .dark-theme .breadcrumb a,
-            .dark-theme .breadcrumb-container {
-                color: #b1b1b1;
-            }
-
-            .dark-theme .breadcrumb > .active,
-            .dark-theme .breadcrumb > .active a {
-                color: #dadada;
-            }
-
-            .dark-theme .form-control,
-            .dark-theme .input-group-addon,
-            .dark-theme .list-group-item,
-            .dark-theme .list-search-res,
-            .dark-theme .search-holder .form-control {
-                box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
-                background: #1c242d;
-                border: 1px solid #192128;
-                color: #fff;
-            }
-
-            .dark-theme .search-holder > .input-group-btn > .btn {
-                color: #92bb35;
-                border-color: #92bb35;
-                text-shadow: 1px 1px 0 rgba(10, 10, 10, 0.4);
-                background: rgba(10, 10, 10, 0.15);
-                border: 1px solid;
-                margin-left: 2px;
-            }
-
-            .btn-chapter-nav {
-                padding: 11px 22px;
-                font-size: 16px;
-                height: 47px;
-            }
-            .display-none {
-                display: none;
-            }
-        </style>
-    </head>
-
-    <body id="body_chapter" class="">
-        <div id="wrap">
-            <script type="text/javascript">
-                function getCookie(d) {
-                    d += '=';
-                    for (
-                        var b = decodeURIComponent(document.cookie).split(';'), c = [], a = 0;
-                        a < b.length;
-                        a++
-                    )
-                        0 == b[a].trim().indexOf(d) && (c = b[a].trim().split('='));
-                    return 0 < c.length ? c[1] : '';
-                }
-                var js_bgcolor = getCookie('bgcolor-cookie');
-                '#232323' == js_bgcolor &&
-                    (document.getElementsByTagName('body')[0].className += ' dark-theme');
-            </script>
-            <header>
-                <div class="navbar navbar-default navbar-static-top" role="navigation" id="nav">
-                    <%-include('./../common/navbar')%>
-                    <div class="navbar-breadcrumb">
-                        <div class="container breadcrumb-container">
-                            <ol
-                                class="breadcrumb"
-                                itemscope
-                                itemtype="https://schema.org/BreadcrumbList"
-                            >
-                                <li
-                                    itemprop="itemListElement"
-                                    itemscope
-                                    itemtype="https://schema.org/ListItem"
-                                >
-                                    <a href="" accesskey="1"
-                                        ><span class="glyphicon glyphicon-home"></span
-                                    ></a>
-                                    <a href="/" title="Đọc truyện online" itemprop="item"
-                                        ><span itemprop="name">Truyện</span></a
-                                    >
-                                    <meta itemprop="position" content="1" />
-                                </li>
-                                <li
-                                    itemprop="itemListElement"
-                                    itemscope
-                                    itemtype="https://schema.org/ListItem"
-                                >
-                                    <a
-                                        href="/<%=manga.slug%>"
-                                        title="<%=manga.name%>"
-                                        itemprop="item"
-                                        ><span itemprop="name"> <%=manga.name%> </span></a
-                                    >
-                                    <meta itemprop="position" content="2" />
-                                </li>
-                                <li
-                                    itemprop="itemListElement"
-                                    itemscope
-                                    itemtype="https://schema.org/ListItem"
-                                >
-                                    <a
-                                        href="/<%=manga.slug%>/<%=chapter.slug%>"
-                                        title="Chương 2 : Cùng nhau ăn cơm"
-                                        itemprop="item"
-                                        ><span itemprop="name"> <%=chapter.title%> </span></a
-                                    >
-                                    <meta itemprop="position" content="3" />
-                                </li>
-                            </ol>
-                        </div>
+            type="text/javascript"> function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++) 0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : ""; } var js_bgcolor = getCookie("bgcolor-cookie"); "#232323" == js_bgcolor && (document.getElementsByTagName("body")[0].className += " dark-theme"); </script>
+        <header>
+            <div class="navbar navbar-default navbar-static-top" role="navigation" id="nav">
+                <%-include('./../common/navbar')%>
+                <div class="navbar-breadcrumb">
+                    <div class="container breadcrumb-container">
+                        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a href=""
+                                    accesskey="1"><span class="glyphicon glyphicon-home"></span></a> <a href="/"
+                                    title="Đọc truyện online" itemprop="item"><span itemprop="name">Truyện</span></a>
+                                <meta itemprop="position" content="1" />
+                            </li>
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a
+                                    href="/<%=manga.slug%>" title="<%=manga.name%>" itemprop="item"><span
+                                        itemprop="name">
+                                        <%=manga.name%>
+                                    </span></a>
+                                <meta itemprop="position" content="2" />
+                            </li>
+                            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a
+                                    href="/<%=manga.slug%>/<%=chapter.slug%>" title="Chương 2 : Cùng nhau ăn cơm"
+                                    itemprop="item"><span itemprop="name">
+                                        <%=chapter.title%>
+                                    </span></a>
+                                <meta itemprop="position" content="3" />
+                            </li>
+                        </ol>
                     </div>
                 </div>
-            </header>
-            <script type="text/javascript">
-                function getCookie(d) {
-                    d += '=';
-                    for (
-                        var b = decodeURIComponent(document.cookie).split(';'), c = [], a = 0;
-                        a < b.length;
-                        a++
-                    )
-                        0 == b[a].trim().indexOf(d) && (c = b[a].trim().split('='));
-                    return 0 < c.length ? c[1] : '';
-                }
-                var js_bgcolor = getCookie('bgcolor-cookie'),
-                    js_font = getCookie('font-cookie'),
-                    js_size = getCookie('size-cookie'),
-                    js_lineheight = getCookie('lineheight-cookie'),
-                    js_hidenav = getCookie('hidenav-cookie'),
-                    js_fluid_switch = getCookie('fluid-switch-cookie'),
-                    js_onebreak_switch = getCookie('onebreak-switch-cookie'),
-                    js_body_insert_class = '';
-                '' != js_bgcolor &&
-                    '#F4F4F4' != js_bgcolor &&
-                    ((js_bgcolor = js_bgcolor.replace('#', '')),
-                    (js_body_insert_class =
-                        '232323' == js_bgcolor
-                            ? js_body_insert_class + ' background-232323 dark-theme'
-                            : js_body_insert_class + (' background-' + js_bgcolor)));
-                1 == js_hidenav &&
-                    (document.getElementById('body_chapter').className += ' hidenav');
-                '' != js_size && (js_body_insert_class += ' size-' + js_size);
-                '' != js_font &&
-                    ((js_font = js_font.replace(/, serif|, sans-serif|'|\s/g, '')),
-                    (js_body_insert_class += ' font-' + js_font));
-                '' != js_lineheight &&
-                    '180%' != js_lineheight &&
-                    ((js_lineheight = js_lineheight.replace('%', '')),
-                    (js_body_insert_class += ' lineheight-' + js_lineheight));
-                1 == js_fluid_switch && (js_body_insert_class += ' container-fluid-switch');
-                document.getElementById('body_chapter').className += js_body_insert_class;
-            </script>
-            <div id="chapter-big-container" class="container chapter">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <button
-                            type="button"
-                            class="btn btn-responsive btn-success toggle-nav-open"
-                        >
-                            <span class="glyphicon glyphicon-menu-updownswitch"></span>
-                        </button>
-                        <h1 class="story-title">
-                            <a
-                                class="truyen-title"
-                                href="/<%=manga.slug%>"
-                                title="<%=manga.name%>"
-                            >
-                                <%=manga.name%>
-                            </a>
-                        </h1>
-                        <h2>
-                            <a
-                                class="chapter-title"
-                                href="/<%=manga.slug%>/<%=chapter.slug%>"
-                                title="Chương 2 : Cùng nhau ăn cơm"
-                            >
-                                <span class="chapter-text"
-                                    ><span></span>
-                                    <%=chapter.title%>
-                                </span>
-                            </a>
-                        </h2>
-                        <hr class="chapter-start" />
-                        <div class="chapter-nav" id="chapter-nav-top">
-                            <input
-                                type="hidden"
-                                id="ten-truyen"
-                                value="xuyen-qua-chi-linh-thuc-su"
-                            />
-                            <input
-                                type="hidden"
-                                id="truyen-comment"
-                                value="xuyen-qua-chi-linh-thuc-su"
-                            /><input type="hidden" id="truyen-id" value="5699" />
-                            <input type="hidden" id="chapter-id" value="39500" />
-                            <input type="hidden" id="chapter-bnum" value="" />
-                            <input type="hidden" id="chapter-num" value="" />
-                            <input type="hidden" id="chapter-sac" value="0" />
-                            <div class="btn-group">
-                                <a
-                                    class="btn btn-success btn-chapter-nav disabled"
-                                    href="#"
-                                    title=""
-                                    id="prev_chap"
-                                    data-cid="39495"
-                                >
-                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                    <span class="hidden-xs">Chương </span>trước
-                                </a>
-                                <button
-                                    type="button"
-                                    class="btn btn-success btn-chapter-nav chapter_jump_list"
-                                >
-                                    <span class="glyphicon glyphicon-list-alt"></span>
-                                </button>
-                                <a
-                                    class="btn btn-success btn-chapter-nav disabled"
-                                    href="#"
-                                    title=""
-                                    id="next_chap"
-                                    data-cid="39506"
-                                >
-                                    <span class="hidden-xs">Chương </span>tiếp
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                </a>
+            </div>
+        </header>
+        <script
+            type="text/javascript">function getCookie(d) { d += "="; for (var b = decodeURIComponent(document.cookie).split(";"), c = [], a = 0; a < b.length; a++)0 == b[a].trim().indexOf(d) && (c = b[a].trim().split("=")); return 0 < c.length ? c[1] : "" } var js_bgcolor = getCookie("bgcolor-cookie"), js_font = getCookie("font-cookie"), js_size = getCookie("size-cookie"), js_lineheight = getCookie("lineheight-cookie"), js_hidenav = getCookie("hidenav-cookie"), js_fluid_switch = getCookie("fluid-switch-cookie"), js_onebreak_switch = getCookie("onebreak-switch-cookie"), js_body_insert_class = ""; "" != js_bgcolor && "#F4F4F4" != js_bgcolor && (js_bgcolor = js_bgcolor.replace("#", ""), js_body_insert_class = "232323" == js_bgcolor ? js_body_insert_class + " background-232323 dark-theme" : js_body_insert_class + (" background-" + js_bgcolor)); 1 == js_hidenav && (document.getElementById("body_chapter").className += " hidenav"); "" != js_size && (js_body_insert_class += " size-" + js_size); "" != js_font && (js_font = js_font.replace(/, serif|, sans-serif|'|\s/g, ""), js_body_insert_class += " font-" + js_font); "" != js_lineheight && "180%" != js_lineheight && (js_lineheight = js_lineheight.replace("%", ""), js_body_insert_class += " lineheight-" + js_lineheight); 1 == js_fluid_switch && (js_body_insert_class += " container-fluid-switch"); document.getElementById("body_chapter").className += js_body_insert_class;</script>
+        <div id="chapter-big-container" class="container chapter">
+            <div class="row">
+                <div class="col-xs-12"> <button type="button"
+                        class="btn btn-responsive btn-success toggle-nav-open"><span
+                            class="glyphicon glyphicon-menu-updownswitch"></span></button>
+                    <h1 class="story-title"><a class="truyen-title" href="/<%=manga.slug%>" title="<%=manga.name%>">
+                            <%=manga.name%>
+                        </a></h1>
+                    <h2> <a class="chapter-title" href="/<%=manga.slug%>/<%=chapter.slug%>"
+                            title="Chương 2 : Cùng nhau ăn cơm"> <span class="chapter-text"><span></span>
+                                <%=chapter.title%>
+                            </span> </a> </h2>
+                    <hr class="chapter-start" />
+                    <div class="chapter-nav" id="chapter-nav-top"> <input type="hidden" id="ten-truyen"
+                            value="xuyen-qua-chi-linh-thuc-su" /> <input type="hidden" id="truyen-comment"
+                            value="xuyen-qua-chi-linh-thuc-su" /><input type="hidden" id="truyen-id" value="5699" />
+                        <input type="hidden" id="chapter-id" value="39500" /> <input type="hidden" id="chapter-bnum"
+                            value="" /> <input type="hidden" id="chapter-num" value="" /> <input type="hidden"
+                            id="chapter-sac" value="0" />
+                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav disabled" href="#" title=""
+                                id="prev_chap" data-cid="39495"> <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="hidden-xs">Chương </span>trước </a> <button type="button"
+                                class="btn btn-success btn-chapter-nav chapter_jump_list"><span
+                                    class="glyphicon glyphicon-list-alt"></span></button> <a
+                                class="btn btn-success btn-chapter-nav disabled" href="#" title="" id="next_chap"
+                                data-cid="39506"> <span class="hidden-xs">Chương </span>tiếp <span
+                                    class="glyphicon glyphicon-chevron-right"></span> </a> </div>
+                    </div>
+                    <ul class="toolbar nav navbar-nav">
+                        <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle"
+                                data-toggle="dropdown" rel="nofollow" aria-expanded="true"><span
+                                    class="glyphicon glyphicon-cog"></span> Tùy chỉnh <span class="caret"></span></a>
+                            <div class="dropdown-menu dropdown-menu-right settings">
+                                <form class="form-horizontal">
+                                    <div class="form-group form-group-sm"> <label
+                                            class="col-sm-2 col-md-5 control-label" for="truyen-background">Màu
+                                            nền</label>
+                                        <div class="col-sm-5 col-md-7"> <select class="form-control"
+                                                id="chapter-background">
+                                                <option value="xanmnhat">Xám nhạt</option>
+                                                <option value="xanhnhat">Xanh nhạt</option>
+                                                <option value="vangnhat">Vàng nhạt</option>
+                                                <option value="sepia">Màu sepia</option>
+                                                <option value="xanhdam">Xanh đậm</option>
+                                                <option value="vangdam">Vàng đậm</option>
+                                                <option value="vango">Vàng ố</option>
+                                                <option value="mautrang">Màu trắng</option>
+                                                <option value="hatsan">Hạt sạn</option>
+                                                <option value="sachcu">Sách cũ</option>
+                                                <option value="mautoi">Màu tối</option>
+                                            </select> </div>
+                                    </div>
+                                    <div class="form-group form-group-sm"><label class="col-sm-2 col-md-5 control-label"
+                                            for="font-chu">Font chữ</label>
+                                        <div class="col-sm-5 col-md-7"><select class="form-control" id="font-chu">
+                                                <option value="'Palatino Linotype', serif">Palatino Linotype</option>
+                                                <option value="Bookerly, serif">Bookerly</option>
+                                                <option value="Minion, serif">Minion</option>
+                                                <option value="'Segoe UI', sans-serif">Segoe UI</option>
+                                                <option value="Roboto, sans-serif">Roboto</option>
+                                                <option value="'Roboto Condensed', sans-serif">Roboto Condensed</option>
+                                                <option value="'Patrick Hand', sans-serif">Patrick Hand</option>
+                                                <option value="'Noticia Text', sans-serif">Noticia Text</option>
+                                                <option value="'Times New Roman', serif">Times New Roman</option>
+                                                <option value="Verdana, sans-serif">Verdana</option>
+                                                <option value="Tahoma, sans-serif">Tahoma</option>
+                                                <option value="Arial, sans-serif">Arial</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-group form-group-sm"><label class="col-sm-2 col-md-5 control-label"
+                                            for="size-chu">Size chữ</label>
+                                        <div class="col-sm-5 col-md-7"><select class="form-control" id="size-chu">
+                                                <option value="16px">16</option>
+                                                <option value="18px">18</option>
+                                                <option value="20px">20</option>
+                                                <option value="22px">22</option>
+                                                <option value="24px">24</option>
+                                                <option value="26px">26</option>
+                                                <option value="28px">28</option>
+                                                <option value="30px">30</option>
+                                                <option value="32px">32</option>
+                                                <option value="34px">34</option>
+                                                <option value="36px">36</option>
+                                                <option value="38px">38</option>
+                                                <option value="40px">40</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-group form-group-sm"><label class="col-sm-2 col-md-5 control-label"
+                                            for="line-height">Chiều cao dòng</label>
+                                        <div class="col-sm-5 col-md-7"><select class="form-control" id="line-height">
+                                                <option value="100%">100%</option>
+                                                <option value="120%">120%</option>
+                                                <option value="140%">140%</option>
+                                                <option value="160%">160%</option>
+                                                <option value="180%">180%</option>
+                                                <option value="200%">200%</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-group form-group-sm"><label
+                                            class="col-sm-2 col-md-5 control-label">Full khung</label>
+                                        <div class="col-sm-5 col-md-7"><label class="radio-inline"
+                                                for="fluid-yes"><input type="radio" name="fluid-switch" id="fluid-yes"
+                                                    value="yes"> Có</label><label class="radio-inline"
+                                                for="fluid-no"><input type="radio" name="fluid-switch" id="fluid-no"
+                                                    value="no" checked=""> Không</label></div>
+                                    </div>
+                                </form>
                             </div>
-                        </div>
-                        <ul class="toolbar nav navbar-nav">
-                            <li class="dropdown">
-                                <a
-                                    href="javascript:void(0)"
-                                    class="dropdown-toggle"
-                                    data-toggle="dropdown"
-                                    rel="nofollow"
-                                    aria-expanded="true"
-                                    ><span class="glyphicon glyphicon-cog"></span> Tùy chỉnh
-                                    <span class="caret"></span
-                                ></a>
-                                <div class="dropdown-menu dropdown-menu-right settings">
-                                    <form class="form-horizontal">
-                                        <div class="form-group form-group-sm">
-                                            <label
-                                                class="col-sm-2 col-md-5 control-label"
-                                                for="truyen-background"
-                                                >Màu nền</label
-                                            >
-                                            <div class="col-sm-5 col-md-7">
-                                                <select
-                                                    class="form-control"
-                                                    id="chapter-background"
-                                                >
-                                                    <option value="xanmnhat">Xám nhạt</option>
-                                                    <option value="xanhnhat">Xanh nhạt</option>
-                                                    <option value="vangnhat">Vàng nhạt</option>
-                                                    <option value="sepia">Màu sepia</option>
-                                                    <option value="xanhdam">Xanh đậm</option>
-                                                    <option value="vangdam">Vàng đậm</option>
-                                                    <option value="vango">Vàng ố</option>
-                                                    <option value="mautrang">Màu trắng</option>
-                                                    <option value="hatsan">Hạt sạn</option>
-                                                    <option value="sachcu">Sách cũ</option>
-                                                    <option value="mautoi">Màu tối</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group form-group-sm">
-                                            <label
-                                                class="col-sm-2 col-md-5 control-label"
-                                                for="font-chu"
-                                                >Font chữ</label
-                                            >
-                                            <div class="col-sm-5 col-md-7">
-                                                <select class="form-control" id="font-chu">
-                                                    <option value="'Palatino Linotype', serif">
-                                                        Palatino Linotype
-                                                    </option>
-                                                    <option value="Bookerly, serif">
-                                                        Bookerly
-                                                    </option>
-                                                    <option value="Minion, serif">Minion</option>
-                                                    <option value="'Segoe UI', sans-serif">
-                                                        Segoe UI
-                                                    </option>
-                                                    <option value="Roboto, sans-serif">
-                                                        Roboto
-                                                    </option>
-                                                    <option
-                                                        value="'Roboto Condensed', sans-serif"
-                                                    >
-                                                        Roboto Condensed
-                                                    </option>
-                                                    <option value="'Patrick Hand', sans-serif">
-                                                        Patrick Hand
-                                                    </option>
-                                                    <option value="'Noticia Text', sans-serif">
-                                                        Noticia Text
-                                                    </option>
-                                                    <option value="'Times New Roman', serif">
-                                                        Times New Roman
-                                                    </option>
-                                                    <option value="Verdana, sans-serif">
-                                                        Verdana
-                                                    </option>
-                                                    <option value="Tahoma, sans-serif">
-                                                        Tahoma
-                                                    </option>
-                                                    <option value="Arial, sans-serif">
-                                                        Arial
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group form-group-sm">
-                                            <label
-                                                class="col-sm-2 col-md-5 control-label"
-                                                for="size-chu"
-                                                >Size chữ</label
-                                            >
-                                            <div class="col-sm-5 col-md-7">
-                                                <select class="form-control" id="size-chu">
-                                                    <option value="16px">16</option>
-                                                    <option value="18px">18</option>
-                                                    <option value="20px">20</option>
-                                                    <option value="22px">22</option>
-                                                    <option value="24px">24</option>
-                                                    <option value="26px">26</option>
-                                                    <option value="28px">28</option>
-                                                    <option value="30px">30</option>
-                                                    <option value="32px">32</option>
-                                                    <option value="34px">34</option>
-                                                    <option value="36px">36</option>
-                                                    <option value="38px">38</option>
-                                                    <option value="40px">40</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group form-group-sm">
-                                            <label
-                                                class="col-sm-2 col-md-5 control-label"
-                                                for="line-height"
-                                                >Chiều cao dòng</label
-                                            >
-                                            <div class="col-sm-5 col-md-7">
-                                                <select class="form-control" id="line-height">
-                                                    <option value="100%">100%</option>
-                                                    <option value="120%">120%</option>
-                                                    <option value="140%">140%</option>
-                                                    <option value="160%">160%</option>
-                                                    <option value="180%">180%</option>
-                                                    <option value="200%">200%</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group form-group-sm">
-                                            <label class="col-sm-2 col-md-5 control-label"
-                                                >Full khung</label
-                                            >
-                                            <div class="col-sm-5 col-md-7">
-                                                <label class="radio-inline" for="fluid-yes"
-                                                    ><input
-                                                        type="radio"
-                                                        name="fluid-switch"
-                                                        id="fluid-yes"
-                                                        value="yes"
-                                                    />
-                                                    Có</label
-                                                ><label class="radio-inline" for="fluid-no"
-                                                    ><input
-                                                        type="radio"
-                                                        name="fluid-switch"
-                                                        id="fluid-no"
-                                                        value="no"
-                                                        checked=""
-                                                    />
-                                                    Không</label
-                                                >
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                        </ul>
-                        <div id="chapter-c" class="chapter-c"><%-chapter.content%></div>
-                        <div id="ads_bottom_chapter">
-                            <%if(adsSetting.adsChapter){%> <%-adsSetting.adsChapter%> <%}%>
-                        </div>
-                        <hr class="chapter-end" id="chapter-end-bot" />
-                        <div class="chapter-nav" id="chapter-nav-bot">
-                            <div class="btn-group">
-                                <a
-                                    class="btn btn-success btn-chapter-nav disabled"
-                                    href="#"
-                                    title=""
-                                    id="prev_chap_bot"
-                                    data-cid=""
-                                >
-                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                    <span class="hidden-xs">Chương </span>trước
-                                </a>
-                                <button
-                                    type="button"
-                                    class="btn btn-success btn-chapter-nav chapter_jump_list"
-                                >
-                                    <span class="glyphicon glyphicon-list-alt"></span>
-                                </button>
-                                <a
-                                    class="btn btn-success btn-chapter-nav disabled"
-                                    href="#"
-                                    title=""
-                                    id="next_chap_bot"
-                                    data-cid=""
-                                >
-                                    <span class="hidden-xs">Chương </span>tiếp
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                </a>
-                            </div>
-                            <div class="text-center">
-                                <button
-                                    type="button"
-                                    class="btn btn-warning"
-                                    id="report_chapter"
-                                >
-                                    <span class="glyphicon glyphicon-flag"></span> Báo lỗi chương
-                                </button>
-                                <button
-                                    type="button"
-                                    class="btn btn-info"
-                                    id="chapter_comment_toggle"
-                                >
-                                    <span class="glyphicon glyphicon-comment"></span> Bình luận
-                                </button>
-                            </div>
-                            <div class="bg-info text-center visible-md visible-lg box-notice">
-                                Bạn có thể dùng phím mũi tên hoặc WASD để lùi/sang chương.
-                            </div>
-                            <div class="col-xs-12 display-none" id="comment_fb_content">
-                                <script
-                                    async
-                                    defer
-                                    crossorigin="anonymous"
-                                    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=570445043733275&autoLogAppEvents=1"
-                                    nonce="8GE2FIbE"
-                                ></script>
-                                <div
-                                    class="fb-comments"
-                                    data-href="https://xemtruyen.vn/<%=manga.slug%>/<%=chapter.slug%>"
-                                    data-width="100%"
-                                    data-numposts="10"
-                                ></div>
-                            </div>
+                        </li>
+                    </ul>
+                    <div id="chapter-c" class="chapter-c">
+                        <%-chapter.content%>
+                    </div>
+                    <div id="ads_bottom_chapter">
+                        <%if(adsSetting.adsChapter){%>
+                            <%-adsSetting.adsChapter%>
+                        <%}%>
+                    </div>
+                    <hr class="chapter-end" id="chapter-end-bot" />
+                    <div class="chapter-nav" id="chapter-nav-bot">
+                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav disabled" href="#" title=""
+                                id="prev_chap_bot" data-cid=""> <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="hidden-xs">Chương </span>trước </a> <button type="button"
+                                class="btn btn-success btn-chapter-nav chapter_jump_list"><span
+                                    class="glyphicon glyphicon-list-alt"></span></button> <a
+                                class="btn btn-success btn-chapter-nav disabled" href="#" title="" id="next_chap_bot"
+                                data-cid=""> <span class="hidden-xs">Chương </span>tiếp <span
+                                    class="glyphicon glyphicon-chevron-right"></span> </a> </div>
+                        <div class="text-center"> <button type="button" class="btn btn-warning" id="report_chapter"><span
+                                    class="glyphicon glyphicon-flag"></span> Báo lỗi chương</button> <button
+                                type="button" class="btn btn-info" id="chapter_comment_toggle"><span
+                                    class="glyphicon glyphicon-comment"></span> Bình luận</button> </div>
+                        <div class="bg-info text-center visible-md visible-lg box-notice">Bạn có thể dùng phím mũi tên
+                            hoặc WASD để lùi/sang chương.</div>
+                        <div class="col-xs-12 display-none" id="comment_fb_content" >
+                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=570445043733275&autoLogAppEvents=1" nonce="8GE2FIbE"></script>
+                            <div class="fb-comments" data-href="https://xemtruyen.vn/<%=manga.slug%>/<%=chapter.slug%>" data-width="100%" data-numposts="10"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <%-include('./../common/footer')%>
+    </div>
+    <%-include('./../common/footer')%>
 
-        <!--Form report-->
-        <form action="/admin/report/create" method="post" id="send_report">
-            <input id="input_content_report" type="hidden" name="content" />
-            <input type="hidden" name="manga" value="<%=manga.name%>" />
-            <input type="hidden" name="chapter" value="<%=chapter.title%>" />
-            <input type="hidden" name="idManga" value="<%=manga._id%>" />
-            <input type="hidden" name="idChapter" value="<%=chapter._id%>" />
-        </form>
+    <!--Form report-->
+    <form action="/admin/report/create" method="post" id="send_report">
+        <input id="input_content_report" type="hidden" name="content">
+        <input type="hidden" name="manga" value="<%=manga.name%>">
+        <input type="hidden" name="chapter" value="<%=chapter.title%>">
+        <input type="hidden" name="idManga" value="<%=manga._id%>">
+        <input type="hidden" name="idChapter" value="<%=chapter._id%>">
+    </form>
 
-        <script>
-            const BASE_URL = '';
-            const FB_APP_ID = '5170652662945892';
-            const GA_ACCOUNT = '65067329-18';
-        </script>
-        <script type="text/javascript" src="/frontend/js/main.min.js"></script>
-        <script src="https://benalman.com/code/projects/jquery-throttle-debounce/jquery.ba-throttle-debounce.js"></script>
-        <script type="text/javascript" src="/frontend/js/xemtruyen.js"></script>
-        <script>
-            $(document).ready(function () {
-                function setCookie(c_name, value, exdays) {
-                    var exdate = new Date();
-                    exdate.setDate(exdate.getDate() + exdays);
-                    var c_value =
-                        escape(value) +
-                        (exdays == null ? '' : '; expires=' + exdate.toUTCString());
-                    document.cookie = c_name + '=' + c_value;
-                }
+    <script>const BASE_URL = '';
+        const FB_APP_ID = '5170652662945892';
+        const GA_ACCOUNT = '65067329-18';</script>
+    <script type="text/javascript" src="/frontend/js/main.min.js"></script>
+    <script src="https://benalman.com/code/projects/jquery-throttle-debounce/jquery.ba-throttle-debounce.js"></script>
+    <script type="text/javascript" src="/frontend/js/xemtruyen.js"></script>
+    <script>
+        $(document).ready(function () {
+            function setCookie(c_name, value, exdays) {
+                var exdate = new Date();
+                exdate.setDate(exdate.getDate() + exdays);
+                var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+                document.cookie = c_name + "=" + c_value;
+            }
 
-                function getCookie(c_name) {
-                    var i,
-                        x,
-                        y,
-                        ARRcookies = document.cookie.split(';');
-                    for (i = 0; i < ARRcookies.length; i++) {
-                        x = ARRcookies[i].substr(0, ARRcookies[i].indexOf('='));
-                        y = ARRcookies[i].substr(ARRcookies[i].indexOf('=') + 1);
-                        x = x.replace(/^\s+|\s+$/g, '');
-                        if (x == c_name) {
-                            return unescape(y);
-                        }
+            function getCookie(c_name) {
+                var i, x, y, ARRcookies = document.cookie.split(";");
+                for (i = 0; i < ARRcookies.length; i++) {
+                    x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+                    y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+                    x = x.replace(/^\s+|\s+$/g, "");
+                    if (x == c_name) {
+                        return unescape(y);
                     }
                 }
+            }
+            $.ajax({
+                method: 'get',
+                url: `/api/chapter/next-chapter/<%=chapter._id%>`
+            }).done((data) => {
+                if (data.prevChapter) {
+                    $('#prev_chap').removeClass("disabled").attr('href', `/${data.manga.slug}/${data.prevChapter.slug}`);
+                    $('#prev_chap_bot').removeClass("disabled").attr('href', `/${data.manga.slug}/${data.prevChapter.slug}`)
+                }
+                if (data.nextChapter) {
+                    $('#next_chap').removeClass("disabled").attr('href', `/${data.manga.slug}/${data.nextChapter.slug}`);
+                    $('#next_chap_bot').removeClass("disabled").attr('href', `/${data.manga.slug}/${data.nextChapter.slug}`);
+                }
+            })
+            const dataCss = {
+                    xanmnhat:"background-color: rgb(244, 244, 244); background-image: none;",
+                    xanhnhat:"background-color: rgb(233, 235, 238); background-image: none;",
+                    vangnhat:"background-color: rgb(244, 244, 228); background-image: none;",
+                    sepia:"background-color: rgb(234, 228, 211); background-image: none;",
+                    xanhdam:"background-color: rgb(213, 216, 220); background-image: none;",
+                    vangdam:"background-color: rgb(250, 250, 200); background-image: none;",
+                    vango:"background-color: rgb(239, 239, 171); background-image: none;",
+                    mautrang:"background-color: rgb(255, 255, 255); background-image: none;",
+                    hatsan:'background-color: rgb(242, 242, 242); background-image: url("//static.8cache.com/img/bg_op.png"); background-repeat: repeat;',
+                    sachcu:'background-color: rgb(194, 180, 155); background-image: url("//static.8cache.com/img/bg_book_op.png"); background-repeat: repeat;',
+                    mautoi:'background-color: rgb(35, 35, 35); background-image: url("//static.8cache.com/img/bg_dark.gif"); background-repeat: repeat ;'
+                }
+            $('.chapter_jump_list').unbind('click');
+            $('.chapter_jump_list').click(function () {
                 $.ajax({
                     method: 'get',
-                    url: `/api/chapter/next-chapter/<%=chapter._id%>`,
-                }).done((data) => {
-                    if (data.prevChapter) {
-                        $('#prev_chap')
-                            .removeClass('disabled')
-                            .attr('href', `/${data.manga.slug}/${data.prevChapter.slug}`);
-                        $('#prev_chap_bot')
-                            .removeClass('disabled')
-                            .attr('href', `/${data.manga.slug}/${data.prevChapter.slug}`);
-                    }
-                    if (data.nextChapter) {
-                        $('#next_chap')
-                            .removeClass('disabled')
-                            .attr('href', `/${data.manga.slug}/${data.nextChapter.slug}`);
-                        $('#next_chap_bot')
-                            .removeClass('disabled')
-                            .attr('href', `/${data.manga.slug}/${data.nextChapter.slug}`);
-                    }
-                });
-                const dataCss = {
-                    xanmnhat: 'background-color: rgb(244, 244, 244); background-image: none;',
-                    xanhnhat: 'background-color: rgb(233, 235, 238); background-image: none;',
-                    vangnhat: 'background-color: rgb(244, 244, 228); background-image: none;',
-                    sepia: 'background-color: rgb(234, 228, 211); background-image: none;',
-                    xanhdam: 'background-color: rgb(213, 216, 220); background-image: none;',
-                    vangdam: 'background-color: rgb(250, 250, 200); background-image: none;',
-                    vango: 'background-color: rgb(239, 239, 171); background-image: none;',
-                    mautrang: 'background-color: rgb(255, 255, 255); background-image: none;',
-                    hatsan: 'background-color: rgb(242, 242, 242); background-image: url("//static.8cache.com/img/bg_op.png"); background-repeat: repeat;',
-                    sachcu: 'background-color: rgb(194, 180, 155); background-image: url("//static.8cache.com/img/bg_book_op.png"); background-repeat: repeat;',
-                    mautoi: 'background-color: rgb(35, 35, 35); background-image: url("//static.8cache.com/img/bg_dark.gif"); background-repeat: repeat ;',
-                };
-                $('.chapter_jump_list').unbind('click');
-                $('.chapter_jump_list').click(function () {
-                    $.ajax({
-                        method: 'get',
-                        url: `/api/chapter/list-chapter/<%=manga._id%>`,
-                    }).done((data) => {
+                    url: `/api/chapter/list-chapter/<%=manga._id%>`
+                })
+                    .done(data => {
                         const chapterId = '<%=chapter._id%>';
-                        const listOption = data.map((chapter) => {
-                            const selected = chapterId == chapter._id ? 'selected' : null;
-                            return `<option value="/<%=manga.slug%>/${chapter.slug}" ${selected}>${chapter.title}</option>`;
-                        });
+                        const listOption = data.map(chapter => {
+                            const selected = chapterId==chapter._id ? 'selected': null;
+                            return `<option value="/<%=manga.slug%>/${chapter.slug}" ${selected}>${chapter.title}</option>`
+                        })
                         const html = `
                         <select class="btn btn-success btn-chapter-nav form-control chapter_jump_select">
                             ${listOption.join('')}
@@ -927,51 +653,52 @@
                         $('.chapter_jump_list').remove();
                         $('#prev_chap').after(html);
                         $('#prev_chap_bot').after(html);
-                        $('.chapter_jump_select').change(function () {
+                        $(".chapter_jump_select").change(function(){
                             console.log(this.value);
                             window.location.replace(this.value);
-                        });
-                    });
-                });
-                $('#chapter-background').change(function () {
-                    console.log($(this).val());
-                    const select = $(this).val();
-                    const valueSelect = dataCss[select];
-                    if (valueSelect) {
-                        $('#body_chapter').attr('style', valueSelect);
-                        setCookie('selectTheme', select, 360);
-                        $('#body_chapter').removeClass('dark-theme');
-                    }
-                    if (select == 'mautoi') {
-                        $('#body_chapter').addClass('dark-theme');
-                    }
-                });
-
-                const cookieSelect = getCookie('selectTheme');
-                if (cookieSelect) {
-                    const valueSelect = dataCss[cookieSelect];
-                    if (valueSelect) {
-                        $('#body_chapter').attr('style', valueSelect);
-                        $('#body_chapter').removeClass('dark-theme');
-                    }
-                    if (cookieSelect == 'mautoi') {
-                        $('#body_chapter').addClass('dark-theme');
-                    }
+                        })
+                    })
+            })
+            $("#chapter-background").change(function(){
+                console.log( $(this).val());
+                const select = $(this).val()
+                const valueSelect = dataCss[select];
+                if(valueSelect){
+                    $("#body_chapter").attr('style',valueSelect);
+                    setCookie('selectTheme',select,360)
+                    $("#body_chapter").removeClass("dark-theme");
                 }
-            });
-            $('#chapter_comment_toggle').click(function () {
-                $('#comment_fb_content').toggleClass('display-none');
-            });
-
-            //Report Chapter
-            $('#report_chapter').click(function () {
-                const contentError = prompt('Nhập nội dung lỗi: ');
-                if (contentError !== '' && contentError !== null) {
-                    $('#input_content_report').val(contentError);
-                    $('#send_report').submit();
-                    alert('Cảm ơn bạn đã phản hồi!');
+                if(select=='mautoi'){
+                    $("#body_chapter").addClass("dark-theme")
                 }
-            });
-        </script>
-    </body>
+            })
+            
+        const cookieSelect = getCookie('selectTheme');
+        if(cookieSelect){
+            const valueSelect = dataCss[cookieSelect];
+            if(valueSelect){
+                    $("#body_chapter").attr('style',valueSelect);
+                    $("#body_chapter").removeClass("dark-theme");
+                }
+                if(cookieSelect=='mautoi'){
+                    $("#body_chapter").addClass("dark-theme")
+                }
+        }
+        })
+        $("#chapter_comment_toggle").click(function(){
+            $("#comment_fb_content").toggleClass("display-none")
+        })
+
+        //Report Chapter
+        $("#report_chapter").click(function () {
+            const contentError = prompt('Nhập nội dung lỗi: ');
+            if (contentError !== '' && contentError !== null) {
+                $("#input_content_report").val(contentError);
+                $("#send_report").submit();
+                alert('Cảm ơn bạn đã phản hồi!');
+            }
+        })
+    </script>
+</body>
+
 </html>
