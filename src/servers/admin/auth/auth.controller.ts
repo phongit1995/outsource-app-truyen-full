@@ -39,3 +39,7 @@ export const Logout = async (req: Request | any, res: Response) => {
     req.logout();
     res.redirect('/admin/login');
 };
+export const logoutController = async (req: Request | any, res: Response) => {
+    req.session.destroy();
+    res.redirect('/admin/login');
+};
