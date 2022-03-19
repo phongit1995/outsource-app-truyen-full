@@ -14,7 +14,10 @@ let admin = new Schema(
             unique: true,
         },
         password: String,
-        role: Number,
+        role: {
+            type: Number,
+            default: 2,
+        },
         status: {
             type: Boolean,
             default: true,
