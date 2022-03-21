@@ -1,0 +1,81 @@
+<%-include('./../library/header.ejs')%>
+ <!-- Start Content-->
+ <div class="container-fluid">
+                        
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Cài đặt</a></li>
+                        <li class="breadcrumb-item active">Watermark</li>
+                    </ol>
+                </div>
+                <h4 class="page-title">Watermark</h4>
+            </div>
+        </div>
+    </div>     
+    <!-- end page title --> 
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="custom-styles-preview">
+                            <div class="col-auto mb-3">
+                                <% if(watermarkSetting.watermark) {%>
+                                <img data-dz-thumbnail src="<%=watermarkSetting.watermark %>" class="avatar-lg rounded bg-light" alt="">
+                                <%}%>
+                            </div>
+                            <form class="needs-validation" method="post" novalidate action="/admin/setting/watermark" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                <label class="form-label" for="validationCustom01">Watermark</label>
+                                <!-- File Upload -->
+                                        <div class="fallback">
+                                            <input name="file" type="file"  />
+                                        </div>
+                                    <!-- file preview template -->
+                                    <div class="d-none" id="uploadPreviewTemplate">
+                                        <div class="card mt-1 mb-0 shadow-none border">
+                                            <div class="p-2">
+                                                <div class="row align-items-center">
+                                                    <div class="col ps-0">
+                                                        <a href="javascript:void(0);" class="text-muted fw-bold" data-dz-name></a>
+                                                        <p class="mb-0" data-dz-size></p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <!-- Button -->
+                                                        <a href="" class="btn btn-link btn-lg text-muted" data-dz-remove>
+                                                            <i class="dripicons-cross"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>	
+                                
+                                
+                                
+                                <button class="btn btn-primary" type="submit">Lưu lại</button>
+                            </form>
+                        </div> <!-- end preview-->
+                    
+                        
+                    </div> <!-- end tab-content-->
+
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+
+
+        
+    </div>
+    <!-- end row -->
+
+</div> <!-- container -->
+<%-include('./../library/footer.ejs')%>

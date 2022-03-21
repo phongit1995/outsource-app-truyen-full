@@ -35,3 +35,18 @@ export const updateSettingAdsController = async (req: Request, res: Response) =>
     await SettingService.updateSettingAds(req.body);
     res.redirect('/admin/setting/ads');
 };
+export const waterMarkController = async (req: Request, res: Response) => {
+    const watermarkSetting = await SettingService.getSettingWatermark();
+    console.log(watermarkSetting);
+    res.render('admin/setting/watermark', {
+        watermarkSetting,
+    });
+};
+export const postWaterMarkController = async (req: Request | any, res: Response) => {
+    if (req.file) {
+        const watermark = '/upload/' + req.file.filename;
+        await SettingService.updateSettingWatermark(watermark);
+        return res.redirect('/admin/setting/watermark');
+    }
+    return res.send('Lỗi');
+};

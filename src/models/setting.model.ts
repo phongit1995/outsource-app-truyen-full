@@ -3,6 +3,7 @@ export enum ESettingEnumType {
     scripts = 'scripts',
     info = 'info',
     ads = 'ads',
+    watermark = 'watermark',
 }
 export interface Setting {
     _id: string;
@@ -16,6 +17,7 @@ export interface Setting {
     adsCategory1: string;
     adsCategory2: string;
     adsChapter: string;
+    watermark: string;
 }
 let setting = new Schema(
     {
@@ -73,6 +75,10 @@ let setting = new Schema(
             default: null,
         },
         adsChapter: {
+            type: String,
+            default: null,
+        },
+        watermark: {
             type: String,
             default: null,
         },

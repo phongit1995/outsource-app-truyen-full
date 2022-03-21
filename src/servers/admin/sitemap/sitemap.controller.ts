@@ -139,7 +139,7 @@ const renderMangaByCategory = async (category: any) => {
 
 // by chapter
 export const genderSiteMapChapterController = async (req: Request, res: Response) => {
-    const FILE_NUMBER_ON_FILE = 20000;
+    const FILE_NUMBER_ON_FILE = 1000;
     const chapterLength = await SiteMapService.countChapterLength();
     const numberPagePer: number = chapterLength / FILE_NUMBER_ON_FILE;
     const totalPage =
@@ -155,7 +155,7 @@ export const genderChapterGzFile = async (page: number, pageSize: number) => {
         '../../..',
         'public',
         'sitemap',
-        'chapter_page_' + page + '.xml.gz',
+        'chapter_page_' + page + '.xml',
     );
     if (existsSync(filePath)) {
         unlinkSync(filePath);
@@ -180,5 +180,5 @@ export const genderChapterGzFile = async (page: number, pageSize: number) => {
     }
     const writeSteam = createWriteStream(filePath);
     const stream = new SitemapStream({ hostname: HOST_NAME });
-    Readable.from(links).pipe(stream).pipe(createGzip()).pipe(writeSteam);
+    Readable.from(links).pipe(stream).pipe(writeSteam);
 };

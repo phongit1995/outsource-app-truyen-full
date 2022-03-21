@@ -53,4 +53,19 @@ export class SettingService {
         setting = await SettingModel.create({ type: ESettingEnumType.ads });
         cacheService.set(keyCacheSettingAds, 60 * 30);
     }
+    public static async getSettingWatermark() {
+        const setting = await SettingModel.findOne({ type: ESettingEnumType.watermark });
+        if (setting) {
+            return setting;
+        }
+        return SettingModel.create({ type: ESettingEnumType.watermark });
+    }
+    public static async updateSettingWatermark(watermark: string) {
+        const setting = await SettingModel.findOne({ type: ESettingEnumType.watermark });
+        if (setting) {
+            setting.watermark = watermark;
+            return setting.save();
+        }
+        return SettingModel.create({ type: ESettingEnumType.watermark, watermark });
+    }
 }
