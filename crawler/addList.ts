@@ -44,6 +44,10 @@ const listType: ListTypeT[] = [
         slug: makeSlug('Ngôn Tình Hài'),
     },
     {
+        name: 'Truyện Teen Hay',
+        slug: makeSlug('Truyện Teen Hay`'),
+    },
+    {
         name: 'Ngôn tình hay',
         slug: makeSlug('Ngôn tình hay'),
     },
@@ -186,3 +190,4 @@ queue.process('updateListManga', 2, function (job, done) {
             done();
         });
 });
+kue.app.listen(5000);
