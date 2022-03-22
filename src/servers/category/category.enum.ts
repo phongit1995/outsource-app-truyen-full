@@ -1,5 +1,5 @@
-import { log } from "console";
-import { type } from "os";
+import { log } from 'console';
+import { type } from 'os';
 
 type CategoryType = {
     type: string;
@@ -74,7 +74,7 @@ export const ECategoryType: CategoryType[] = [
     },
     {
         type: 'khac',
-        title: 'Những truyện không thuộc những thể loại đã có ở Truyện Chữ sẽ được cho vào đây ^^!',
+        title: 'Những truyện không thuộc những thể loại đã có ở BlogEma sẽ được cho vào đây ^^!',
         name: 'Khác',
     },
     {
@@ -189,8 +189,9 @@ export const ECategoryType: CategoryType[] = [
     },
     {
         type: 'xuyen-khong',
-        title: 'Xuyên Không, Xuyên Việt là thể loại nhân vật chính vì một lý do nào đó mà bị đưa đến sinh sống ở một không gian hay một khoảng thời gian khác.' + 
-        'Nhân vật chính có thể trực tiếp xuyên qua bằng thân xác mình hoặc sống lại bằng thân xác người khác.',
+        title:
+            'Xuyên Không, Xuyên Việt là thể loại nhân vật chính vì một lý do nào đó mà bị đưa đến sinh sống ở một không gian hay một khoảng thời gian khác.' +
+            'Nhân vật chính có thể trực tiếp xuyên qua bằng thân xác mình hoặc sống lại bằng thân xác người khác.',
         name: 'Xuyên Không',
     },
     {
@@ -207,5 +208,4 @@ export const getCategoryByName = (type: string): string | null => {
 export const getTitleByCategory = (type: string): string | null => {
     let result = ECategoryType.find((d) => d.type == type);
     return result ? result.title : null;
-}
-
+};
