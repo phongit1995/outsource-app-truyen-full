@@ -4,7 +4,7 @@
 <head
     prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile#">
     <meta charset="UTF-8" />
-    <title>Xem truyện <%=manga.name%> full tác giả <%=manga.author%></title>
+    <title>BlogEma <%=manga.name%> full tác giả <%=manga.author%></title>
     <meta name="viewport"
         content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
     <meta name="description"
@@ -18,7 +18,7 @@
     <meta property="og:url" content="" />
     <meta property="og:description"
         content="Đọc truyện <%=manga.name %> của tác giả <%=manga.author%>, đã full (hoàn thành). Hỗ trợ xem trên di động, máy tính bảng." />
-    <meta property="og:site_name" content="Đọc xem truyện Online, Mê đọc xem truyện hay">
+    <meta property="og:site_name" content="Đọc BlogEma Online, Mê đọc BlogEma hay">
     <meta property="og:image" content="<%=manga.image%>" />
     <meta property="og:type" content="book" />
     <meta property="og:author" content="/tac-gia/<%=manga.authorSlug%>" />
@@ -43,7 +43,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "https://xemtruyen.vn", "name": "Đọc xem truyện Online, Mê đọc xem truyện hay", "description": "Đọc xem truyện online, mê đọc xem truyện, xem truyện hay, xem truyện full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "tim-kiem?tukhoa={tukhoa}" }, "query-input": { "@type": "PropertyValueSpecification", "valueRequired": "http://schema.org/True", "valueName": "tukhoa" } }
+    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "WebSite", "url": "https://blogema.org", "name": "Đọc BlogEma Online, Mê đọc BlogEma hay", "description": "Đọc BlogEma online, mê đọc BlogEma, BlogEma hay, BlogEma full. Truyện chữ Full luôn tổng hợp và cập nhật các chương truyện một cách nhanh nhất, đầy đủ nhất.", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "tim-kiem?tukhoa={tukhoa}" }, "query-input": { "@type": "PropertyValueSpecification", "valueRequired": "http://schema.org/True", "valueName": "tukhoa" } }
 }</script>
     <link rel="stylesheet" type="text/css" href="/frontend/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/frontend/css/main.min.css" />
@@ -519,7 +519,7 @@
                     </div>
                     <div class="col-xs-12 review-story no-padding">
                         <div class="desc-text" itemprop="description"> Cập nhật Review truyện <%=manga.name%> của tác
-                                giả <%=manga.author%> mới nhất tại Xemtruyen.vn </div>
+                                giả <%=manga.author%> mới nhất tại blogema.org </div>
                     </div>
                     <div class="col-xs-12 comment-box">
                         <div class="title-list">
@@ -527,7 +527,7 @@
                         </div>
                         <div class="col-xs-12">
                             <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=570445043733275&autoLogAppEvents=1" nonce="8GE2FIbE"></script>
-                            <div class="fb-comments" data-href="https://xemtruyen.vn/<%=manga.slug%>" data-width="100%" data-numposts="10"></div>
+                            <div class="fb-comments" data-href="https://blogema.org/<%=manga.slug%>" data-width="100%" data-numposts="10"></div>
                         </div>
                     </div>
                     <div class="col-xs-12 list-keyword">

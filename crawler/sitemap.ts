@@ -16,7 +16,7 @@ mongoose
     });
 const renderSiteMap = () => {
     const links = [{ url: '/page-1/', changefreq: 'daily', priority: 0.3 }];
-    const stream = new SitemapStream({ hostname: 'https://xemtruyen.vn' });
+    const stream = new SitemapStream({ hostname: 'https://blogema.org' });
     return streamToPromise(Readable.from(links).pipe(stream)).then((data) =>
         console.log(data.toString()),
     );
@@ -48,11 +48,7 @@ const getData = async () => {
                 .pipe(createGzip()) // compress the output of the sitemap
                 .pipe(createWriteStream(resolve(path + '.gz'))); // write it to sitemap-NUMBER.xml
 
-            return [
-                new URL(path, 'https://xemtruyen.vn/sitemap/').toString(),
-                sitemapStream,
-                ws,
-            ];
+            return [new URL(path, 'https://blogema.org/sitemap/').toString(), sitemapStream, ws];
         },
     });
     arrayOfSitemapItems.forEach((item) => sms.write(item));

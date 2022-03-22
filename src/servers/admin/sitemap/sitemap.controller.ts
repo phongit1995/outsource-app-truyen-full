@@ -10,7 +10,7 @@ const { Readable } = require('stream');
 const { resolve, join } = require('path');
 const { createGzip } = require('zlib');
 const { createWriteStream } = require('fs');
-const HOST_NAME = 'https://xemtruyen.vn';
+const HOST_NAME = 'https://blogema.org';
 export const sitemapIndexController = (req: Request, res: Response) => {
     const folderPath = join(__dirname, '../../..', 'public', 'sitemap');
     if (!existsSync(folderPath)) {
@@ -36,7 +36,7 @@ export const createSiteMapGenderController = (req: Request, res: Response) => {
     listFile.forEach((item) => {
         links.push({ url: '/sitemap/' + item, changefreq: 'daily', priority: 1 });
     });
-    const stream = new SitemapStream({ hostname: 'https://xemtruyen.vn' });
+    const stream = new SitemapStream({ hostname: 'https://blogema.org' });
     const writeSteam = createWriteStream(fileName);
     Readable.from(links).pipe(stream).pipe(writeSteam);
     writeSteam.on('finish', () => {
@@ -56,7 +56,7 @@ export const genderSiteMapListController = async (req: Request, res: Response) =
     list.forEach((item) => {
         links.push({ url: '/danh-muc/' + item.slug, changefreq: 'daily', priority: 1 });
     });
-    const stream = new SitemapStream({ hostname: 'https://xemtruyen.vn' });
+    const stream = new SitemapStream({ hostname: 'https://blogema.org' });
     const writeSteam = createWriteStream(filePath);
     Readable.from(links).pipe(stream).pipe(writeSteam);
     writeSteam.on('finish', () => {
@@ -76,7 +76,7 @@ export const genderSiteMapAuthorController = async (req: Request, res: Response)
     list.forEach((item) => {
         links.push({ url: '/tac-gia/' + item.slug, changefreq: 'daily', priority: 1 });
     });
-    const stream = new SitemapStream({ hostname: 'https://xemtruyen.vn' });
+    const stream = new SitemapStream({ hostname: 'https://blogema.org' });
     const writeSteam = createWriteStream(filePath);
     Readable.from(links).pipe(stream).pipe(writeSteam);
     writeSteam.on('finish', () => {
@@ -96,7 +96,7 @@ export const genderSiteMapCategoryController = async (req: Request, res: Respons
     list.forEach((item) => {
         links.push({ url: '/tac-gia/' + item.slug, changefreq: 'daily', priority: 1 });
     });
-    const stream = new SitemapStream({ hostname: 'https://xemtruyen.vn' });
+    const stream = new SitemapStream({ hostname: 'https://blogema.org' });
     const writeSteam = createWriteStream(filePath);
     Readable.from(links).pipe(stream).pipe(writeSteam);
     writeSteam.on('finish', () => {
