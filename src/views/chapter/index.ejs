@@ -597,11 +597,31 @@
             // add ads to chapter detail
             const adsId = `<%=adsSetting.adsChapter3%>`;
             if(adsId){
-                let numberElement = $('#chapter-c >p').length ;
-                if(numberElement==1){
-                    numberElement = $('#chapter-c >p >br').length ;
-                    console.log('number element',numberElement);
-                    for(let i=40; i< numberElement;i+=40){
+                let numberElementP = $('#chapter-c >p').length ;
+                console.log('number  p',numberElementP);
+                if(numberElementP<10){
+                    numberElementBr = $('#chapter-c  br').length ;
+                    console.log('number element br',numberElementBr);
+                    let stepNumber =  10  ;
+                    if(numberElementP>50){
+                        stepNumber=20
+                    }
+                    if(numberElementP>100){
+                        stepNumber=30
+                    }
+                    if(numberElementP>150){
+                        stepNumber=40
+                    }
+                    if(numberElementP>300){
+                        stepNumber=60
+                    }
+                    if(numberElementP>500){
+                        stepNumber=70
+                    }
+                    if(numberElementP>1000){
+                        stepNumber=200
+                    }
+                    for(let i=stepNumber; i< numberElementBr;i+=stepNumber){
                         let ins_ads_home1 = document.createElement("ins");
                         ins_ads_home1.setAttribute('class','adsbygoogle');
                         ins_ads_home1.setAttribute('style','display:block;');
@@ -615,10 +635,10 @@
                         element.appendChild(ins_ads_home1)
                         element.appendChild(inlineScript_ads_footer);
                         console.log(element);
-                        $(`#chapter-c > p > br:nth-child(${i})`).after(element.outerHTML);
+                        $(`#chapter-c br:nth-child(${i})`).after(element.outerHTML);
                     }
                 } else {
-                    for(let i=10; i< numberElement;i+=10){
+                    for(let i=10; i< numberElementP;i+=10){
                     let ins_ads_home1 = document.createElement("ins");
                     ins_ads_home1.setAttribute('class','adsbygoogle');
                     ins_ads_home1.setAttribute('style','display:block;');
@@ -631,7 +651,6 @@
                     const element =  document.createElement("div");
                     element.appendChild(ins_ads_home1)
                     element.appendChild(inlineScript_ads_footer);
-                    
                     $(`#chapter-c > p:nth-child(${i})`).after(element.outerHTML);
                     }
                 }
