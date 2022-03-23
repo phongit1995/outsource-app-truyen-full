@@ -622,6 +622,10 @@
                         stepNumber=200
                     }
                     for(let i=stepNumber; i< numberElementBr;i+=stepNumber){
+			let externalScript = document.createElement("script");
+			externalScript.type = "text/javascript";
+			externalScript.setAttribute('async','async');
+			externalScript.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+adsId;
                         let ins_ads_home1 = document.createElement("ins");
                         ins_ads_home1.setAttribute('class','adsbygoogle');
                         ins_ads_home1.setAttribute('style','display:block;');
@@ -633,24 +637,29 @@
                         inlineScript_ads_footer.type = "text/javascript";
                         inlineScript_ads_footer.text = '(adsbygoogle = window.adsbygoogle || []).push({});'
                         const element =  document.createElement("div");
+			element.appendChild(externalScript )
                         element.appendChild(ins_ads_home1)
                         element.appendChild(inlineScript_ads_footer);
-                        console.log(element);
                         $(`#chapter-c br:nth-child(${i})`).after(element.outerHTML);
                     }
                 } else {
                     for(let i=10; i< numberElementP;i+=10){
+			let externalScript = document.createElement("script");
+			externalScript.type = "text/javascript";
+			externalScript.setAttribute('async','async');
+			externalScript.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+adsId;
                     let ins_ads_home1 = document.createElement("ins");
                     ins_ads_home1.setAttribute('class','adsbygoogle');
                     ins_ads_home1.setAttribute('style','display:block;');
                     ins_ads_home1.setAttribute('data-ad-client',adsId);
-		    ins_ads_home2.setAttribute('data-ad-slot','1782766365');
+		    ins_ads_home1.setAttribute('data-ad-slot','1782766365');
                     ins_ads_home1.setAttribute('data-ad-format','auto');
                     ins_ads_home1.setAttribute('data-full-width-responsive','true');
                     let inlineScript_ads_footer = document.createElement("script");
                     inlineScript_ads_footer.type = "text/javascript";
                     inlineScript_ads_footer.text = '(adsbygoogle = window.adsbygoogle || []).push({});'
                     const element =  document.createElement("div");
+			element.appendChild(externalScript )
                     element.appendChild(ins_ads_home1)
                     element.appendChild(inlineScript_ads_footer);
                     $(`#chapter-c > p:nth-child(${i})`).after(element.outerHTML);
