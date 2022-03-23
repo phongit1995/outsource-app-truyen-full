@@ -17,7 +17,9 @@ export interface Setting {
     adsDetailManga2: string;
     adsCategory1: string;
     adsCategory2: string;
-    adsChapter: string;
+    adsChapter1: string;
+    adsChapter2: string;
+    adsChapter3: string;
     watermark: string;
 }
 let setting = new Schema(
@@ -79,7 +81,15 @@ let setting = new Schema(
             type: String,
             default: null,
         },
-        adsChapter: {
+        adsChapter1: {
+            type: String,
+            default: null,
+        },
+        adsChapter2: {
+            type: String,
+            default: null,
+        },
+        adsChapter3: {
             type: String,
             default: null,
         },
