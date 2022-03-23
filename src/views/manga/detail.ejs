@@ -587,7 +587,11 @@
         <div style="margin: 15px 0;padding:0 5px"></div>
     </div>
     <div class="container">
-        <div id="ads_footer"></div>
+        <div id="ads_footer">
+            <%if(adsSetting.adsDetailManga3){%>
+                <%-adsSetting.adsDetailManga3%>
+            <%}%>
+        </div>
     </div>
     <%-include('./../common/footer')%>
     <script>const BASE_URL = '';

@@ -600,6 +600,7 @@
                 let numberElement = $('#chapter-c >p').length ;
                 if(numberElement==1){
                     numberElement = $('#chapter-c >p >br').length ;
+                    console.log('number element',numberElement);
                     for(let i=40; i< numberElement;i+=40){
                         let ins_ads_home1 = document.createElement("ins");
                         ins_ads_home1.setAttribute('class','adsbygoogle');
@@ -613,6 +614,7 @@
                         const element =  document.createElement("div");
                         element.appendChild(ins_ads_home1)
                         element.appendChild(inlineScript_ads_footer);
+                        console.log(element);
                         $(`#chapter-c > p > br:nth-child(${i})`).after(element.outerHTML);
                     }
                 } else {
@@ -629,7 +631,7 @@
                     const element =  document.createElement("div");
                     element.appendChild(ins_ads_home1)
                     element.appendChild(inlineScript_ads_footer);
-                    console.log(element);
+                    
                     $(`#chapter-c > p:nth-child(${i})`).after(element.outerHTML);
                     }
                 }
