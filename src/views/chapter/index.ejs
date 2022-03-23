@@ -537,17 +537,22 @@
                             </div>
                         </li>
                     </ul>
+                    <div id="ads_top_chapter">
+                        <%if(adsSetting.adsChapter1){%>
+                            <%-adsSetting.adsChapter1%>
+                        <%}%>
+                    </div>
                     <div id="chapter-c" class="chapter-c">
                         <%-chapter.content%>
                     </div>
                     <div id="ads_bottom_chapter">
-                        <%if(adsSetting.adsChapter){%>
-                            <%-adsSetting.adsChapter%>
+                        <%if(adsSetting.adsChapter2){%>
+                            <%-adsSetting.adsChapter2%>
                         <%}%>
                     </div>
                     <hr class="chapter-end" id="chapter-end-bot" />
                     <div class="chapter-nav" id="chapter-nav-bot">
-                        <div class="btn-group"> <a class="btn btn-success btn-chapter-nav disabled" href="#" title=""
+                        <div class="btn-group" style="margin-bottom: 10px;"> <a class="btn btn-success btn-chapter-nav disabled" href="#" title=""
                                 id="prev_chap_bot" data-cid=""> <span class="glyphicon glyphicon-chevron-left"></span>
                                 <span class="hidden-xs">Chương </span>trước </a> <button type="button"
                                 class="btn btn-success btn-chapter-nav chapter_jump_list"><span
@@ -589,6 +594,29 @@
     <script type="text/javascript" src="/frontend/js/xemtruyen.js"></script>
     <script>
         $(document).ready(function () {
+            // add ads to chapter detail
+            const adsId = `<%=adsSetting.adsChapter3%>`;
+            if(adsId){
+                const numberElement = $('#chapter-c >p').length ;
+                console.log(numberElement);
+                for(let i=10; i< numberElement;i+=10){
+                    let ins_ads_home1 = document.createElement("ins");
+                    ins_ads_home1.setAttribute('class','adsbygoogle');
+                    ins_ads_home1.setAttribute('style','display:block;');
+                    ins_ads_home1.setAttribute('data-ad-client',adsId);
+                    ins_ads_home1.setAttribute('data-ad-format','auto');
+                    ins_ads_home1.setAttribute('data-full-width-responsive','true');
+                    let inlineScript_ads_footer = document.createElement("script");
+                    inlineScript_ads_footer.type = "text/javascript";
+                    inlineScript_ads_footer.text = '(adsbygoogle = window.adsbygoogle || []).push({});'
+                    const element =  document.createElement("div");
+                    element.appendChild(ins_ads_home1)
+                    element.appendChild(inlineScript_ads_footer);
+                    console.log(element);
+                    $(`#chapter-c > p:nth-child(${i})`).after(element.outerHTML);
+                }
+            }
+            // end add ads to chapter detail
             function setCookie(c_name, value, exdays) {
                 var exdate = new Date();
                 exdate.setDate(exdate.getDate() + exdays);
@@ -683,7 +711,7 @@
                 if(cookieSelect=='mautoi'){
                     $("#body_chapter").addClass("dark-theme")
                 }
-        }
+            }
         })
         $("#chapter_comment_toggle").click(function(){
             $("#comment_fb_content").toggleClass("display-none")
