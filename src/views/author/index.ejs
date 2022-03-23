@@ -134,7 +134,11 @@
             </div>
         </div>
         <div class="visible-md-block visible-lg-block col-md-3 text-center col-truyen-side">
-            <div id="ads_sidebar_story1"></div>
+            <div id="ads_sidebar_story1">
+                <%if(adsSetting.adsCategory1){%>
+                    <%-adsSetting.adsCategory1%>
+                    <%}%>
+            </div>
             <div class="list list-truyen list-cat col-xs-12">
                 <div class="title-list">
                     <h4>Thể loại truyện</h4>
@@ -197,14 +201,20 @@
                 <% }) %>
             </div>
         </div>
-        <div id="ads_sidebar_story2"></div>
+        
     </div>
     <div style="clear: both;"></div>
     <div class="cat-content"></div>
 </div>
 </div>
 <div class="container">
-    <div style="margin: 15px 0;padding:0 5px"></div>
+    <div>
+        <div id="ads_sidebar_story2">
+            <%if(adsSetting.adsCategory2){%>
+                <%-adsSetting.adsCategory2%>
+                <%}%>
+        </div>
+    </div>
 </div>
 
 <%-include('./../common/footer')%>
