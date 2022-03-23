@@ -334,7 +334,9 @@
     </div> -->
     <div class="container">
         <div id="ads_footer">
-            
+            <%if(adsSetting.adsHome3){%>
+                <%-adsSetting.adsHome3%>
+            <%}%>
         </div>
     </div>
     <%-include('./../common/footer') %>

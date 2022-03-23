@@ -12,6 +12,7 @@ export interface Setting {
     type: number;
     adsHome1: string;
     adsHome2: string;
+    adsHome3: string;
     adsDetailManga1: string;
     adsDetailManga2: string;
     adsCategory1: string;
@@ -55,6 +56,10 @@ let setting = new Schema(
             default: null,
         },
         adsHome2: {
+            type: String,
+            default: null,
+        },
+        adsHome3: {
             type: String,
             default: null,
         },
