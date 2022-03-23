@@ -287,18 +287,20 @@
                     <% }) %>
                     </div>
                 </div>
-                <div id="ads_sidebar_story2">
-                    <%if(adsSetting.adsCategory2){%>
-                        <%-adsSetting.adsCategory2%>
-                    <%}%>
-                </div>
+               
             </div>
             <div style="clear: both;"></div>
             <div class="cat-content"></div>
         </div>
     </div>
     <div class="container">
-        <div style="margin: 15px 0;padding:0 5px"></div>
+        <div>
+            <div id="ads_sidebar_story2">
+                <%if(adsSetting.adsCategory2){%>
+                    <%-adsSetting.adsCategory2%>
+                <%}%>
+            </div>
+        </div>
     </div>
 
     <%-include('./../common/footer')%>
