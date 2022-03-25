@@ -9,9 +9,9 @@
         content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
     <meta name="description"
         content="<%=getTitle%>" />
-    <meta name="keywords" content="truyện Cổ Đại" />
+    <meta name="keywords" content="thể loại <%=categoryName%>" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="canonical" href="the-loai/co-dai" />
+    <link rel="canonical" href="/the-loai/<%-category%>" />
     <meta property="fb:app_id" content="5170652662945892">
     <meta property="og:title" content="Danh sách truyện <%=categoryName%> tổng hợp mới nhất">
     <meta property="og:url" content="" />
@@ -115,7 +115,7 @@
                                 <div>
                                     <div style="height:10px;"></div> <span class="glyphicon glyphicon-book"></span>
                                     <h3 class="truyen-title" itemprop="name"> <a href="/<%=manga.slug%>"
-                                            title="Trở Lại Chiến Quốc Chi Ta Là Lao Ái" itemprop="url"><%=manga.name%></a> </h3> 
+                                            title="<%=manga.name%>" itemprop="url"><%=manga.name%></a> </h3> 
                                             <% if(manga.manga_status==1) {%>
                                             <span class="label-title label-full"></span>
                                             <%}%>
@@ -124,7 +124,7 @@
                                     <div class="content"><%=manga.description.slice(0,250)%> <div class="latest-chapter">
                                             <span>Chương mới nhất:</span> <a
                                                 href="/<%=manga.slug%>/<%=manga?.last_chapter?.slug%>"
-                                                title="Chương 330 : Cuối cùng (khởi đầu mới! ) "> <span
+                                                title="<%=manga.last_chapter?.title%>"> <span
                                                     class="chapter-text"><span></span></span><%=manga?.last_chapter?.title%></a> </div>
                                     </div>
                                 </div>

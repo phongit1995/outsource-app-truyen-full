@@ -9,14 +9,14 @@
         content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
     <meta name="description"
         content="<%=description%>" />
-    <meta name="keywords" content="truyện Cổ Đại" />
+    <meta name="keywords" content="Danh sach <%=listName%>" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="canonical" href="the-loai/co-dai" />
+    <link rel="canonical" href="/danh-sach/<%-list%>" />
     <meta property="fb:app_id" content="5170652662945892">
     <meta property="og:title" content="Danh sách truyện <%=listName%> tổng hợp mới nhất">
     <meta property="og:url" content="" />
     <meta property="og:description"
-        content="Danh sách truyện Cổ Đại tổng hợp mới nhất. Truyện có nội dung xảy ra ở thời cổ đại phong kiến." />
+        content="Danh sach  truyện <%=listName%> tổng hợp mới nhất. Tổng Hợp truyện mới nhất hay tại Blogema.org." />
     <meta property="og:site_name" content="Đọc BlogEma Online, Mê đọc BlogEma hay">
     <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
@@ -118,7 +118,7 @@
                                 <div>
                                     <div style="height:10px;"></div> <span class="glyphicon glyphicon-book"></span>
                                     <h3 class="truyen-title" itemprop="name"> <a href="/<%=manga.slug%>"
-                                            title="Trở Lại Chiến Quốc Chi Ta Là Lao Ái" itemprop="url"><%=manga.name%></a> </h3> 
+                                            title="<%=manga.name%>" itemprop="url"><%=manga.name%></a> </h3> 
                                             <% if(manga.manga_status==1) {%>
                                             <span class="label-title label-full"></span>
                                             <%}%>
@@ -127,7 +127,7 @@
                                     <div class="content"><%=manga.description?.slice(0,250)%> <div class="latest-chapter">
                                             <span>Chương mới nhất:</span> <a
                                                 href="/<%=manga.slug%>/<%=manga.last_chapter?.slug%>"
-                                                title="Chương 330 : Cuối cùng (khởi đầu mới! ) "> <span
+                                                title="<%=manga.last_chapter?.title%>"> <span
                                                     class="chapter-text"><span></span></span><%=manga.last_chapter?.title%></a> </div>
                                     </div>
                                 </div>
