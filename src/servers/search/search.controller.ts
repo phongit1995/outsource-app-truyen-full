@@ -1,16 +1,19 @@
-import {Request, Response} from "express";
-import SearchService from "./search.service";
+import { Request, Response } from 'express';
+import SearchService from './search.service';
+import { removeVietnameseTones } from './../../common/text.helper';
 
-export const getMangaByKey = async (req: Request|any, res: Response) => {
-    const key = req.query.tukhoa;
+export const getMangaByKey = async (req: Request | any, res: Response) => {
+    const key = removeVietnameseTones(req.query.tukhoa);
     const page = req.query.page || 1;
     const pageSize = 13;
-    const [listMangaSearchByKey, totalMangaSearched, listCategory, hotManga] = await Promise.all([
-        SearchService.getMangaByKey(key, page, pageSize),
-        SearchService.getToTalMangaByKey(key),
-        SearchService.getListCategoryCache(),
-        SearchService.getMangaHot(1, 10)
-    ]);
+    const [listMangaSearchByKey, totalMangaSearched, listCategory, hotManga] = await Promise.all(
+        [
+            SearchService.getMangaByKey(key, page, pageSize),
+            SearchService.getToTalMangaByKey(key),
+            SearchService.getListCategoryCache(),
+            SearchService.getMangaHot(1, 10),
+        ],
+    );
 
     return res.render('search', {
         key,
@@ -21,6 +24,6 @@ export const getMangaByKey = async (req: Request|any, res: Response) => {
         pageSize,
         listCategory,
         headerCategoryList: listCategory,
-        hotManga
+        hotManga,
     });
-}
+};
