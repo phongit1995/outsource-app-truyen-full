@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import SearchService from './search.service';
-import { removeVietnameseTones } from './../../common/text.helper';
+import { makeSlug, removeVietnameseTones } from './../../common/text.helper';
 
 export const getMangaByKey = async (req: Request | any, res: Response) => {
-    const key = removeVietnameseTones(req.query.tukhoa);
+    const key = makeSlug(req.query.tukhoa);
     const page = req.query.page || 1;
     const pageSize = 13;
     const [listMangaSearchByKey, totalMangaSearched, listCategory, hotManga] = await Promise.all(

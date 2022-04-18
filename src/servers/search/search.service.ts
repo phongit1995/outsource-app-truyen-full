@@ -1,23 +1,19 @@
-import {MangaModel} from "../../models/manga.model";
-import {cacheService} from "../../common/cache.helper";
-import {CategoryModel} from "../../models/category.model";
+import { MangaModel } from '../../models/manga.model';
+import { cacheService } from '../../common/cache.helper';
+import { CategoryModel } from '../../models/category.model';
 
 export class SearchService {
     public static getMangaByKey(key: string, page: number, pageSize) {
-        return MangaModel
-            .find({name: {$regex: key, $options: 'i'}})
-            .sort({createdAt: -1})
+        return MangaModel.find({ slug: { $regex: key, $options: 'i' } })
+            .sort({ createdAt: -1 })
             .skip((page - 1) * pageSize)
             .limit(pageSize);
     }
     public static getToTalMangaByKey(key: string) {
-        return MangaModel
-            .find({name: {$regex: key, $options: 'i'}})
-            .count();
+        return MangaModel.find({ slug: { $regex: key, $options: 'i' } }).count();
     }
     public static getMangaHot(page: number, pageSize: number) {
-        return MangaModel
-            .find()
+        return MangaModel.find()
             .sort({
                 isHot: -1,
                 chapter_update: -1,
